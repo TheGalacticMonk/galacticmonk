@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --color-ink: #2c2255;
+  --color-ink-deep: #1a1438;
+  --color-gold: #ffd449;
+  --color-coral: #f87666;
+  --color-sage: #739e82;
+  --color-cream: #f5f1e8;
+  --color-cream-dim: #c9c3e0;
+}
+
+@theme inline {
+  --color-ink: var(--color-ink);
+  --color-ink-deep: var(--color-ink-deep);
+  --color-gold: var(--color-gold);
+  --color-coral: var(--color-coral);
+  --color-sage: var(--color-sage);
+  --color-cream: var(--color-cream);
+  --color-cream-dim: var(--color-cream-dim);
+  --font-sans: var(--font-geist-sans);
+  --font-serif: var(--font-cormorant);
+}
+
+body {
+  background: var(--color-ink);
+  color: var(--color-cream);
+}
+
+.swirl-bg {
+  position: relative;
+  isolation: isolate;
+  background: var(--color-ink);
+}
+
+.swirl-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(circle at 18% 20%, rgba(255, 212, 73, 0.16), transparent 42%),
+    radial-gradient(circle at 82% 12%, rgba(248, 118, 102, 0.16), transparent 45%),
+    radial-gradient(circle at 50% 88%, rgba(115, 158, 130, 0.18), transparent 48%),
+    radial-gradient(ellipse 80% 60% at 65% 55%, var(--color-ink-deep), transparent 70%),
+    var(--color-ink);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.input {
+  width: 100%;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(245, 241, 232, 0.15);
+  background: rgba(26, 20, 56, 0.6);
+  padding: 0.75rem 1rem;
+  color: var(--color-cream);
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.input::placeholder {
+  color: var(--color-cream-dim);
+  opacity: 0.6;
+}
+
+.input:focus {
+  border-color: var(--color-gold);
+}
