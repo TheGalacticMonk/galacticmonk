@@ -17,10 +17,10 @@ const PILLARS = [
       "Editorial, portrait, and commercial photography, shot on location or in studio and retouched with a light hand.",
   },
   {
-    title: "Music Mixing & Mastering",
+    title: "Recording, Mix & Master",
     accent: "sage" as const,
     description:
-      "Mixing and mastering for independent releases, EPs, and live recordings, prepped for streaming.",
+      "Recording, mixing, and mastering for music, audiobooks, and film ADR.",
   },
 ];
 

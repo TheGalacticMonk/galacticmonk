@@ -15,8 +15,8 @@ export default function Home() {
       <section className="mx-auto max-w-6xl px-6 py-24">
         <SectionHeading
           eyebrow="What I Do"
-          title="Three crafts, one creative hand"
-          description="Every project runs through the same lens, whether it's a camera, a lens, or a mix bus — intentional, hands-on, and a little bit alchemical."
+          title="Three crafts, one master"
+          description="Every element transmuted by me, whether it's a camera, a lens, or a mix bus - intentional, hands-on, and a whole lot of alchemy."
         />
         <div className="mt-10">
           <ServicePillars />
