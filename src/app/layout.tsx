@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Cormorant } from "next/font/google";
 import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
+import JsonLd from "@/components/JsonLd";
+import { getPersonSchema } from "@/lib/schema";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -34,6 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${geistSans.variable} ${geistMono.variable} ${cormorant.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col bg-ink text-cream">
+        <JsonLd data={getPersonSchema()} />
         <Nav />
         <main className="flex-1">{children}</main>
         <Footer />

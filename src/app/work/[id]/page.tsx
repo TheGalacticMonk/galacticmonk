@@ -4,6 +4,8 @@ import { notFound } from "next/navigation";
 import { CATEGORY_LABEL, WORK } from "@/lib/work";
 import PhotoGallery from "@/components/PhotoGallery";
 import ExpandableImage from "@/components/ExpandableImage";
+import JsonLd from "@/components/JsonLd";
+import { getWorkItemSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
   return WORK.map((item) => ({ id: item.id }));
@@ -15,9 +17,17 @@ export async function generateMetadata({
   const { id } = await params;
   const item = WORK.find((work) => work.id === id);
   if (!item) return {};
+  const description = item.description ?? item.blurb;
   return {
     title: `${item.title} — Galactic Monk`,
-    description: item.blurb,
+    description,
+    alternates: { canonical: `/work/${item.id}/` },
+    openGraph: {
+      title: item.title,
+      description,
+      url: `/work/${item.id}/`,
+      images: item.image ? [{ url: item.image, width: 1200, height: 1200 }] : undefined,
+    },
   };
 }
 
@@ -30,6 +40,7 @@ export default async function WorkDetailPage({
 
   return (
     <section className="mx-auto max-w-4xl px-6 pb-24 pt-36">
+      <JsonLd data={getWorkItemSchema(item)} />
       <Link
         href="/work/"
         className="text-sm tracking-wide text-gold hover:underline"
