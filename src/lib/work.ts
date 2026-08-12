@@ -58,7 +58,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
   },
   {
     id: "garden-party",
-    title: "Garden Party",
+    title: "July 2026 Garden Party",
     category: "photo",
     year: "2026",
     blurb: "Event photography shot on Canon.",
@@ -74,6 +74,14 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
       "/work/2026-07-garden-party/event-guest.jpg",
       "/work/2026-07-garden-party/massage-session.jpg",
       "/work/2026-07-garden-party/symmetry.jpg",
+      "/work/2026-07-garden-party/violinist.jpg",
+      "/work/2026-07-garden-party/dj-duo.jpg",
+      "/work/2026-07-garden-party/dj-portrait.jpg",
+      "/work/2026-07-garden-party/mixer-hands.jpg",
+      "/work/2026-07-garden-party/friend-group.jpg",
+      "/work/2026-07-garden-party/coloring-activity.jpg",
+      "/work/2026-07-garden-party/poi-spinner.jpg",
+      "/work/2026-07-garden-party/aloha-products.jpg",
     ],
   },
   {
