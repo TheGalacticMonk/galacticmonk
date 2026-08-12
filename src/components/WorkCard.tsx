@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from "next/link";
 import { CATEGORY_LABEL, type WorkItem } from "@/lib/work";
 import Sparkle from "./Sparkle";
 
@@ -15,13 +17,28 @@ const ACCENT_TEXT = {
 
 export default function WorkCard({ item }: { item: WorkItem }) {
   return (
-    <article className="group overflow-hidden rounded-2xl border border-cream/10 bg-ink-deep/60 transition-colors hover:border-cream/25">
-      <div
-        className={`flex aspect-[4/3] items-center justify-center bg-gradient-to-br ${ACCENT_GRADIENT[item.accent]}`}
-      >
-        <Sparkle
-          className={`h-8 w-8 opacity-70 transition-transform duration-300 group-hover:scale-110 ${ACCENT_TEXT[item.accent]}`}
-        />
+    <Link
+      href={`/work/${item.id}/`}
+      className="group block overflow-hidden rounded-2xl border border-cream/10 bg-ink-deep/60 transition-colors hover:border-cream/25"
+    >
+      <div className="relative aspect-[4/3] overflow-hidden">
+        {item.image ? (
+          <Image
+            src={item.image}
+            alt={item.title}
+            fill
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+          />
+        ) : (
+          <div
+            className={`flex h-full w-full items-center justify-center bg-gradient-to-br ${ACCENT_GRADIENT[item.accent]}`}
+          >
+            <Sparkle
+              className={`h-8 w-8 opacity-70 transition-transform duration-300 group-hover:scale-110 ${ACCENT_TEXT[item.accent]}`}
+            />
+          </div>
+        )}
       </div>
       <div className="p-5">
         <div
@@ -34,6 +51,6 @@ export default function WorkCard({ item }: { item: WorkItem }) {
           {item.blurb}
         </p>
       </div>
-    </article>
+    </Link>
   );
 }

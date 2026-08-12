@@ -7,6 +7,8 @@ export type WorkItem = {
   year: string;
   blurb: string;
   accent: "gold" | "coral" | "sage";
+  image?: string;
+  video?: string;
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {
@@ -18,12 +20,14 @@ export const CATEGORY_LABEL: Record<Category, string> = {
 // TODO(jason): swap these placeholders for real projects, stills, and reels.
 export const WORK: WorkItem[] = [
   {
-    id: "midnight-transmission",
-    title: "Midnight Transmission",
+    id: "mainstream-media-mind-control-shirt-ad",
+    title: "Mainstream Media Mind Control Shirt Ad",
     category: "film",
-    year: "2025",
+    year: "2026",
     blurb: "Short film — nonlinear edit, color grade, and sound design.",
     accent: "coral",
+    image: "/work/cover-images/msm-mind-control-cover.jpg",
+    video: "/work/video/msm-mind-control.mp4",
   },
   {
     id: "afterglow-campaign",
