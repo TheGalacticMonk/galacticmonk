@@ -17,7 +17,7 @@ export default function ContactPage() {
           <SectionHeading
             eyebrow="Get in Touch"
             title="Book a Session"
-            description="Tell me a bit about what you're working on and I'll get back to you within a couple of days."
+            description="Tell me a bit about what you're imagining and I'll get back to you within a couple of moons."
           />
 
           <div className="mt-10 space-y-4 text-sm">
