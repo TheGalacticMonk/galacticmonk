@@ -89,12 +89,16 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     ],
   },
   {
-    id: "product-in-motion",
-    title: "Product in Motion",
-    category: "photo",
-    year: "2024",
-    blurb: "Commercial product photography with motion-blend retouching.",
-    accent: "gold",
+    id: "flow-state",
+    title: "Flow State",
+    category: "film",
+    year: "2026",
+    blurb: "I was talent, the producer, and cinematographer on this project.",
+    accent: "coral",
+    image: "/work/cover-images/flow-state-cover.jpg",
+    vimeoId: "1211282016",
+    details:
+      "A-CAM, shot on RED Komodo, DZOFILM Vespid prime lenses. B-Cam, Canon. Edited and color graded in Davinci Resolve.",
   },
   {
     id: "2026-06-garden-party",
@@ -147,7 +151,8 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     image: "/work/way-beyond-the-stars/cover.jpg",
     imagePosition: "top",
     audio: "/work/way-beyond-the-stars/way-beyond-the-stars.mp3",
-    details: "Recorded with Neumann u87 AI, Great River ME-1NV, and API 3122V.",
+    details:
+      "Recorded with Neumann u87 AI, Great River ME-1NV, and API 3122V. Apogee converters.",
   },
   {
     id: "lucid-ep",
