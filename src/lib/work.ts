@@ -61,7 +61,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     title: "July 2026 Garden Party",
     category: "photo",
     year: "2026",
-    blurb: "Event photography shot on Canon.",
+    blurb: "Event photography shot on Canon R3 with Canon RF 24-70 f/2.8L lens.",
     accent: "gold",
     image: "/work/2026-07-garden-party/lauren-nikohl-dj-2.jpg",
     gallery: [
