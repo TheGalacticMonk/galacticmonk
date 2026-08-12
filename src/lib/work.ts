@@ -158,6 +158,21 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
       "Recorded with Neumann u87 AI, Great River ME-1NV, and API 3122V. Apogee converters.",
   },
   {
+    id: "epstein-island",
+    title: "Epstein Island (feat. Blu, AnarKy I)",
+    category: "music",
+    year: "2026",
+    blurb:
+      "I was the recording, mixing, and mastering engineer on this project. Also pitched feature requests to legendary indie Hip-Hop artist Blu, and vocalist AnarKy I.",
+    description:
+      "This is one of my own songs. I recorded, mixed, and mastered this record, as well as pitched the feature request to indie Hip-Hop legend Blu and vocalist AnarKy I.",
+    accent: "sage",
+    categoryLabel: "RECORD, MIX & MASTER",
+    image: "/work/epstein-island/epstein-island-cover.jpeg",
+    audio: "/work/epstein-island/epstein-island.mp3",
+    details: "Recorded with Pearlman TM-1 and Great River ME-1NV. Apogee converters.",
+  },
+  {
     id: "lucid-ep",
     title: "Lucid EP",
     category: "music",
