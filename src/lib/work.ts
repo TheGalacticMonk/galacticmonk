@@ -87,6 +87,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
       "/work/2026-07-garden-party/poi-spinner.jpg",
       "/work/2026-07-garden-party/aloha-products.jpg",
     ],
+    details: "Photographed with Canon R3 with Canon RF 24-70 f/2.8L lens.",
   },
   {
     id: "flow-state",
