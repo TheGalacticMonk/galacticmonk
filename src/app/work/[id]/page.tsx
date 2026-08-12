@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORY_LABEL, WORK } from "@/lib/work";
+import PhotoGallery from "@/components/PhotoGallery";
 
 export function generateStaticParams() {
   return WORK.map((item) => ({ id: item.id }));
@@ -45,19 +46,19 @@ export default async function WorkDetailPage({
         {item.blurb}
       </p>
 
-      <div className="relative mt-10 overflow-hidden rounded-2xl border border-cream/10">
-        {item.vimeoId ? (
-          <div className="relative aspect-[1920/810] w-full bg-ink-deep">
-            <iframe
-              src={`https://player.vimeo.com/video/${item.vimeoId}`}
-              title={item.title}
-              className="absolute inset-0 h-full w-full"
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-            />
-          </div>
-        ) : item.video ? (
-          // eslint-disable-next-line jsx-a11y/media-has-caption
+      {item.vimeoId ? (
+        <div className="relative mt-10 aspect-[1920/810] w-full overflow-hidden rounded-2xl border border-cream/10 bg-ink-deep">
+          <iframe
+            src={`https://player.vimeo.com/video/${item.vimeoId}`}
+            title={item.title}
+            className="absolute inset-0 h-full w-full"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+          />
+        </div>
+      ) : item.video ? (
+        <div className="relative mt-10 overflow-hidden rounded-2xl border border-cream/10">
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <video
             src={item.video}
             poster={item.image}
@@ -66,30 +67,15 @@ export default async function WorkDetailPage({
             preload="metadata"
             className="block w-full bg-ink-deep"
           />
-        ) : item.image ? (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={item.image} alt={item.title} className="block w-full" />
-        ) : null}
-      </div>
+        </div>
+      ) : (
+        <PhotoGallery cover={item.image} gallery={item.gallery} alt={item.title} />
+      )}
 
       {item.details && (
         <p className="mt-4 max-w-2xl whitespace-pre-line text-sm leading-relaxed text-cream-dim/70">
           {item.details}
         </p>
-      )}
-
-      {item.gallery && item.gallery.length > 0 && (
-        <div className="mt-10 columns-2 gap-4 sm:columns-3">
-          {item.gallery.map((src) => (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              key={src}
-              src={src}
-              alt={item.title}
-              className="mb-4 w-full break-inside-avoid rounded-xl border border-cream/10"
-            />
-          ))}
-        </div>
       )}
 
       <Link
