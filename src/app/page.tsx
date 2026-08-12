@@ -45,7 +45,7 @@ export default function Home() {
           align="center"
           eyebrow="LET'S CO-CREATE"
           title="Have creative in mind?"
-          description="Whether it's a film, a photoshoot, or a record that needs mastering - let's manifest what you're weaving."
+          description="Whether it's a film, a photoshoot, or audiobook - let's manifest what you're weaving."
         />
         <Link
           href="/contact/"
