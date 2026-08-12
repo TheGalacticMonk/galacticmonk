@@ -1,9 +1,10 @@
+import type { ReactNode } from "react";
 import Sparkle from "./Sparkle";
 
 type SectionHeadingProps = {
   eyebrow: string;
   title: string;
-  description?: string;
+  description?: ReactNode;
   align?: "left" | "center";
 };
 

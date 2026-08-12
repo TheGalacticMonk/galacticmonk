@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import Sparkle from "@/components/Sparkle";
+import Moon from "@/components/Moon";
 
 export const metadata: Metadata = {
   title: "Contact — Galactic Monk",
@@ -17,7 +18,13 @@ export default function ContactPage() {
           <SectionHeading
             eyebrow="Get in Touch"
             title="Book a Session"
-            description="Tell me a bit about what you're imagining and I'll get back to you within a couple of moons."
+            description={
+              <>
+                Tell me a bit about what you&apos;re imagining and
+                I&apos;ll get back to you within a couple of moons.{" "}
+                <Moon className="inline-block h-4 w-4 -translate-y-px text-gold" />
+              </>
+            }
           />
 
           <div className="mt-10 space-y-4 text-sm">
