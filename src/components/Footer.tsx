@@ -25,6 +25,7 @@ export default function Footer() {
               <Sparkle className="h-3 w-3" /> Explore
             </h3>
             <ul className="space-y-2 text-sm text-cream-dim">
+              <li><Link href="/" className="hover:text-cream">Home</Link></li>
               <li><Link href="/work/" className="hover:text-cream">Work</Link></li>
               <li><Link href="/about/" className="hover:text-cream">About</Link></li>
               <li><Link href="/contact/" className="hover:text-cream">Contact</Link></li>
