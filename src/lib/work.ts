@@ -146,7 +146,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     title: "BYO - Way Beyond the Stars (feat. Mickey Factz)",
     category: "music",
     year: "2025",
-    blurb: "Recorded, mixed, mastered, and pitched feature to Mickey Factz.",
+    blurb: "Recorded, mixed, mastered, and pitched feature request to Mickey Factz.",
     description:
       "Billion Years Old is a side project. I recorded, mixed, and mastered this record, as well as pitched the feature request to Hip-Hop legend Mickey Factz.",
     accent: "sage",
