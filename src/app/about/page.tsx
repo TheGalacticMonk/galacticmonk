@@ -35,21 +35,36 @@ export default function AboutPage() {
 
           <div className="mt-8 space-y-5 text-base leading-relaxed text-cream-dim">
             <p>
-              Galactic Monk is the working name for Jason Lee&apos;s creative
-              practice — a one-person studio built around three crafts: film
-              &amp; video production, photography, and audio recording, mix
-              &amp; master.
+              Galactic Monk is a Los Angeles-based creative producer and
+              multidimensional artist driven by the pursuit of
+              self-mastery.
             </p>
             <p>
-              The through-line across all three is the same: take raw
-              material — footage, light, or a rough mix — and work it until
-              it feels inevitable. That&apos;s the &ldquo;alchemist&rdquo;
-              part of the title.
+              Every creative project begins with raw material: an idea, an
+              image, a sound, a feeling. The craft is in transforming those
+              elements into something greater. As an alchemist, Galactic
+              Monk approaches the creative process as an act of
+              transmutation, shaping footage, photography, sound, and story
+              into work with energy, intention, and impact.
             </p>
             <p>
-              Based in Los Angeles, available for projects on location or
-              remote.
+              Operating as a one-person creative studio, Galactic Monk
+              specializes in three interconnected crafts: film &amp; video
+              production, photography, and audio recording, mixing &amp;
+              mastering. From concept and production through editing and
+              final delivery, each project is approached with curiosity,
+              precision, and an obsessive attention to quality that makes
+              creative work shine.
             </p>
+            <p>
+              At the heart of the work is a lifelong pursuit of knowledge,
+              wisdom, and experience. New techniques are explored. New
+              tools are mastered. New perspectives become part of the
+              process. The goal is never simply to create content, but to
+              continually refine the craft and manifest work worthy of
+              being released into our beautiful Universe.
+            </p>
+            <p>Based in Los Angeles. Available for on-location and remote projects.</p>
           </div>
 
           <div className="mt-10 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">

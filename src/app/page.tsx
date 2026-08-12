@@ -45,13 +45,13 @@ export default function Home() {
           align="center"
           eyebrow="LET'S CO-CREATE"
           title="Have creative in mind?"
-          description="Whether it's a film, a photoshoot, or a record that needs mastering - let's talk about what you're weaving."
+          description="Whether it's a film, a photoshoot, or a record that needs mastering - let's manifest what you're weaving."
         />
         <Link
           href="/contact/"
           className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105"
         >
-          Start an Inquiry
+          Start an Activation
         </Link>
       </section>
     </>
