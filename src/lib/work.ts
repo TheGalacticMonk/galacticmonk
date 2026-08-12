@@ -66,7 +66,6 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     image: "/work/2026-07-garden-party/lauren-nikohl-dj-2.jpg",
     gallery: [
       "/work/2026-07-garden-party/celestial-admission.jpg",
-      "/work/2026-07-garden-party/lauren-nikohl-dj-1.jpg",
       "/work/2026-07-garden-party/dj-close-up.jpg",
       "/work/2026-07-garden-party/itzel-portrait.jpg",
       "/work/2026-07-garden-party/coloring-group.jpg",
