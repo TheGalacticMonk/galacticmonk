@@ -34,6 +34,50 @@ export default function ContactPage() {
                 jason@galacticmonk.com
               </a>
             </div>
+            <div className="flex items-center gap-2 text-cream-dim">
+              <Sparkle className="h-3 w-3 text-gold" />
+              <a
+                href="https://www.instagram.com/galacticmonk_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cream"
+              >
+                Instagram
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-cream-dim">
+              <Sparkle className="h-3 w-3 text-gold" />
+              <a
+                href="https://x.com/GalacticMonk_"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cream"
+              >
+                X
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-cream-dim">
+              <Sparkle className="h-3 w-3 text-gold" />
+              <a
+                href="https://www.tiktok.com/@thegalacticmonk"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cream"
+              >
+                TikTok
+              </a>
+            </div>
+            <div className="flex items-center gap-2 text-cream-dim">
+              <Sparkle className="h-3 w-3 text-gold" />
+              <a
+                href="https://www.facebook.com/JasonDeluluLee"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-cream"
+              >
+                Facebook
+              </a>
+            </div>
           </div>
         </div>
 
