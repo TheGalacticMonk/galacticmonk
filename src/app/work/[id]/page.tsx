@@ -47,7 +47,7 @@ export default async function WorkDetailPage({
       </p>
 
       {item.vimeoId ? (
-        <div className="relative mt-10 aspect-[1920/810] w-full">
+        <div className="relative mt-10 aspect-video w-full">
           <iframe
             src={`https://player.vimeo.com/video/${item.vimeoId}`}
             title={item.title}
