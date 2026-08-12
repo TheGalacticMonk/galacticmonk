@@ -15,6 +15,12 @@ const ACCENT_TEXT = {
   sage: "text-sage",
 };
 
+const OBJECT_POSITION = {
+  top: "object-top",
+  center: "object-center",
+  bottom: "object-bottom",
+};
+
 export default function WorkCard({ item }: { item: WorkItem }) {
   return (
     <Link
@@ -27,7 +33,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
             src={item.image}
             alt={item.title}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-105"
+            className={`object-cover transition-transform duration-300 group-hover:scale-105 ${OBJECT_POSITION[item.imagePosition ?? "center"]}`}
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
           />
         ) : (

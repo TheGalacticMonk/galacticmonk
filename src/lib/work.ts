@@ -15,6 +15,7 @@ export type WorkItem = {
   details?: string;
   gallery?: string[];
   categoryLabel?: string;
+  imagePosition?: "top" | "center" | "bottom";
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {
@@ -133,6 +134,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     accent: "sage",
     categoryLabel: "RECORD, MIX & MASTER",
     image: "/work/way-beyond-the-stars/cover.jpg",
+    imagePosition: "top",
     audio: "/work/way-beyond-the-stars/way-beyond-the-stars.mp3",
   },
   {
