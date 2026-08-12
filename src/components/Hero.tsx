@@ -75,7 +75,7 @@ export default function Hero() {
             href="/contact/"
             className="rounded-full border border-cream/30 px-8 py-3 text-sm font-medium tracking-wide text-cream transition-colors hover:border-gold hover:text-gold"
           >
-            Book a Project
+            Book a Session
           </Link>
         </motion.div>
       </div>
