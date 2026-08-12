@@ -34,12 +34,13 @@ export const WORK: WorkItem[] = [
       "Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Edit, sound design, and color grade all done in DaVinci Resolve.",
   },
   {
-    id: "afterglow-campaign",
-    title: "Afterglow Campaign",
+    id: "put-your-phone-down",
+    title: "Put Your Phone Down",
     category: "film",
-    year: "2024",
-    blurb: "Brand spot series, 30s and 15s cuts, social-first delivery.",
+    year: "2026",
+    blurb: "Short film - Director of Photography, audio mix, and color grade.",
     accent: "coral",
+    image: "/work/cover-images/put-your-phone-down-cover.jpg",
     vimeoId: "1207633805",
     details: `Director: Andrea Gallardo Díaz
 Writer: Andrea Gallardo Díaz
