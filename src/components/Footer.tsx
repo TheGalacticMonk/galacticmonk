@@ -22,7 +22,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 sm:grid-cols-3">
           <div>
             <h3 className="mb-3 flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-gold">
-              <Sparkle className="h-3 w-3" /> Explore
+              <Sparkle className="h-3 w-3" /> Journey
             </h3>
             <ul className="space-y-2 text-sm text-cream-dim">
               <li><Link href="/" className="hover:text-cream">Home</Link></li>
