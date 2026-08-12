@@ -24,7 +24,7 @@ export default function Nav() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled ? "bg-ink/90 backdrop-blur-md shadow-[0_1px_0_0_rgba(255,212,73,0.15)]" : "bg-transparent"
+        scrolled ? "bg-ink/90 backdrop-blur-md shadow-[0_12px_30px_-18px_rgba(0,0,0,0.6)]" : "bg-transparent"
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
@@ -61,7 +61,7 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 border-t border-cream/10 bg-ink px-6 pb-6 pt-2 md:hidden">
+        <nav className="flex flex-col gap-1 bg-ink px-6 pb-6 pt-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.7)] md:hidden">
           {LINKS.map((link) => (
             <Link
               key={link.href}

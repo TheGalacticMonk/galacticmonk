@@ -40,7 +40,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="swirl-bg border-t border-cream/10 px-6 py-24 text-center">
+      <section className="swirl-bg px-6 py-28 text-center shadow-[0_-24px_60px_-32px_rgba(0,0,0,0.5)]">
         <SectionHeading
           align="center"
           eyebrow="LET'S CO-CREATE"

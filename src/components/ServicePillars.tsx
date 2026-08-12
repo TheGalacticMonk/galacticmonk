@@ -25,9 +25,9 @@ const PILLARS = [
 ];
 
 const ACCENT_CLASSES = {
-  coral: "text-coral border-coral/30 hover:border-coral/60",
-  gold: "text-gold border-gold/30 hover:border-gold/60",
-  sage: "text-sage border-sage/30 hover:border-sage/60",
+  coral: "text-coral hover:shadow-[0_16px_40px_-14px_rgba(248,118,102,0.45)]",
+  gold: "text-gold hover:shadow-[0_16px_40px_-14px_rgba(255,212,73,0.45)]",
+  sage: "text-sage hover:shadow-[0_16px_40px_-14px_rgba(115,158,130,0.45)]",
 };
 
 export default function ServicePillars() {
@@ -40,7 +40,7 @@ export default function ServicePillars() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: i * 0.1 }}
-          className={`rounded-2xl border bg-ink-deep/60 p-6 transition-colors ${ACCENT_CLASSES[pillar.accent]}`}
+          className={`rounded-2xl bg-ink-deep/60 p-6 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-shadow duration-300 ${ACCENT_CLASSES[pillar.accent]}`}
         >
           <Sparkle className="h-5 w-5" />
           <h3 className="mt-4 font-serif text-xl text-cream">

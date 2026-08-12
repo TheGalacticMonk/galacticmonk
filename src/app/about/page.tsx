@@ -14,7 +14,7 @@ export default function AboutPage() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24 pt-36">
       <div className="grid gap-12 md:grid-cols-[280px_1fr] md:items-start">
-        <div className="relative mx-auto w-56 overflow-hidden rounded-2xl border border-gold/30 md:w-full">
+        <div className="relative mx-auto w-56 overflow-hidden rounded-2xl shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)] md:w-full">
           <div className="relative aspect-square">
             <Image
               src="/jason-lee.jpg"

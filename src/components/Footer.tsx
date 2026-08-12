@@ -3,7 +3,7 @@ import Sparkle from "./Sparkle";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-cream/10 bg-ink-deep">
+    <footer className="bg-ink-deep shadow-[0_-16px_40px_-24px_rgba(0,0,0,0.7)]">
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-14 md:flex-row md:justify-between">
         <div className="max-w-sm">
           <div className="flex items-center gap-3">
@@ -94,7 +94,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-cream/10 px-6 py-6 text-center text-xs text-cream-dim/70">
+      <div className="px-6 py-6 text-center text-xs text-cream-dim/70">
         © {new Date().getFullYear()} Galactic Monk. All rights reserved.
       </div>
     </footer>

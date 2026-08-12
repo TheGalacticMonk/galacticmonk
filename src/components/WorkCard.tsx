@@ -19,7 +19,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
   return (
     <Link
       href={`/work/${item.id}/`}
-      className="group block overflow-hidden rounded-2xl border border-cream/10 bg-ink-deep/60 transition-colors hover:border-cream/25"
+      className="group block overflow-hidden rounded-2xl bg-ink-deep/60 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_-14px_rgba(0,0,0,0.7)]"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         {item.image ? (

@@ -17,7 +17,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="mx-auto mb-8 h-28 w-28 overflow-hidden rounded-2xl border border-gold/40 shadow-[0_0_50px_-12px_rgba(255,212,73,0.45)] sm:h-36 sm:w-36"
+          className="mx-auto mb-8 h-28 w-28 overflow-hidden rounded-2xl shadow-[0_0_50px_-12px_rgba(255,212,73,0.45)] sm:h-36 sm:w-36"
         >
           <Image
             src="/monk-beach.jpg"
