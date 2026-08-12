@@ -78,8 +78,8 @@ export default function ContactForm() {
             </option>
             <option value="Film & Video">Film &amp; Video</option>
             <option value="Photography">Photography</option>
-            <option value="Music Mixing & Mastering">
-              Music Mixing &amp; Mastering
+            <option value="Record Mix & Master">
+              Record Mix &amp; Master
             </option>
             <option value="Other">Other</option>
           </select>
