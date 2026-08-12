@@ -34,7 +34,7 @@ export default function ContactPage() {
             </div>
             <p className="mt-3 text-sm leading-relaxed text-cream-dim">
               Booking me also includes promotion of your project across my
-              personal social media channels, where I post speaking videos
+              personal social media channels, where I speak alchemy videos
               daily.
             </p>
           </div>
