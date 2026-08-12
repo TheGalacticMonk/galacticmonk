@@ -121,6 +121,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
       "/work/2026-06-garden-party/25.JPG",
       "/work/2026-06-garden-party/garden-party-guests-2.JPG",
     ],
+    details: "Shot on Canon R3 with Canon RF 24-70 f/2.8L lens.",
   },
   {
     id: "studio-portraits-vol-2",
