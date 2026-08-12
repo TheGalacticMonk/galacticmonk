@@ -56,7 +56,7 @@ export default function Hero() {
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
           Film &amp; video, photography, and audio recording, mix &amp; master —
-          one master alchemist, bending energy, vibe, and frequency.
+          one master alchemist, transmuting energy, frequency, and vibe.
         </motion.p>
 
         <motion.div
