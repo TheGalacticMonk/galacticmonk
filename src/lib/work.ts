@@ -1,9 +1,10 @@
-export type Category = "film" | "photo" | "music";
+export type Category = "film" | "video" | "photo" | "music";
 
 export type WorkItem = {
   id: string;
   title: string;
   category: Category;
+  additionalCategories?: Category[];
   year: string;
   blurb: string;
   description?: string;
@@ -20,9 +21,10 @@ export type WorkItem = {
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {
-  film: "FILM",
+  film: "Film",
+  video: "Video",
   photo: "Photography",
-  music: "Music Mixing & Mastering",
+  music: "Record Mix & Master",
 };
 
 // TODO(jason): swap these placeholders for real projects, stills, and reels.
@@ -106,7 +108,8 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
   {
     id: "2026-06-garden-party",
     title: "June 2026 Garden Party",
-    category: "photo",
+    category: "video",
+    additionalCategories: ["photo"],
     year: "2026",
     blurb: "First time shooting the Garden Party, hosted by Lauren Nikohl.",
     accent: "gold",
@@ -150,7 +153,6 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     description:
       "Billion Years Old is a side project. I recorded, mixed, and mastered this record, as well as pitched the feature request to Hip-Hop legend Mickey Factz.",
     accent: "sage",
-    categoryLabel: "RECORD, MIX & MASTER",
     image: "/work/way-beyond-the-stars/cover.jpg",
     imagePosition: "top",
     audio: "/work/way-beyond-the-stars/way-beyond-the-stars.mp3",
@@ -167,7 +169,6 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     description:
       "This is one of my own songs. I recorded, mixed, and mastered this record, as well as pitched the feature request to indie Hip-Hop legend Blu and vocalist AnarKy I.",
     accent: "sage",
-    categoryLabel: "RECORD, MIX & MASTER",
     image: "/work/epstein-island/epstein-island-cover.jpeg",
     imagePosition: "top",
     audio: "/work/epstein-island/epstein-island.mp3",

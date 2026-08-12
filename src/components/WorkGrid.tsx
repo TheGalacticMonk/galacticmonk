@@ -7,13 +7,19 @@ import WorkCard from "./WorkCard";
 const FILTERS: Array<{ key: Category | "all"; label: string }> = [
   { key: "all", label: "All" },
   { key: "film", label: CATEGORY_LABEL.film },
+  { key: "video", label: CATEGORY_LABEL.video },
   { key: "photo", label: CATEGORY_LABEL.photo },
   { key: "music", label: CATEGORY_LABEL.music },
 ];
 
 export default function WorkGrid() {
   const [filter, setFilter] = useState<Category | "all">("all");
-  const items = filter === "all" ? WORK : WORK.filter((item) => item.category === filter);
+  const items =
+    filter === "all"
+      ? WORK
+      : WORK.filter(
+          (item) => item.category === filter || item.additionalCategories?.includes(filter)
+        );
 
   return (
     <div>
