@@ -31,7 +31,7 @@ export const WORK: WorkItem[] = [
     image: "/work/cover-images/msm-mind-control-cover.jpg",
     vimeoId: "1197906457",
     details:
-      "Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Cut, sound design, and color graded in DaVinci Resolve.",
+      "Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Cut, sound design, and color grade all done in DaVinci Resolve.",
   },
   {
     id: "afterglow-campaign",
