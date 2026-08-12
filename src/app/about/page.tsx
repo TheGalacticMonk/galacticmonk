@@ -69,13 +69,13 @@ export default function AboutPage() {
 
           <div className="mt-10 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
             <Sparkle className="h-3 w-3" />
-            Let&apos;s work together
+            LET&apos;S CO-CREATE
           </div>
           <Link
             href="/contact/"
             className="mt-4 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105"
           >
-            Get in Touch
+            Reach Me
           </Link>
         </div>
       </div>
