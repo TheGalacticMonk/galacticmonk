@@ -55,8 +55,12 @@ export default function PhotoGallery({
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={`https://img.youtube.com/vi/${item.id}/hqdefault.jpg`}
+                src={`https://img.youtube.com/vi/${item.id}/maxresdefault.jpg`}
                 alt={alt}
+                onError={(e) => {
+                  e.currentTarget.onerror = null;
+                  e.currentTarget.src = `https://img.youtube.com/vi/${item.id}/hqdefault.jpg`;
+                }}
                 className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-ink-deep/20">
