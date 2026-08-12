@@ -27,12 +27,6 @@ export default function ContactPage() {
                 jason@galacticmonk.com
               </a>
             </div>
-            <div className="flex items-center gap-2 text-cream-dim">
-              <Sparkle className="h-3 w-3 text-coral" />
-              <a href="tel:+13104564508" className="hover:text-cream">
-                310-456-4508
-              </a>
-            </div>
           </div>
         </div>
 

@@ -43,9 +43,9 @@ export default function Home() {
       <section className="swirl-bg border-t border-cream/10 px-6 py-24 text-center">
         <SectionHeading
           align="center"
-          eyebrow="Let's Make Something"
-          title="Have a project in mind?"
-          description="Whether it's a film, a shoot, or a mix that needs to breathe — let's talk about what you're building."
+          eyebrow="LET'S CO-CREATE"
+          title="Have creative in mind?"
+          description="Whether it's a film, a photoshoot, or a record that needs mastering - let's talk about what you're weaving."
         />
         <Link
           href="/contact/"

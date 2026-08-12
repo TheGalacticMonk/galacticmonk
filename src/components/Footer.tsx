@@ -41,11 +41,6 @@ export default function Footer() {
                   jason@galacticmonk.com
                 </a>
               </li>
-              <li>
-                <a href="tel:+13104564508" className="hover:text-cream">
-                  310-456-4508
-                </a>
-              </li>
             </ul>
           </div>
 
@@ -53,10 +48,47 @@ export default function Footer() {
             <h3 className="mb-3 flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-sage">
               <Sparkle className="h-3 w-3" /> Elsewhere
             </h3>
-            {/* TODO: swap in real social links */}
             <ul className="space-y-2 text-sm text-cream-dim">
-              <li className="opacity-60">Instagram — coming soon</li>
-              <li className="opacity-60">Vimeo — coming soon</li>
+              <li>
+                <a
+                  href="https://www.instagram.com/galacticmonk_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream"
+                >
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://x.com/GalacticMonk_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream"
+                >
+                  X
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.tiktok.com/@thegalacticmonk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream"
+                >
+                  TikTok
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.facebook.com/JasonDeluluLee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream"
+                >
+                  Facebook
+                </a>
+              </li>
             </ul>
           </div>
         </div>
