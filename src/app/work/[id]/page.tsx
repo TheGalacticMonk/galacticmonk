@@ -47,7 +47,17 @@ export default async function WorkDetailPage({
       </p>
 
       <div className="relative mt-10 overflow-hidden rounded-2xl border border-cream/10">
-        {item.video ? (
+        {item.vimeoId ? (
+          <div className="relative aspect-[1920/810] w-full bg-ink-deep">
+            <iframe
+              src={`https://player.vimeo.com/video/${item.vimeoId}`}
+              title={item.title}
+              className="absolute inset-0 h-full w-full"
+              allow="autoplay; fullscreen; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ) : item.video ? (
           // eslint-disable-next-line jsx-a11y/media-has-caption
           <video
             src={item.video}

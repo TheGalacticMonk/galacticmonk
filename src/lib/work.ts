@@ -9,6 +9,7 @@ export type WorkItem = {
   accent: "gold" | "coral" | "sage";
   image?: string;
   video?: string;
+  vimeoId?: string;
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {
@@ -27,7 +28,7 @@ export const WORK: WorkItem[] = [
     blurb: "Short film — nonlinear edit, color grade, and sound design.",
     accent: "coral",
     image: "/work/cover-images/msm-mind-control-cover.jpg",
-    video: "/work/video/msm-mind-control.mp4",
+    vimeoId: "1197906457",
   },
   {
     id: "afterglow-campaign",
