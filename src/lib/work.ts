@@ -18,6 +18,7 @@ export type WorkItem = {
   gallery?: string[];
   categoryLabel?: string;
   imagePosition?: "top" | "center" | "bottom";
+  hidden?: boolean;
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {
@@ -181,6 +182,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     year: "2025",
     blurb: "Full mix and master for a 5-track independent EP release.",
     accent: "sage",
+    hidden: true,
   },
   {
     id: "night-drive-single",
@@ -189,6 +191,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     year: "2024",
     blurb: "Single mix, stem prep, and mastering for streaming release.",
     accent: "sage",
+    hidden: true,
   },
   {
     id: "live-session-remaster",
@@ -197,5 +200,6 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     year: "2024",
     blurb: "Multitrack live recording cleaned up, mixed, and mastered.",
     accent: "sage",
+    hidden: true,
   },
 ];

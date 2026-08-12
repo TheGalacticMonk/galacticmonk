@@ -6,7 +6,7 @@ import WorkCard from "@/components/WorkCard";
 import { WORK } from "@/lib/work";
 
 export default function Home() {
-  const featured = WORK.slice(0, 3);
+  const featured = WORK.filter((item) => !item.hidden).slice(0, 3);
 
   return (
     <>

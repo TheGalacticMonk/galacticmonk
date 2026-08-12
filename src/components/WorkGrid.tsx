@@ -14,10 +14,11 @@ const FILTERS: Array<{ key: Category | "all"; label: string }> = [
 
 export default function WorkGrid() {
   const [filter, setFilter] = useState<Category | "all">("all");
+  const visible = WORK.filter((item) => !item.hidden);
   const items =
     filter === "all"
-      ? WORK
-      : WORK.filter(
+      ? visible
+      : visible.filter(
           (item) => item.category === filter || item.additionalCategories?.includes(filter)
         );
 
