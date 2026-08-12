@@ -18,7 +18,7 @@ export type WorkItem = {
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {
-  film: "Film & Video",
+  film: "FILM",
   photo: "Photography",
   music: "Music Mixing & Mastering",
 };
