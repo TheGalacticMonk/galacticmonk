@@ -8,13 +8,13 @@ const PILLARS = [
     title: "Film & Video",
     accent: "coral" as const,
     description:
-      "Concept, production, and post — short films, brand spots, and documentary work cut and graded end to end.",
+      "Concept, production, and post — short films, events, brand spots, and documentary work cut and graded end to end.",
   },
   {
     title: "Photography",
     accent: "gold" as const,
     description:
-      "Editorial, portrait, and commercial photography, shot on location or in studio and retouched with a light hand.",
+      "Editorial, portrait, event, and commercial photography, shot on location or in studio and edited with a light hand.",
   },
   {
     title: "Recording, Mix & Master",
