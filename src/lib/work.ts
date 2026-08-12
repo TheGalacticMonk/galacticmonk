@@ -13,6 +13,7 @@ export type WorkItem = {
   youtubeId?: string;
   details?: string;
   gallery?: string[];
+  categoryLabel?: string;
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {
@@ -91,6 +92,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     year: "2026",
     blurb: "First time shooting the Garden Party, hosted by Lauren Nikohl.",
     accent: "gold",
+    categoryLabel: "VIDEO & PHOTOGRAPHY",
     image: "/work/2026-06-garden-party/1.JPG",
     youtubeId: "VLGgm4xzPF0",
     gallery: [

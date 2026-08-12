@@ -44,7 +44,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
         <div
           className={`text-xs uppercase tracking-[0.2em] ${ACCENT_TEXT[item.accent]}`}
         >
-          {CATEGORY_LABEL[item.category]} · {item.year}
+          {item.categoryLabel ?? CATEGORY_LABEL[item.category]} · {item.year}
         </div>
         <h3 className="mt-2 font-serif text-lg text-cream">{item.title}</h3>
         <p className="mt-1 text-sm leading-relaxed text-cream-dim">

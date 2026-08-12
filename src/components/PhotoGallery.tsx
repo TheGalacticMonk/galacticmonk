@@ -51,13 +51,13 @@ export default function PhotoGallery({
             <div
               key="youtube"
               onClick={() => setOpenIndex(i)}
-              className="relative mb-4 w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-xl transition-opacity hover:opacity-90"
+              className="relative mb-4 aspect-[9/16] w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-xl transition-opacity hover:opacity-90"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`https://img.youtube.com/vi/${item.id}/hqdefault.jpg`}
                 alt={alt}
-                className="w-full"
+                className="h-full w-full object-cover"
               />
               <div className="absolute inset-0 flex items-center justify-center bg-ink-deep/20">
                 <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink-deep/70 text-cream">

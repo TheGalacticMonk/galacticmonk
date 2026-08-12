@@ -37,7 +37,7 @@ export default async function WorkDetailPage({
       </Link>
 
       <div className="mt-6 text-xs uppercase tracking-[0.2em] text-gold">
-        {CATEGORY_LABEL[item.category]} · {item.year}
+        {item.categoryLabel ?? CATEGORY_LABEL[item.category]} · {item.year}
       </div>
       <h1 className="mt-3 font-serif text-3xl text-cream sm:text-4xl">
         {item.title}
