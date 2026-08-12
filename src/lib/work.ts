@@ -11,6 +11,7 @@ export type WorkItem = {
   video?: string;
   vimeoId?: string;
   details?: string;
+  gallery?: string[];
 };
 
 export const CATEGORY_LABEL: Record<Category, string> = {
@@ -40,7 +41,7 @@ export const WORK: WorkItem[] = [
     year: "2026",
     blurb: "Short film - Director of Photography, audio mix, and color grade.",
     accent: "coral",
-    image: "/work/cover-images/put-your-phone-down-cover.jpg",
+    image: "/work/cover-images/put-your-phone-down-macro-cover.jpg",
     vimeoId: "1207633805",
     details: `Director: Andrea Gallardo Díaz
 Writer: Andrea Gallardo Díaz
@@ -56,12 +57,24 @@ Location: Hermosa Beach, CA
 Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in DaVinci Resolve. ADR and sound design done in Pro Tools.`,
   },
   {
-    id: "field-notes",
-    title: "Field Notes",
-    category: "film",
-    year: "2024",
-    blurb: "Documentary segment produced and directed on location.",
-    accent: "coral",
+    id: "garden-party",
+    title: "Garden Party",
+    category: "photo",
+    year: "2026",
+    blurb: "Event photography shot on Canon.",
+    accent: "gold",
+    image: "/work/2026-07-garden-party/lauren-nikohl-dj-2.jpg",
+    gallery: [
+      "/work/2026-07-garden-party/celestial-admission.jpg",
+      "/work/2026-07-garden-party/lauren-nikohl-dj-1.jpg",
+      "/work/2026-07-garden-party/dj-close-up.jpg",
+      "/work/2026-07-garden-party/itzel-portrait.jpg",
+      "/work/2026-07-garden-party/coloring-group.jpg",
+      "/work/2026-07-garden-party/miguel-rincon.jpg",
+      "/work/2026-07-garden-party/event-guest.jpg",
+      "/work/2026-07-garden-party/massage-session.jpg",
+      "/work/2026-07-garden-party/symmetry.jpg",
+    ],
   },
   {
     id: "desert-bloom",
