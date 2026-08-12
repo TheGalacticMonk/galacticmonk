@@ -75,7 +75,7 @@ export default function AboutPage() {
             href="/contact/"
             className="mt-4 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105"
           >
-            Reach Me
+            Connect
           </Link>
         </div>
       </div>
