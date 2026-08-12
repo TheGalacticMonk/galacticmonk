@@ -2,9 +2,7 @@
 
 import { useState, type FormEvent, type ReactNode } from "react";
 
-// TODO(jason): replace with your real Formspree (or Web3Forms) endpoint once
-// you've created an account — see https://formspree.io/forms
-const FORM_ENDPOINT = "https://formspree.io/f/REPLACE_ME";
+const FORM_ENDPOINT = "https://formspree.io/f/xgawywwl";
 
 type Status = "idle" | "pending" | "success" | "error";
 
