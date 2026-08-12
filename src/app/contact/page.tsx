@@ -27,7 +27,19 @@ export default function ContactPage() {
             }
           />
 
-          <div className="mt-10 space-y-4 text-sm">
+          <div className="mt-8 rounded-2xl border border-gold/30 bg-gold/5 p-5">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
+              <Sparkle className="h-3 w-3" />
+              Included Perk
+            </div>
+            <p className="mt-3 text-sm leading-relaxed text-cream-dim">
+              Booking me also includes you receiving my influencer marketing
+              for your project to be promoted on my daily active social media
+              channels.
+            </p>
+          </div>
+
+          <div className="mt-8 space-y-4 text-sm">
             <div className="flex items-center gap-2 text-cream-dim">
               <Sparkle className="h-3 w-3 text-gold" />
               <a href="mailto:jason@galacticmonk.com" className="hover:text-cream">
