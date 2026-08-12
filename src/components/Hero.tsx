@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Sparkle from "./Sparkle";
@@ -12,6 +13,22 @@ export default function Hero() {
       <Sparkle className="pointer-events-none absolute bottom-[18%] left-[18%] h-5 w-5 text-sage/60" />
 
       <div className="mx-auto max-w-4xl px-6 py-24 text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+          className="mx-auto mb-8 h-28 w-28 overflow-hidden rounded-2xl border border-gold/40 shadow-[0_0_50px_-12px_rgba(255,212,73,0.45)] sm:h-36 sm:w-36"
+        >
+          <Image
+            src="/monk-beach.jpg"
+            alt="Jason Lee"
+            width={320}
+            height={320}
+            priority
+            className="h-full w-full object-cover"
+          />
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
