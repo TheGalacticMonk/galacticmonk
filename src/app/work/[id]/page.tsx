@@ -80,11 +80,17 @@ export default async function WorkDetailPage({
         ) : null}
       </div>
 
+      {item.details && (
+        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-cream-dim/70">
+          {item.details}
+        </p>
+      )}
+
       <Link
         href="/contact/"
         className="mt-10 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105"
       >
-        Book a Session
+        Work With Me
       </Link>
     </section>
   );
