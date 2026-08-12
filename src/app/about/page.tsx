@@ -20,11 +20,9 @@ export default function AboutPage() {
               src="/jason-lee.jpg"
               alt="Jason Lee"
               fill
-              className="object-cover [filter:grayscale(0.55)_saturate(0.8)_contrast(1.1)]"
+              className="object-cover"
               sizes="280px"
             />
-            <div className="absolute inset-0 bg-gradient-to-br from-gold/30 via-ink/30 to-ink mix-blend-color" />
-            <div className="absolute inset-0 bg-ink/25 mix-blend-multiply" />
           </div>
         </div>
 
