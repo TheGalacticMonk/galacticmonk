@@ -39,7 +39,7 @@ export const WORK: WorkItem[] = [
     title: "Put Your Phone Down",
     category: "film",
     year: "2026",
-    blurb: "Short film - Director of Photography, audio mix, and color grade.",
+    blurb: "Short film PSA - Director of Photography, audio mix, and color grade.",
     accent: "coral",
     image: "/work/cover-images/put-your-phone-down-macro-cover.jpg",
     vimeoId: "1207633805",
