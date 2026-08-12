@@ -94,6 +94,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     category: "film",
     year: "2026",
     blurb: "I was talent, the producer, and cinematographer on this project.",
+    description: "Short mini-documentary about the meaning of flow state.",
     accent: "coral",
     image: "/work/cover-images/flow-state-cover.jpg",
     vimeoId: "1211282016",
