@@ -8,7 +8,7 @@ const PILLARS = [
     title: "Film & Video",
     accent: "coral" as const,
     description:
-      "Concept, production, and post — short films, events, brand spots, and documentary work cut and graded end to end.",
+      "Concept, production, and post — short films, events, brand spots, and documentary work cut and color graded end to end.",
   },
   {
     title: "Photography",
