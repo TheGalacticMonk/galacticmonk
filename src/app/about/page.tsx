@@ -54,7 +54,7 @@ export default function AboutPage() {
               mastering. From concept and production through editing and
               final delivery, each project is approached with curiosity,
               precision, and an obsessive attention to quality that makes
-              creative work shine.
+              creative work interstellar.
             </p>
             <p>
               At the heart of the work is a lifelong pursuit of knowledge,
