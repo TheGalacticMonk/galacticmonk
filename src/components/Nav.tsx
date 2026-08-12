@@ -2,12 +2,20 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { FacebookIcon, InstagramIcon, TikTokIcon, XIcon } from "./SocialIcons";
 
 const LINKS = [
   { href: "/", label: "Home" },
   { href: "/work/", label: "Work" },
   { href: "/about/", label: "About" },
   { href: "/contact/", label: "Contact" },
+];
+
+const SOCIALS = [
+  { href: "https://www.instagram.com/galacticmonk_/", label: "Instagram", Icon: InstagramIcon },
+  { href: "https://x.com/GalacticMonk_", label: "X", Icon: XIcon },
+  { href: "https://www.tiktok.com/@thegalacticmonk", label: "TikTok", Icon: TikTokIcon },
+  { href: "https://www.facebook.com/JasonDeluluLee", label: "Facebook", Icon: FacebookIcon },
 ];
 
 export default function Nav() {
@@ -46,6 +54,20 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
+          <div className="flex items-center gap-4 border-l border-cream/20 pl-6">
+            {SOCIALS.map(({ href, label, Icon }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="text-cream-dim transition-colors hover:text-gold"
+              >
+                <Icon className="h-4 w-4" />
+              </a>
+            ))}
+          </div>
         </nav>
 
         <button
@@ -72,6 +94,20 @@ export default function Nav() {
               {link.label}
             </Link>
           ))}
+          <div className="mt-3 flex items-center gap-5 border-t border-cream/20 pt-4">
+            {SOCIALS.map(({ href, label, Icon }) => (
+              <a
+                key={href}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="text-cream-dim transition-colors hover:text-gold"
+              >
+                <Icon className="h-5 w-5" />
+              </a>
+            ))}
+          </div>
         </nav>
       )}
     </header>
