@@ -96,7 +96,7 @@ export default function Footer() {
       </div>
 
       <div className="px-6 py-6 text-center text-xs text-cream-dim/70">
-        © {new Date().getFullYear()} Galactic Monk. All rights reserved.
+        © {new Date().getFullYear()} Galactic Monk. All rights reserved. Vibe-coded by Galactic Monk.
       </div>
     </footer>
   );

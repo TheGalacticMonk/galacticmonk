@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORY_LABEL, WORK } from "@/lib/work";
 import PhotoGallery from "@/components/PhotoGallery";
+import ExpandableImage from "@/components/ExpandableImage";
 
 export function generateStaticParams() {
   return WORK.map((item) => ({ id: item.id }));
@@ -71,8 +72,7 @@ export default async function WorkDetailPage({
       ) : item.audio ? (
         <div className="mt-10">
           {item.image && (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <ExpandableImage
               src={item.image}
               alt={item.title}
               className="aspect-square w-full max-w-sm rounded-2xl object-cover shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]"
