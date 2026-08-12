@@ -47,7 +47,7 @@ export default function Footer() {
 
           <div>
             <h3 className="mb-3 flex items-center gap-1.5 text-xs uppercase tracking-[0.2em] text-sage">
-              <Sparkle className="h-3 w-3" /> Elsewhere
+              <Sparkle className="h-3 w-3" /> Digiverse
             </h3>
             <ul className="space-y-2 text-sm text-cream-dim">
               <li>
