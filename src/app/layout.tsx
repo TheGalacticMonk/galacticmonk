@@ -23,7 +23,7 @@ const cormorant = Cormorant({
 export const metadata: Metadata = {
   title: "Galactic Monk — Creative Producer & Alchemist",
   description:
-    "Galactic Monk is the creative production studio of Jason Lee — film & video, photography, and music mixing & mastering.",
+    "Galactic Monk is the creative production studio of Jason Lee — film & video, photography, and audio recording, mix & master.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

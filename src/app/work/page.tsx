@@ -5,7 +5,7 @@ import WorkGrid from "@/components/WorkGrid";
 export const metadata: Metadata = {
   title: "Work — Galactic Monk",
   description:
-    "Selected film, photography, and music mixing & mastering projects from Galactic Monk.",
+    "Selected film, photography, and audio recording, mix & master projects from Galactic Monk.",
 };
 
 export default function WorkPage() {

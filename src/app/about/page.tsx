@@ -37,8 +37,8 @@ export default function AboutPage() {
             <p>
               Galactic Monk is the working name for Jason Lee&apos;s creative
               practice — a one-person studio built around three crafts: film
-              &amp; video production, photography, and music mixing &amp;
-              mastering.
+              &amp; video production, photography, and audio recording, mix
+              &amp; master.
             </p>
             <p>
               The through-line across all three is the same: take raw

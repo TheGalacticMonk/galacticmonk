@@ -38,7 +38,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
-          Film &amp; video, photography, and music mixing &amp; mastering —
+          Film &amp; video, photography, and audio recording, mix &amp; master —
           one creative hand, shaping every frame and frequency.
         </motion.p>
 
