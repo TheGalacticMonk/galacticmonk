@@ -68,6 +68,24 @@ export default async function WorkDetailPage({
             className="block w-full bg-ink-deep"
           />
         </div>
+      ) : item.audio ? (
+        <div className="mt-10">
+          {item.image && (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={item.image}
+              alt={item.title}
+              className="aspect-square w-full max-w-sm rounded-2xl object-cover shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]"
+            />
+          )}
+          {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+          <audio
+            src={item.audio}
+            controls
+            preload="metadata"
+            className="mt-6 w-full max-w-sm"
+          />
+        </div>
       ) : (
         <PhotoGallery
           cover={item.image}

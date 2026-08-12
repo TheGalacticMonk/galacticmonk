@@ -11,6 +11,7 @@ export type WorkItem = {
   video?: string;
   vimeoId?: string;
   youtubeId?: string;
+  audio?: string;
   details?: string;
   gallery?: string[];
   categoryLabel?: string;
@@ -124,12 +125,15 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     details: "Shot on Canon R3 with Canon RF 24-70 f/2.8L lens.",
   },
   {
-    id: "studio-portraits-vol-2",
-    title: "Studio Portraits Vol. 2",
-    category: "photo",
-    year: "2024",
-    blurb: "Portrait sitting series for an independent artist roster.",
-    accent: "gold",
+    id: "byo-way-beyond-the-stars",
+    title: "BYO - Way Beyond the Stars (feat. Mickey Factz)",
+    category: "music",
+    year: "2025",
+    blurb: "Recorded, mixed, mastered, and pitched feature to Mickey Factz.",
+    accent: "sage",
+    categoryLabel: "RECORD, MIX & MASTER",
+    image: "/work/way-beyond-the-stars/cover.jpg",
+    audio: "/work/way-beyond-the-stars/way-beyond-the-stars.mp3",
   },
   {
     id: "product-in-motion",
