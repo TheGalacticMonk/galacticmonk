@@ -16,7 +16,7 @@ export default function Home() {
         <SectionHeading
           eyebrow="What I Do"
           title="Three crafts, one master"
-          description="Every element deliberate, whether it's a camera, a lens, or a mix bus - intentional, hands-on, and a whole lot of alchemy."
+          description="Every element is deliberate, whether it's a camera, a lens, or a mix bus - intentional, hands-on, and a whole lot of alchemy."
         />
         <div className="mt-10">
           <ServicePillars />
