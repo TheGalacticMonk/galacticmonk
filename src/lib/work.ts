@@ -89,6 +89,14 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     ],
   },
   {
+    id: "product-in-motion",
+    title: "Product in Motion",
+    category: "photo",
+    year: "2024",
+    blurb: "Commercial product photography with motion-blend retouching.",
+    accent: "gold",
+  },
+  {
     id: "2026-06-garden-party",
     title: "June 2026 Garden Party",
     category: "photo",
@@ -140,14 +148,6 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     imagePosition: "top",
     audio: "/work/way-beyond-the-stars/way-beyond-the-stars.mp3",
     details: "Recorded with Neumann u87 AI, Great River ME-1NV, and API 3122V.",
-  },
-  {
-    id: "product-in-motion",
-    title: "Product in Motion",
-    category: "photo",
-    year: "2024",
-    blurb: "Commercial product photography with motion-blend retouching.",
-    accent: "gold",
   },
   {
     id: "lucid-ep",
