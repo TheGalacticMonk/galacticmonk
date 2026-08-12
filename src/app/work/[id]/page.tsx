@@ -43,7 +43,7 @@ export default async function WorkDetailPage({
         {item.title}
       </h1>
       <p className="mt-4 max-w-2xl text-base leading-relaxed text-cream-dim">
-        {item.blurb}
+        {item.description ?? item.blurb}
       </p>
 
       {item.vimeoId ? (

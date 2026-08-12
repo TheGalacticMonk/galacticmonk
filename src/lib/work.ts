@@ -6,6 +6,7 @@ export type WorkItem = {
   category: Category;
   year: string;
   blurb: string;
+  description?: string;
   accent: "gold" | "coral" | "sage";
   image?: string;
   video?: string;
@@ -131,11 +132,14 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     category: "music",
     year: "2025",
     blurb: "Recorded, mixed, mastered, and pitched feature to Mickey Factz.",
+    description:
+      "Billion Years Old is a side project. I recorded, mixed, and mastered this record, as well as pitched the feature request to Hip-Hop legend Mickey Factz.",
     accent: "sage",
     categoryLabel: "RECORD, MIX & MASTER",
     image: "/work/way-beyond-the-stars/cover.jpg",
     imagePosition: "top",
     audio: "/work/way-beyond-the-stars/way-beyond-the-stars.mp3",
+    details: "Recorded with Neumann u87 AI, Great River ME-1NV, and API 3122V.",
   },
   {
     id: "product-in-motion",
