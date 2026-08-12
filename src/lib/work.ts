@@ -169,6 +169,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     accent: "sage",
     categoryLabel: "RECORD, MIX & MASTER",
     image: "/work/epstein-island/epstein-island-cover.jpeg",
+    imagePosition: "top",
     audio: "/work/epstein-island/epstein-island.mp3",
     details: "Recorded with Pearlman TM-1 and Great River ME-1NV. Apogee converters.",
   },
