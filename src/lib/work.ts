@@ -10,6 +10,7 @@ export type WorkItem = {
   image?: string;
   video?: string;
   vimeoId?: string;
+  youtubeId?: string;
   details?: string;
   gallery?: string[];
 };
@@ -85,11 +86,39 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
   },
   {
     id: "desert-bloom",
-    title: "Desert Bloom",
+    title: "June 2026 Garden Party",
     category: "photo",
-    year: "2025",
-    blurb: "Editorial photo series shot on location, natural light.",
+    year: "2026",
+    blurb: "First time shooting the Garden Party, hosted by Lauren Nikohl.",
     accent: "gold",
+    image: "/work/2026-06-garden-party/1.JPG",
+    youtubeId: "VLGgm4xzPF0",
+    gallery: [
+      "/work/2026-06-garden-party/2.JPG",
+      "/work/2026-06-garden-party/3.JPG",
+      "/work/2026-06-garden-party/4.JPG",
+      "/work/2026-06-garden-party/5.JPG",
+      "/work/2026-06-garden-party/6.JPG",
+      "/work/2026-06-garden-party/7.JPG",
+      "/work/2026-06-garden-party/8.JPG",
+      "/work/2026-06-garden-party/9.JPG",
+      "/work/2026-06-garden-party/10.JPG",
+      "/work/2026-06-garden-party/11.JPG",
+      "/work/2026-06-garden-party/12.JPG",
+      "/work/2026-06-garden-party/14.JPG",
+      "/work/2026-06-garden-party/15.JPG",
+      "/work/2026-06-garden-party/16.JPG",
+      "/work/2026-06-garden-party/17.JPG",
+      "/work/2026-06-garden-party/18.JPG",
+      "/work/2026-06-garden-party/19.JPG",
+      "/work/2026-06-garden-party/20.JPG",
+      "/work/2026-06-garden-party/21.JPG",
+      "/work/2026-06-garden-party/22.JPG",
+      "/work/2026-06-garden-party/23.JPG",
+      "/work/2026-06-garden-party/24.JPG",
+      "/work/2026-06-garden-party/25.JPG",
+      "/work/2026-06-garden-party/garden-party-guests-2.JPG",
+    ],
   },
   {
     id: "studio-portraits-vol-2",

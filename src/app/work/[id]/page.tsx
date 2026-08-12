@@ -69,7 +69,12 @@ export default async function WorkDetailPage({
           />
         </div>
       ) : (
-        <PhotoGallery cover={item.image} gallery={item.gallery} alt={item.title} />
+        <PhotoGallery
+          cover={item.image}
+          gallery={item.gallery}
+          youtubeId={item.youtubeId}
+          alt={item.title}
+        />
       )}
 
       {item.details && (
