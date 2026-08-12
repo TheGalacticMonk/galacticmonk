@@ -1,11 +1,27 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import Sparkle from "./Sparkle";
 
 export default function Hero() {
+  const [expanded, setExpanded] = useState(false);
+
+  useEffect(() => {
+    if (!expanded) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setExpanded(false);
+    };
+    window.addEventListener("keydown", onKeyDown);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [expanded]);
+
   return (
     <section className="swirl-bg relative flex min-h-screen items-center overflow-hidden pt-24">
       <Sparkle className="pointer-events-none absolute left-[8%] top-[22%] h-6 w-6 text-gold/60" />
@@ -13,11 +29,14 @@ export default function Hero() {
       <Sparkle className="pointer-events-none absolute bottom-[18%] left-[18%] h-5 w-5 text-sage/60" />
 
       <div className="mx-auto max-w-4xl px-6 py-24 text-center">
-        <motion.div
+        <motion.button
+          type="button"
+          onClick={() => setExpanded(true)}
+          aria-label="Expand photo of Jason Lee"
           initial={{ opacity: 0, scale: 0.92 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
-          className="mx-auto mb-8 h-28 w-28 overflow-hidden rounded-2xl shadow-[0_0_40px_-14px_rgba(245,241,232,0.35)] sm:h-36 sm:w-36"
+          className="mx-auto mb-8 block h-28 w-28 cursor-zoom-in overflow-hidden rounded-2xl shadow-[0_0_40px_-14px_rgba(245,241,232,0.35)] transition-transform hover:scale-105 sm:h-36 sm:w-36"
         >
           <Image
             src="/monk-beach.jpg"
@@ -27,7 +46,7 @@ export default function Hero() {
             priority
             className="h-full w-full object-cover"
           />
-        </motion.div>
+        </motion.button>
 
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -79,6 +98,29 @@ export default function Hero() {
           </Link>
         </motion.div>
       </div>
+
+      {expanded && (
+        <div
+          className="fixed inset-0 z-50 flex items-center justify-center bg-ink-deep/95 p-4 sm:p-10"
+          onClick={() => setExpanded(false)}
+        >
+          <button
+            type="button"
+            aria-label="Close"
+            onClick={() => setExpanded(false)}
+            className="absolute right-5 top-5 text-3xl leading-none text-cream/80 hover:text-gold"
+          >
+            ×
+          </button>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/monk-beach.jpg"
+            alt="Jason Lee"
+            onClick={(e) => e.stopPropagation()}
+            className="max-h-full max-w-full rounded-lg object-contain"
+          />
+        </div>
+      )}
     </section>
   );
 }
