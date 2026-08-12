@@ -59,7 +59,7 @@ Location: Hermosa Beach, CA
 Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in DaVinci Resolve. ADR and sound design done in Pro Tools.`,
   },
   {
-    id: "garden-party",
+    id: "2026-07-garden-party",
     title: "July 2026 Garden Party",
     category: "photo",
     year: "2026",
@@ -86,7 +86,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     ],
   },
   {
-    id: "desert-bloom",
+    id: "2026-06-garden-party",
     title: "June 2026 Garden Party",
     category: "photo",
     year: "2026",
