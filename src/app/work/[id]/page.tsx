@@ -81,7 +81,7 @@ export default async function WorkDetailPage({
       </div>
 
       {item.details && (
-        <p className="mt-4 max-w-2xl text-sm leading-relaxed text-cream-dim/70">
+        <p className="mt-4 max-w-2xl whitespace-pre-line text-sm leading-relaxed text-cream-dim/70">
           {item.details}
         </p>
       )}

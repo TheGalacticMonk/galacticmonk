@@ -31,7 +31,7 @@ export const WORK: WorkItem[] = [
     image: "/work/cover-images/msm-mind-control-cover.jpg",
     vimeoId: "1197906457",
     details:
-      "Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Cut, sound design, and color grade all done in DaVinci Resolve.",
+      "Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Edit, sound design, and color grade all done in DaVinci Resolve.",
   },
   {
     id: "afterglow-campaign",
@@ -40,6 +40,19 @@ export const WORK: WorkItem[] = [
     year: "2024",
     blurb: "Brand spot series, 30s and 15s cuts, social-first delivery.",
     accent: "coral",
+    vimeoId: "1207633805",
+    details: `Director: Andrea Gallardo Díaz
+Writer: Andrea Gallardo Díaz
+Producer: Jason Lee
+Actors: Andrea Gallardo Díaz, Justice Dillard
+Director of Photography: Jason Lee
+Editor: Andrea Gallardo Díaz
+Sound Designer: Andrea Gallardo Díaz
+Colorists: Jason Lee, Andrea Gallardo Díaz
+Re-Recording Mixer: Jason Lee
+Location: Hermosa Beach, CA
+
+Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in DaVinci Resolve. ADR and sound design done in Pro Tools.`,
   },
   {
     id: "field-notes",
