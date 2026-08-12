@@ -116,7 +116,7 @@ export default function ContactForm() {
         disabled={status === "pending"}
         className="rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100"
       >
-        {status === "pending" ? "Sending..." : "Send Inquiry"}
+        {status === "pending" ? "Sending..." : "Send Energy"}
       </button>
     </form>
   );
