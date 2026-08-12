@@ -66,7 +66,7 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     title: "July 2026 Garden Party",
     category: "photo",
     year: "2026",
-    blurb: "Event photography shot on Canon R3 with Canon RF 24-70 f/2.8L lens.",
+    blurb: "I was the photographer for this monthly event.",
     accent: "gold",
     image: "/work/2026-07-garden-party/lauren-nikohl-dj-2.jpg",
     gallery: [
@@ -94,7 +94,8 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     category: "film",
     year: "2026",
     blurb: "I was on-screen, the producer, and cinematographer on this project.",
-    description: "Short mini-documentary about the meaning of flow state.",
+    description:
+      "Short mini-documentary about the meaning of flow state. I was on-screen, producer, and cinematographer on this project.",
     accent: "coral",
     image: "/work/cover-images/flow-state-cover.jpg",
     vimeoId: "1211282016",
