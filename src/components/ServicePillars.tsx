@@ -24,10 +24,10 @@ const PILLARS = [
       "Recording, mixing, and mastering for music, audiobooks, and film ADR.",
   },
   {
-    title: "Web Development",
+    title: "Web Design & Dev",
     accent: "cream" as const,
     description:
-      "Custom sites and web apps for clients — built clean, fast, and tailored to the brand, from first concept to launch.",
+      "Coded with Claude — no drag and drop builders which have limitations. Your website could look as good as this one.",
   },
 ];
 
