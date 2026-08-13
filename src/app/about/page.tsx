@@ -30,7 +30,7 @@ export default function AboutPage() {
           <div className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.15em] text-[#6fa9da]">
             <span className="relative flex h-4 w-4 items-center justify-center">
               <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-[#6fa9da]/40" />
-              <MapPinIcon className="relative h-3.5 w-3.5 text-[#e0245e]" />
+              <MapPinIcon className="relative h-3.5 w-3.5 text-cream" />
             </span>
             Los Angeles · On-Location &amp; Remote
           </div>
