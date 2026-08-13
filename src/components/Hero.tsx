@@ -29,6 +29,17 @@ export default function Hero() {
       <Sparkle className="pointer-events-none absolute bottom-[18%] left-[18%] h-5 w-5 text-sage/60" />
 
       <div className="mx-auto max-w-4xl px-6 py-24 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7 }}
+          className="mb-8 flex items-center justify-center gap-2 text-xs uppercase tracking-[0.3em] text-gold"
+        >
+          <Sparkle className="h-3 w-3" />
+          Creative Producer &amp; Alchemist
+          <Sparkle className="h-3 w-3" />
+        </motion.div>
+
         <motion.button
           type="button"
           onClick={() => setExpanded(true)}
@@ -47,17 +58,6 @@ export default function Hero() {
             className="h-full w-full object-cover"
           />
         </motion.button>
-
-        <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
-          className="flex items-center justify-center gap-2 text-xs uppercase tracking-[0.3em] text-gold"
-        >
-          <Sparkle className="h-3 w-3" />
-          Creative Producer &amp; Alchemist
-          <Sparkle className="h-3 w-3" />
-        </motion.div>
 
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
