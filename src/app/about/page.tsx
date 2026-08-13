@@ -54,7 +54,7 @@ export default function AboutPage() {
               mastering. From concept and production through editing and
               final delivery, each project is approached with curiosity,
               precision, and an obsessive attention to quality that makes
-              your creativity shine brighter.
+              your creativity shine eternally.
             </p>
             <p>
               At the heart of the work is a lifelong pursuit of knowledge,
@@ -62,7 +62,7 @@ export default function AboutPage() {
               tools are mastered. New perspectives become part of the
               process. The goal is never simply to create content, but to
               continually refine the craft and manifest work worthy of
-              being released into our beautiful Universe.
+              being released into our mystic Universe.
             </p>
             <p>Based in Los Angeles. Available for on-location and remote projects.</p>
           </div>
