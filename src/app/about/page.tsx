@@ -50,7 +50,7 @@ export default function AboutPage() {
               into work with energy, intention, and impact.
             </p>
             <p>
-              Disciplined as a solo-creator, Galactic Monk
+              Skilled as a solo-creator, Galactic Monk
               specializes in three interdimensionally connected crafts: film &amp; video
               production, photography, and audio recording, mixing &amp;
               mastering. From concept and production through editing and
