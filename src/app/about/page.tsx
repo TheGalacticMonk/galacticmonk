@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import Sparkle from "@/components/Sparkle";
+import ExpandableImage from "@/components/ExpandableImage";
+import MapPinIcon from "@/components/MapPinIcon";
 
 export const metadata: Metadata = {
   title: "About — Galactic Monk",
@@ -14,17 +15,11 @@ export default function AboutPage() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24 pt-36">
       <div className="grid gap-12 md:grid-cols-[280px_1fr] md:items-start">
-        <div className="relative mx-auto w-56 overflow-hidden rounded-2xl shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)] md:w-full">
-          <div className="relative aspect-square">
-            <Image
-              src="/jason-lee.jpg"
-              alt="Jason Lee"
-              fill
-              className="object-cover"
-              sizes="280px"
-            />
-          </div>
-        </div>
+        <ExpandableImage
+          src="/jason-lee.jpg"
+          alt="Jason Lee"
+          className="mx-auto aspect-square w-56 rounded-2xl object-cover shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)] md:w-full"
+        />
 
         <div>
           <SectionHeading eyebrow="About" title="Jason Lee | Galactic Monk" />
@@ -32,10 +27,10 @@ export default function AboutPage() {
             Creative Producer &amp; Alchemist
           </p>
 
-          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-coral px-4 py-1.5 text-xs font-medium uppercase tracking-[0.15em] text-ink-deep">
-            <span className="relative flex h-1.5 w-1.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink-deep/70" />
-              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ink-deep/70" />
+          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-sage px-4 py-1.5 text-xs font-medium uppercase tracking-[0.15em] text-ink-deep">
+            <span className="relative flex h-4 w-4 items-center justify-center">
+              <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-ink-deep/40" />
+              <MapPinIcon className="relative h-3.5 w-3.5 text-ink-deep" />
             </span>
             Los Angeles · On-Location &amp; Remote
           </div>
