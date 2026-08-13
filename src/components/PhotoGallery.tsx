@@ -45,7 +45,7 @@ export default function PhotoGallery({
 
   return (
     <>
-      <div className="mt-10 columns-2 gap-4 sm:columns-3">
+      <div className="mt-14 columns-2 gap-4 sm:columns-3">
         {items.map((item, i) =>
           item.type === "youtube" ? (
             <div

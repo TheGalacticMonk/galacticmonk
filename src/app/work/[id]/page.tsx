@@ -5,6 +5,7 @@ import { CATEGORY_LABEL, WORK } from "@/lib/work";
 import PhotoGallery from "@/components/PhotoGallery";
 import ExpandableImage from "@/components/ExpandableImage";
 import JsonLd from "@/components/JsonLd";
+import Sparkle from "@/components/Sparkle";
 import { getWorkItemSchema } from "@/lib/schema";
 
 export function generateStaticParams() {
@@ -48,7 +49,7 @@ export default async function WorkDetailPage({
         ← Back to Work
       </Link>
 
-      <div className="mt-6 text-xs uppercase tracking-[0.2em] text-gold">
+      <div className="mt-8 text-xs uppercase tracking-[0.2em] text-gold">
         {item.categoryLabel ?? CATEGORY_LABEL[item.category]} · {item.year}
       </div>
       <h1 className="mt-3 font-serif text-3xl text-cream sm:text-4xl">
@@ -59,7 +60,7 @@ export default async function WorkDetailPage({
       </p>
 
       {item.vimeoId ? (
-        <div className="relative mt-10 aspect-video w-full">
+        <div className="relative mt-14 aspect-video w-full">
           <iframe
             src={`https://player.vimeo.com/video/${item.vimeoId}`}
             title={item.title}
@@ -69,7 +70,7 @@ export default async function WorkDetailPage({
           />
         </div>
       ) : item.video ? (
-        <div className="relative mt-10 overflow-hidden rounded-2xl shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]">
+        <div className="relative mt-14 overflow-hidden rounded-2xl shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]">
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
           <video
             src={item.video}
@@ -81,7 +82,7 @@ export default async function WorkDetailPage({
           />
         </div>
       ) : item.audio ? (
-        <div className="mt-10">
+        <div className="mt-14">
           {item.image && (
             <ExpandableImage
               src={item.image}
@@ -106,15 +107,38 @@ export default async function WorkDetailPage({
         />
       )}
 
+      {item.credits && item.credits.length > 0 && (
+        <div className="mt-14 max-w-2xl">
+          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold">
+            <Sparkle className="h-3 w-3" />
+            Credits
+          </div>
+          <dl className="mt-5 grid grid-cols-1 gap-y-3 text-sm sm:grid-cols-[minmax(0,180px)_1fr] sm:gap-x-6 sm:gap-y-2.5">
+            {item.credits.map(({ role, name }) => (
+              <div key={role} className="contents">
+                <dt className="text-cream-dim/60">{role}</dt>
+                <dd className="text-cream">{name}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      )}
+
       {item.details && (
-        <p className="mt-4 max-w-2xl whitespace-pre-line text-sm leading-relaxed text-cream-dim/70">
-          {item.details}
-        </p>
+        <div className={`max-w-2xl ${item.credits?.length ? "mt-10" : "mt-14"}`}>
+          <div className="flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold">
+            <Sparkle className="h-3 w-3" />
+            Gear
+          </div>
+          <p className="mt-5 text-sm leading-relaxed text-cream-dim/70">
+            {item.details}
+          </p>
+        </div>
       )}
 
       <Link
         href="/contact/"
-        className="mt-10 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105"
+        className="mt-14 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105"
       >
         Work With Me
       </Link>

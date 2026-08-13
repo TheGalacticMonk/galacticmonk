@@ -14,6 +14,7 @@ export type WorkItem = {
   vimeoId?: string;
   youtubeId?: string;
   audio?: string;
+  credits?: { role: string; name: string }[];
   details?: string;
   gallery?: string[];
   categoryLabel?: string;
@@ -39,15 +40,17 @@ export const WORK: WorkItem[] = [
     accent: "coral",
     image: "/work/cover-images/msm-mind-control-cover.jpg",
     vimeoId: "1197906457",
-    details: `Actor: Jason Lee
-Director: Jason Lee
-Producer: Jason Lee
-Cinematographer: Jason Lee
-Editor: Jason Lee
-Color grading: Jason Lee
-Sound design: Jason Lee
-
-Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Edit, sound design, and color grade all done in DaVinci Resolve.`,
+    credits: [
+      { role: "Actor", name: "Jason Lee" },
+      { role: "Director", name: "Jason Lee" },
+      { role: "Producer", name: "Jason Lee" },
+      { role: "Cinematographer", name: "Jason Lee" },
+      { role: "Editor", name: "Jason Lee" },
+      { role: "Color Grading", name: "Jason Lee" },
+      { role: "Sound Design", name: "Jason Lee" },
+    ],
+    details:
+      "Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Edit, sound design, and color grade all done in DaVinci Resolve.",
   },
   {
     id: "put-your-phone-down",
@@ -58,18 +61,20 @@ Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Edit, 
     accent: "coral",
     image: "/work/cover-images/put-your-phone-down-macro-cover.jpg",
     vimeoId: "1207633805",
-    details: `Director: Andrea Gallardo Díaz
-Writer: Andrea Gallardo Díaz
-Producer: Jason Lee
-Actors: Andrea Gallardo Díaz, Justice Dillard
-Director of Photography: Jason Lee
-Editor: Andrea Gallardo Díaz
-Sound Designer: Andrea Gallardo Díaz
-Colorists: Jason Lee, Andrea Gallardo Díaz
-Re-Recording Mixer: Jason Lee
-Location: Hermosa Beach, CA
-
-Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in DaVinci Resolve. ADR and sound design done in Pro Tools.`,
+    credits: [
+      { role: "Director", name: "Andrea Gallardo Díaz" },
+      { role: "Writer", name: "Andrea Gallardo Díaz" },
+      { role: "Producer", name: "Jason Lee" },
+      { role: "Actors", name: "Andrea Gallardo Díaz, Justice Dillard" },
+      { role: "Director of Photography", name: "Jason Lee" },
+      { role: "Editor", name: "Andrea Gallardo Díaz" },
+      { role: "Sound Designer", name: "Andrea Gallardo Díaz" },
+      { role: "Colorists", name: "Jason Lee, Andrea Gallardo Díaz" },
+      { role: "Re-Recording Mixer", name: "Jason Lee" },
+      { role: "Location", name: "Hermosa Beach, CA" },
+    ],
+    details:
+      "Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in DaVinci Resolve. ADR and sound design done in Pro Tools.",
   },
   {
     id: "2026-07-garden-party",
@@ -110,15 +115,17 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     accent: "coral",
     image: "/work/cover-images/flow-state-cover.jpg",
     vimeoId: "1211282016",
-    details: `Director: Andrea Gallardo
-Producer: Jason Lee
-A-Cam: Jason Lee
-B-Cam: Ruby
-Editor: Andrea Gallardo, Tim Blackman, Jason Lee
-Colorist: Jason Lee, Tim Blackman
-Sound Mixer: Tim Blackman
-
-A-CAM, shot on RED Komodo, DZOFILM Vespid prime lenses. B-Cam, Canon. Edited and color graded in Davinci Resolve.`,
+    credits: [
+      { role: "Director", name: "Andrea Gallardo" },
+      { role: "Producer", name: "Jason Lee" },
+      { role: "A-Cam", name: "Jason Lee" },
+      { role: "B-Cam", name: "Ruby" },
+      { role: "Editor", name: "Andrea Gallardo, Tim Blackman, Jason Lee" },
+      { role: "Colorist", name: "Jason Lee, Tim Blackman" },
+      { role: "Sound Mixer", name: "Tim Blackman" },
+    ],
+    details:
+      "A-Cam shot on RED Komodo, DZOFILM Vespid prime lenses. B-Cam, Canon. Edited and color graded in DaVinci Resolve.",
   },
   {
     id: "2026-06-garden-party",
