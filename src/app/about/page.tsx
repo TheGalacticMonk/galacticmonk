@@ -42,7 +42,7 @@ export default function AboutPage() {
               self-mastery.
             </p>
             <p>
-              Every creative project begins with raw material: an idea, an
+              Every creative project begins with raw muse: an idea, an
               image, a sound, a feeling. The craft is in transforming those
               elements into something greater. As an alchemist, Galactic
               Monk perceives the creative process as a practice of
