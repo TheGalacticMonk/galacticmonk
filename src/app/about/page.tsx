@@ -64,7 +64,7 @@ export default function AboutPage() {
               tools are mastered. New perspectives become part of the
               process. His aim is never simply to create content, but to
               continually refine his craft and manifest magic worthy of
-              being casted into our mystic evolving Universe.
+              being casted into our mystically evolving beautiful Universe.
             </p>
           </div>
 
