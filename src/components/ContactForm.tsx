@@ -112,7 +112,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "pending"}
-        className="btn-nova text-sm font-medium tracking-wide"
+        className="btn-nova btn-nova-urgent btn-nova-urgent-coral text-sm font-medium tracking-wide"
       >
         <span className="btn-nova-inner">
           <strong className="btn-nova-label">

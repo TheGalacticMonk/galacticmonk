@@ -24,8 +24,8 @@ export default function Hero() {
 
   return (
     <section className="swirl-bg relative flex min-h-screen items-center overflow-hidden pt-24">
-      <Sparkle className="pointer-events-none absolute left-[10%] top-[28%] h-6 w-6 text-gold/60" />
-      <Sparkle className="pointer-events-none absolute right-[10%] top-[28%] h-6 w-6 text-gold/60" />
+      <Sparkle className="pointer-events-none absolute left-[10%] top-[28%] h-6 w-6 text-coral/60" />
+      <Sparkle className="pointer-events-none absolute right-[10%] top-[28%] h-6 w-6 text-coral/60" />
       <Sparkle className="pointer-events-none absolute bottom-[22%] left-[18%] h-4 w-4 text-sage/60" />
       <Sparkle className="pointer-events-none absolute bottom-[22%] right-[18%] h-4 w-4 text-sage/60" />
 

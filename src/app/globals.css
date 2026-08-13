@@ -223,6 +223,20 @@ body {
     btn-nova-urgent-pulse 1.1s ease-in-out infinite;
 }
 
+/* Coral variant: for the button that actually sends, distinct from the
+   gold pulse used on buttons that merely lead to the contact page. */
+.btn-nova-urgent.btn-nova-urgent-coral {
+  animation:
+    btn-nova-gradient 5s ease infinite,
+    btn-nova-urgent-pulse-coral 2.2s ease-in-out infinite;
+}
+
+.btn-nova-urgent.btn-nova-urgent-coral:hover {
+  animation:
+    btn-nova-gradient 5s ease infinite,
+    btn-nova-urgent-pulse-coral 1.1s ease-in-out infinite;
+}
+
 /* Lighter touch for smaller/repeated controls (e.g. filter pills): just the
    rings and glow, no sheen, so a row of them doesn't feel busy. */
 .btn-ripple {
@@ -308,6 +322,16 @@ body {
   }
   50% {
     box-shadow: 0 0 26px 6px rgba(255, 212, 73, 0.9);
+  }
+}
+
+@keyframes btn-nova-urgent-pulse-coral {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 0px rgba(248, 118, 102, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 26px 6px rgba(248, 118, 102, 0.9);
   }
 }
 
