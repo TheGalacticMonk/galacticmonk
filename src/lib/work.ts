@@ -35,7 +35,7 @@ export const WORK: WorkItem[] = [
     title: "Mainstream Media Mind Control Shirt Ad",
     category: "film",
     year: "2026",
-    blurb: "Short film - acting, edit, color grade, and sound design.",
+    blurb: "Short film - acting, production, cinematography, edit, color grade, and sound design.",
     accent: "coral",
     image: "/work/cover-images/msm-mind-control-cover.jpg",
     vimeoId: "1197906457",
