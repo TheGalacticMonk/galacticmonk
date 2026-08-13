@@ -14,7 +14,7 @@ export default function WorkPage() {
       <SectionHeading
         eyebrow="Portfolio"
         title="Work"
-        description="A cross-section of film, photography, and audio work — filter by discipline below."
+        description="A variety of film, video, photography, and audio work — filter by discipline below."
       />
       <div className="mt-10">
         <WorkGrid />
