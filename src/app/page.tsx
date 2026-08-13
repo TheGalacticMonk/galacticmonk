@@ -57,7 +57,7 @@ export default function Home() {
         />
         <Link
           href="/contact/"
-          className="mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105"
+          className="btn-alchemy btn-alchemy-gold mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-[transform,box-shadow] duration-300 hover:scale-105 hover:shadow-[0_0_34px_-6px_rgba(255,212,73,0.6)]"
         >
           Reach Out
         </Link>
