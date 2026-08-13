@@ -12,6 +12,7 @@ export type WorkItem = {
   image?: string;
   video?: string;
   vimeoId?: string;
+  videoAspect?: string;
   youtubeId?: string;
   audio?: string;
   credits?: { role: string; name: string }[];
@@ -40,6 +41,7 @@ export const WORK: WorkItem[] = [
     accent: "coral",
     image: "/work/cover-images/msm-mind-control-cover.jpg",
     vimeoId: "1197906457",
+    videoAspect: "1920 / 810",
     credits: [
       { role: "Actor", name: "Jason Lee" },
       { role: "Director", name: "Jason Lee" },
@@ -62,6 +64,7 @@ export const WORK: WorkItem[] = [
     accent: "coral",
     image: "/work/cover-images/put-your-phone-down-macro-cover.jpg",
     vimeoId: "1207633805",
+    videoAspect: "1920 / 800",
     credits: [
       { role: "Director", name: "Andrea Gallardo Díaz" },
       { role: "Writer", name: "Andrea Gallardo Díaz" },
@@ -189,6 +192,8 @@ export const WORK: WorkItem[] = [
         role: "Artist",
         name: "Billion Years Old, Galactic Monk, Mickey Factz, Becca Berry",
       },
+      { role: "Executive Producer", name: "Jason Lee" },
+      { role: "Beat Producer", name: "hozay williams" },
       { role: "Writer", name: "Jason Lee, Mickey Factz, Becca Berry" },
       { role: "Recording Engineer", name: "Jason Lee" },
       { role: "Mix Engineer", name: "Jason Lee" },
@@ -210,6 +215,8 @@ export const WORK: WorkItem[] = [
     audio: "/work/photographic-memories/photographic-memories.mp3",
     credits: [
       { role: "Artist", name: "Billion Years Old, Galactic Monk, Becca Berry" },
+      { role: "Executive Producer", name: "Jason Lee" },
+      { role: "Beat Producer", name: "surfingbeats" },
       { role: "Writer", name: "Jason Lee" },
       { role: "Recording Engineer", name: "Jason Lee" },
       { role: "Mix Engineer", name: "Jason Lee" },
@@ -233,6 +240,8 @@ export const WORK: WorkItem[] = [
     audio: "/work/epstein-island/epstein-island.mp3",
     credits: [
       { role: "Artist", name: "Galactic Monk, Blu, AnarKy I" },
+      { role: "Executive Producer", name: "Jason Lee" },
+      { role: "Beat Producer", name: "E L I" },
       { role: "Writer", name: "Jason Lee, Blu, AnarKy I" },
       { role: "Recording Engineer", name: "Jason Lee" },
       { role: "Mix Engineer", name: "Jason Lee" },
