@@ -42,7 +42,7 @@ export default function AboutPage() {
 
           <div className="mt-8 max-w-2xl space-y-6 text-base leading-relaxed text-cream-dim">
             <p className="text-lg leading-relaxed text-cream">
-              Galactic Monk is a Los Angeles-based creative producer and
+              Jason Lee is a Los Angeles-based creative producer and
               multidimensional artist driven by the pursuit of
               self-mastery.
             </p>
