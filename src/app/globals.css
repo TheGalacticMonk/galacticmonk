@@ -67,3 +67,91 @@ body {
 .input:focus {
   box-shadow: 0 0 0 2px var(--color-gold);
 }
+
+/* Alchemical hover: a light sheen sweeps across the button while a ring of
+   energy ripples outward from its edge, like the pull of a portal. */
+.btn-alchemy {
+  position: relative;
+  isolation: isolate;
+  background-image: linear-gradient(
+    115deg,
+    transparent 40%,
+    rgba(245, 241, 232, 0.55) 50%,
+    transparent 60%
+  );
+  background-size: 250% 100%;
+  background-position: 150% 0;
+  background-repeat: no-repeat;
+}
+
+.btn-alchemy::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  border: 1px solid var(--ripple-color, currentColor);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Filled gold buttons use a dark ink text color for contrast, which would
+   make a currentColor ripple invisible against the dark page — use cream. */
+.btn-alchemy-gold {
+  --ripple-color: var(--color-cream);
+}
+
+.btn-alchemy:hover {
+  animation: btn-sheen 0.9s ease forwards;
+}
+
+.btn-alchemy:hover::after {
+  animation: btn-ripple 0.8s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+/* Lighter touch for smaller/repeated controls (e.g. filter pills): just the
+   ripple, no sheen, so a row of them doesn't feel busy. */
+.btn-ripple {
+  position: relative;
+  isolation: isolate;
+}
+
+.btn-ripple::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  border: 1px solid currentColor;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.btn-ripple:hover::after {
+  animation: btn-ripple 0.7s cubic-bezier(0.2, 0.65, 0.3, 1);
+}
+
+@keyframes btn-sheen {
+  to {
+    background-position: -50% 0;
+  }
+}
+
+@keyframes btn-ripple {
+  0% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.35);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-alchemy:hover,
+  .btn-alchemy:hover::after,
+  .btn-ripple:hover::after {
+    animation: none;
+  }
+}

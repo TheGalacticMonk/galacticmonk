@@ -87,13 +87,13 @@ export default function Hero() {
         >
           <Link
             href="/work/"
-            className="rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105"
+            className="btn-alchemy btn-alchemy-gold rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-[transform,box-shadow] duration-300 hover:scale-105 hover:shadow-[0_0_34px_-6px_rgba(255,212,73,0.6)]"
           >
             View the Work
           </Link>
           <Link
             href="/contact/"
-            className="rounded-full border border-cream/30 px-8 py-3 text-sm font-medium tracking-wide text-cream transition-colors hover:border-gold hover:text-gold"
+            className="btn-alchemy rounded-full border border-cream/30 px-8 py-3 text-sm font-medium tracking-wide text-cream transition-[color,border-color,box-shadow] duration-300 hover:border-gold hover:text-gold hover:shadow-[0_0_28px_-10px_rgba(255,212,73,0.45)]"
           >
             Work With Me
           </Link>

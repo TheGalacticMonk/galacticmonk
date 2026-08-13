@@ -30,7 +30,7 @@ export default function WorkGrid() {
             key={f.key}
             type="button"
             onClick={() => setFilter(f.key)}
-            className={`rounded-full border px-4 py-2 text-sm tracking-wide transition-colors ${
+            className={`btn-ripple rounded-full border px-4 py-2 text-sm tracking-wide transition-colors ${
               filter === f.key
                 ? "border-gold bg-gold/10 text-gold"
                 : "border-cream/20 text-cream-dim hover:border-cream/40 hover:text-cream"

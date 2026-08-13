@@ -112,7 +112,7 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "pending"}
-        className="rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform hover:scale-105 disabled:opacity-60 disabled:hover:scale-100"
+        className="btn-alchemy btn-alchemy-gold rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-[transform,box-shadow] duration-300 hover:scale-105 hover:shadow-[0_0_34px_-6px_rgba(255,212,73,0.6)] disabled:opacity-60 disabled:hover:scale-100 disabled:hover:shadow-none"
       >
         {status === "pending" ? "Sending..." : "Send Energy"}
       </button>
