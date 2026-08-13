@@ -218,7 +218,7 @@ export const WORK: WorkItem[] = [
     credits: [
       { role: "Artist", name: "Billion Years Old, Galactic Monk, Becca Berry" },
       { role: "Executive Producer", name: "Jason Lee" },
-      { role: "Beat Producer", name: "surfingbeats" },
+      { role: "Beat Producer", name: "Surfing" },
       { role: "Hook Writer", name: "Jason Lee" },
       { role: "Rap Writer", name: "Jason Lee" },
       { role: "Recording Engineer", name: "Jason Lee" },
