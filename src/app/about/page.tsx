@@ -59,7 +59,7 @@ export default function AboutPage() {
               end output.
             </p>
             <p>
-              The heart &amp; soul of Galactic Monk's alchemy has been a lifelong pursuit of knowledge,
+              The spirit of Galactic Monk's alchemy has been a lifelong pursuit of knowledge,
               wisdom, and experience. New techniques are explored. New
               tools are mastered. New perspectives become part of the
               process. His aim is never simply to create content, but to
