@@ -27,7 +27,7 @@ const PILLARS = [
     title: "Web Design & Dev",
     accent: "cream" as const,
     description:
-      "Coded with Claude — no drag and drop builders which have limitations. Your website could look as good as this one.",
+      "This website was coded via Claude using no drag and drop builders (they have many limitations). Your website could look as good as this one, while avoiding the premium web agencies will charge you for no good reason.",
   },
 ];
 
@@ -48,7 +48,7 @@ export default function ServicePillars() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: i * 0.1 }}
-          className="pillar-card aspect-square rounded-2xl p-6 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)]"
+          className="pillar-card min-h-72 rounded-2xl p-6 pb-8 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)]"
         >
           <div className="flex h-full flex-col">
             <Sparkle className={`h-5 w-5 ${ACCENT_TEXT[pillar.accent]}`} />
