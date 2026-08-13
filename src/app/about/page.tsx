@@ -55,7 +55,7 @@ export default function AboutPage() {
               production, photography, and audio recording, mixing &amp;
               mastering. From concept and production through editing and
               final delivery, each project is approached with curiosity,
-              precision, and an obsessive attention to quality of the
+              precision, and an obsessive attention to the quality of the
               end output.
             </p>
             <p>
