@@ -56,7 +56,7 @@ export default function AboutPage() {
               mastering. From concept and production through editing and
               final delivery, each project is approached with curiosity,
               precision, and an obsessive attention to quality of the
-              output.
+              end output.
             </p>
             <p>
               At the heart of Monk's alchemy is a lifelong pursuit of knowledge,
