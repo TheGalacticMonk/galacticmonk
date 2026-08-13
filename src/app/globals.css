@@ -68,59 +68,140 @@ body {
   box-shadow: 0 0 0 2px var(--color-gold);
 }
 
-/* Alchemical hover: a light sheen sweeps across the button, its aura
-   breathes brighter and dimmer, and twin rings of energy pulse outward
-   from its edge in a steady rhythm, like the pull of a portal. */
-.btn-alchemy {
-  position: relative;
-  isolation: isolate;
-  --glow-color: rgba(255, 212, 73, 0.35);
-  --glow-peak: rgba(255, 212, 73, 0.75);
+/* Nova buttons: a dark pill with a shimmering gold border, adapted from
+   https://uiverse.io/DrashtySoni/tender-gecko-65 (MIT) to this site's
+   palette. A starfield drifts behind the label, hidden until touched. */
+.btn-nova {
+  display: inline-flex;
+  border-radius: 9999px;
+  padding: 3px;
   background-image: linear-gradient(
-    115deg,
-    transparent 40%,
-    rgba(245, 241, 232, 0.55) 50%,
-    transparent 60%
+    135deg,
+    #fff6d8 6%,
+    var(--color-gold) 42%,
+    #ffb238 68%,
+    var(--color-gold) 92%
   );
-  background-size: 250% 100%;
-  background-position: 150% 0;
-  background-repeat: no-repeat;
+  background-size: 300% 300%;
+  transition: transform 0.4s ease;
+  animation: btn-nova-gradient 5s ease infinite;
 }
 
-.btn-alchemy::before,
-.btn-alchemy::after {
-  content: "";
+.btn-nova-inner {
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  border-radius: inherit;
+  padding: 0.8rem 2rem;
+  background: var(--color-ink-deep);
+  backdrop-filter: blur(1rem);
+}
+
+.btn-nova-label {
+  position: relative;
+  z-index: 2;
+  font: inherit;
+  letter-spacing: inherit;
+  color: var(--color-cream);
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.6);
+}
+
+.btn-nova-stars {
   position: absolute;
   inset: 0;
   z-index: -1;
+  overflow: hidden;
   border-radius: inherit;
-  border: 2px solid var(--ripple-color, currentColor);
-  box-shadow: 0 0 16px 1px var(--ripple-color, currentColor);
-  opacity: 0;
+  transition: 0.5s;
   pointer-events: none;
 }
 
-/* Filled gold buttons use a dark ink text color for contrast, which would
-   make a currentColor ripple invisible against the dark page — use cream. */
-.btn-alchemy-gold {
-  --ripple-color: var(--color-cream);
-  --glow-color: rgba(255, 212, 73, 0.55);
-  --glow-peak: rgba(255, 212, 73, 0.95);
+/* A starfield far larger than the button, glimpsed through a small clipped
+   window — matches the source template's scale so the drift/rotation reads
+   as vast and slow rather than an obvious looping tile. */
+.btn-nova-stars-field {
+  display: block;
+  position: relative;
+  background: transparent;
+  width: 200rem;
+  height: 200rem;
 }
 
-.btn-alchemy:hover {
-  animation:
-    btn-sheen 0.9s ease forwards,
-    btn-glow-pulse 1.4s ease-in-out infinite;
+.btn-nova-stars-field::after {
+  content: "";
+  position: absolute;
+  top: -10rem;
+  left: -100rem;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  animation: btn-nova-star-rotate 90s linear infinite;
 }
 
-.btn-alchemy:hover::after {
-  animation: btn-ripple 1.4s cubic-bezier(0.2, 0.65, 0.3, 1) infinite;
+.btn-nova-stars-field::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 170%;
+  height: 500%;
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+  opacity: 0.5;
+  animation: btn-nova-star-drift 60s linear infinite;
 }
 
-.btn-alchemy:hover::before {
-  animation: btn-ripple 1.4s cubic-bezier(0.2, 0.65, 0.3, 1) infinite;
-  animation-delay: 0.5s;
+.btn-nova-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+.btn-nova-circle {
+  flex: 1;
+  height: 30px;
+  filter: blur(1.5rem);
+  background: rgba(255, 212, 73, 0.4);
+  animation: btn-nova-pulse 4s infinite;
+}
+
+.btn-nova-circle + .btn-nova-circle {
+  animation-delay: 1.3s;
+}
+
+.btn-nova:hover {
+  transform: scale(1.05);
+}
+
+.btn-nova:hover .btn-nova-stars {
+  z-index: 1;
+  background-color: var(--color-ink-deep);
+}
+
+.btn-nova:active {
+  animation: none;
+  background-image: linear-gradient(135deg, var(--color-coral), var(--color-coral));
+}
+
+.btn-nova:active .btn-nova-circle {
+  background: var(--color-coral);
+}
+
+.btn-nova:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-nova:disabled:hover {
+  transform: none;
 }
 
 /* Lighter touch for smaller/repeated controls (e.g. filter pills): just the
@@ -158,9 +239,46 @@ body {
   animation-delay: 0.5s;
 }
 
-@keyframes btn-sheen {
+@keyframes btn-nova-gradient {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes btn-nova-star-rotate {
+  from {
+    transform: rotate(360deg);
+  }
   to {
-    background-position: -50% 0;
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes btn-nova-star-drift {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes btn-nova-pulse {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(255, 212, 73, 0.5);
+  }
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 12px rgba(255, 212, 73, 0);
+  }
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(255, 212, 73, 0);
   }
 }
 
@@ -187,12 +305,17 @@ body {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .btn-alchemy:hover,
-  .btn-alchemy:hover::after,
-  .btn-alchemy:hover::before,
   .btn-ripple:hover,
   .btn-ripple:hover::after,
-  .btn-ripple:hover::before {
+  .btn-ripple:hover::before,
+  .btn-nova,
+  .btn-nova-stars-field::before,
+  .btn-nova-stars-field::after,
+  .btn-nova-circle {
     animation: none;
+  }
+
+  .btn-nova:hover {
+    transform: none;
   }
 }

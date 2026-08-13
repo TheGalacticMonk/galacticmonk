@@ -86,17 +86,29 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Link
-            href="/work/"
-            className="btn-alchemy btn-alchemy-gold rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform duration-300 hover:scale-105"
-          >
-            Experience My Work
+          <Link href="/work/" className="btn-nova text-sm font-medium tracking-wide">
+            <span className="btn-nova-inner">
+              <strong className="btn-nova-label">Experience My Work</strong>
+              <span className="btn-nova-stars" aria-hidden="true">
+                <span className="btn-nova-stars-field" />
+              </span>
+              <span className="btn-nova-glow" aria-hidden="true">
+                <span className="btn-nova-circle" />
+                <span className="btn-nova-circle" />
+              </span>
+            </span>
           </Link>
-          <Link
-            href="/contact/"
-            className="btn-alchemy rounded-full border border-cream/30 px-8 py-3 text-sm font-medium tracking-wide text-cream transition-[color,border-color] duration-300 hover:border-gold hover:text-gold"
-          >
-            Work With Me
+          <Link href="/contact/" className="btn-nova text-sm font-medium tracking-wide">
+            <span className="btn-nova-inner">
+              <strong className="btn-nova-label">Work With Me</strong>
+              <span className="btn-nova-stars" aria-hidden="true">
+                <span className="btn-nova-stars-field" />
+              </span>
+              <span className="btn-nova-glow" aria-hidden="true">
+                <span className="btn-nova-circle" />
+                <span className="btn-nova-circle" />
+              </span>
+            </span>
           </Link>
         </motion.div>
       </div>

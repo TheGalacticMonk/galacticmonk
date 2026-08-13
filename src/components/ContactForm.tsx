@@ -112,9 +112,20 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={status === "pending"}
-        className="btn-alchemy btn-alchemy-gold rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform duration-300 hover:scale-105 disabled:opacity-60 disabled:hover:scale-100"
+        className="btn-nova text-sm font-medium tracking-wide"
       >
-        {status === "pending" ? "Sending..." : "Send Energy"}
+        <span className="btn-nova-inner">
+          <strong className="btn-nova-label">
+            {status === "pending" ? "Sending..." : "Send Energy"}
+          </strong>
+          <span className="btn-nova-stars" aria-hidden="true">
+            <span className="btn-nova-stars-field" />
+          </span>
+          <span className="btn-nova-glow" aria-hidden="true">
+            <span className="btn-nova-circle" />
+            <span className="btn-nova-circle" />
+          </span>
+        </span>
       </button>
     </form>
   );

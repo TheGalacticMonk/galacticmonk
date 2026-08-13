@@ -139,11 +139,17 @@ export default async function WorkDetailPage({
         </div>
       )}
 
-      <Link
-        href="/contact/"
-        className="btn-alchemy btn-alchemy-gold mt-14 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform duration-300 hover:scale-105"
-      >
-        Work With Me
+      <Link href="/contact/" className="btn-nova mt-14 text-sm font-medium tracking-wide">
+        <span className="btn-nova-inner">
+          <strong className="btn-nova-label">Work With Me</strong>
+          <span className="btn-nova-stars" aria-hidden="true">
+            <span className="btn-nova-stars-field" />
+          </span>
+          <span className="btn-nova-glow" aria-hidden="true">
+            <span className="btn-nova-circle" />
+            <span className="btn-nova-circle" />
+          </span>
+        </span>
       </Link>
     </section>
   );

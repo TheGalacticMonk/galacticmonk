@@ -55,11 +55,17 @@ export default function Home() {
           title="Have creative in mind?"
           description="Whether it's a film, a photoshoot, or hit record - let's manifest the magic you're weaving."
         />
-        <Link
-          href="/contact/"
-          className="btn-alchemy btn-alchemy-gold mt-8 inline-block rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform duration-300 hover:scale-105"
-        >
-          Reach Out
+        <Link href="/contact/" className="btn-nova mt-8 text-sm font-medium tracking-wide">
+          <span className="btn-nova-inner">
+            <strong className="btn-nova-label">Reach Out</strong>
+            <span className="btn-nova-stars" aria-hidden="true">
+              <span className="btn-nova-stars-field" />
+            </span>
+            <span className="btn-nova-glow" aria-hidden="true">
+              <span className="btn-nova-circle" />
+              <span className="btn-nova-circle" />
+            </span>
+          </span>
         </Link>
       </section>
     </>
