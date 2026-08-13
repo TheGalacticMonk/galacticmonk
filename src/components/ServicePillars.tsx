@@ -9,7 +9,7 @@ const PILLARS = [
     title: "Film & Video",
     accent: "coral" as const,
     description:
-      "Concept, production, and post — short films, events, brand spots, and documentary work cut and color graded end to end.",
+      "Concept, production, and post — short films, events, brand spots, and documentary work cut and color graded end to end. Whether you need a cinematic film look, or sharp and modern for social media, I have the gear.",
   },
   {
     title: "Photography",
