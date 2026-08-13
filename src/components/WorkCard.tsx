@@ -15,6 +15,18 @@ const ACCENT_TEXT = {
   sage: "text-sage",
 };
 
+const ACCENT_BORDER = {
+  gold: "border-[rgba(255,212,73,0.3)] hover:border-[rgba(255,212,73,0.8)]",
+  coral: "border-[rgba(248,118,102,0.3)] hover:border-[rgba(248,118,102,0.8)]",
+  sage: "border-[rgba(115,158,130,0.3)] hover:border-[rgba(115,158,130,0.8)]",
+};
+
+const ACCENT_GLOW = {
+  gold: "hover:shadow-[0_16px_40px_-14px_rgba(0,0,0,0.7),0_0_32px_-8px_rgba(255,212,73,0.55)]",
+  coral: "hover:shadow-[0_16px_40px_-14px_rgba(0,0,0,0.7),0_0_32px_-8px_rgba(248,118,102,0.55)]",
+  sage: "hover:shadow-[0_16px_40px_-14px_rgba(0,0,0,0.7),0_0_32px_-8px_rgba(115,158,130,0.55)]",
+};
+
 const OBJECT_POSITION = {
   top: "object-top",
   center: "object-center",
@@ -25,7 +37,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
   return (
     <Link
       href={`/work/${item.id}/`}
-      className="group block overflow-hidden rounded-2xl bg-ink-deep/60 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_16px_40px_-14px_rgba(0,0,0,0.7)]"
+      className={`group block overflow-hidden rounded-2xl border bg-ink-deep/60 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-all duration-300 hover:-translate-y-1 ${ACCENT_BORDER[item.accent]} ${ACCENT_GLOW[item.accent]}`}
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         {item.image ? (
