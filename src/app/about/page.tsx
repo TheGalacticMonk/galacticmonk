@@ -50,16 +50,16 @@ export default function AboutPage() {
               into work with energy, intention, and impact.
             </p>
             <p>
-              Operating as a one-person creative studio, Galactic Monk
+              Operating as a solo creative producer, Galactic Monk
               specializes in three interconnected crafts: film &amp; video
               production, photography, and audio recording, mixing &amp;
               mastering. From concept and production through editing and
               final delivery, each project is approached with curiosity,
-              precision, and an obsessive attention to quality that makes
-              your creativity shine eternally.
+              precision, and an obsessive attention to quality of the
+              output.
             </p>
             <p>
-              At the heart of the work is a lifelong pursuit of knowledge,
+              At the heart of Monk's alchemy is a lifelong pursuit of knowledge,
               wisdom, and experience. New techniques are explored. New
               tools are mastered. New perspectives become part of the
               process. The goal is never simply to create content, but to
