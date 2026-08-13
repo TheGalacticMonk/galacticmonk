@@ -189,6 +189,7 @@ export const WORK: WorkItem[] = [
         role: "Artist",
         name: "Billion Years Old, Galactic Monk, Mickey Factz, Becca Berry",
       },
+      { role: "Writer", name: "Jason Lee, Mickey Factz, Becca Berry" },
       { role: "Recording Engineer", name: "Jason Lee" },
       { role: "Mix Engineer", name: "Jason Lee" },
       { role: "Mastering Engineer", name: "Jason Lee" },
@@ -209,14 +210,17 @@ export const WORK: WorkItem[] = [
     audio: "/work/photographic-memories/photographic-memories.mp3",
     credits: [
       { role: "Artist", name: "Billion Years Old, Galactic Monk, Becca Berry" },
+      { role: "Writer", name: "Jason Lee" },
       { role: "Recording Engineer", name: "Jason Lee" },
       { role: "Mix Engineer", name: "Jason Lee" },
       { role: "Mastering Engineer", name: "Jason Lee" },
     ],
+    details:
+      "Recorded with Neumann u87 AI and Great River ME-1NV. Apogee converters.",
   },
   {
     id: "epstein-island",
-    title: "Epstein Island (feat. Blu, AnarKy I)",
+    title: '"Epstein Island" (feat. Blu, AnarKy I)',
     category: "music",
     year: "2026",
     blurb:
@@ -227,6 +231,13 @@ export const WORK: WorkItem[] = [
     image: "/work/epstein-island/epstein-island-cover.jpeg",
     imagePosition: "top",
     audio: "/work/epstein-island/epstein-island.mp3",
+    credits: [
+      { role: "Artist", name: "Galactic Monk, Blu, AnarKy I" },
+      { role: "Writer", name: "Jason Lee, Blu, AnarKy I" },
+      { role: "Recording Engineer", name: "Jason Lee" },
+      { role: "Mix Engineer", name: "Jason Lee" },
+      { role: "Mastering Engineer", name: "Jason Lee" },
+    ],
     details: "Recorded with Pearlman TM-1 and Great River ME-1NV. Apogee converters.",
   },
   {
