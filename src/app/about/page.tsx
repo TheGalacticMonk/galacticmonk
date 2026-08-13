@@ -62,7 +62,7 @@ export default function AboutPage() {
               The heart &amp; soul of Galactic Monk's alchemy has been a lifelong pursuit of knowledge,
               wisdom, and experience. New techniques are explored. New
               tools are mastered. New perspectives become part of the
-              process. The ultimate goal is never simply to create content, but to
+              process. The aim is never simply to create content, but to
               continually refine the craft and manifest magic worthy of
               being casted into our mystic evolving Universe.
             </p>
