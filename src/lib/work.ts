@@ -103,8 +103,15 @@ Shot on RED Komodo & DZOFILM Vespid Prime Lenses. Edit and color grade done in D
     accent: "coral",
     image: "/work/cover-images/flow-state-cover.jpg",
     vimeoId: "1211282016",
-    details:
-      "A-CAM, shot on RED Komodo, DZOFILM Vespid prime lenses. B-Cam, Canon. Edited and color graded in Davinci Resolve.",
+    details: `Director: Andrea Gallardo
+Producer: Jason Lee
+A-Cam: Jason Lee
+B-Cam: Ruby
+Editor: Andrea Gallardo, Tim Blackman, Jason Lee
+Colorist: Jason Lee, Tim Blackman
+Sound Mixer: Tim Blackman
+
+A-CAM, shot on RED Komodo, DZOFILM Vespid prime lenses. B-Cam, Canon. Edited and color graded in Davinci Resolve.`,
   },
   {
     id: "2026-06-garden-party",
