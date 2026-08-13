@@ -27,13 +27,12 @@ export default function AboutPage() {
         </div>
 
         <div>
-          <SectionHeading
-            eyebrow="About"
-            title="Jason Lee"
-            description="Creative Producer & Alchemist."
-          />
+          <SectionHeading eyebrow="About" title="Jason Lee" />
+          <p className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-gold">
+            Creative Producer &amp; Alchemist
+          </p>
 
-          <div className="mt-10 max-w-2xl space-y-6 text-base leading-relaxed text-cream-dim">
+          <div className="mt-8 max-w-2xl space-y-6 text-base leading-relaxed text-cream-dim">
             <p className="text-lg leading-relaxed text-cream">
               Galactic Monk is a Los Angeles-based creative producer and
               multidimensional artist driven by the pursuit of
@@ -66,8 +65,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-8 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold">
-            <Sparkle className="h-3 w-3" />
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-sage/30 bg-sage/5 px-4 py-1.5 text-xs uppercase tracking-[0.15em] text-sage">
+            <span className="h-1.5 w-1.5 rounded-full bg-sage" />
             Los Angeles · On-Location &amp; Remote
           </div>
 
