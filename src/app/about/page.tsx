@@ -27,10 +27,18 @@ export default function AboutPage() {
         </div>
 
         <div>
-          <SectionHeading eyebrow="About" title="Jason Lee — Galactic Monk" />
+          <SectionHeading eyebrow="About" title="Jason Lee | Galactic Monk" />
           <p className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-sage">
             Creative Producer &amp; Alchemist
           </p>
+
+          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-coral px-4 py-1.5 text-xs font-medium uppercase tracking-[0.15em] text-ink-deep">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-ink-deep/70" />
+              <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-ink-deep/70" />
+            </span>
+            Los Angeles · On-Location &amp; Remote
+          </div>
 
           <div className="mt-8 max-w-2xl space-y-6 text-base leading-relaxed text-cream-dim">
             <p className="text-lg leading-relaxed text-cream">
@@ -63,11 +71,6 @@ export default function AboutPage() {
               continually refine the craft and manifest work worthy of
               being released into our mystic Universe.
             </p>
-          </div>
-
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-coral px-4 py-1.5 text-xs font-medium uppercase tracking-[0.15em] text-ink-deep">
-            <span className="h-1.5 w-1.5 rounded-full bg-ink-deep/60" />
-            Los Angeles · On-Location &amp; Remote
           </div>
 
           <div className="mt-12 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
