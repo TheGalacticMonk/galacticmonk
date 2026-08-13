@@ -15,13 +15,13 @@ const PILLARS = [
     title: "Photography",
     accent: "gold" as const,
     description:
-      "Editorial, portrait, event, and commercial photography, shot on location or in studio and edited with a light hand.",
+      "Editorial, portrait, event, and commercial photography, shot on location or in studio. Discounted monthly subscriptions available if you need professional photos consistently, such as for social media.",
   },
   {
     title: "Audio",
     accent: "sage" as const,
     description:
-      "Recording, mixing, and mastering for music, EPs, albums, audiobooks, and film ADR. I carry some of the finest microphones and preamps. All genres.",
+      "Recording, mixing, and mastering for music, EPs, albums, audiobooks, and film ADR. I carry some of the finest microphones and preamps. Sound like you're signed to a major label while independent. All genres.",
   },
   {
     title: "Web Design & Dev",
