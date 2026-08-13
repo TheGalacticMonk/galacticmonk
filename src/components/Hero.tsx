@@ -8,7 +8,6 @@ import Sparkle from "./Sparkle";
 
 export default function Hero() {
   const [expanded, setExpanded] = useState(false);
-  const [photoLoaded, setPhotoLoaded] = useState(false);
 
   useEffect(() => {
     if (!expanded) return;
@@ -46,13 +45,9 @@ export default function Hero() {
           type="button"
           onClick={() => setExpanded(true)}
           aria-label="Expand photo of Jason Lee"
-          initial={{ opacity: 0, y: 16, scale: 0.92 }}
-          animate={
-            photoLoaded
-              ? { opacity: 1, y: 0, scale: 1 }
-              : { opacity: 0, y: 16, scale: 0.92 }
-          }
-          transition={{ duration: 0.8 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 1.1 }}
           className="mx-auto mb-6 block h-36 w-36 cursor-zoom-in overflow-hidden rounded-full shadow-[0_0_40px_-14px_rgba(245,241,232,0.35)] transition-transform hover:scale-105 sm:h-44 sm:w-44"
         >
           <Image
@@ -62,7 +57,6 @@ export default function Hero() {
             height={320}
             sizes="176px"
             priority
-            onLoad={() => setPhotoLoaded(true)}
             className="h-full w-full object-cover"
           />
         </motion.button>
@@ -94,13 +88,13 @@ export default function Hero() {
         >
           <Link
             href="/work/"
-            className="btn-alchemy btn-alchemy-gold rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-[transform,box-shadow] duration-300 hover:scale-105 hover:shadow-[0_0_34px_-6px_rgba(255,212,73,0.6)]"
+            className="btn-alchemy btn-alchemy-gold rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform duration-300 hover:scale-105"
           >
             View the Work
           </Link>
           <Link
             href="/contact/"
-            className="btn-alchemy rounded-full border border-cream/30 px-8 py-3 text-sm font-medium tracking-wide text-cream transition-[color,border-color,box-shadow] duration-300 hover:border-gold hover:text-gold hover:shadow-[0_0_28px_-10px_rgba(255,212,73,0.45)]"
+            className="btn-alchemy rounded-full border border-cream/30 px-8 py-3 text-sm font-medium tracking-wide text-cream transition-[color,border-color] duration-300 hover:border-gold hover:text-gold"
           >
             Work With Me
           </Link>

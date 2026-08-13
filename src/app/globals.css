@@ -68,11 +68,14 @@ body {
   box-shadow: 0 0 0 2px var(--color-gold);
 }
 
-/* Alchemical hover: a light sheen sweeps across the button while a ring of
-   energy ripples outward from its edge, like the pull of a portal. */
+/* Alchemical hover: a light sheen sweeps across the button, its aura
+   breathes brighter and dimmer, and twin rings of energy pulse outward
+   from its edge in a steady rhythm, like the pull of a portal. */
 .btn-alchemy {
   position: relative;
   isolation: isolate;
+  --glow-color: rgba(255, 212, 73, 0.35);
+  --glow-peak: rgba(255, 212, 73, 0.75);
   background-image: linear-gradient(
     115deg,
     transparent 40%,
@@ -84,13 +87,15 @@ body {
   background-repeat: no-repeat;
 }
 
+.btn-alchemy::before,
 .btn-alchemy::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   border-radius: inherit;
-  border: 1px solid var(--ripple-color, currentColor);
+  border: 2px solid var(--ripple-color, currentColor);
+  box-shadow: 0 0 16px 1px var(--ripple-color, currentColor);
   opacity: 0;
   pointer-events: none;
 }
@@ -99,36 +104,58 @@ body {
    make a currentColor ripple invisible against the dark page — use cream. */
 .btn-alchemy-gold {
   --ripple-color: var(--color-cream);
+  --glow-color: rgba(255, 212, 73, 0.55);
+  --glow-peak: rgba(255, 212, 73, 0.95);
 }
 
 .btn-alchemy:hover {
-  animation: btn-sheen 0.9s ease forwards;
+  animation:
+    btn-sheen 0.9s ease forwards,
+    btn-glow-pulse 1.4s ease-in-out infinite;
 }
 
 .btn-alchemy:hover::after {
   animation: btn-ripple 1.4s cubic-bezier(0.2, 0.65, 0.3, 1) infinite;
 }
 
+.btn-alchemy:hover::before {
+  animation: btn-ripple 1.4s cubic-bezier(0.2, 0.65, 0.3, 1) infinite;
+  animation-delay: 0.5s;
+}
+
 /* Lighter touch for smaller/repeated controls (e.g. filter pills): just the
-   ripple, no sheen, so a row of them doesn't feel busy. */
+   rings and glow, no sheen, so a row of them doesn't feel busy. */
 .btn-ripple {
   position: relative;
   isolation: isolate;
+  --glow-color: rgba(255, 212, 73, 0.22);
+  --glow-peak: rgba(255, 212, 73, 0.5);
 }
 
+.btn-ripple::before,
 .btn-ripple::after {
   content: "";
   position: absolute;
   inset: 0;
   z-index: -1;
   border-radius: inherit;
-  border: 1px solid currentColor;
+  border: 1.5px solid currentColor;
+  box-shadow: 0 0 10px 0 currentColor;
   opacity: 0;
   pointer-events: none;
 }
 
+.btn-ripple:hover {
+  animation: btn-glow-pulse 1.4s ease-in-out infinite;
+}
+
 .btn-ripple:hover::after {
   animation: btn-ripple 1.4s cubic-bezier(0.2, 0.65, 0.3, 1) infinite;
+}
+
+.btn-ripple:hover::before {
+  animation: btn-ripple 1.4s cubic-bezier(0.2, 0.65, 0.3, 1) infinite;
+  animation-delay: 0.5s;
 }
 
 @keyframes btn-sheen {
@@ -137,22 +164,35 @@ body {
   }
 }
 
+@keyframes btn-glow-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 18px -4px var(--glow-color);
+  }
+  50% {
+    box-shadow: 0 0 46px 4px var(--glow-peak);
+  }
+}
+
 @keyframes btn-ripple {
   0% {
-    opacity: 0.6;
+    opacity: 0.9;
     transform: scale(1);
   }
   60%,
   100% {
     opacity: 0;
-    transform: scale(1.35);
+    transform: scale(1.45);
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .btn-alchemy:hover,
   .btn-alchemy:hover::after,
-  .btn-ripple:hover::after {
+  .btn-alchemy:hover::before,
+  .btn-ripple:hover,
+  .btn-ripple:hover::after,
+  .btn-ripple:hover::before {
     animation: none;
   }
 }
