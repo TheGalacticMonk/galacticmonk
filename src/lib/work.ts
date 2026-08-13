@@ -200,7 +200,7 @@ export const WORK: WorkItem[] = [
       { role: "Mastering Engineer", name: "Jason Lee" },
     ],
     details:
-      "Recorded with Neumann u87 AI, Great River ME-1NV, and API 3122V. Apogee converters.",
+      "Recorded with Neumann u87 AI microphone, Great River ME-1NV preamp, and API 3122V preamp. Apogee converters.",
   },
   {
     id: "byo-photographic-memories",
@@ -223,7 +223,7 @@ export const WORK: WorkItem[] = [
       { role: "Mastering Engineer", name: "Jason Lee" },
     ],
     details:
-      "Recorded with Neumann u87 AI and Great River ME-1NV. Apogee converters.",
+      "Recorded with Neumann u87 AI microphone and Great River ME-1NV preamp. Apogee converters.",
   },
   {
     id: "epstein-island",
@@ -247,7 +247,8 @@ export const WORK: WorkItem[] = [
       { role: "Mix Engineer", name: "Jason Lee" },
       { role: "Mastering Engineer", name: "Jason Lee" },
     ],
-    details: "Recorded with Pearlman TM-1 and Great River ME-1NV. Apogee converters.",
+    details:
+      "Recorded with Pearlman TM-1 microphone and Great River ME-1NV preamp. Apogee converters.",
   },
   {
     id: "lucid-ep",
