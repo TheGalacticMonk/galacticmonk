@@ -28,7 +28,7 @@ export default function AboutPage() {
 
         <div>
           <SectionHeading eyebrow="About" title="Jason Lee" />
-          <p className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-gold">
+          <p className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-coral">
             Creative Producer &amp; Alchemist
           </p>
 
@@ -65,8 +65,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-sage/30 bg-sage/5 px-4 py-1.5 text-xs uppercase tracking-[0.15em] text-sage">
-            <span className="h-1.5 w-1.5 rounded-full bg-sage" />
+          <div className="mt-8 inline-flex items-center gap-2 rounded-full bg-sage px-4 py-1.5 text-xs font-medium uppercase tracking-[0.15em] text-ink-deep">
+            <span className="h-1.5 w-1.5 rounded-full bg-ink-deep/60" />
             Los Angeles · On-Location &amp; Remote
           </div>
 
