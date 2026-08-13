@@ -13,11 +13,19 @@ export default function Home() {
       <Hero />
 
       <section className="mx-auto max-w-6xl px-6 py-24">
-        <SectionHeading
-          eyebrow="What I Do"
-          title="Three crafts, one master"
-          description="Every element is deliberate, whether it's a camera, a lens, or a mix bus - intentional, hands-on, and a whole lot of alchemy."
-        />
+        <div className="flex flex-wrap items-end justify-between gap-4">
+          <SectionHeading
+            eyebrow="What I Do"
+            title="Three crafts, one master"
+            description="Every element is deliberate, whether it's a camera, a lens, or a mix bus - intentional, hands-on, and a whole lot of alchemy."
+          />
+          <Link
+            href="/about/"
+            className="text-sm tracking-wide text-gold hover:underline"
+          >
+            More about me →
+          </Link>
+        </div>
         <div className="mt-10">
           <ServicePillars />
         </div>
