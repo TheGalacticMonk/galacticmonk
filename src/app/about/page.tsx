@@ -33,8 +33,8 @@ export default function AboutPage() {
             description="Creative Producer & Alchemist."
           />
 
-          <div className="mt-8 space-y-5 text-base leading-relaxed text-cream-dim">
-            <p>
+          <div className="mt-10 max-w-2xl space-y-6 text-base leading-relaxed text-cream-dim">
+            <p className="text-lg leading-relaxed text-cream">
               Galactic Monk is a Los Angeles-based creative producer and
               multidimensional artist driven by the pursuit of
               self-mastery.
@@ -64,10 +64,14 @@ export default function AboutPage() {
               continually refine the craft and manifest work worthy of
               being released into our mystic Universe.
             </p>
-            <p>Based in Los Angeles. Available for on-location and remote projects.</p>
           </div>
 
-          <div className="mt-10 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
+          <div className="mt-8 flex items-center gap-2 text-xs uppercase tracking-[0.25em] text-gold">
+            <Sparkle className="h-3 w-3" />
+            Los Angeles · On-Location &amp; Remote
+          </div>
+
+          <div className="mt-12 flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
             <Sparkle className="h-3 w-3" />
             LET&apos;S CO-CREATE
           </div>
