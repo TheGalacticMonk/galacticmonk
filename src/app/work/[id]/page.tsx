@@ -90,7 +90,7 @@ export default async function WorkDetailPage({
             <ExpandableImage
               src={item.image}
               alt={item.title}
-              className="aspect-square w-full max-w-sm rounded-2xl object-cover shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]"
+              className="aspect-square w-full max-w-sm rounded-3xl object-cover shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]"
             />
           )}
           {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
