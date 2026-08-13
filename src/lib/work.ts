@@ -174,22 +174,31 @@ export const WORK: WorkItem[] = [
   },
   {
     id: "byo-way-beyond-the-stars",
-    title: "BYO - Way Beyond the Stars (feat. Mickey Factz)",
+    title: 'BYO - "Way Beyond the Stars" (feat. Mickey Factz)',
     category: "music",
     year: "2025",
     blurb: "Recorded, mixed, mastered, and pitched feature request to Mickey Factz.",
     description:
-      "Billion Years Old is a side project. I recorded, mixed, and mastered this record, as well as pitched the feature request to Hip-Hop legend Mickey Factz.",
+      "Billion Years Old is a side project I'm on. I was an artist, recording, mixing, and mastering engineer on this project.",
     accent: "sage",
     image: "/work/way-beyond-the-stars/cover.jpg",
     imagePosition: "top",
     audio: "/work/way-beyond-the-stars/way-beyond-the-stars.mp3",
+    credits: [
+      {
+        role: "Artist",
+        name: "Billion Years Old, Galactic Monk, Mickey Factz, Becca Berry",
+      },
+      { role: "Recording Engineer", name: "Jason Lee" },
+      { role: "Mix Engineer", name: "Jason Lee" },
+      { role: "Mastering Engineer", name: "Jason Lee" },
+    ],
     details:
       "Recorded with Neumann u87 AI, Great River ME-1NV, and API 3122V. Apogee converters.",
   },
   {
     id: "byo-photographic-memories",
-    title: "BYO - Photographic Memories",
+    title: 'BYO - "Photographic Memories"',
     category: "music",
     year: "2025",
     blurb:
@@ -198,6 +207,12 @@ export const WORK: WorkItem[] = [
     image: "/work/photographic-memories/photographic-memories-cover.jpg",
     imagePosition: "top",
     audio: "/work/photographic-memories/photographic-memories.mp3",
+    credits: [
+      { role: "Artist", name: "Billion Years Old, Galactic Monk, Becca Berry" },
+      { role: "Recording Engineer", name: "Jason Lee" },
+      { role: "Mix Engineer", name: "Jason Lee" },
+      { role: "Mastering Engineer", name: "Jason Lee" },
+    ],
   },
   {
     id: "epstein-island",
