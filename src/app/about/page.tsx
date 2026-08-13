@@ -61,8 +61,7 @@ export default function AboutPage() {
             <p>
               Galactic Monk's alchemy is intuitive; led by a lifelong pursuit of knowledge,
               wisdom, and experience. New techniques are explored. New
-              tools are mastered. New perspectives become part of the
-              process. His aim is never simply to create content, but to
+              tools are mastered. New perspectives are integrated. His aim is never simply to create content, but to
               continually refine his craft and manifest magic worthy of
               being casted into our mystically evolving breathing Universe.
             </p>
