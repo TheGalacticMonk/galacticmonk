@@ -39,8 +39,15 @@ export const WORK: WorkItem[] = [
     accent: "coral",
     image: "/work/cover-images/msm-mind-control-cover.jpg",
     vimeoId: "1197906457",
-    details:
-      "Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Edit, sound design, and color grade all done in DaVinci Resolve.",
+    details: `Actor: Jason Lee
+Director: Jason Lee
+Producer: Jason Lee
+Cinematographer: Jason Lee
+Editor: Jason Lee
+Color grading: Jason Lee
+Sound design: Jason Lee
+
+Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Edit, sound design, and color grade all done in DaVinci Resolve.`,
   },
   {
     id: "put-your-phone-down",
