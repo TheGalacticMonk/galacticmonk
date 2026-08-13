@@ -43,6 +43,7 @@ export const WORK: WorkItem[] = [
     credits: [
       { role: "Actor", name: "Jason Lee" },
       { role: "Director", name: "Jason Lee" },
+      { role: "Writer", name: "Jason Lee" },
       { role: "Producer", name: "Jason Lee" },
       { role: "Cinematographer", name: "Jason Lee" },
       { role: "Editor", name: "Jason Lee" },
@@ -102,6 +103,7 @@ export const WORK: WorkItem[] = [
       "/work/2026-07-garden-party/poi-spinner.jpg",
       "/work/2026-07-garden-party/aloha-products.jpg",
     ],
+    credits: [{ role: "Photographer", name: "Jason Lee" }],
     details: "Photographed with Canon R3 with Canon RF 24-70 f/2.8L lens.",
   },
   {
@@ -164,6 +166,10 @@ export const WORK: WorkItem[] = [
       "/work/2026-06-garden-party/25.JPG",
       "/work/2026-06-garden-party/garden-party-guests-2.JPG",
     ],
+    credits: [
+      { role: "Photographer", name: "Jason Lee" },
+      { role: "Videographer", name: "Jason Lee" },
+    ],
     details: "Shot on Canon R3 with Canon RF 24-70 f/2.8L lens.",
   },
   {
@@ -180,6 +186,18 @@ export const WORK: WorkItem[] = [
     audio: "/work/way-beyond-the-stars/way-beyond-the-stars.mp3",
     details:
       "Recorded with Neumann u87 AI, Great River ME-1NV, and API 3122V. Apogee converters.",
+  },
+  {
+    id: "byo-photographic-memories",
+    title: "BYO - Photographic Memories",
+    category: "music",
+    year: "2025",
+    blurb:
+      "I was an artist, recording, mixing, and mastering engineer on this project.",
+    accent: "sage",
+    image: "/work/photographic-memories/photographic-memories-cover.jpg",
+    imagePosition: "top",
+    audio: "/work/photographic-memories/photographic-memories.mp3",
   },
   {
     id: "epstein-island",
