@@ -182,7 +182,7 @@ export const WORK: WorkItem[] = [
     year: "2025",
     blurb: "Recorded, mixed, mastered, and pitched feature request to Mickey Factz.",
     description:
-      "Billion Years Old is a side project I'm on. I was an artist, recording, mixing, and mastering engineer on this project.",
+      "Billion Years Old is one of my side projects. I was an artist, recording, mixing, and mastering engineer on this project. I also pitched the feature request to Hip-Hop legend Mickey Factz.",
     accent: "sage",
     image: "/work/way-beyond-the-stars/cover.jpg",
     imagePosition: "top",
@@ -209,6 +209,8 @@ export const WORK: WorkItem[] = [
     year: "2025",
     blurb:
       "I was an artist, recording, mixing, and mastering engineer on this project.",
+    description:
+      "Billion Years Old is one of my side projects. I was an artist, recording, mixing, and mastering engineer on this project.",
     accent: "sage",
     image: "/work/photographic-memories/photographic-memories-cover.jpg",
     imagePosition: "top",
