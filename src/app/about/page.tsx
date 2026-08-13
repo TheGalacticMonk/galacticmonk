@@ -27,10 +27,10 @@ export default function AboutPage() {
             Creative Producer &amp; Alchemist
           </p>
 
-          <div className="mt-4 inline-flex items-center gap-2 rounded-full bg-sage px-4 py-1.5 text-xs font-medium uppercase tracking-[0.15em] text-ink-deep">
+          <div className="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.15em] text-[#6fa9da]">
             <span className="relative flex h-4 w-4 items-center justify-center">
-              <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-ink-deep/40" />
-              <MapPinIcon className="relative h-3.5 w-3.5 text-ink-deep" />
+              <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-[#6fa9da]/40" />
+              <MapPinIcon className="relative h-3.5 w-3.5 text-[#6fa9da]" />
             </span>
             Los Angeles · On-Location &amp; Remote
           </div>
