@@ -82,8 +82,14 @@ export function getPersonSchema() {
     url: BASE_URL,
     jobTitle: "Creative Producer",
     description:
-      "Galactic Monk is the creative production studio of Jason Lee — film & video, photography, and audio recording, mix & master.",
+      "Galactic Monk is the Los Angeles-based creative production studio of Jason Lee — film & video, photography, and audio recording, mix & master.",
     image: `${BASE_URL}/monk-beach.jpg`,
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Los Angeles",
+      addressRegion: "CA",
+      addressCountry: "US",
+    },
     sameAs: [
       "https://www.instagram.com/galacticmonk_/",
       "https://x.com/GalacticMonk_",

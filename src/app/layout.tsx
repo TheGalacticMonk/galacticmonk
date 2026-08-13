@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://galacticmonk.com"),
   title: "Galactic Monk — Creative Producer & Alchemist",
   description:
-    "Galactic Monk is the creative production studio of Jason Lee — film & video, photography, and audio recording, mix & master.",
+    "Galactic Monk is the Los Angeles-based creative production studio of Jason Lee — film & video, photography, and audio recording, mix & master.",
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
