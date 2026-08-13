@@ -209,8 +209,9 @@ body {
   transform: none;
 }
 
-/* For CTAs that lead to the contact page: a restless gold halo breathes
-   around the button at all times, so it reads as wanting to be clicked. */
+/* For CTAs that lead to (or complete) a contact: a restless coral halo
+   breathes around the button at all times, so it reads as wanting to be
+   clicked. */
 .btn-nova-urgent {
   animation:
     btn-nova-gradient 5s ease infinite,
@@ -223,18 +224,63 @@ body {
     btn-nova-urgent-pulse 1.1s ease-in-out infinite;
 }
 
-/* Coral variant: for the button that actually sends, distinct from the
-   gold pulse used on buttons that merely lead to the contact page. */
-.btn-nova-urgent.btn-nova-urgent-coral {
-  animation:
-    btn-nova-gradient 5s ease infinite,
-    btn-nova-urgent-pulse-coral 2.2s ease-in-out infinite;
+/* Pillar cards ("What I Do"): a card sitting on a blurred gradient glow,
+   with a crisper gradient ring further behind, adapted from
+   https://uiverse.io/Aryan-81/rare-rattlesnake-22 (MIT). The glow keeps the
+   template's literal yellow-to-cyan gradient rather than the site's own
+   accent colors, uniform across all four cards. A "Book Project" pill
+   slides up from the bottom edge on hover. */
+.pillar-card {
+  position: relative;
+  background: var(--color-ink-deep);
+  cursor: pointer;
 }
 
-.btn-nova-urgent.btn-nova-urgent-coral:hover {
-  animation:
-    btn-nova-gradient 5s ease infinite,
-    btn-nova-urgent-pulse-coral 1.1s ease-in-out infinite;
+.pillar-card::before {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  z-index: -10;
+  border-radius: inherit;
+  background: linear-gradient(-45deg, #fff01c 0%, #40c9ff 100%);
+  pointer-events: none;
+  transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pillar-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(-45deg, #fff01c 0%, #40c9ff 100%);
+  transform: scale(0.95);
+  filter: blur(20px);
+  transition: filter 0.3s ease-out;
+}
+
+.pillar-card:hover::after {
+  filter: blur(30px);
+}
+
+.pillar-card:hover::before {
+  transform: rotate(-90deg);
+}
+
+.pillar-card-button {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 125%);
+  opacity: 0;
+  transition:
+    transform 0.3s ease-out,
+    opacity 0.3s ease-out;
+}
+
+.pillar-card:hover .pillar-card-button {
+  transform: translate(-50%, 50%);
+  opacity: 1;
 }
 
 /* Lighter touch for smaller/repeated controls (e.g. filter pills): just the
@@ -318,16 +364,6 @@ body {
 @keyframes btn-nova-urgent-pulse {
   0%,
   100% {
-    box-shadow: 0 0 8px 0px rgba(255, 212, 73, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 26px 6px rgba(255, 212, 73, 0.9);
-  }
-}
-
-@keyframes btn-nova-urgent-pulse-coral {
-  0%,
-  100% {
     box-shadow: 0 0 8px 0px rgba(248, 118, 102, 0.5);
   }
   50% {
@@ -372,5 +408,11 @@ body {
 
   .btn-nova:hover {
     transform: none;
+  }
+
+  .pillar-card::before,
+  .pillar-card::after,
+  .pillar-card-button {
+    transition: none;
   }
 }
