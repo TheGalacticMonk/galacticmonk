@@ -37,7 +37,7 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="rounded-2xl bg-ink-deep/60 p-8 text-center shadow-[0_16px_50px_-16px_rgba(115,158,130,0.35)]">
-        <p className="font-serif text-2xl text-cream">Message sent.</p>
+        <p className="font-serif text-2xl text-sage">Message sent.</p>
         <p className="mt-2 text-sm text-cream-dim">
           Thanks for reaching out — Jason will get back to you shortly.
         </p>
