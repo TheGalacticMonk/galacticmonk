@@ -8,6 +8,7 @@ import Sparkle from "./Sparkle";
 
 export default function Hero() {
   const [expanded, setExpanded] = useState(false);
+  const [photoLoaded, setPhotoLoaded] = useState(false);
 
   useEffect(() => {
     if (!expanded) return;
@@ -45,8 +46,12 @@ export default function Hero() {
           type="button"
           onClick={() => setExpanded(true)}
           aria-label="Expand photo of Jason Lee"
-          initial={{ opacity: 0, scale: 0.92 }}
-          animate={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 16, scale: 0.92 }}
+          animate={
+            photoLoaded
+              ? { opacity: 1, y: 0, scale: 1 }
+              : { opacity: 0, y: 16, scale: 0.92 }
+          }
           transition={{ duration: 0.8 }}
           className="mx-auto mb-6 block h-36 w-36 cursor-zoom-in overflow-hidden rounded-full shadow-[0_0_40px_-14px_rgba(245,241,232,0.35)] transition-transform hover:scale-105 sm:h-44 sm:w-44"
         >
@@ -55,7 +60,9 @@ export default function Hero() {
             alt="Jason Lee"
             width={320}
             height={320}
+            sizes="176px"
             priority
+            onLoad={() => setPhotoLoaded(true)}
             className="h-full w-full object-cover"
           />
         </motion.button>
