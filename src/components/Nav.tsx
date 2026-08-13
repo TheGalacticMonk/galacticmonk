@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FacebookIcon, InstagramIcon, TikTokIcon, XIcon } from "./SocialIcons";
+import Sparkle from "./Sparkle";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -18,7 +20,12 @@ const SOCIALS = [
   { href: "https://www.facebook.com/JasonDeluluLee", label: "Facebook", Icon: FacebookIcon },
 ];
 
+function isActiveLink(href: string, pathname: string) {
+  return href === "/" ? pathname === "/" : pathname.startsWith(href);
+}
+
 export default function Nav() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -50,15 +57,21 @@ export default function Nav() {
         </Link>
 
         <nav className="hidden items-center gap-8 md:flex">
-          {LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm tracking-wide text-cream-dim transition-colors hover:text-gold"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {LINKS.map((link) => {
+            const active = isActiveLink(link.href, pathname);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`flex items-center gap-1.5 text-sm tracking-wide transition-colors hover:text-gold ${
+                  active ? "text-gold" : "text-cream-dim"
+                }`}
+              >
+                {active && <Sparkle className="h-3 w-3" />}
+                {link.label}
+              </Link>
+            );
+          })}
           <div className="flex items-center gap-4 border-l border-cream/20 pl-6">
             {SOCIALS.map(({ href, label, Icon }) => (
               <a
@@ -89,16 +102,22 @@ export default function Nav() {
 
       {open && (
         <nav className="flex flex-col gap-1 bg-ink px-6 pb-6 pt-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.7)] md:hidden">
-          {LINKS.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              className="py-3 text-sm tracking-wide text-cream-dim transition-colors hover:text-gold"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {LINKS.map((link) => {
+            const active = isActiveLink(link.href, pathname);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className={`flex items-center gap-1.5 py-3 text-sm tracking-wide transition-colors hover:text-gold ${
+                  active ? "text-gold" : "text-cream-dim"
+                }`}
+              >
+                {active && <Sparkle className="h-3 w-3" />}
+                {link.label}
+              </Link>
+            );
+          })}
           <div className="mt-3 flex items-center gap-5 border-t border-cream/20 pt-4">
             {SOCIALS.map(({ href, label, Icon }) => (
               <a
