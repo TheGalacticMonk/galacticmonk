@@ -33,9 +33,9 @@ export default function ContactPage() {
               Included Perk
             </div>
             <p className="mt-3 text-sm leading-relaxed text-cream-dim">
-              Booking me also includes promotion of your project across my
-              personal social media channels, where I speak alchemy using
-              iPhone videos daily.
+              Booking me also includes influencer marketing of your project
+              across my personal social media channels, where I speak
+              alchemy using iPhone videos daily.
             </p>
           </div>
 
