@@ -51,7 +51,7 @@ export default function PhotoGallery({
             <div
               key="youtube"
               onClick={() => setOpenIndex(i)}
-              className="relative mb-4 aspect-[9/16] w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-xl transition-opacity hover:opacity-90"
+              className="group relative mb-4 aspect-[9/16] w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-xl"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
@@ -63,9 +63,9 @@ export default function PhotoGallery({
                 }}
                 className="h-full w-full object-cover"
               />
-              <div className="absolute inset-0 flex items-center justify-center bg-ink-deep/20">
-                <div className="flex h-14 w-14 items-center justify-center rounded-full bg-ink-deep/70 text-cream">
-                  <div className="ml-1 h-0 w-0 border-y-8 border-l-[14px] border-y-transparent border-l-current" />
+              <div className="absolute inset-0 flex items-center justify-center bg-ink-deep/30 transition-colors group-hover:bg-ink-deep/10">
+                <div className="flex h-20 w-20 items-center justify-center rounded-full bg-gold text-ink-deep shadow-[0_0_0_8px_rgba(255,212,73,0.25),0_8px_30px_-6px_rgba(255,212,73,0.75)] transition-transform duration-300 hover:scale-110">
+                  <div className="ml-1.5 h-0 w-0 border-y-[11px] border-l-[18px] border-y-transparent border-l-current" />
                 </div>
               </div>
             </div>
