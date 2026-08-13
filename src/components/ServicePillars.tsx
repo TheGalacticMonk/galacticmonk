@@ -21,7 +21,7 @@ const PILLARS = [
     title: "Audio",
     accent: "sage" as const,
     description:
-      "Recording, mixing, and mastering for music, EPs, albums, audiobooks, and film ADR. I carry some of the finest microphones and preamps, suitable for all genres.",
+      "Recording, mixing, and mastering for music, EPs, albums, audiobooks, and film ADR. I carry some of the finest microphones and preamps. All genres.",
   },
   {
     title: "Web Design & Dev",
