@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import Sparkle from "@/components/Sparkle";
+import Sun from "@/components/Sun";
+import Moon from "@/components/Moon";
 import {
   MailIcon,
   InstagramIcon,
@@ -27,7 +29,9 @@ export default function ContactPage() {
             description={
               <>
                 Tell me a bit about what you&apos;re imagining and
-                I&apos;ll get back to you within a couple of Suns & Moons. ☀️🌙
+                I&apos;ll get back to you within a couple of Suns &amp; Moons.{" "}
+                <Sun className="inline-block h-4 w-4 -translate-y-px text-gold" />{" "}
+                <Moon className="inline-block h-4 w-4 -translate-y-px text-gold" />
               </>
             }
           />
