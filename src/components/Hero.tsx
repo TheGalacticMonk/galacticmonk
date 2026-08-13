@@ -24,9 +24,10 @@ export default function Hero() {
 
   return (
     <section className="swirl-bg relative flex min-h-screen items-center overflow-hidden pt-24">
-      <Sparkle className="pointer-events-none absolute left-[8%] top-[22%] h-6 w-6 text-gold/60" />
-      <Sparkle className="pointer-events-none absolute right-[12%] top-[38%] h-4 w-4 text-coral/60" />
-      <Sparkle className="pointer-events-none absolute bottom-[18%] left-[18%] h-5 w-5 text-sage/60" />
+      <Sparkle className="pointer-events-none absolute left-[10%] top-[28%] h-6 w-6 text-gold/60" />
+      <Sparkle className="pointer-events-none absolute right-[10%] top-[28%] h-6 w-6 text-gold/60" />
+      <Sparkle className="pointer-events-none absolute bottom-[22%] left-[18%] h-4 w-4 text-sage/60" />
+      <Sparkle className="pointer-events-none absolute bottom-[22%] right-[18%] h-4 w-4 text-sage/60" />
 
       <div className="mx-auto max-w-4xl px-6 py-24 text-center">
         <motion.div
