@@ -45,7 +45,7 @@ export default function AboutPage() {
               Every creative project begins with raw material: an idea, an
               image, a sound, a feeling. The craft is in transforming those
               elements into something greater. As an alchemist, Galactic
-              Monk approaches the creative process as an act of
+              Monk perceives the creative process as a practice of
               transmutation, shaping footage, photography, sound, and story
               into work with energy, intention, and impact.
             </p>
