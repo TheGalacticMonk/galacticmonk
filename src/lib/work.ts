@@ -107,7 +107,7 @@ export const WORK: WorkItem[] = [
       "/work/2026-07-garden-party/aloha-products.jpg",
     ],
     credits: [{ role: "Photographer", name: "Jason Lee" }],
-    details: "Photographed with Canon R3 with Canon RF 24-70 f/2.8L lens.",
+    details: "Shot on Canon R3 mirrorless with Canon RF 24-70 f/2.8L lens.",
   },
   {
     id: "flow-state",
@@ -173,7 +173,7 @@ export const WORK: WorkItem[] = [
       { role: "Photographer", name: "Jason Lee" },
       { role: "Videographer", name: "Jason Lee" },
     ],
-    details: "Shot on Canon R3 with Canon RF 24-70 f/2.8L lens.",
+    details: "Shot on Canon R3 mirrorless with Canon RF 24-70 f/2.8L lens.",
   },
   {
     id: "byo-way-beyond-the-stars",
