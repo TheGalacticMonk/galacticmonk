@@ -55,8 +55,8 @@ export default function AboutPage() {
               production, photography, and audio recording, mixing &amp;
               mastering. From concept and production through editing and
               final delivery, each project is approached with curiosity,
-              precision, and an obsessive attention to the quality of the
-              end output.
+              precision, and an obsessive attention to the technical quality
+              of the end output.
             </p>
             <p>
               The spirit of Galactic Monk's alchemy has been a lifelong pursuit of knowledge,
