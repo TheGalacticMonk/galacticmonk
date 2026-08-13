@@ -71,7 +71,7 @@ export default function AboutPage() {
             <Sparkle className="h-3 w-3" />
             LET&apos;S CO-CREATE
           </div>
-          <Link href="/contact/" className="btn-nova mt-4 text-sm font-medium tracking-wide">
+          <Link href="/contact/" className="btn-nova btn-nova-urgent mt-4 text-sm font-medium tracking-wide">
             <span className="btn-nova-inner">
               <strong className="btn-nova-label">Reach Out</strong>
               <span className="btn-nova-stars" aria-hidden="true">

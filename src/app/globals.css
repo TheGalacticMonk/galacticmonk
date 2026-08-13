@@ -97,8 +97,9 @@ body {
   width: 100%;
   border-radius: inherit;
   padding: 0.8rem 2rem;
-  background: var(--color-ink-deep);
+  background: var(--color-ink);
   backdrop-filter: blur(1rem);
+  transition: background-color 0.4s ease;
 }
 
 .btn-nova-label {
@@ -181,6 +182,10 @@ body {
   transform: scale(1.05);
 }
 
+.btn-nova:hover .btn-nova-inner {
+  background: var(--color-ink-deep);
+}
+
 .btn-nova:hover .btn-nova-stars {
   z-index: 1;
   background-color: var(--color-ink-deep);
@@ -202,6 +207,20 @@ body {
 
 .btn-nova:disabled:hover {
   transform: none;
+}
+
+/* For CTAs that lead to the contact page: a restless gold halo breathes
+   around the button at all times, so it reads as wanting to be clicked. */
+.btn-nova-urgent {
+  animation:
+    btn-nova-gradient 5s ease infinite,
+    btn-nova-urgent-pulse 2.2s ease-in-out infinite;
+}
+
+.btn-nova-urgent:hover {
+  animation:
+    btn-nova-gradient 5s ease infinite,
+    btn-nova-urgent-pulse 1.1s ease-in-out infinite;
 }
 
 /* Lighter touch for smaller/repeated controls (e.g. filter pills): just the
@@ -282,6 +301,16 @@ body {
   }
 }
 
+@keyframes btn-nova-urgent-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 8px 0px rgba(255, 212, 73, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 26px 6px rgba(255, 212, 73, 0.9);
+  }
+}
+
 @keyframes btn-glow-pulse {
   0%,
   100% {
@@ -309,6 +338,8 @@ body {
   .btn-ripple:hover::after,
   .btn-ripple:hover::before,
   .btn-nova,
+  .btn-nova-urgent,
+  .btn-nova-urgent:hover,
   .btn-nova-stars-field::before,
   .btn-nova-stars-field::after,
   .btn-nova-circle {

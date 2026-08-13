@@ -98,7 +98,7 @@ export default function Hero() {
               </span>
             </span>
           </Link>
-          <Link href="/contact/" className="btn-nova text-sm font-medium tracking-wide">
+          <Link href="/contact/" className="btn-nova btn-nova-urgent text-sm font-medium tracking-wide">
             <span className="btn-nova-inner">
               <strong className="btn-nova-label">Work With Me</strong>
               <span className="btn-nova-stars" aria-hidden="true">

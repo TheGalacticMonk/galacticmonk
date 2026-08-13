@@ -55,7 +55,7 @@ export default function Home() {
           title="Have creative in mind?"
           description="Whether it's a film, a photoshoot, or hit record - let's manifest the magic you're weaving."
         />
-        <Link href="/contact/" className="btn-nova mt-8 text-sm font-medium tracking-wide">
+        <Link href="/contact/" className="btn-nova btn-nova-urgent mt-8 text-sm font-medium tracking-wide">
           <span className="btn-nova-inner">
             <strong className="btn-nova-label">Reach Out</strong>
             <span className="btn-nova-stars" aria-hidden="true">
