@@ -3,6 +3,13 @@ import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import Sparkle from "@/components/Sparkle";
 import Moon from "@/components/Moon";
+import {
+  MailIcon,
+  InstagramIcon,
+  XIcon,
+  TikTokIcon,
+  FacebookIcon,
+} from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
   title: "Contact — Galactic Monk",
@@ -41,13 +48,13 @@ export default function ContactPage() {
 
           <div className="mt-8 space-y-4 text-sm">
             <div className="flex items-center gap-2 text-cream-dim">
-              <Sparkle className="h-3 w-3 text-gold" />
+              <MailIcon className="h-3.5 w-3.5 text-gold" />
               <a href="mailto:jason@galacticmonk.com" className="hover:text-cream">
                 jason@galacticmonk.com
               </a>
             </div>
             <div className="flex items-center gap-2 text-cream-dim">
-              <Sparkle className="h-3 w-3 text-gold" />
+              <InstagramIcon className="h-3.5 w-3.5 text-gold" />
               <a
                 href="https://www.instagram.com/galacticmonk_/"
                 target="_blank"
@@ -58,7 +65,7 @@ export default function ContactPage() {
               </a>
             </div>
             <div className="flex items-center gap-2 text-cream-dim">
-              <Sparkle className="h-3 w-3 text-gold" />
+              <XIcon className="h-3.5 w-3.5 text-gold" />
               <a
                 href="https://x.com/GalacticMonk_"
                 target="_blank"
@@ -69,7 +76,7 @@ export default function ContactPage() {
               </a>
             </div>
             <div className="flex items-center gap-2 text-cream-dim">
-              <Sparkle className="h-3 w-3 text-gold" />
+              <TikTokIcon className="h-3.5 w-3.5 text-gold" />
               <a
                 href="https://www.tiktok.com/@thegalacticmonk"
                 target="_blank"
@@ -80,7 +87,7 @@ export default function ContactPage() {
               </a>
             </div>
             <div className="flex items-center gap-2 text-cream-dim">
-              <Sparkle className="h-3 w-3 text-gold" />
+              <FacebookIcon className="h-3.5 w-3.5 text-gold" />
               <a
                 href="https://www.facebook.com/JasonDeluluLee"
                 target="_blank"
