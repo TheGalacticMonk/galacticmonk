@@ -27,7 +27,7 @@ export default function AboutPage() {
         </div>
 
         <div>
-          <SectionHeading eyebrow="About" title="Jason Lee" />
+          <SectionHeading eyebrow="About" title="Jason Lee — Galactic Monk" />
           <p className="mt-2 text-sm font-medium uppercase tracking-[0.2em] text-coral">
             Creative Producer &amp; Alchemist
           </p>
