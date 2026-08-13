@@ -16,7 +16,7 @@ export default function Home() {
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
             eyebrow="What I Do"
-            title="Three crafts, one master"
+            title="Three worlds, one master"
             description="Every element is deliberate, whether it's a camera, a lens, or a mix bus - intentional, hands-on, and a whole lot of alchemy."
           />
           <Link
