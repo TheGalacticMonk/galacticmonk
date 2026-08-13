@@ -90,7 +90,7 @@ export default function Hero() {
             href="/work/"
             className="btn-alchemy btn-alchemy-gold rounded-full bg-gold px-8 py-3 text-sm font-medium tracking-wide text-ink-deep transition-transform duration-300 hover:scale-105"
           >
-            Experience the Work
+            Experience My Work
           </Link>
           <Link
             href="/contact/"
