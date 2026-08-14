@@ -90,6 +90,8 @@ export const WORK: WorkItem[] = [
     category: "photo",
     year: "2026",
     blurb: "I was the photographer for this monthly event.",
+    description:
+      "This was my 2nd time at a Garden Party, and I'm now looking forward to attending these monthly. It was at the Mystic Edge Garden. Such a great vibe, good people, and music. These Garden Parties are hosted by Lauren Nikohl, a multidimensional artist that I'm a huge fan of. I was the photographer for this project.",
     accent: "gold",
     image: "/work/2026-07-garden-party/lauren-nikohl-dj-2.jpg",
     gallery: [
