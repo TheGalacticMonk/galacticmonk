@@ -80,15 +80,16 @@ export default function ContactForm() {
               <option value="Record Mix & Master">
                 Record Mix &amp; Master
               </option>
+              <option value="Web Design & Dev">Web Design &amp; Dev</option>
               <option value="Other">Other</option>
             </select>
           </Field>
-          <Field label="Budget / timeline (optional)">
+          <Field label="Budget (optional)">
             <input
               type="text"
               name="budget_timeline"
               className="input"
-              placeholder="e.g. $2-5k, ready in 6 weeks"
+              placeholder="e.g. $2-5k"
             />
           </Field>
         </div>
