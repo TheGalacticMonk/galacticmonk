@@ -121,14 +121,23 @@ export default function ConstellationBackground({ className }: { className?: str
     };
 
     const resize = () => {
-      width = container.clientWidth;
-      height = container.clientHeight;
+      const newWidth = container.clientWidth;
+      const newHeight = container.clientHeight;
+      const widthChanged = newWidth !== width;
+      width = newWidth;
+      height = newHeight;
       canvas.width = width * dpr;
       canvas.height = height * dpr;
       canvas.style.width = `${width}px`;
       canvas.style.height = `${height}px`;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      makeDots();
+      /* Mobile browsers resize the viewport (and this container) as the
+         address bar collapses/expands mid-scroll, firing ResizeObserver
+         many times per gesture. Re-rolling dots on every one of those
+         height-only changes made the whole field jump to new random spots
+         repeatedly, reading as a glitchy fast-forward. Only width changes
+         (actual resize/orientation change) warrant a fresh layout. */
+      if (widthChanged || dots.length === 0) makeDots();
       draw(0);
     };
 
