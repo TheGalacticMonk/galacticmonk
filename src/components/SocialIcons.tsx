@@ -56,7 +56,7 @@ export function TikTokIcon({ className }: { className?: string }) {
 export function FacebookIcon({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <g transform="translate(12 12) scale(1.3) translate(-12 -12)">
+      <g transform="translate(12 12) scale(1.3) translate(-13 -12.9)">
         <path
           d="M14 21v-7h2.4l.4-3H14V9c0-.9.2-1.5 1.5-1.5H17V4.9c-.3 0-1.1-.1-2.1-.1-2.1 0-3.6 1.3-3.6 3.7V11H9v3h2.3v7h2.7Z"
           stroke="currentColor"

@@ -25,7 +25,10 @@ export default function ContactPage() {
       <PageConstellation />
       <section className="mx-auto max-w-5xl px-6 pb-24 pt-36">
         <div className="grid gap-12 md:grid-cols-[1fr_1.3fr]">
-          <div>
+          <div className="flyer-card p-8 sm:p-10">
+            <span className="flyer-pin" aria-hidden="true">
+              <Sparkle className="h-7 w-7 text-gold drop-shadow-[0_0_8px_rgba(255,212,73,0.65)]" />
+            </span>
             <SectionHeading
               eyebrow="Get in Touch"
               title="Book a Project"

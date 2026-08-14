@@ -391,6 +391,42 @@ body {
   background: linear-gradient(-45deg, var(--color-sage) 0%, var(--color-indigo) 100%);
 }
 
+/* Contact page's "Get in Touch" column, styled as a flyer tacked to a
+   corkboard rather than a plain glow card like .work-card-glow/.pillar-card
+   — a dashed poster border instead of a gradient ring, so it reads as a
+   distinct object next to the contact form. */
+.flyer-card {
+  position: relative;
+  border: 1.5px dashed color-mix(in srgb, var(--color-gold) 55%, transparent);
+  border-radius: 1rem;
+  background: linear-gradient(
+    165deg,
+    color-mix(in srgb, var(--color-ink) 100%, white 4%) 0%,
+    var(--color-ink-deep) 100%
+  );
+  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.65);
+  transition: transform 0.3s ease-out;
+}
+
+.flyer-card:hover {
+  transform: translateY(-3px);
+}
+
+.flyer-pin {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 1;
+  transform: translate(-50%, -55%);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flyer-card {
+    transition: none;
+  }
+}
+
 /* Music player (work detail pages with audio): a Spotify-style compact
    card — art, title, play button up top, seek bar below — replacing the
    native <audio controls> bar, which browsers give almost no styling
