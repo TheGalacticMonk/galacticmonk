@@ -173,6 +173,15 @@ export default async function WorkDetailPage({
           </span>
         </Link>
       </div>
+
+      <div className="mt-8 flex justify-center">
+        <Link
+          href="/work/"
+          className="text-sm tracking-wide text-gold hover:underline"
+        >
+          ← Back to Work
+        </Link>
+      </div>
     </section>
   );
 }
