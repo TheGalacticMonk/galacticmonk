@@ -20,7 +20,7 @@ export default function AboutPage() {
           className="mx-auto w-56 shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)] md:w-full"
         />
 
-        <article className="about-article relative rounded-[2rem] border border-cream/10 bg-ink-deep p-8 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.75)] sm:p-10 md:p-12">
+        <article className="editorial-card relative rounded-[2rem] border border-cream/10 bg-ink-deep p-8 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.75)] sm:p-10 md:p-12">
           <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-gold">
             <Sparkle className="h-3 w-3 shrink-0" />
             About

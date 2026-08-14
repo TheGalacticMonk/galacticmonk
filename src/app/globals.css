@@ -302,6 +302,15 @@ body {
   background: var(--color-ink-deep);
 }
 
+/* Contact form reuses .work-card-glow's border FX but sits directly on
+   form inputs rather than an image, so the darker ink-deep card body
+   made everything feel too low-contrast. Plain --color-ink matched the
+   page background exactly and made the card boundary hard to read, so
+   this lightens it a touch instead of reusing either site color as-is. */
+.work-card-glow.contact-form-card {
+  background: color-mix(in srgb, var(--color-ink) 100%, white 8%);
+}
+
 .work-card-bottom-glow {
   position: absolute;
   left: 12%;
@@ -444,16 +453,17 @@ body {
   }
 }
 
-/* About page article card: a magazine-page treatment for the bio copy —
-   a warm top-lit sheen behind the masthead, and a serif drop cap on the
-   lede paragraph. The sheen sits at low enough opacity that paint order
-   relative to the text doesn't matter. */
-.about-article {
+/* Editorial card: the About page's magazine-style bio card — rounded
+   border, deep shadow, and a warm top-lit sheen (radial, low enough
+   opacity that paint order relative to the content doesn't matter).
+   The Contact form uses .work-card-glow instead (matching WORK/pillar
+   cards, per request), not this. */
+.editorial-card {
   position: relative;
   overflow: hidden;
 }
 
-.about-article::before {
+.editorial-card::before {
   content: "";
   position: absolute;
   inset: 0;

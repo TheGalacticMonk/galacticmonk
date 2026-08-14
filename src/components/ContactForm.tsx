@@ -36,7 +36,7 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="rounded-2xl bg-ink-deep/60 p-8 text-center shadow-[0_16px_50px_-16px_rgba(115,158,130,0.35)]">
+      <div className="work-card-glow contact-form-card relative rounded-3xl p-8 text-center shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] sm:p-10">
         <p className="font-serif text-2xl text-sage">Message sent.</p>
         <p className="mt-2 text-sm text-cream-dim">
           Thanks for reaching out — Jason will get back to you shortly.
@@ -46,88 +46,90 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Field label="Name">
-          <input
-            type="text"
-            name="name"
+    <div className="work-card-glow contact-form-card relative rounded-3xl p-8 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] sm:p-10">
+      <form onSubmit={handleSubmit} className="space-y-6">
+        <div className="grid gap-6 sm:grid-cols-2">
+          <Field label="Name">
+            <input
+              type="text"
+              name="name"
+              required
+              className="input"
+              placeholder="Your name"
+            />
+          </Field>
+          <Field label="Email">
+            <input
+              type="email"
+              name="email"
+              required
+              className="input"
+              placeholder="you@example.com"
+            />
+          </Field>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          <Field label="Project type">
+            <select name="project_type" required defaultValue="" className="input">
+              <option value="" disabled>
+                Select one
+              </option>
+              <option value="Film & Video">Film &amp; Video</option>
+              <option value="Photography">Photography</option>
+              <option value="Record Mix & Master">
+                Record Mix &amp; Master
+              </option>
+              <option value="Other">Other</option>
+            </select>
+          </Field>
+          <Field label="Budget / timeline (optional)">
+            <input
+              type="text"
+              name="budget_timeline"
+              className="input"
+              placeholder="e.g. $2-5k, ready in 6 weeks"
+            />
+          </Field>
+        </div>
+
+        <Field label="Message">
+          <textarea
+            name="message"
             required
-            className="input"
-            placeholder="Your name"
+            rows={5}
+            className="input resize-none"
+            placeholder="Tell me about the project..."
           />
         </Field>
-        <Field label="Email">
-          <input
-            type="email"
-            name="email"
-            required
-            className="input"
-            placeholder="you@example.com"
-          />
-        </Field>
-      </div>
 
-      <div className="grid gap-6 sm:grid-cols-2">
-        <Field label="Project type">
-          <select name="project_type" required defaultValue="" className="input">
-            <option value="" disabled>
-              Select one
-            </option>
-            <option value="Film & Video">Film &amp; Video</option>
-            <option value="Photography">Photography</option>
-            <option value="Record Mix & Master">
-              Record Mix &amp; Master
-            </option>
-            <option value="Other">Other</option>
-          </select>
-        </Field>
-        <Field label="Budget / timeline (optional)">
-          <input
-            type="text"
-            name="budget_timeline"
-            className="input"
-            placeholder="e.g. $2-5k, ready in 6 weeks"
-          />
-        </Field>
-      </div>
+        {status === "error" && (
+          <p className="text-sm text-coral">
+            Something went wrong sending your message. Please try again, or
+            email jason@galacticmonk.com directly.
+          </p>
+        )}
 
-      <Field label="Message">
-        <textarea
-          name="message"
-          required
-          rows={5}
-          className="input resize-none"
-          placeholder="Tell me about the project..."
-        />
-      </Field>
-
-      {status === "error" && (
-        <p className="text-sm text-coral">
-          Something went wrong sending your message. Please try again, or
-          email jason@galacticmonk.com directly.
-        </p>
-      )}
-
-      <button
-        type="submit"
-        disabled={status === "pending"}
-        className="btn-nova btn-nova-urgent text-sm font-medium tracking-wide"
-      >
-        <span className="btn-nova-inner">
-          <strong className="btn-nova-label">
-            {status === "pending" ? "Sending..." : "Send Energy"}
-          </strong>
-          <span className="btn-nova-stars" aria-hidden="true">
-            <span className="btn-nova-stars-field" />
+        <button
+          type="submit"
+          disabled={status === "pending"}
+          className="btn-nova btn-nova-urgent text-sm font-medium tracking-wide"
+        >
+          <span className="btn-nova-inner">
+            <strong className="btn-nova-label">
+              {status === "pending" ? "Sending..." : "Send Energy"}
+            </strong>
+            <span className="btn-nova-stars" aria-hidden="true">
+              <span className="btn-nova-stars-field" />
+            </span>
+            <span className="btn-nova-glow" aria-hidden="true">
+              <span className="btn-nova-circle" />
+              <span className="btn-nova-circle" />
+            </span>
           </span>
-          <span className="btn-nova-glow" aria-hidden="true">
-            <span className="btn-nova-circle" />
-            <span className="btn-nova-circle" />
-          </span>
-        </span>
-      </button>
-    </form>
+        </button>
+      </form>
+    </div>
   );
 }
 
