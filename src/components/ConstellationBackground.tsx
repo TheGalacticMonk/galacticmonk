@@ -8,6 +8,7 @@ import { useEffect, useRef } from "react";
 
 const DOT_COLORS = ["#f5f1e8", "#ffd449", "#c9c3e0"];
 const LINE_COLOR = "245, 241, 232";
+const LINE_OPACITY = 0.3;
 const LINK_DISTANCE = 130;
 const FRAME_INTERVAL = 1000 / 30;
 
@@ -58,12 +59,12 @@ export default function ConstellationBackground({ className }: { className?: str
         return {
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.25,
-          vy: (Math.random() - 0.5) * 0.25,
-          r: sparkle ? 0 : Math.random() * 1.2 + 0.6,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          r: sparkle ? 0 : Math.random() * 1.4 + 0.9,
           size: sparkle ? Math.random() * 5 + 7 : 0,
           rotation: Math.random() * Math.PI * 2,
-          spin: sparkle ? (Math.random() - 0.5) * 0.004 : 0,
+          spin: sparkle ? (Math.random() - 0.5) * 0.005 : 0,
           phase: Math.random() * Math.PI * 2,
           color: DOT_COLORS[Math.floor(Math.random() * DOT_COLORS.length)],
           sparkle,
@@ -82,7 +83,7 @@ export default function ConstellationBackground({ className }: { className?: str
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
           if (dist < LINK_DISTANCE) {
-            ctx.strokeStyle = `rgba(${LINE_COLOR}, ${0.18 * (1 - dist / LINK_DISTANCE)})`;
+            ctx.strokeStyle = `rgba(${LINE_COLOR}, ${LINE_OPACITY * (1 - dist / LINK_DISTANCE)})`;
             ctx.lineWidth = 1;
             ctx.beginPath();
             ctx.moveTo(a.x, a.y);
@@ -94,7 +95,7 @@ export default function ConstellationBackground({ className }: { className?: str
 
       for (const dot of dots) {
         if (dot.sparkle) {
-          const twinkle = 0.55 + 0.45 * Math.sin(time / 900 + dot.phase);
+          const twinkle = 0.65 + 0.35 * Math.sin(time / 900 + dot.phase);
           ctx.save();
           ctx.translate(dot.x, dot.y);
           ctx.rotate(dot.rotation);
@@ -109,7 +110,7 @@ export default function ConstellationBackground({ className }: { className?: str
           ctx.restore();
         } else {
           ctx.beginPath();
-          ctx.globalAlpha = 0.8;
+          ctx.globalAlpha = 0.85;
           ctx.fillStyle = dot.color;
           ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
           ctx.fill();

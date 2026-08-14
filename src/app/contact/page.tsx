@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import Sparkle from "@/components/Sparkle";
+import PageConstellation from "@/components/PageConstellation";
 import Sun from "@/components/Sun";
 import Moon from "@/components/Moon";
 import {
@@ -20,90 +21,93 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <section className="mx-auto max-w-5xl px-6 pb-24 pt-36">
-      <div className="grid gap-12 md:grid-cols-[1fr_1.3fr]">
-        <div>
-          <SectionHeading
-            eyebrow="Get in Touch"
-            title="Book a Project"
-            description={
-              <>
-                Tell me a bit about what you&apos;re imagining and
-                I&apos;ll get back to you within a couple of Suns &amp; Moons.{" "}
-                <Sun className="inline-block h-4 w-4 -translate-y-px text-gold" />{" "}
-                <Moon className="inline-block h-4 w-4 -translate-y-px text-gold" />
-              </>
-            }
-          />
+    <>
+      <PageConstellation />
+      <section className="mx-auto max-w-5xl px-6 pb-24 pt-36">
+        <div className="grid gap-12 md:grid-cols-[1fr_1.3fr]">
+          <div>
+            <SectionHeading
+              eyebrow="Get in Touch"
+              title="Book a Project"
+              description={
+                <>
+                  Tell me a bit about what you&apos;re imagining and
+                  I&apos;ll get back to you within a couple of Suns &amp; Moons.{" "}
+                  <Sun className="inline-block h-4 w-4 -translate-y-px text-gold" />{" "}
+                  <Moon className="inline-block h-4 w-4 -translate-y-px text-gold" />
+                </>
+              }
+            />
 
-          <div className="mt-8 rounded-2xl border border-gold/30 bg-gold/5 p-5">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
-              <Sparkle className="h-3 w-3" />
-              Included Perk
+            <div className="mt-8 rounded-2xl border border-gold/30 bg-gold/5 p-5">
+              <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
+                <Sparkle className="h-3 w-3" />
+                Included Perk
+              </div>
+              <p className="mt-3 text-sm leading-relaxed text-cream-dim">
+                Booking me also includes influencer marketing for your project
+                across my personal social media channels (where I speak
+                alchemy using iPhone videos daily).
+              </p>
             </div>
-            <p className="mt-3 text-sm leading-relaxed text-cream-dim">
-              Booking me also includes influencer marketing for your project
-              across my personal social media channels (where I speak
-              alchemy using iPhone videos daily).
-            </p>
+
+            <div className="mt-8 space-y-4 text-sm">
+              <div className="flex items-center gap-2 text-cream-dim">
+                <MailIcon className="h-3.5 w-3.5 text-gold" />
+                <a href="mailto:jason@galacticmonk.com" className="hover:text-cream">
+                  jason@galacticmonk.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-cream-dim">
+                <InstagramIcon className="h-3.5 w-3.5 text-gold" />
+                <a
+                  href="https://www.instagram.com/galacticmonk_/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream"
+                >
+                  Instagram
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-cream-dim">
+                <XIcon className="h-3.5 w-3.5 text-gold" />
+                <a
+                  href="https://x.com/GalacticMonk_"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream"
+                >
+                  X
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-cream-dim">
+                <TikTokIcon className="h-3.5 w-3.5 text-gold" />
+                <a
+                  href="https://www.tiktok.com/@thegalacticmonk"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream"
+                >
+                  TikTok
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-cream-dim">
+                <FacebookIcon className="h-3.5 w-3.5 text-gold" />
+                <a
+                  href="https://www.facebook.com/JasonDeluluLee"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-cream"
+                >
+                  Facebook
+                </a>
+              </div>
+            </div>
           </div>
 
-          <div className="mt-8 space-y-4 text-sm">
-            <div className="flex items-center gap-2 text-cream-dim">
-              <MailIcon className="h-3.5 w-3.5 text-gold" />
-              <a href="mailto:jason@galacticmonk.com" className="hover:text-cream">
-                jason@galacticmonk.com
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-cream-dim">
-              <InstagramIcon className="h-3.5 w-3.5 text-gold" />
-              <a
-                href="https://www.instagram.com/galacticmonk_/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cream"
-              >
-                Instagram
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-cream-dim">
-              <XIcon className="h-3.5 w-3.5 text-gold" />
-              <a
-                href="https://x.com/GalacticMonk_"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cream"
-              >
-                X
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-cream-dim">
-              <TikTokIcon className="h-3.5 w-3.5 text-gold" />
-              <a
-                href="https://www.tiktok.com/@thegalacticmonk"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cream"
-              >
-                TikTok
-              </a>
-            </div>
-            <div className="flex items-center gap-2 text-cream-dim">
-              <FacebookIcon className="h-3.5 w-3.5 text-gold" />
-              <a
-                href="https://www.facebook.com/JasonDeluluLee"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-cream"
-              >
-                Facebook
-              </a>
-            </div>
-          </div>
+          <ContactForm />
         </div>
-
-        <ContactForm />
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
