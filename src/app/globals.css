@@ -409,38 +409,31 @@ body {
    clipped by the radius but along a straight-edged rectangle, which slices
    through whichever dot lands near the curve. Only stroking dashes along
    the rounded-rect path itself (which is what the SVG overlay does) keeps
-   every dot a full circle all the way around, including at the corners. */
+   every dot a full circle all the way around, including at the corners.
+   No fill or shadow here on purpose — the flyer is meant to read as just
+   the sparkle ring floating over the page's own background, not a card
+   with visible edges underneath it. border-radius stays only because
+   FlyerSparkleBorder's path rx is hand-matched to it (24). */
 .flyer-card {
   position: relative;
   border-radius: 1.5rem;
-  background: linear-gradient(
-    165deg,
-    color-mix(in srgb, var(--color-ink) 100%, white 4%) 0%,
-    var(--color-ink-deep) 100%
-  );
-  box-shadow: 0 24px 48px -20px rgba(0, 0, 0, 0.65);
   transition: transform 0.3s ease-out;
 }
 
-/* Matches the card exactly — the rounded-rect paths inside are inset by
-   2px (half the dots' 4px stroke width) on their own x/y/width/height, so
-   the stroke's outer edge lands exactly on the card's true boundary
-   instead of on the SVG viewport's edge. (An earlier version left the
-   paths flush with the viewport and enlarged the SVG by 2px instead —
-   that still clipped half of every dot, because the path's own position
-   never matched the enlarged canvas: stroke extended past the path in
-   both directions, but the path sat at the canvas edge rather than at its
-   center, so it never bought the room it needed.) Three identical paths
-   are stroked with a zero-length dash + round linecap (the standard SVG
-   "dotted path" trick: a round cap still draws a full circle at a
-   zero-length dash), each offset a third of the way around the shared
-   18px cycle so they interleave into one evenly-spaced ring alternating
-   gold/coral/sage. */
+/* Enlarged 6px past the card on every side (half FlyerSparkleBorder's 11px
+   sparkle glyphs) so a sparkle centered exactly on the card's true edge has
+   room to render in full — its own bounding box reaches 5.5px outward,
+   which would otherwise clip against the SVG's default viewport-edge
+   overflow. The invisible measuring rect inside is inset from this
+   enlarged viewport by that same 6px, which places IT exactly on the
+   card's real boundary (see FlyerSparkleBorder's rect: x="6" ... width=
+   "calc(100% - 12px)"), so sparkles plotted along it sit right on the
+   card's edge rather than 6px outside it. */
 .flyer-card-dots {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  inset: -6px;
+  width: calc(100% + 12px);
+  height: calc(100% + 12px);
   pointer-events: none;
 }
 

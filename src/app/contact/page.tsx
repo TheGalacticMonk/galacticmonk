@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 import Sparkle from "@/components/Sparkle";
+import FlyerSparkleBorder from "@/components/FlyerSparkleBorder";
 import PageConstellation from "@/components/PageConstellation";
 import Sun from "@/components/Sun";
 import Moon from "@/components/Moon";
@@ -26,49 +27,7 @@ export default function ContactPage() {
       <section className="mx-auto max-w-5xl px-6 pb-24 pt-36">
         <div className="grid gap-12 md:grid-cols-[1fr_1.3fr]">
           <div className="flyer-card p-8 sm:p-10">
-            <svg className="flyer-card-dots" aria-hidden="true">
-              <rect
-                x="2"
-                y="2"
-                width="calc(100% - 4px)"
-                height="calc(100% - 4px)"
-                rx="22"
-                ry="22"
-                fill="none"
-                stroke="rgba(255,212,73,0.85)"
-                strokeWidth="4"
-                strokeDasharray="0 18"
-                strokeLinecap="round"
-              />
-              <rect
-                x="2"
-                y="2"
-                width="calc(100% - 4px)"
-                height="calc(100% - 4px)"
-                rx="22"
-                ry="22"
-                fill="none"
-                stroke="rgba(248,118,102,0.85)"
-                strokeWidth="4"
-                strokeDasharray="0 18"
-                strokeDashoffset="6"
-                strokeLinecap="round"
-              />
-              <rect
-                x="2"
-                y="2"
-                width="calc(100% - 4px)"
-                height="calc(100% - 4px)"
-                rx="22"
-                ry="22"
-                fill="none"
-                stroke="rgba(115,158,130,0.85)"
-                strokeWidth="4"
-                strokeDasharray="0 18"
-                strokeDashoffset="12"
-                strokeLinecap="round"
-              />
-            </svg>
+            <FlyerSparkleBorder />
             <SectionHeading
               eyebrow="Get in Touch"
               title="Book a Project"
