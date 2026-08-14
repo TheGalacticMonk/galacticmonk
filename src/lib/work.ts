@@ -63,6 +63,8 @@ export const WORK: WorkItem[] = [
     category: "film",
     year: "2026",
     blurb: "Short film PSA - Director of Photography, audio mix, and color grade.",
+    description:
+      "I met Andrea the first time I ever hit the Garden Party, hosted by Lauren Nikohl. A couple weeks later Andrea texts me asking if I could meet up because she felt like shooting something spontaneously. I said okay, and then she came up with this story idea. We met up and I got my gear ready while she drew out the storyboard. We ended up deciding to shoot at Hermosa Beach. We drove there, and ended up only having 1 hour to shoot before sun set. We got the shots we needed and then got to post. We ended up releasing it as a PSA a day later.",
     accent: "coral",
     image: "/work/cover-images/put-your-phone-down-macro-cover.jpg",
     vimeoId: "1207633805",
