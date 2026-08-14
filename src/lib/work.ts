@@ -149,8 +149,10 @@ export const WORK: WorkItem[] = [
     year: "2026",
     blurb: "First time shooting the Garden Party, hosted by Lauren Nikohl.",
     description:
-      "After being on the train & bus for a while, I finally bought a car. My friend Sarah Starr knew I was now trying to focus on networking, connecting, and meeting people in LA. And so she saw a video on TikTok of Lauren Nikohl talking about her Garden Party and shared it with me. So a few days later I went to this Garden Party, bringing my camera with me. I shot both video and photo. I also met some cool & AWAKENED people. Finally!",
+      "After being on the train & bus for a while, I finally bought a car. My friend Sarah Starr knew I was now trying to focus on networking, connecting, and meeting people in LA. And so she saw a video on TikTok of Lauren Nikohl talking about her Garden Party and shared it with me. So a few days later I went to this Garden Party, bringing my camera with me. I shot both video and photo. I also met some cool & AWAKENED people. Finally! Check out Lauren Nikohl on Spotify.",
     accent: "gold",
+    spotifyEmbedUrl:
+      "https://open.spotify.com/embed/artist/2T1X6ZxoikMBWJxIiyuJ1f?utm_source=generator&si=85119f59bda844ae",
     categoryLabel: "VIDEO & PHOTOGRAPHY",
     image: "/work/2026-06-garden-party/1.JPG",
     youtubeId: "VLGgm4xzPF0",
