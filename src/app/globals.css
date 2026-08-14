@@ -393,11 +393,11 @@ body {
 
 /* Contact page's "Get in Touch" column, styled as a flyer tacked to a
    corkboard rather than a plain glow card like .work-card-glow/.pillar-card
-   — a dashed poster border instead of a gradient ring, so it reads as a
+   — a dotted poster border instead of a gradient ring, so it reads as a
    distinct object next to the contact form. */
 .flyer-card {
   position: relative;
-  border: 1.5px dashed color-mix(in srgb, var(--color-gold) 55%, transparent);
+  border: 4px dotted color-mix(in srgb, var(--color-coral) 55%, transparent);
   border-radius: 1rem;
   background: linear-gradient(
     165deg,
