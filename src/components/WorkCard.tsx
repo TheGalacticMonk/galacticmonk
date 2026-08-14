@@ -25,9 +25,10 @@ export default function WorkCard({ item }: { item: WorkItem }) {
   return (
     <Link
       href={`/work/${item.id}/`}
-      className="group block overflow-hidden rounded-3xl bg-ink-deep/60 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(0,0,0,0.75)]"
+      data-accent={item.accent}
+      className="work-card-glow group relative block rounded-3xl shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(0,0,0,0.75)]"
     >
-      <div className="relative aspect-[4/3] overflow-hidden">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-t-3xl">
         {item.image ? (
           <Image
             src={item.image}
@@ -46,7 +47,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
           </div>
         )}
       </div>
-      <div className="p-5">
+      <div className="rounded-b-3xl bg-ink-deep p-5">
         <div
           className={`text-xs uppercase tracking-[0.2em] ${ACCENT_TEXT[item.accent]}`}
         >

@@ -8,6 +8,7 @@
   --color-sage: #739e82;
   --color-cream: #f5f1e8;
   --color-cream-dim: #c9c3e0;
+  --color-indigo: #6c5ce0;
 }
 
 @theme inline {
@@ -283,6 +284,54 @@ body {
   opacity: 1;
 }
 
+/* Work cards: the same gradient-ring + blurred-glow border FX as
+   .pillar-card above, minus the rotate-on-hover and slide-up button — just
+   the glow, colored per-card by pairing the item's own accent with an
+   indigo drawn from the site's own ink palette, instead of the pillar
+   cards' fixed yellow-to-cyan or two clashing accents against each other. */
+.work-card-glow {
+  position: relative;
+  background: var(--color-ink-deep);
+}
+
+.work-card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  z-index: -10;
+  border-radius: inherit;
+  background: linear-gradient(-45deg, var(--color-gold) 0%, var(--color-indigo) 100%);
+  pointer-events: none;
+}
+
+.work-card-glow::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(-45deg, var(--color-gold) 0%, var(--color-indigo) 100%);
+  transform: scale(0.97);
+  filter: blur(10px);
+  opacity: 0.7;
+  transition: filter 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.work-card-glow:hover::after {
+  filter: blur(14px);
+  opacity: 1;
+}
+
+.work-card-glow[data-accent="coral"]::before,
+.work-card-glow[data-accent="coral"]::after {
+  background: linear-gradient(-45deg, var(--color-coral) 0%, var(--color-indigo) 100%);
+}
+
+.work-card-glow[data-accent="sage"]::before,
+.work-card-glow[data-accent="sage"]::after {
+  background: linear-gradient(-45deg, var(--color-sage) 0%, var(--color-indigo) 100%);
+}
+
 /* Full moon orb: a static lunar disc with subtle craters, adapted from
    https://uiverse.io/R5Program/green-sheep-53 (MIT) — the source card's
    falling-star animation is intentionally left out, just the moon itself.
@@ -434,7 +483,8 @@ body {
 
   .pillar-card::before,
   .pillar-card::after,
-  .pillar-card-button {
+  .pillar-card-button,
+  .work-card-glow::after {
     transition: none;
   }
 }
