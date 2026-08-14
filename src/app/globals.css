@@ -444,6 +444,37 @@ body {
   }
 }
 
+/* About page article card: a magazine-page treatment for the bio copy —
+   a warm top-lit sheen behind the masthead, and a serif drop cap on the
+   lede paragraph. The sheen sits at low enough opacity that paint order
+   relative to the text doesn't matter. */
+.about-article {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-article::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    ellipse 120% 60% at 50% -10%,
+    rgba(255, 212, 73, 0.08),
+    transparent 60%
+  );
+}
+
+.about-dropcap::first-letter {
+  float: left;
+  margin-top: 0.2rem;
+  margin-right: 0.5rem;
+  font-family: var(--font-serif);
+  font-size: 3.5rem;
+  line-height: 0.8;
+  color: var(--color-gold);
+}
+
 /* Full moon orb: a static lunar disc with subtle craters, adapted from
    https://uiverse.io/R5Program/green-sheep-53 (MIT) — the source card's
    falling-star animation is intentionally left out, just the moon itself.
