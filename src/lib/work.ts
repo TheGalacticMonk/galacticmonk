@@ -125,7 +125,7 @@ export const WORK: WorkItem[] = [
     year: "2026",
     blurb: "I was on-screen talent, the producer, and cinematographer on this project.",
     description:
-      "Short mini-documentary about the meaning of flow state. I was on-screen talent, producer, cinematographer, and color grader on this project. I had already worked with Andrea and Justice before, but this was my first time meeting Tim Blackman. Let me tell you I'm really liking the spirit of the people I've been meeting as of late. What can I say, as a small crew we made it happen.",
+      "Short mini-documentary about the meaning of flow state. I was on-screen talent, producer, cinematographer, and color grader on this project. I had already worked with Andrea and Justice before, but this was my first time meeting Tim Blackman. Let me tell you I'm really liking the spirit of the people I've been meeting as of late. What can I say, as a small crew we made it happen. When I watch this video why does it make me feel like we're very important people?",
     accent: "coral",
     image: "/work/cover-images/flow-state-cover.jpg",
     vimeoId: "1211282016",
