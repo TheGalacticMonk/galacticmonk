@@ -33,7 +33,7 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-6 pb-24">
         <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading eyebrow="Selected Work" title="Recent projects" />
+          <SectionHeading eyebrow="Featured Vibes" title="Recent alchemy" />
           <Link
             href="/work/"
             className="text-sm tracking-wide text-gold hover:underline"
