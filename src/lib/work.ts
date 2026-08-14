@@ -249,7 +249,7 @@ export const WORK: WorkItem[] = [
     blurb:
       "I was the recording, mixing, and mastering engineer on this project. Also pitched feature requests to legendary indie Hip-Hop artist Blu, and vocalist AnarKy I.",
     description:
-      "This is one of my own songs. I recorded, mixed, and mastered this record, as well as pitched the feature request to indie Hip-Hop legend Blu and vocalist AnarKy I.",
+      "This is one of my own songs I decided to make after starting Sovereign Alliance. I recorded, mixed, and mastered this record, as well as pitched the feature request to indie Hip-Hop legend Blu and vocalist AnarKy I. I still remember when Blu first came out. That album is still a classic. And then there's AnarKy I, who I've become friends with from Instagram. I will never stop evolving. It's the entire point of this human experience.",
     accent: "sage",
     image: "/work/epstein-island/epstein-island-cover.jpeg",
     imagePosition: "top",
