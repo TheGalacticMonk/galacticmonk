@@ -49,8 +49,12 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.7, scale: { duration: 0.2 } }}
-          className="relative mx-auto mb-6 block h-36 w-36 cursor-zoom-in overflow-hidden rounded-full bg-coral shadow-[0_0_40px_-14px_rgba(245,241,232,0.35)] sm:h-44 sm:w-44"
+          className="relative mx-auto mb-6 block h-36 w-36 cursor-zoom-in overflow-hidden rounded-full border-2 border-gold bg-[#3d2172] sm:h-44 sm:w-44"
         >
+          <span className="absolute inset-0 flex items-center justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo-icon.svg" alt="" className="h-auto w-20 sm:w-24" />
+          </span>
           <motion.span
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
