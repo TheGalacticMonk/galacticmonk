@@ -616,12 +616,18 @@ body {
 
 /* Polaroid mat around the matrix photo frame: cream border echoing the
    editorial-card paper stock beside it, thicker at the bottom in the
-   classic Polaroid proportion. The drop shadow passed in via className
-   lives here so it reads as one physical object. */
+   classic Polaroid proportion. Glow matches .editorial-card--paper's
+   gold+indigo box-shadow (not the ring+blur pseudo-element technique —
+   same reasoning: this is a solid cream box with no dedicated face layer
+   to cover a glow that would otherwise tint through). */
 .polaroid-frame {
   background: var(--color-cream);
   border-radius: 1.5rem;
   padding: 0.75rem 0.75rem 1.75rem;
+  box-shadow:
+    0 16px 50px -16px rgba(0, 0, 0, 0.6),
+    0 0 50.369px -8px rgba(255, 212, 73, 0.22),
+    0 0 85.369px -12px rgba(108, 92, 224, 0.18);
 }
 
 /* Matrix photo frame (About page headshot): an always-on animated
@@ -703,18 +709,28 @@ body {
    defines its own --paper-* accent variables (darkened versions of the
    site's gold/sage/blue accents) instead of reusing --color-gold etc.
    directly — those are tuned for light text on a dark card and read as
-   near-invisible on cream (gold-on-cream is ~1:1 contrast). The Contact
-   form uses .work-card-glow instead (matching WORK/pillar cards, per
-   request), not this. */
+   near-invisible on cream (gold-on-cream is ~1:1 contrast).
+
+   Glow lives in box-shadow rather than the ::before/::after ring+blur
+   pseudo-elements used on .pillar-card/.work-card-glow: those rely on a
+   dedicated opaque "face" child to cover the interior so the glow only
+   shows as a thin rim, but this card's cream background sits directly on
+   the same element its content flows into, with no such face — a glow
+   layer there would tint straight through every gap between paragraphs.
+   box-shadow doesn't have that problem (it only ever paints outside the
+   border edge), so it's the simpler correct tool here. Card's own
+   ::before radial sheen gets border-radius: inherit so .editorial-card no
+   longer needs overflow: hidden to clip it — that would've clipped the
+   box-shadow glow too. */
 .editorial-card {
   position: relative;
-  overflow: hidden;
 }
 
 .editorial-card::before {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: inherit;
   pointer-events: none;
   background: radial-gradient(
     ellipse 120% 60% at 50% -10%,
@@ -727,6 +743,10 @@ body {
   --paper-gold: #96690f;
   --paper-sage: #3f6552;
   --paper-blue: #2f5f8f;
+  box-shadow:
+    0 30px 80px -30px rgba(0, 0, 0, 0.6),
+    0 0 50.369px -8px rgba(255, 212, 73, 0.22),
+    0 0 85.369px -12px rgba(108, 92, 224, 0.18);
 }
 
 .editorial-card--paper::before {

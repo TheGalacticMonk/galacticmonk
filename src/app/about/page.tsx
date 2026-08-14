@@ -20,11 +20,11 @@ export default function AboutPage() {
           <MatrixPhotoFrame
             src="/jason-lee.jpg"
             alt="Jason Lee"
-            className="w-full shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]"
+            className="w-full"
           />
 
           <div>
-            <article className="editorial-card editorial-card--paper relative rounded-[2rem] bg-cream p-8 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] sm:p-10 md:p-12">
+            <article className="editorial-card editorial-card--paper relative rounded-[2rem] bg-cream p-8 sm:p-10 md:p-12">
               <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-[var(--paper-gold)]">
                 <Sparkle className="h-3 w-3 shrink-0" />
                 About
