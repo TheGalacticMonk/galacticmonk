@@ -92,7 +92,7 @@ export const WORK: WorkItem[] = [
     year: "2026",
     blurb: "I was the photographer for this monthly event.",
     description:
-      "This was my 2nd time at a Garden Party, and I'm now looking forward to attending these monthly. It was at the Mystic Edge Garden. Such a great vibe, good people, and music. These Garden Parties are hosted by Lauren Nikohl, a multidimensional artist that I'm a huge fan of. I was the photographer for this project. Check Lauren out on Spotify too.",
+      "This was my 2nd time at a Garden Party, and I'm now looking forward to attending these monthly. It was at the Mystic Edge Garden. Such a great vibe, good people, and music. What's amazing about these parties is that there's no alcohol, they provide weed instead. And everyone I have met at these parties is awakened! I have not found anything like the Garden Party. These Garden Parties are hosted by Lauren Nikohl, a multidimensional artist that I'm a huge fan of. I was the photographer for this project. Check Lauren out on Spotify too.",
     accent: "gold",
     spotifyEmbedUrl:
       "https://open.spotify.com/embed/artist/2T1X6ZxoikMBWJxIiyuJ1f?utm_source=generator&si=85119f59bda844ae",
