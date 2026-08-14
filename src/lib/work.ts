@@ -223,7 +223,7 @@ export const WORK: WorkItem[] = [
     blurb:
       "I was an artist, recording, mixing, and mastering engineer on this project.",
     description:
-      "Billion Years Old is one of my side projects. I was an artist, recording, mixing, and mastering engineer on this project.",
+      "Billion Years Old is a duo I'm a part of. We're targeted individuals. I really like how this vibe turned out. It's like Indie Synth Pop mixed with Hip-Hop. And the hook came out marvelous too. I love how the spaced out verbs and delays fuse with Becca's singing vocals, that also have vintage FX on them. Engineering vocals is my favorite aspect of music.",
     accent: "sage",
     image: "/work/photographic-memories/photographic-memories-cover.jpg",
     imagePosition: "top",
