@@ -268,8 +268,8 @@ body {
   border-radius: inherit;
   background: linear-gradient(-45deg, #fff01c 0%, #40c9ff 100%);
   transform: scale(0.97);
-  filter: blur(11px);
-  opacity: 0.75;
+  filter: blur(18px);
+  opacity: 0.9;
   transition: opacity 0.3s ease-out;
   will-change: filter;
 }
@@ -344,8 +344,8 @@ body {
   z-index: -1;
   border-radius: 9999px;
   background: linear-gradient(-45deg, var(--color-gold) 0%, var(--color-indigo) 100%);
-  filter: blur(12px);
-  opacity: 0.7;
+  filter: blur(22px);
+  opacity: 0.97;
   pointer-events: none;
   transition: filter 0.3s ease-out, opacity 0.3s ease-out;
 }
@@ -365,7 +365,7 @@ body {
 .work-card-glow::before {
   content: "";
   position: absolute;
-  inset: -3px;
+  inset: -4px;
   z-index: -10;
   border-radius: inherit;
   background: linear-gradient(-45deg, var(--color-gold) 0%, var(--color-indigo) 100%);
@@ -380,8 +380,8 @@ body {
   border-radius: inherit;
   background: linear-gradient(-45deg, var(--color-gold) 0%, var(--color-indigo) 100%);
   transform: scale(0.97);
-  filter: blur(10px);
-  opacity: 0.7;
+  filter: blur(24px);
+  opacity: 0.97;
   transition: filter 0.3s ease-out, opacity 0.3s ease-out;
 }
 
