@@ -182,7 +182,7 @@ export const WORK: WorkItem[] = [
     year: "2025",
     blurb: "Recorded, mixed, mastered, and pitched feature request to Mickey Factz.",
     description:
-      "Billion Years Old is one of my side projects. I was an artist, recording, mixing, and mastering engineer on this project. I also pitched the feature request to Hip-Hop legend Mickey Factz.",
+      'Billion Years Old is one of my side projects I\'m on with my homegirl Becca Berry. I was an artist, recording, mixing, and mastering engineer on this project. I also pitched the feature request to Hip-Hop legend Mickey Factz. Never did I ever think I\'d be on a record with Mickey before. I admit I was surprised when he said "yes." I still remember when I was young in the game and I would watch his music videos. This feature started to make me think bigger. Believe me when I say if you don\'t ask, you don\'t know.',
     accent: "sage",
     image: "/work/way-beyond-the-stars/cover.jpg",
     imagePosition: "top",
