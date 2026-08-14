@@ -283,6 +283,28 @@ body {
   opacity: 1;
 }
 
+/* Full moon orb: a static, glowing lunar disc with subtle craters, adapted
+   from https://uiverse.io/R5Program/green-sheep-53 (MIT) — the source
+   card's falling-star animation is intentionally left out, just the moon
+   itself. Fill/crater tones use the site's cream palette instead of the
+   template's plain white/grey. Used as the Hero circle's content before
+   the profile photo fades in. */
+.moon-orb {
+  position: relative;
+  border-radius: 9999px;
+  background: linear-gradient(145deg, var(--color-cream-dim), var(--color-cream));
+  box-shadow:
+    0 0 40px rgba(245, 241, 232, 0.5),
+    inset -5px -5px 15px rgba(26, 20, 56, 0.25);
+}
+
+.moon-crater {
+  position: absolute;
+  border-radius: 9999px;
+  background: rgba(200, 200, 200, 0.35);
+  box-shadow: inset 2px 2px 5px rgba(26, 20, 56, 0.15);
+}
+
 /* Lighter touch for smaller/repeated controls (e.g. filter pills): just the
    rings and glow, no sheen, so a row of them doesn't feel busy. */
 .btn-ripple {
