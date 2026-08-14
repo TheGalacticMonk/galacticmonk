@@ -45,20 +45,28 @@ export default function Hero() {
           type="button"
           onClick={() => setExpanded(true)}
           aria-label="Expand photo of Jason Lee"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.7, delay: 1.1 }}
-          className="mx-auto mb-6 block h-36 w-36 cursor-zoom-in overflow-hidden rounded-full shadow-[0_0_40px_-14px_rgba(245,241,232,0.35)] transition-transform hover:scale-105 sm:h-44 sm:w-44"
+          initial={{ opacity: 0, y: 16 }}
+          animate={{ opacity: 1, y: 0 }}
+          whileHover={{ scale: 1.05 }}
+          transition={{ duration: 0.7, scale: { duration: 0.2 } }}
+          className="relative mx-auto mb-6 block h-36 w-36 cursor-zoom-in overflow-hidden rounded-full bg-coral shadow-[0_0_40px_-14px_rgba(245,241,232,0.35)] sm:h-44 sm:w-44"
         >
-          <Image
-            src="/monk-beach.jpg"
-            alt="Jason Lee"
-            width={320}
-            height={320}
-            sizes="176px"
-            priority
-            className="h-full w-full object-cover"
-          />
+          <motion.span
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.7, delay: 1.1 }}
+            className="absolute inset-0 block"
+          >
+            <Image
+              src="/monk-beach.jpg"
+              alt="Jason Lee"
+              width={320}
+              height={320}
+              sizes="176px"
+              priority
+              className="h-full w-full object-cover"
+            />
+          </motion.span>
         </motion.button>
 
         <motion.h1
