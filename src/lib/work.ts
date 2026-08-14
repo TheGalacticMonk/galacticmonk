@@ -39,7 +39,7 @@ export const WORK: WorkItem[] = [
     year: "2026",
     blurb: "Short film - acting, production, cinematography, edit, color grade, and sound design.",
     description:
-      "I made this short film as an advertisement for my clothing business. I wanted it to be simple, cinematic, and short, while also allowing me to showcase the product. I really like the color grade (my favorite part) that I did. I like the teal and orange colors, and I was able to achieve this with some new tools I got for Davinci Resolve. I created this film entirely myself, including acting & camera work. I think it came out decent for a solo project shooting of myself.",
+      "I made this short film as an advertisement for my clothing business. I wanted it to be simple, cinematic, and short, while also allowing me to showcase the product. I really like the color grade (my favorite part) that I did. I like the teal and orange colors, and I was able to achieve this with some new tools I got for Davinci Resolve. I created this film entirely myself, including acting & camera work. I think it came out imperfectly cinematic for a solo project shooting of myself.",
     accent: "coral",
     image: "/work/cover-images/msm-mind-control-cover.jpg",
     vimeoId: "1197906457",
