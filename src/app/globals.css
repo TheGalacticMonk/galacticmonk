@@ -377,6 +377,173 @@ body {
   background: linear-gradient(-45deg, var(--color-sage) 0%, var(--color-indigo) 100%);
 }
 
+/* Music player (work detail pages with audio): a Spotify-style compact
+   card — art, title, play button up top, seek bar below — replacing the
+   native <audio controls> bar, which browsers give almost no styling
+   control over. Accent-colored via the same [data-accent] convention as
+   .work-card-glow, so each track's player matches its category color. */
+.music-player {
+  position: relative;
+  border-radius: 1.25rem;
+  background: var(--color-ink);
+  padding: 1.25rem;
+  box-shadow: 0 16px 50px -16px rgba(0, 0, 0, 0.6);
+}
+
+.music-player-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.music-player-art {
+  height: 4rem;
+  width: 4rem;
+  flex-shrink: 0;
+  border-radius: 0.75rem;
+  object-fit: cover;
+}
+
+.music-player-info {
+  min-width: 0;
+  flex: 1;
+}
+
+.music-player-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--font-serif);
+  font-size: 1.05rem;
+  color: var(--color-cream);
+}
+
+.music-player-subtitle {
+  margin-top: 0.15rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-cream-dim);
+}
+
+.music-player-play {
+  display: flex;
+  height: 2.75rem;
+  width: 2.75rem;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  background: var(--color-gold);
+  color: var(--color-ink-deep);
+  transition: transform 0.2s ease;
+}
+
+.music-player-play:hover {
+  transform: scale(1.06);
+}
+
+.music-player-seek-row {
+  margin-top: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.music-player-time {
+  min-width: 2.6rem;
+  font-variant-numeric: tabular-nums;
+  font-size: 0.7rem;
+  color: var(--color-cream-dim);
+}
+
+.music-player-seek {
+  flex: 1;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 9999px;
+  cursor: pointer;
+  background: linear-gradient(
+    to right,
+    var(--color-gold) var(--progress, 0%),
+    rgba(245, 241, 232, 0.15) var(--progress, 0%)
+  );
+}
+
+.music-player-seek::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 12px;
+  width: 12px;
+  border-radius: 9999px;
+  background: var(--color-cream);
+  box-shadow: 0 0 0 3px rgba(255, 212, 73, 0.25);
+  cursor: pointer;
+}
+
+.music-player-seek::-moz-range-thumb {
+  height: 12px;
+  width: 12px;
+  border: none;
+  border-radius: 9999px;
+  background: var(--color-cream);
+  box-shadow: 0 0 0 3px rgba(255, 212, 73, 0.25);
+  cursor: pointer;
+}
+
+.music-player-seek::-moz-range-track {
+  height: 4px;
+  border-radius: 9999px;
+  background: rgba(245, 241, 232, 0.15);
+}
+
+.music-player-seek::-moz-range-progress {
+  height: 4px;
+  border-radius: 9999px;
+  background: var(--color-gold);
+}
+
+.music-player[data-accent="coral"] .music-player-play {
+  background: var(--color-coral);
+}
+
+.music-player[data-accent="coral"] .music-player-seek {
+  background: linear-gradient(
+    to right,
+    var(--color-coral) var(--progress, 0%),
+    rgba(245, 241, 232, 0.15) var(--progress, 0%)
+  );
+}
+
+.music-player[data-accent="coral"] .music-player-seek::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(248, 118, 102, 0.3);
+}
+
+.music-player[data-accent="coral"] .music-player-seek::-moz-range-progress {
+  background: var(--color-coral);
+}
+
+.music-player[data-accent="sage"] .music-player-play {
+  background: var(--color-sage);
+}
+
+.music-player[data-accent="sage"] .music-player-seek {
+  background: linear-gradient(
+    to right,
+    var(--color-sage) var(--progress, 0%),
+    rgba(245, 241, 232, 0.15) var(--progress, 0%)
+  );
+}
+
+.music-player[data-accent="sage"] .music-player-seek::-webkit-slider-thumb {
+  box-shadow: 0 0 0 3px rgba(115, 158, 130, 0.3);
+}
+
+.music-player[data-accent="sage"] .music-player-seek::-moz-range-progress {
+  background: var(--color-sage);
+}
+
 /* Matrix photo frame (About page headshot): an always-on animated
    code-rain layer streaming directly over the photo, adapted from
    https://uiverse.io/tarantino421/light-panther-5 (MIT) — the source

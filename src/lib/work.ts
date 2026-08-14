@@ -15,6 +15,8 @@ export type WorkItem = {
   videoAspect?: string;
   youtubeId?: string;
   audio?: string;
+  trackTitle?: string;
+  artist?: string;
   spotifyEmbedUrl?: string;
   credits?: { role: string; name: string }[];
   details?: string;
@@ -191,6 +193,8 @@ export const WORK: WorkItem[] = [
   {
     id: "byo-way-beyond-the-stars",
     title: 'BYO - "Way Beyond the Stars" (feat. Mickey Factz)',
+    trackTitle: '"Way Beyond the Stars" (feat. Mickey Factz)',
+    artist: "Billion Years Old",
     category: "music",
     year: "2025",
     blurb: "Recorded, mixed, mastered, and pitched feature request to Mickey Factz.",
@@ -218,6 +222,8 @@ export const WORK: WorkItem[] = [
   {
     id: "byo-photographic-memories",
     title: 'BYO - "Photographic Memories"',
+    trackTitle: '"Photographic Memories"',
+    artist: "Billion Years Old",
     category: "music",
     year: "2025",
     blurb:

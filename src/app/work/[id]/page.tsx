@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { CATEGORY_LABEL, WORK } from "@/lib/work";
 import PhotoGallery from "@/components/PhotoGallery";
-import ExpandableImage from "@/components/ExpandableImage";
+import MusicPlayer from "@/components/MusicPlayer";
 import JsonLd from "@/components/JsonLd";
 import Sparkle from "@/components/Sparkle";
 import { getWorkItemSchema } from "@/lib/schema";
@@ -120,20 +120,13 @@ export default async function WorkDetailPage({
             />
           </div>
         ) : item.audio ? (
-          <div className="mt-14">
-            {item.image && (
-              <ExpandableImage
-                src={item.image}
-                alt={item.title}
-                className="aspect-square w-full max-w-sm rounded-3xl object-cover shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]"
-              />
-            )}
-            {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
-            <audio
+          <div className="mt-14 max-w-md">
+            <MusicPlayer
               src={item.audio}
-              controls
-              preload="metadata"
-              className="mt-6 w-full max-w-sm"
+              image={item.image}
+              title={item.trackTitle ?? item.title}
+              subtitle={item.artist ?? "Galactic Monk"}
+              accent={item.accent}
             />
           </div>
         ) : (
