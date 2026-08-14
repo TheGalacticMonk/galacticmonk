@@ -78,7 +78,7 @@ export default function AboutPage() {
               wisdom, and experience. New techniques are explored. New
               tools are mastered. New perspectives are integrated. His aim is never simply to create content, but to
               continually refine his craft and manifest magic worthy of
-              being casted into our mystically evolving breathing Universe.
+              being casted into our mystically evolving &amp; breathing Multiverse.
             </p>
           </div>
 
