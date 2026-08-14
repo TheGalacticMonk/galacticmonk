@@ -145,6 +145,8 @@ export const WORK: WorkItem[] = [
     additionalCategories: ["photo"],
     year: "2026",
     blurb: "First time shooting the Garden Party, hosted by Lauren Nikohl.",
+    description:
+      "After being on the train & bus for a while, I finally bought a car. My friend Sarah Starr knew I was now trying to focus on networking, connecting, and meeting people in LA. And so she saw a video on TikTok of Lauren Nikohl talking about her Garden Party and shared it with me. So a few days later I went to this Garden Party, bringing my camera with me. I shot both video and photo. I also met some cool & AWAKENED people. Finally!",
     accent: "gold",
     categoryLabel: "VIDEO & PHOTOGRAPHY",
     image: "/work/2026-06-garden-party/1.JPG",
