@@ -9,8 +9,13 @@ export default function Footer() {
           <div className="flex items-center gap-3">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo-icon.svg" alt="" className="h-8 w-auto" />
-            <span className="font-serif text-lg tracking-[0.15em] text-cream">
-              GALACTIC MONK
+            <span className="flex flex-col leading-none">
+              <span className="font-serif text-lg tracking-[0.15em] text-cream">
+                GALACTIC MONK
+              </span>
+              <span className="mt-1 text-[10px] uppercase tracking-[0.3em] text-cream-dim/60">
+                Los Angeles
+              </span>
             </span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-cream-dim">
