@@ -63,8 +63,10 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`flex items-center gap-1.5 text-sm tracking-wide transition-colors hover:text-gold ${
-                  active ? "text-gold" : "text-cream-dim"
+                className={`flex items-center gap-1.5 text-sm tracking-wide transition-[color,text-shadow] hover:text-gold hover:text-shadow-[0_0_14px_rgba(255,212,73,0.9)] ${
+                  active
+                    ? "text-gold text-shadow-[0_0_14px_rgba(255,212,73,0.9)]"
+                    : "text-cream-dim text-shadow-[0_0_12px_rgba(245,241,232,0.7)]"
                 }`}
               >
                 {active && <Sparkle className="h-3 w-3" />}
@@ -109,8 +111,10 @@ export default function Nav() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setOpen(false)}
-                className={`flex items-center gap-1.5 py-3 text-sm tracking-wide transition-colors hover:text-gold ${
-                  active ? "text-gold" : "text-cream-dim"
+                className={`flex items-center gap-1.5 py-3 text-sm tracking-wide transition-[color,text-shadow] hover:text-gold hover:text-shadow-[0_0_14px_rgba(255,212,73,0.9)] ${
+                  active
+                    ? "text-gold text-shadow-[0_0_14px_rgba(255,212,73,0.9)]"
+                    : "text-cream-dim text-shadow-[0_0_12px_rgba(245,241,232,0.7)]"
                 }`}
               >
                 {active && <Sparkle className="h-3 w-3" />}
