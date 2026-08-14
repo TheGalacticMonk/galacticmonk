@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import Sparkle from "@/components/Sparkle";
-import ExpandableImage from "@/components/ExpandableImage";
+import MatrixPhotoFrame from "@/components/MatrixPhotoFrame";
 import MapPinIcon from "@/components/MapPinIcon";
 
 export const metadata: Metadata = {
@@ -15,10 +15,10 @@ export default function AboutPage() {
   return (
     <section className="mx-auto max-w-5xl px-6 pb-24 pt-36">
       <div className="grid gap-12 md:grid-cols-[280px_1fr] md:items-start">
-        <ExpandableImage
+        <MatrixPhotoFrame
           src="/jason-lee.jpg"
           alt="Jason Lee"
-          className="mx-auto aspect-square w-56 rounded-2xl object-cover shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)] md:w-full"
+          className="mx-auto w-56 shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)] md:w-full"
         />
 
         <div>

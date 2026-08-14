@@ -332,6 +332,81 @@ body {
   background: linear-gradient(-45deg, var(--color-sage) 0%, var(--color-indigo) 100%);
 }
 
+/* Matrix photo frame (About page headshot): an always-on animated
+   code-rain layer streaming directly over the photo, adapted from
+   https://uiverse.io/tarantino421/light-panther-5 (MIT) — the source
+   template only reveals its matrix layer on hover, behind a button
+   label; here it runs continuously and screen-blends on top of the
+   photo instead, so the face stays visible under the glowing code.
+   No gradient border here (tried coral-to-indigo, looked awkward next
+   to the photo's own green backdrop) — just the plain drop shadow
+   passed in via className, isolation:isolate keeps the mix-blend-mode
+   scoped to this element instead of the page behind it. */
+.matrix-frame {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 1 / 1;
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+
+.matrix-frame-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  overflow: hidden;
+  pointer-events: none;
+  mix-blend-mode: screen;
+}
+
+.matrix-frame-photo-wrap {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.matrix-code-line {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  min-height: 0.6rem;
+  min-width: 0.6rem;
+  animation: matrix-rain calc(0.2s * var(--i)) linear infinite;
+}
+
+.matrix-code {
+  text-shadow:
+    20px 100px #43ff85,
+    -20px -50px #43ff85;
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #43ff85;
+  opacity: 0.5;
+}
+
+.matrix-code:first-child {
+  color: #f6f4eb;
+  opacity: 1;
+}
+
+@keyframes matrix-rain {
+  0% {
+    transform: translateY(calc(-50% * var(--i)));
+  }
+  100% {
+    transform: translateY(calc(50% * var(--i)));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .matrix-code-line {
+    animation: none;
+  }
+}
+
 /* Full moon orb: a static lunar disc with subtle craters, adapted from
    https://uiverse.io/R5Program/green-sheep-53 (MIT) — the source card's
    falling-star animation is intentionally left out, just the moon itself.
