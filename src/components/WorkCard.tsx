@@ -26,9 +26,9 @@ export default function WorkCard({ item }: { item: WorkItem }) {
     <Link
       href={`/work/${item.id}/`}
       data-accent={item.accent}
-      className="work-card-glow group relative block rounded-3xl shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(0,0,0,0.75)]"
+      className="work-card-glow group relative flex h-full flex-col rounded-3xl shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(0,0,0,0.75)]"
     >
-      <div className="relative aspect-[4/3] overflow-hidden rounded-t-3xl">
+      <div className="relative aspect-[4/3] shrink-0 overflow-hidden rounded-t-3xl">
         {item.image ? (
           <Image
             src={item.image}
@@ -47,7 +47,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
           </div>
         )}
       </div>
-      <div className="rounded-b-3xl bg-ink-deep p-5">
+      <div className="flex-1 rounded-b-3xl bg-ink-deep p-5">
         <div
           className={`text-xs uppercase tracking-[0.2em] ${ACCENT_TEXT[item.accent]}`}
         >
@@ -58,6 +58,7 @@ export default function WorkCard({ item }: { item: WorkItem }) {
           {item.blurb}
         </p>
       </div>
+      <span className="work-card-bottom-glow" aria-hidden="true" />
     </Link>
   );
 }

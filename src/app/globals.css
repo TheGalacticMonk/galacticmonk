@@ -288,10 +288,46 @@ body {
    .pillar-card above, minus the rotate-on-hover and slide-up button — just
    the glow, colored per-card by pairing the item's own accent with an
    indigo drawn from the site's own ink palette, instead of the pillar
-   cards' fixed yellow-to-cyan or two clashing accents against each other. */
+   cards' fixed yellow-to-cyan or two clashing accents against each other.
+   The card is a flex column (see WorkCard.tsx) so the text block always
+   fills the card's full height, even when a taller sibling in the same
+   grid row stretches it — otherwise the leftover gap has no opaque
+   content over it, and .work-card-glow::after peeks through on hover
+   (since hover's translateY traps the glow's negative z-index in a local
+   stacking context, same class of bug as ExpandableImage's old one).
+   .work-card-bottom-glow is a deliberate version of that same peek,
+   applied identically to every card instead of by accident to some. */
 .work-card-glow {
   position: relative;
   background: var(--color-ink-deep);
+}
+
+.work-card-bottom-glow {
+  position: absolute;
+  left: 12%;
+  right: 12%;
+  bottom: -10px;
+  height: 20px;
+  z-index: -1;
+  border-radius: 9999px;
+  background: linear-gradient(-45deg, var(--color-gold) 0%, var(--color-indigo) 100%);
+  filter: blur(12px);
+  opacity: 0.7;
+  pointer-events: none;
+  transition: filter 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.work-card-glow:hover .work-card-bottom-glow {
+  filter: blur(16px);
+  opacity: 1;
+}
+
+.work-card-glow[data-accent="coral"] .work-card-bottom-glow {
+  background: linear-gradient(-45deg, var(--color-coral) 0%, var(--color-indigo) 100%);
+}
+
+.work-card-glow[data-accent="sage"] .work-card-bottom-glow {
+  background: linear-gradient(-45deg, var(--color-sage) 0%, var(--color-indigo) 100%);
 }
 
 .work-card-glow::before {
@@ -559,7 +595,8 @@ body {
   .pillar-card::before,
   .pillar-card::after,
   .pillar-card-button,
-  .work-card-glow::after {
+  .work-card-glow::after,
+  .work-card-bottom-glow {
     transition: none;
   }
 }
