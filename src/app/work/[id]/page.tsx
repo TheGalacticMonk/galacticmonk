@@ -175,8 +175,15 @@ export default async function WorkDetailPage({
         )}
       </article>
 
-      <div className="mt-8 flex justify-center">
-        <Link href="/contact/" className="btn-nova btn-nova-urgent text-sm font-medium tracking-wide">
+      <div className="mt-8 grid grid-cols-[1fr_auto_1fr] items-center gap-4">
+        <Link
+          href="/work/"
+          className="justify-self-start text-sm tracking-wide text-gold hover:underline"
+        >
+          ← Back to Work
+        </Link>
+
+        <Link href="/contact/" className="btn-nova btn-nova-urgent justify-self-center text-sm font-medium tracking-wide">
           <span className="btn-nova-inner">
             <strong className="btn-nova-label">Work With Me</strong>
             <span className="btn-nova-stars" aria-hidden="true">
@@ -188,15 +195,8 @@ export default async function WorkDetailPage({
             </span>
           </span>
         </Link>
-      </div>
 
-      <div className="mt-8 flex justify-center">
-        <Link
-          href="/work/"
-          className="text-sm tracking-wide text-gold hover:underline"
-        >
-          ← Back to Work
-        </Link>
+        <div aria-hidden="true" />
       </div>
     </section>
   );
