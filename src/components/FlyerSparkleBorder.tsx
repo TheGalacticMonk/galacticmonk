@@ -14,7 +14,7 @@ const COLORS = [
   "rgba(115,158,130,0.9)",
 ];
 
-const SPACING = 26;
+const SPACING = 42;
 const SIZE = 11;
 
 type Point = { x: number; y: number };
