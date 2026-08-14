@@ -456,8 +456,14 @@ body {
 /* Editorial card: the About page's magazine-style bio card — rounded
    border, deep shadow, and a warm top-lit sheen (radial, low enough
    opacity that paint order relative to the content doesn't matter).
-   The Contact form uses .work-card-glow instead (matching WORK/pillar
-   cards, per request), not this. */
+
+   .editorial-card--paper swaps it to a cream "page of paper" look. It
+   defines its own --paper-* accent variables (darkened versions of the
+   site's gold/sage/blue accents) instead of reusing --color-gold etc.
+   directly — those are tuned for light text on a dark card and read as
+   near-invisible on cream (gold-on-cream is ~1:1 contrast). The Contact
+   form uses .work-card-glow instead (matching WORK/pillar cards, per
+   request), not this. */
 .editorial-card {
   position: relative;
   overflow: hidden;
@@ -475,6 +481,20 @@ body {
   );
 }
 
+.editorial-card--paper {
+  --paper-gold: #96690f;
+  --paper-sage: #3f6552;
+  --paper-blue: #2f5f8f;
+}
+
+.editorial-card--paper::before {
+  background: radial-gradient(
+    ellipse 120% 60% at 50% -10%,
+    rgba(44, 34, 85, 0.06),
+    transparent 60%
+  );
+}
+
 .about-dropcap::first-letter {
   float: left;
   margin-top: 0.2rem;
@@ -483,6 +503,10 @@ body {
   font-size: 3.5rem;
   line-height: 0.8;
   color: var(--color-gold);
+}
+
+.editorial-card--paper .about-dropcap::first-letter {
+  color: var(--paper-gold);
 }
 
 /* Full moon orb: a static lunar disc with subtle craters, adapted from

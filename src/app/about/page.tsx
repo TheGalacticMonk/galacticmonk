@@ -20,31 +20,31 @@ export default function AboutPage() {
           className="mx-auto w-56 shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)] md:w-full"
         />
 
-        <article className="editorial-card relative rounded-[2rem] border border-cream/10 bg-ink-deep p-8 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.75)] sm:p-10 md:p-12">
-          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-gold">
+        <article className="editorial-card editorial-card--paper relative rounded-[2rem] border border-ink/10 bg-cream p-8 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6)] sm:p-10 md:p-12">
+          <div className="flex items-center gap-3 text-xs uppercase tracking-[0.3em] text-[var(--paper-gold)]">
             <Sparkle className="h-3 w-3 shrink-0" />
             About
-            <span className="h-px flex-1 bg-cream/15" />
+            <span className="h-px flex-1 bg-ink/15" />
           </div>
 
-          <h1 className="mt-4 font-serif text-4xl leading-tight text-cream sm:text-5xl">
-            Jason Lee <span className="text-cream-dim">|</span> Galactic Monk
+          <h1 className="mt-4 font-serif text-4xl leading-tight text-ink sm:text-5xl">
+            Jason Lee <span className="text-ink/50">|</span> Galactic Monk
           </h1>
 
-          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-cream/10 py-3 text-xs font-medium uppercase tracking-[0.2em]">
-            <span className="text-sage">Creative Producer &amp; Alchemist</span>
-            <span className="hidden h-3 w-px bg-cream/20 sm:block" />
-            <span className="inline-flex items-center gap-2 text-[#6fa9da]">
+          <div className="mt-6 flex flex-wrap items-center gap-x-4 gap-y-2 border-y border-ink/10 py-3 text-xs font-medium uppercase tracking-[0.2em]">
+            <span className="text-[var(--paper-sage)]">Creative Producer &amp; Alchemist</span>
+            <span className="hidden h-3 w-px bg-ink/20 sm:block" />
+            <span className="inline-flex items-center gap-2 text-[var(--paper-blue)]">
               <span className="relative flex h-4 w-4 items-center justify-center">
-                <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-[#6fa9da]/40" />
-                <MapPinIcon className="relative h-3.5 w-3.5 text-cream" />
+                <span className="absolute inline-flex h-3 w-3 animate-ping rounded-full bg-[var(--paper-blue)]/30" />
+                <MapPinIcon className="relative h-3.5 w-3.5 text-ink" />
               </span>
               Los Angeles · On-Location &amp; Remote
             </span>
           </div>
 
-          <div className="mt-8 max-w-2xl text-base leading-relaxed text-cream-dim">
-            <p className="about-dropcap font-serif text-xl leading-relaxed text-cream">
+          <div className="mt-8 max-w-2xl text-base leading-relaxed text-ink/75">
+            <p className="about-dropcap font-serif text-xl leading-relaxed text-ink">
               Jason Lee is a Los Angeles-based creative producer and
               multidimensional alchemist driven by the pursuit of
               self-mastery.
@@ -57,10 +57,10 @@ export default function AboutPage() {
               transmutation, shaping footage, photography, sound, and story
               into work with energy, intention, and impact.
             </p>
-            <blockquote className="my-8 border-l-2 border-gold/60 pl-5 font-serif text-xl italic leading-snug text-cream">
+            <blockquote className="my-8 border-l-2 border-[var(--paper-gold)]/70 pl-5 font-serif text-xl italic leading-snug text-ink">
               &ldquo;A master alchemist can even transmute the night sky as a
               power source.&rdquo;
-              <footer className="mt-2 font-sans text-xs not-italic uppercase tracking-[0.2em] text-cream-dim">
+              <footer className="mt-2 font-sans text-xs not-italic uppercase tracking-[0.2em] text-ink/60">
                 — Jason Lee
               </footer>
             </blockquote>
@@ -82,8 +82,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="mt-10 border-t border-cream/10 pt-8">
-            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
+          <div className="mt-10 border-t border-ink/10 pt-8">
+            <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-[var(--paper-gold)]">
               <Sparkle className="h-3 w-3" />
               LET&apos;S CO-CREATE
             </div>
