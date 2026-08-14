@@ -15,6 +15,7 @@ export type WorkItem = {
   videoAspect?: string;
   youtubeId?: string;
   audio?: string;
+  spotifyEmbedUrl?: string;
   credits?: { role: string; name: string }[];
   details?: string;
   gallery?: string[];
@@ -64,7 +65,7 @@ export const WORK: WorkItem[] = [
     year: "2026",
     blurb: "Short film PSA - Director of Photography, audio mix, and color grade.",
     description:
-      "I met Andrea the first time I ever hit the Garden Party, hosted by Lauren Nikohl. A couple weeks later Andrea texts me asking if I could meet up because she felt like shooting something spontaneously. I said okay, and then she came up with this story idea. We met up and I got my gear ready while she drew out the storyboard. We ended up deciding to shoot at Hermosa Beach. We drove there, and ended up only having 1 hour to shoot before sun set. We got the shots we needed and then got to post. We ended up releasing it as a PSA a day later.",
+      "I met Andrea the first time I ever hit the Garden Party, hosted by Lauren Nikohl. A couple weeks later Andrea texts me asking if I could meet up because she felt like shooting something spontaneously. I said okay, and then she came up with this story idea. We met up and I got my gear ready while she drew out the storyboard. Then her friend Justice rolled through to also be in the film. We ended up deciding to shoot at Hermosa Beach. We drove there, and ended up only having 1 hour to shoot before sun set. We got the shots we needed and then got to post. We ended up releasing it as a PSA a day later.",
     accent: "coral",
     image: "/work/cover-images/put-your-phone-down-macro-cover.jpg",
     vimeoId: "1207633805",
@@ -91,8 +92,10 @@ export const WORK: WorkItem[] = [
     year: "2026",
     blurb: "I was the photographer for this monthly event.",
     description:
-      "This was my 2nd time at a Garden Party, and I'm now looking forward to attending these monthly. It was at the Mystic Edge Garden. Such a great vibe, good people, and music. These Garden Parties are hosted by Lauren Nikohl, a multidimensional artist that I'm a huge fan of. I was the photographer for this project.",
+      "This was my 2nd time at a Garden Party, and I'm now looking forward to attending these monthly. It was at the Mystic Edge Garden. Such a great vibe, good people, and music. These Garden Parties are hosted by Lauren Nikohl, a multidimensional artist that I'm a huge fan of. I was the photographer for this project. Check Lauren out on Spotify too.",
     accent: "gold",
+    spotifyEmbedUrl:
+      "https://open.spotify.com/embed/artist/2T1X6ZxoikMBWJxIiyuJ1f?utm_source=generator&si=85119f59bda844ae",
     image: "/work/2026-07-garden-party/lauren-nikohl-dj-2.jpg",
     gallery: [
       "/work/2026-07-garden-party/celestial-admission.jpg",

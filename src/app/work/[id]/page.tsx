@@ -78,6 +78,22 @@ export default async function WorkDetailPage({
           {item.description ?? item.blurb}
         </p>
 
+        {item.spotifyEmbedUrl && (
+          <div className="mt-8 max-w-2xl">
+            <iframe
+              src={item.spotifyEmbedUrl}
+              width="100%"
+              height="352"
+              style={{ borderRadius: "12px" }}
+              frameBorder="0"
+              allowFullScreen
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+              loading="lazy"
+              title={`${item.title} on Spotify`}
+            />
+          </div>
+        )}
+
         {item.vimeoId ? (
           <div
             className="relative mt-14 w-full"
