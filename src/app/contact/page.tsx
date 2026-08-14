@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
-import Sparkle from "@/components/Sparkle";
 import FlyerSparkleBorder from "@/components/FlyerSparkleBorder";
 import PageConstellation from "@/components/PageConstellation";
 import Sun from "@/components/Sun";
@@ -32,7 +31,7 @@ export default function ContactPage() {
               eyebrow="Get in Touch"
               title="Book a Project"
               icon={
-                <span className="material-symbols-outlined text-sm text-[#9fd8ff] drop-shadow-[0_0_6px_rgba(159,216,255,0.7)]">
+                <span className="material-symbols-outlined text-sm text-gold drop-shadow-[0_0_6px_rgba(255,212,73,0.8)]">
                   wand_stars
                 </span>
               }
@@ -48,7 +47,9 @@ export default function ContactPage() {
 
             <div className="mt-8 rounded-2xl border border-gold/30 bg-gold/5 p-5">
               <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
-                <Sparkle className="h-3 w-3" />
+                <span className="material-symbols-outlined text-sm text-gold drop-shadow-[0_0_6px_rgba(255,212,73,0.8)]">
+                  wand_stars
+                </span>
                 Included Perk
               </div>
               <p className="mt-3 text-sm leading-relaxed text-cream-dim">
