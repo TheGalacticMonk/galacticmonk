@@ -46,6 +46,7 @@ export default function ServicePillars() {
           key={pillar.title}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
+          whileHover={{ scale: 1.05 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: i * 0.1 }}
           className="pillar-card min-h-72 rounded-2xl p-6 pb-8 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)]"
@@ -63,7 +64,7 @@ export default function ServicePillars() {
             href="/contact/"
             className="pillar-card-button rounded-full bg-gold px-4 py-2 text-xs font-medium text-ink-deep"
           >
-            Let&apos;s Chat
+            Let&apos;s Chat!
           </Link>
         </motion.div>
       ))}
