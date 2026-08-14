@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 
 type GalleryItem =
   | { type: "image"; src: string }
@@ -82,67 +83,74 @@ export default function PhotoGallery({
         )}
       </div>
 
-      {openItem && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink-deep/95 p-4 sm:p-10"
-          onClick={() => setOpenIndex(null)}
-        >
-          <button
-            type="button"
-            aria-label="Close"
+      {/* Portaled to <body>: a fixed z-50 div still gets trapped under whatever
+          content follows it in the DOM if any ancestor creates a stacking
+          context (isolation, transform, filter, etc.) — e.g. .editorial-card's
+          isolation:isolate on work detail pages. Rendering outside the tree
+          sidesteps that entirely. */}
+      {openItem &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-ink-deep/95 p-4 sm:p-10"
             onClick={() => setOpenIndex(null)}
-            className="absolute right-5 top-5 text-3xl leading-none text-cream/80 hover:text-gold"
           >
-            ×
-          </button>
+            <button
+              type="button"
+              aria-label="Close"
+              onClick={() => setOpenIndex(null)}
+              className="absolute right-5 top-5 text-3xl leading-none text-cream/80 hover:text-gold"
+            >
+              ×
+            </button>
 
-          {items.length > 1 && (
-            <>
-              <button
-                type="button"
-                aria-label="Previous item"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setOpenIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
-                }}
-                className="absolute left-2 top-1/2 -translate-y-1/2 px-3 py-4 text-3xl text-cream/70 hover:text-gold sm:left-5"
-              >
-                ‹
-              </button>
-              <button
-                type="button"
-                aria-label="Next item"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setOpenIndex((i) => (i === null ? i : (i + 1) % items.length));
-                }}
-                className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-4 text-3xl text-cream/70 hover:text-gold sm:right-5"
-              >
-                ›
-              </button>
-            </>
-          )}
+            {items.length > 1 && (
+              <>
+                <button
+                  type="button"
+                  aria-label="Previous item"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpenIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
+                  }}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 px-3 py-4 text-3xl text-cream/70 hover:text-gold sm:left-5"
+                >
+                  ‹
+                </button>
+                <button
+                  type="button"
+                  aria-label="Next item"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setOpenIndex((i) => (i === null ? i : (i + 1) % items.length));
+                  }}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-4 text-3xl text-cream/70 hover:text-gold sm:right-5"
+                >
+                  ›
+                </button>
+              </>
+            )}
 
-          {openItem.type === "youtube" ? (
-            <iframe
-              src={`https://www.youtube.com/embed/${openItem.id}`}
-              title={alt}
-              onClick={(e) => e.stopPropagation()}
-              allow="autoplay; fullscreen; picture-in-picture"
-              allowFullScreen
-              className="aspect-[9/16] h-full max-h-[85vh] w-auto rounded-lg"
-            />
-          ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src={openItem.src}
-              alt={alt}
-              onClick={(e) => e.stopPropagation()}
-              className="max-h-full max-w-full rounded-lg object-contain"
-            />
-          )}
-        </div>
-      )}
+            {openItem.type === "youtube" ? (
+              <iframe
+                src={`https://www.youtube.com/embed/${openItem.id}`}
+                title={alt}
+                onClick={(e) => e.stopPropagation()}
+                allow="autoplay; fullscreen; picture-in-picture"
+                allowFullScreen
+                className="aspect-[9/16] h-full max-h-[85vh] w-auto rounded-lg"
+              />
+            ) : (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={openItem.src}
+                alt={alt}
+                onClick={(e) => e.stopPropagation()}
+                className="max-h-full max-w-full rounded-lg object-contain"
+              />
+            )}
+          </div>,
+          document.body,
+        )}
     </>
   );
 }
