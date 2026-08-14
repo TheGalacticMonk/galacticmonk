@@ -70,6 +70,11 @@ export default function FlyerSparkleBorder() {
           d={SPARKLE_D}
           fill={COLORS[i % COLORS.length]}
           transform={`translate(${pt.x - SIZE / 2} ${pt.y - SIZE / 2}) scale(${SIZE / 40})`}
+          style={{
+            filter:
+              "drop-shadow(0 0 0.8px currentColor) drop-shadow(0 0 4.1px currentColor) drop-shadow(0 0 8.9px currentColor)",
+            color: COLORS[i % COLORS.length],
+          }}
         />
       ))}
     </svg>
