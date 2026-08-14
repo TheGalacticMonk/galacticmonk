@@ -69,12 +69,14 @@ export default function ContactPage() {
                 strokeLinecap="round"
               />
             </svg>
-            <span className="flyer-pin" aria-hidden="true">
-              <Sparkle className="h-7 w-7 text-gold drop-shadow-[0_0_8px_rgba(255,212,73,0.65)]" />
-            </span>
             <SectionHeading
               eyebrow="Get in Touch"
               title="Book a Project"
+              icon={
+                <span className="material-symbols-outlined text-sm text-[#9fd8ff] drop-shadow-[0_0_6px_rgba(159,216,255,0.7)]">
+                  wand_stars
+                </span>
+              }
               description={
                 <>
                   Tell me a bit about what you&apos;re imagining and

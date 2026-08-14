@@ -6,6 +6,7 @@ type SectionHeadingProps = {
   title: string;
   description?: ReactNode;
   align?: "left" | "center";
+  icon?: ReactNode;
 };
 
 export default function SectionHeading({
@@ -13,6 +14,7 @@ export default function SectionHeading({
   title,
   description,
   align = "left",
+  icon = <Sparkle className="h-3 w-3" />,
 }: SectionHeadingProps) {
   const isCenter = align === "center";
   return (
@@ -22,7 +24,7 @@ export default function SectionHeading({
           isCenter ? "justify-center" : ""
         }`}
       >
-        <Sparkle className="h-3 w-3" />
+        {icon}
         {eyebrow}
       </div>
       <h2 className="mt-3 font-serif text-3xl text-cream sm:text-4xl">
