@@ -539,21 +539,29 @@ body {
   background: var(--color-sage);
 }
 
+/* Polaroid mat around the matrix photo frame: cream border echoing the
+   editorial-card paper stock beside it, thicker at the bottom in the
+   classic Polaroid proportion. The drop shadow passed in via className
+   lives here so it reads as one physical object. */
+.polaroid-frame {
+  background: var(--color-cream);
+  border-radius: 1.5rem;
+  padding: 0.75rem 0.75rem 1.75rem;
+}
+
 /* Matrix photo frame (About page headshot): an always-on animated
    code-rain layer streaming directly over the photo, adapted from
    https://uiverse.io/tarantino421/light-panther-5 (MIT) — the source
    template only reveals its matrix layer on hover, behind a button
    label; here it runs continuously and screen-blends on top of the
    photo instead, so the face stays visible under the glowing code.
-   No gradient border here (tried coral-to-indigo, looked awkward next
-   to the photo's own green backdrop) — just the plain drop shadow
-   passed in via className, isolation:isolate keeps the mix-blend-mode
-   scoped to this element instead of the page behind it. */
+   isolation:isolate keeps the mix-blend-mode scoped to this element
+   instead of the page behind it. */
 .matrix-frame {
   position: relative;
   isolation: isolate;
   aspect-ratio: 1 / 1;
-  border-radius: 1.25rem;
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 
