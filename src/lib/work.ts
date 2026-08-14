@@ -38,6 +38,8 @@ export const WORK: WorkItem[] = [
     category: "film",
     year: "2026",
     blurb: "Short film - acting, production, cinematography, edit, color grade, and sound design.",
+    description:
+      "I made this short film as an advertisement for my clothing business. I wanted it to be simple, cinematic, and short, while also allowing me to showcase the product. I really like the color grade (my favorite part) that I did. I like the teal and orange colors, and I was able to achieve this with some new tools I got for Davinci Resolve. I created this film entirely myself, including acting & camera work. I think it came out decent for a solo project shooting of myself.",
     accent: "coral",
     image: "/work/cover-images/msm-mind-control-cover.jpg",
     vimeoId: "1197906457",
@@ -182,7 +184,7 @@ export const WORK: WorkItem[] = [
     year: "2025",
     blurb: "Recorded, mixed, mastered, and pitched feature request to Mickey Factz.",
     description:
-      'Billion Years Old is one of my side projects I\'m on with my homegirl Becca Berry. I was an artist, recording, mixing, and mastering engineer on this project. I also pitched the feature request to Hip-Hop legend Mickey Factz. Never did I ever think I\'d be on a record with Mickey before. I admit I was surprised when he said "yes." I still remember when I was young in the game and I would watch his music videos. This feature started to make me think bigger. Believe me when I say if you don\'t ask, you don\'t know.',
+      'Billion Years Old is one of my side projects I\'m on with my homegirl Becca Berry. We\'re targeted individuals. I was an artist, recording, mixing, and mastering engineer on this project. I also pitched the feature request to Hip-Hop legend Mickey Factz. Never did I ever think I\'d be on a record with Mickey before. I admit I was surprised when he said "yes." I still remember when I was young in the game and I would watch his music videos. This feature started to make me think bigger. Believe me when I say if you don\'t ask, you don\'t know.',
     accent: "sage",
     image: "/work/way-beyond-the-stars/cover.jpg",
     imagePosition: "top",
