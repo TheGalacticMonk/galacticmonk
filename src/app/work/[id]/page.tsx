@@ -112,7 +112,6 @@ export default async function WorkDetailPage({
             </div>
           ) : item.video ? (
             <div className="relative mt-14 overflow-hidden rounded-2xl shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]">
-              {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
               <video
                 src={item.video}
                 poster={item.image}

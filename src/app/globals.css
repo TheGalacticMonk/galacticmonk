@@ -69,8 +69,7 @@ body {
   box-shadow: 0 0 0 2px var(--color-gold);
 }
 
-/* Nova buttons: a dark pill with a shimmering gold border, adapted from
-   https://uiverse.io/DrashtySoni/tender-gecko-65 (MIT) to this site's
+/* Nova buttons: a dark pill with a shimmering gold border in this site's
    palette. A starfield drifts behind the label, hidden until touched. */
 .btn-nova {
   display: inline-flex;
@@ -226,27 +225,33 @@ body {
 }
 
 /* Pillar cards ("What I Do"): a card sitting on a blurred gradient glow,
-   with a crisper gradient ring further behind, adapted from
-   https://uiverse.io/Aryan-81/rare-rattlesnake-22 (MIT). The glow keeps the
-   template's literal yellow-to-cyan gradient rather than the site's own
-   accent colors, uniform across all four cards. The card itself scales up
-   on hover, and a "Let's Chat!" pill slides up from the bottom edge. */
+   with a crisper gradient ring further behind. The glow is a literal
+   yellow-to-cyan gradient rather than the site's own accent colors,
+   uniform across all four cards. The card itself scales up on hover, and
+   a "Let's Chat!" pill slides up from the bottom edge. */
 .pillar-card {
   position: relative;
   background: var(--color-ink-deep);
   cursor: pointer;
+  will-change: transform;
 }
 
 .pillar-card::before {
   content: "";
   position: absolute;
-  inset: -8px;
+  inset: -4px;
   z-index: -10;
   border-radius: inherit;
   background: linear-gradient(-45deg, #fff01c 0%, #40c9ff 100%);
   pointer-events: none;
 }
 
+/* will-change here (rather than just on .pillar-card) forces this blurred
+   layer to be composited up front. Without it, Chrome/Safari defer building
+   the blur bitmap until the parent's transform actually changes (page load's
+   entrance animation, or the hover scale), so the ring briefly renders sharp
+   and full-size before the blur "catches up" — reads as a flash of a much
+   thicker border that then shrinks down. */
 .pillar-card::after {
   content: "";
   position: absolute;
@@ -254,13 +259,29 @@ body {
   z-index: -1;
   border-radius: inherit;
   background: linear-gradient(-45deg, #fff01c 0%, #40c9ff 100%);
-  transform: scale(0.95);
-  filter: blur(20px);
-  transition: filter 0.3s ease-out;
+  transform: scale(0.97);
+  filter: blur(11px);
+  opacity: 0.75;
+  transition: opacity 0.3s ease-out;
+  will-change: filter;
 }
 
 .pillar-card:hover::after {
-  filter: blur(30px);
+  opacity: 1;
+}
+
+/* Negative z-index always paints above its element's own background (never
+   under it), so without this the glow above would wash out through the
+   card's padding instead of staying a thin edge glow. Padding lives on this
+   face rather than on .pillar-card itself so the face sits flush with the
+   card's edges (same trick as .work-card-glow's image + text, which have no
+   outer padding either) — leaving just the pseudo-elements' own inset/blur
+   as the visible rim, instead of the whole padding gap. */
+.pillar-card-face {
+  position: relative;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--color-ink-deep);
 }
 
 .pillar-card-button {
@@ -322,7 +343,6 @@ body {
 }
 
 .work-card-glow:hover .work-card-bottom-glow {
-  filter: blur(16px);
   opacity: 1;
 }
 
@@ -358,7 +378,6 @@ body {
 }
 
 .work-card-glow:hover::after {
-  filter: blur(14px);
   opacity: 1;
 }
 
@@ -550,13 +569,10 @@ body {
 }
 
 /* Matrix photo frame (About page headshot): an always-on animated
-   code-rain layer streaming directly over the photo, adapted from
-   https://uiverse.io/tarantino421/light-panther-5 (MIT) — the source
-   template only reveals its matrix layer on hover, behind a button
-   label; here it runs continuously and screen-blends on top of the
-   photo instead, so the face stays visible under the glowing code.
-   isolation:isolate keeps the mix-blend-mode scoped to this element
-   instead of the page behind it. */
+   code-rain layer streaming directly over the photo, screen-blended so
+   the face stays visible under the glowing code. isolation:isolate
+   keeps the mix-blend-mode scoped to this element instead of the page
+   behind it. */
 .matrix-frame {
   position: relative;
   isolation: isolate;
@@ -679,14 +695,12 @@ body {
   color: var(--paper-gold);
 }
 
-/* Full moon orb: a static lunar disc with subtle craters, adapted from
-   https://uiverse.io/R5Program/green-sheep-53 (MIT) — the source card's
-   falling-star animation is intentionally left out, just the moon itself.
-   Fill/crater tones use the site's cream palette instead of the template's
-   plain white/grey. Used as the Hero circle's content before the profile
-   photo fades in; the outer glow lives on Hero.tsx's wrapping element
-   instead of here, since it needs to persist past this element's own
-   overflow-hidden clip once the photo fades in. */
+/* Full moon orb: a static lunar disc with subtle craters, no falling-star
+   animation — just the moon itself, in the site's cream palette. Used as
+   the Hero circle's content before the profile photo fades in; the outer
+   glow lives on Hero.tsx's wrapping element instead of here, since it
+   needs to persist past this element's own overflow-hidden clip once the
+   photo fades in. */
 .moon-orb {
   position: relative;
   border-radius: 9999px;

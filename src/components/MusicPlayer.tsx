@@ -98,7 +98,6 @@ export default function MusicPlayer({
         <span className="music-player-time">{formatTime(duration)}</span>
       </div>
 
-      {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
       <audio
         ref={audioRef}
         src={src}

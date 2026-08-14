@@ -25,8 +25,7 @@ export default async function Image() {
             "radial-gradient(ellipse 90% 70% at 50% 55%, #2c2255 0%, #1a1438 75%)",
         }}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={frontSrc} height={630} width={1068} />
+        <img src={frontSrc} height={630} width={1068} alt="" />
       </div>
     ),
     { ...size }

@@ -49,9 +49,9 @@ export default function ServicePillars() {
           whileHover={{ scale: 1.05 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: i * 0.1 }}
-          className="pillar-card min-h-72 rounded-2xl p-6 pb-8 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)]"
+          className="pillar-card min-h-72 rounded-2xl shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)]"
         >
-          <div className="flex h-full flex-col">
+          <div className="pillar-card-face flex flex-col p-6 pb-8">
             <Sparkle className={`h-5 w-5 ${ACCENT_TEXT[pillar.accent]}`} />
             <h3 className="mt-4 font-serif text-xl text-cream">
               {pillar.title}

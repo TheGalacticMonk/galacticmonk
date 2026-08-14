@@ -78,7 +78,7 @@ export default function AboutPage() {
                   attention to the fine technical detail of the end output.
                 </p>
                 <p className="mt-6">
-                  Galactic Monk's alchemy is intuitive; led by a lifelong pursuit of knowledge,
+                  Galactic Monk&apos;s alchemy is intuitive; led by a lifelong pursuit of knowledge,
                   wisdom, and experience. New techniques are explored. New
                   tools are mastered. New perspectives are integrated. His aim is never simply to create content, but to
                   continually refine his craft and manifest magic worthy of
