@@ -20,7 +20,7 @@ export default function AboutPage() {
           <MatrixPhotoFrame
             src="/jason-lee.jpg"
             alt="Jason Lee"
-            className="mx-auto w-56 shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)] md:w-full"
+            className="w-full shadow-[0_16px_50px_-16px_rgba(0,0,0,0.6)]"
           />
 
           <div>
