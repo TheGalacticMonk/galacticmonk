@@ -9,6 +9,12 @@
   --color-cream: #f5f1e8;
   --color-cream-dim: #c9c3e0;
   --color-indigo: #6c5ce0;
+  /* A 25/75 blend of --color-indigo into --color-ink-deep: dark enough to
+     keep cream/gold/sage/coral text at readable contrast (same bar as
+     --color-ink-deep elsewhere), but visibly indigo-tinted rather than
+     the near-black ink-deep. Used for the About page's editorial card and
+     its matching polaroid mat. */
+  --color-indigo-deep: #2f2662;
 }
 
 @theme inline {
@@ -614,14 +620,12 @@ body {
   background: var(--color-sage);
 }
 
-/* Polaroid mat around the matrix photo frame: cream border echoing the
-   editorial-card paper stock beside it, thicker at the bottom in the
-   classic Polaroid proportion. Glow matches .editorial-card--paper's
-   gold+indigo box-shadow (not the ring+blur pseudo-element technique —
-   same reasoning: this is a solid cream box with no dedicated face layer
-   to cover a glow that would otherwise tint through). */
+/* Polaroid mat around the matrix photo frame: same --color-indigo-deep
+   token as the editorial card's background beside it, so the mat and the
+   card read as one consistent indigo paper stock. Thicker at the bottom
+   in the classic Polaroid proportion. */
 .polaroid-frame {
-  background: var(--color-cream);
+  background: var(--color-indigo-deep);
   border-radius: 1.5rem;
   padding: 0.75rem 0.75rem 1.75rem;
   box-shadow:
@@ -641,6 +645,14 @@ body {
   aspect-ratio: 1 / 1;
   border-radius: 0.75rem;
   overflow: hidden;
+}
+
+/* Bare (mat=false) circular byline photo beside the About page's kicker
+   + headline — a magazine contributor-photo treatment. Sizing lives on
+   the frameClassName width utility at the call site; this only overrides
+   the base square's border-radius. */
+.matrix-frame--profile {
+  border-radius: 9999px;
 }
 
 .matrix-frame-bg {
@@ -701,27 +713,13 @@ body {
   }
 }
 
-/* Editorial card: the About page's magazine-style bio card — rounded
-   border, deep shadow, and a warm top-lit sheen (radial, low enough
-   opacity that paint order relative to the content doesn't matter).
-
-   .editorial-card--paper swaps it to a cream "page of paper" look. It
-   defines its own --paper-* accent variables (darkened versions of the
-   site's gold/sage/blue accents) instead of reusing --color-gold etc.
-   directly — those are tuned for light text on a dark card and read as
-   near-invisible on cream (gold-on-cream is ~1:1 contrast).
-
-   Glow lives in box-shadow rather than the ::before/::after ring+blur
-   pseudo-elements used on .pillar-card/.work-card-glow: those rely on a
-   dedicated opaque "face" child to cover the interior so the glow only
-   shows as a thin rim, but this card's cream background sits directly on
-   the same element its content flows into, with no such face — a glow
-   layer there would tint straight through every gap between paragraphs.
-   box-shadow doesn't have that problem (it only ever paints outside the
-   border edge), so it's the simpler correct tool here. Card's own
-   ::before radial sheen gets border-radius: inherit so .editorial-card no
-   longer needs overflow: hidden to clip it — that would've clipped the
-   box-shadow glow too. */
+/* Editorial card: the About page's bio card and the work detail page's
+   write-up card share this — rounded border, deep shadow, and a warm
+   top-lit sheen (radial, low enough opacity that paint order relative to
+   the content doesn't matter). Both pages set their own background
+   (bg-ink-deep / bg-[var(--color-indigo-deep)]) plus cream/gold/sage/coral
+   text utilities directly in JSX; this class only owns the shared shape
+   and sheen. */
 .editorial-card {
   position: relative;
 }
@@ -739,24 +737,6 @@ body {
   );
 }
 
-.editorial-card--paper {
-  --paper-gold: #96690f;
-  --paper-sage: #3f6552;
-  --paper-blue: #2f5f8f;
-  box-shadow:
-    0 30px 80px -30px rgba(0, 0, 0, 0.6),
-    0 0 50.369px -8px rgba(255, 212, 73, 0.22),
-    0 0 85.369px -12px rgba(108, 92, 224, 0.18);
-}
-
-.editorial-card--paper::before {
-  background: radial-gradient(
-    ellipse 120% 60% at 50% -10%,
-    rgba(44, 34, 85, 0.06),
-    transparent 60%
-  );
-}
-
 .about-dropcap::first-letter {
   float: left;
   margin-top: 0.2rem;
@@ -765,10 +745,6 @@ body {
   font-size: 3.5rem;
   line-height: 0.8;
   color: var(--color-gold);
-}
-
-.editorial-card--paper .about-dropcap::first-letter {
-  color: var(--paper-gold);
 }
 
 /* Full moon orb: a static lunar disc with subtle craters, no falling-star

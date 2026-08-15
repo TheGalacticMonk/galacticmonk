@@ -29,37 +29,43 @@ export default function MatrixPhotoFrame({
   src,
   alt,
   className,
+  frameClassName,
+  mat = true,
 }: {
   src: string;
   alt: string;
   className?: string;
+  frameClassName?: string;
+  mat?: boolean;
 }) {
-  return (
-    <div className={`polaroid-frame ${className ?? ""}`}>
-      <div className="matrix-frame">
-        <div className="matrix-frame-bg" aria-hidden="true">
-          {MATRIX_COLUMNS.map((col, i) => (
-            <span
-              key={i}
-              style={{ "--i": col.i } as React.CSSProperties}
-              className="matrix-code-line"
-            >
-              {col.chars.map((c, j) => (
-                <p key={j} className="matrix-code">
-                  {c}
-                </p>
-              ))}
-            </span>
-          ))}
-        </div>
-        <div className="matrix-frame-photo-wrap">
-          <ExpandableImage
-            src={src}
-            alt={alt}
-            className="h-full w-full object-cover"
-          />
-        </div>
+  const frame = (
+    <div className={`matrix-frame ${frameClassName ?? ""}`}>
+      <div className="matrix-frame-bg" aria-hidden="true">
+        {MATRIX_COLUMNS.map((col, i) => (
+          <span
+            key={i}
+            style={{ "--i": col.i } as React.CSSProperties}
+            className="matrix-code-line"
+          >
+            {col.chars.map((c, j) => (
+              <p key={j} className="matrix-code">
+                {c}
+              </p>
+            ))}
+          </span>
+        ))}
+      </div>
+      <div className="matrix-frame-photo-wrap">
+        <ExpandableImage
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover"
+        />
       </div>
     </div>
   );
+
+  if (!mat) return frame;
+
+  return <div className={`polaroid-frame ${className ?? ""}`}>{frame}</div>;
 }
