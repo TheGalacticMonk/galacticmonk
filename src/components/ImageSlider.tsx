@@ -54,7 +54,13 @@ export default function ImageSlider({
           {items.map((item) => (
             <div
               key={item.src}
-              className={`relative h-full w-full shrink-0 snap-center ${item.blackBg ? "bg-black" : ""}`}
+              // translateZ(0) promotes each slide to its own compositor
+              // layer so it's rasterized/pixel-snapped independently —
+              // without it, adjacent same-width scroll-snap slides can
+              // share a sub-pixel-imprecise boundary and let a hairline
+              // sliver of the neighboring slide bleed through at the edge.
+              style={{ transform: "translateZ(0)" }}
+              className={`relative h-full w-full shrink-0 snap-center overflow-hidden ${item.blackBg ? "bg-black" : ""}`}
             >
               <ExpandableImage
                 src={item.src}
