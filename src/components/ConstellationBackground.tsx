@@ -2,33 +2,32 @@
 
 import { useEffect, useRef } from "react";
 
-/* A lightweight, dependency-free canvas constellation: drifting dots linked
-   by lines when close together. No particle library — keeps the bundle
-   small. Pauses on hidden tabs and skips animation for reduced motion. */
+/* A lightweight, dependency-free canvas network: colorful drifting nodes,
+   each linked by thin lines to every other node within reach — the same
+   dense triangulated "constellation" shape used on billionyearsold.com
+   (particles.js's network preset), re-themed to this site's palette. No
+   particle library — keeps the bundle small. Pauses on hidden tabs and
+   skips animation for reduced motion. */
 
-const DOT_COLORS = ["#f5f1e8", "#ffd449", "#c9c3e0"];
+/* Muted toward cream-dim so the brightest hues (gold, coral) don't pop as
+   hard against the dark background. */
+const NODE_COLORS = ["#ecce7e", "#f5f1e8", "#e89191", "#739e82", "#8376e0"];
+const NODE_OPACITY = 0.35;
 const LINE_COLOR = "245, 241, 232";
-const LINE_OPACITY = 0.3;
+const LINE_OPACITY = 0.25;
 const LINK_DISTANCE = 130;
 const FRAME_INTERVAL = 1000 / 30;
 
-/* Same glyph as the bullet-point Sparkle icon, reused here for the handful
-   of dots drawn as 4-point stars instead of plain circles. */
-const SPARKLE_PATH_D =
-  "M20 2c1.1 6.7 2.9 11.4 5.4 13.9 2.5 2.5 7.2 4.3 13.9 5.4-6.7 1.1-11.4 2.9-13.9 5.4-2.5 2.5-4.3 7.2-5.4 13.9-1.1-6.7-2.9-11.4-5.4-13.9C12.1 24.2 7.4 22.4.7 21.3c6.7-1.1 11.4-2.9 13.9-5.4C17.1 13.4 18.9 8.7 20 2Z";
-
-type Dot = {
+type Node = {
   x: number;
   y: number;
   vx: number;
   vy: number;
-  r: number;
-  size: number;
-  rotation: number;
-  spin: number;
+  minR: number;
+  maxR: number;
+  breatheSpeed: number;
   phase: number;
   color: string;
-  sparkle: boolean;
 };
 
 export default function ConstellationBackground({ className }: { className?: string }) {
@@ -43,31 +42,27 @@ export default function ConstellationBackground({ className }: { className?: str
 
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
-    const sparklePath = new Path2D(SPARKLE_PATH_D);
 
-    let dots: Dot[] = [];
+    let nodes: Node[] = [];
     let width = 0;
     let height = 0;
     let frameId = 0;
     let lastTime = 0;
 
-    const makeDots = () => {
-      const count = Math.min(70, Math.max(24, Math.floor((width * height) / 16000)));
-      const sparkleCount = Math.min(10, Math.max(3, Math.round(count * 0.12)));
-      dots = Array.from({ length: count }, (_, i) => {
-        const sparkle = i < sparkleCount;
+    const makeNodes = () => {
+      const count = Math.min(30, Math.max(10, Math.floor((width * height) / 42000)));
+      nodes = Array.from({ length: count }, () => {
+        const minR = Math.random() * 1.6 + 1.2;
         return {
           x: Math.random() * width,
           y: Math.random() * height,
-          vx: (Math.random() - 0.5) * 0.36,
-          vy: (Math.random() - 0.5) * 0.36,
-          r: sparkle ? 0 : Math.random() * 1.4 + 0.9,
-          size: sparkle ? Math.random() * 5 + 7 : 0,
-          rotation: Math.random() * Math.PI * 2,
-          spin: sparkle ? (Math.random() - 0.5) * 0.0069 : 0,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          minR,
+          maxR: minR + Math.random() * 2.6 + 1.4,
+          breatheSpeed: 0.0006 + Math.random() * 0.0008,
           phase: Math.random() * Math.PI * 2,
-          color: DOT_COLORS[Math.floor(Math.random() * DOT_COLORS.length)],
-          sparkle,
+          color: NODE_COLORS[Math.floor(Math.random() * NODE_COLORS.length)],
         };
       });
     };
@@ -75,10 +70,10 @@ export default function ConstellationBackground({ className }: { className?: str
     const draw = (time: number) => {
       ctx.clearRect(0, 0, width, height);
 
-      for (let i = 0; i < dots.length; i++) {
-        for (let j = i + 1; j < dots.length; j++) {
-          const a = dots[i];
-          const b = dots[j];
+      for (let i = 0; i < nodes.length; i++) {
+        for (let j = i + 1; j < nodes.length; j++) {
+          const a = nodes[i];
+          const b = nodes[j];
           const dx = a.x - b.x;
           const dy = a.y - b.y;
           const dist = Math.sqrt(dx * dx + dy * dy);
@@ -93,31 +88,16 @@ export default function ConstellationBackground({ className }: { className?: str
         }
       }
 
-      for (const dot of dots) {
-        if (dot.sparkle) {
-          const twinkle = 0.65 + 0.35 * Math.sin(time / 900 + dot.phase);
-          ctx.save();
-          ctx.translate(dot.x, dot.y);
-          ctx.rotate(dot.rotation);
-          const scale = dot.size / 40;
-          ctx.scale(scale, scale);
-          ctx.translate(-20, -20);
-          ctx.globalAlpha = twinkle;
-          ctx.fillStyle = dot.color;
-          ctx.shadowColor = dot.color;
-          ctx.shadowBlur = 6;
-          ctx.fill(sparklePath);
-          ctx.restore();
-        } else {
-          ctx.beginPath();
-          ctx.globalAlpha = 0.85;
-          ctx.fillStyle = dot.color;
-          ctx.arc(dot.x, dot.y, dot.r, 0, Math.PI * 2);
-          ctx.fill();
-        }
+      for (const node of nodes) {
+        const t = 0.5 + 0.5 * Math.sin(time * node.breatheSpeed + node.phase);
+        const r = node.minR + (node.maxR - node.minR) * t;
+        ctx.beginPath();
+        ctx.globalAlpha = NODE_OPACITY;
+        ctx.fillStyle = node.color;
+        ctx.arc(node.x, node.y, r, 0, Math.PI * 2);
+        ctx.fill();
       }
       ctx.globalAlpha = 1;
-      ctx.shadowBlur = 0;
     };
 
     const resize = () => {
@@ -133,11 +113,11 @@ export default function ConstellationBackground({ className }: { className?: str
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       /* Mobile browsers resize the viewport (and this container) as the
          address bar collapses/expands mid-scroll, firing ResizeObserver
-         many times per gesture. Re-rolling dots on every one of those
+         many times per gesture. Re-rolling nodes on every one of those
          height-only changes made the whole field jump to new random spots
          repeatedly, reading as a glitchy fast-forward. Only width changes
          (actual resize/orientation change) warrant a fresh layout. */
-      if (widthChanged || dots.length === 0) makeDots();
+      if (widthChanged || nodes.length === 0) makeNodes();
       draw(0);
     };
 
@@ -146,12 +126,11 @@ export default function ConstellationBackground({ className }: { className?: str
       if (time - lastTime < FRAME_INTERVAL) return;
       lastTime = time;
 
-      for (const dot of dots) {
-        dot.x += dot.vx;
-        dot.y += dot.vy;
-        dot.rotation += dot.spin;
-        if (dot.x < 0 || dot.x > width) dot.vx *= -1;
-        if (dot.y < 0 || dot.y > height) dot.vy *= -1;
+      for (const node of nodes) {
+        node.x += node.vx;
+        node.y += node.vy;
+        if (node.x < 0 || node.x > width) node.vx *= -1;
+        if (node.y < 0 || node.y > height) node.vy *= -1;
       }
 
       draw(time);
