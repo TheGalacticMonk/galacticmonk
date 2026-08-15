@@ -86,7 +86,7 @@ export default function ImageSlider({
           same grouping pattern as a standard product-carousel pagination
           bar, instead of floating buttons fighting the image for space. */}
       {items.length > 1 && (
-        <div className="mt-4 flex items-center justify-center gap-6 sm:gap-8">
+        <div className="mt-4 flex items-center justify-center gap-3 sm:gap-8">
           <button
             type="button"
             aria-label="Previous"
@@ -98,14 +98,18 @@ export default function ImageSlider({
             </span>
           </button>
 
-          <div className="flex items-center gap-2.5">
+          {/* min-w-0 lets this shrink below its natural content width instead
+              of forcing the whole row (and the next-arrow) past the viewport
+              edge on mobile, where 17 dots don't fit; overflow-x-auto lets
+              the strip itself scroll rather than clip. */}
+          <div className="flex min-w-0 items-center gap-2.5 overflow-x-auto py-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             {items.map((item, i) => (
               <button
                 key={item.src}
                 type="button"
                 aria-label={`Go to slide ${i + 1}`}
                 onClick={() => goTo(i)}
-                className={`h-2 rounded-full transition-all ${
+                className={`h-2 shrink-0 rounded-full transition-all ${
                   i === index ? "w-7 bg-gold" : "w-2 bg-cream/25 hover:bg-cream/40"
                 }`}
               />
