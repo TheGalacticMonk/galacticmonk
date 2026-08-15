@@ -14,9 +14,16 @@ import {
 } from "@/components/SocialIcons";
 
 export const metadata: Metadata = {
-  title: "Contact — Galactic Monk",
+  title: "Contact",
   description:
     "Get in touch with Jason Lee at Galactic Monk to book a film, photography, or music project.",
+  alternates: { canonical: "/contact/" },
+  openGraph: {
+    title: "Contact — Galactic Monk",
+    description:
+      "Get in touch with Jason Lee at Galactic Monk to book a film, photography, or music project.",
+    url: "/contact/",
+  },
 };
 
 export default function ContactPage() {

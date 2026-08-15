@@ -7,7 +7,7 @@ import MusicPlayer from "@/components/MusicPlayer";
 import JsonLd from "@/components/JsonLd";
 import Sparkle from "@/components/Sparkle";
 import PageConstellation from "@/components/PageConstellation";
-import { getWorkItemSchema } from "@/lib/schema";
+import { getWorkItemSchema, getBreadcrumbSchema } from "@/lib/schema";
 
 const ACCENT_TEXT = {
   gold: "text-gold",
@@ -51,6 +51,13 @@ export default async function WorkDetailPage({
       <PageConstellation />
       <section className="mx-auto max-w-4xl px-6 pb-24 pt-36">
         <JsonLd data={getWorkItemSchema(item)} />
+        <JsonLd
+          data={getBreadcrumbSchema([
+            { name: "Home", url: "https://galacticmonk.com/" },
+            { name: "Work", url: "https://galacticmonk.com/work/" },
+            { name: item.title, url: `https://galacticmonk.com/work/${item.id}/` },
+          ])}
+        />
         <Link
           href="/work/"
           className="text-sm tracking-wide text-gold hover:underline"
@@ -149,7 +156,7 @@ export default async function WorkDetailPage({
               <dl className="mt-5 grid grid-cols-1 gap-y-3 text-sm sm:grid-cols-[minmax(0,180px)_1fr] sm:gap-x-6 sm:gap-y-2.5">
                 {item.credits.map(({ role, name }) => (
                   <div key={role} className="contents">
-                    <dt className="text-cream-dim/60">{role}</dt>
+                    <dt className="text-cream-dim/70">{role}</dt>
                     <dd className="text-cream">{name}</dd>
                   </div>
                 ))}

@@ -4,9 +4,16 @@ import WorkGrid from "@/components/WorkGrid";
 import PageConstellation from "@/components/PageConstellation";
 
 export const metadata: Metadata = {
-  title: "Work — Galactic Monk",
+  title: "Work",
   description:
     "Selected film, photography, and audio recording, mix & master projects from Galactic Monk.",
+  alternates: { canonical: "/work/" },
+  openGraph: {
+    title: "Work — Galactic Monk",
+    description:
+      "Selected film, photography, and audio recording, mix & master projects from Galactic Monk.",
+    url: "/work/",
+  },
 };
 
 export default function WorkPage() {

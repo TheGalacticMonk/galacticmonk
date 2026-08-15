@@ -62,13 +62,13 @@ export default function Nav() {
             <span className="font-serif text-xl tracking-[0.15em] text-cream">
               GALACTIC MONK
             </span>
-            <span className="mt-1 text-[10px] uppercase tracking-[0.3em] text-cream-dim/60">
+            <span className="mt-1 text-[10px] uppercase tracking-[0.3em] text-cream-dim/70">
               Los Angeles
             </span>
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
           {LINKS.map((link) => {
             const active = isActiveLink(link.href, pathname);
             return (
@@ -112,6 +112,7 @@ export default function Nav() {
           className="flex flex-col gap-1.5 md:hidden"
           aria-label="Toggle menu"
           aria-expanded={open}
+          aria-controls="mobile-menu"
         >
           <span className="h-px w-6 bg-cream" />
           <span className="h-px w-6 bg-cream" />
@@ -119,7 +120,11 @@ export default function Nav() {
       </div>
 
       {open && (
-        <nav className="flex flex-col gap-1 bg-ink px-6 pb-6 pt-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.7)] md:hidden">
+        <nav
+          id="mobile-menu"
+          aria-label="Mobile"
+          className="flex flex-col gap-1 bg-ink px-6 pb-6 pt-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.7)] md:hidden"
+        >
           {LINKS.map((link) => {
             const active = isActiveLink(link.href, pathname);
             return (

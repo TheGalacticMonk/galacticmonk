@@ -31,12 +31,14 @@ export default function MatrixPhotoFrame({
   className,
   frameClassName,
   mat = true,
+  priority = false,
 }: {
   src: string;
   alt: string;
   className?: string;
   frameClassName?: string;
   mat?: boolean;
+  priority?: boolean;
 }) {
   const frame = (
     <div className={`matrix-frame ${frameClassName ?? ""}`}>
@@ -60,6 +62,7 @@ export default function MatrixPhotoFrame({
           src={src}
           alt={alt}
           className="h-full w-full object-cover"
+          priority={priority}
         />
       </div>
     </div>

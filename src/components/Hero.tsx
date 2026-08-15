@@ -1,28 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import MoonOrb from "./MoonOrb";
 import Sparkle from "./Sparkle";
 import ConstellationBackground from "./ConstellationBackground";
+import Lightbox from "./Lightbox";
+import { useLightbox } from "@/hooks/useLightbox";
 
 export default function Hero() {
-  const [expanded, setExpanded] = useState(false);
-
-  useEffect(() => {
-    if (!expanded) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setExpanded(false);
-    };
-    window.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [expanded]);
+  const { isOpen, open, close } = useLightbox(1);
 
   return (
     <section className="swirl-bg relative flex min-h-screen items-center overflow-hidden pt-24">
@@ -53,7 +41,7 @@ export default function Hero() {
         >
           <button
             type="button"
-            onClick={() => setExpanded(true)}
+            onClick={() => open(0)}
             aria-label="Expand photo of Jason Lee"
             className="relative block h-full w-full cursor-zoom-in overflow-hidden rounded-full"
           >
@@ -131,28 +119,14 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {expanded && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-ink-deep/95 p-4 sm:p-10"
-          onClick={() => setExpanded(false)}
-        >
-          <button
-            type="button"
-            aria-label="Close"
-            onClick={() => setExpanded(false)}
-            className="absolute right-5 top-5 text-3xl leading-none text-cream/80 hover:text-gold"
-          >
-            ×
-          </button>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/monk-beach.jpg"
-            alt="Jason Lee"
-            onClick={(e) => e.stopPropagation()}
-            className="max-h-full max-w-full rounded-lg object-contain"
-          />
-        </div>
-      )}
+      <Lightbox isOpen={isOpen} onClose={close}>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/monk-beach.jpg"
+          alt="Jason Lee"
+          className="max-h-full max-w-full rounded-lg object-contain"
+        />
+      </Lightbox>
     </section>
   );
 }

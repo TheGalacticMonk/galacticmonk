@@ -73,6 +73,45 @@ export function getWorkItemSchema(item: WorkItem) {
   };
 }
 
+export function getOrganizationSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Galactic Monk",
+    url: BASE_URL,
+    logo: `${BASE_URL}/icon.png`,
+    founder: CREATOR,
+    sameAs: [
+      "https://www.instagram.com/galacticmonk_/",
+      "https://x.com/GalacticMonk_",
+      "https://www.tiktok.com/@thegalacticmonk",
+      "https://www.facebook.com/JasonDeluluLee",
+    ],
+  };
+}
+
+export function getWebSiteSchema() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Galactic Monk",
+    url: BASE_URL,
+  };
+}
+
+export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: item.url,
+    })),
+  };
+}
+
 export function getPersonSchema() {
   return {
     "@context": "https://schema.org",

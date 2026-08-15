@@ -8,9 +8,16 @@ import MapPinIcon from "@/components/MapPinIcon";
 import PageConstellation from "@/components/PageConstellation";
 
 export const metadata: Metadata = {
-  title: "About — Galactic Monk",
+  title: "About",
   description:
     "Jason Lee — Creative Producer & Alchemist behind Galactic Monk.",
+  alternates: { canonical: "/about/" },
+  openGraph: {
+    title: "About — Galactic Monk",
+    description:
+      "Jason Lee — Creative Producer & Alchemist behind Galactic Monk.",
+    url: "/about/",
+  },
 };
 
 export default function AboutPage() {
@@ -25,6 +32,7 @@ export default function AboutPage() {
                 src="/jason-lee.jpg"
                 alt="Jason Lee"
                 mat={false}
+                priority
                 frameClassName="matrix-frame--profile w-28 shrink-0 sm:w-32"
               />
 
@@ -36,7 +44,7 @@ export default function AboutPage() {
                 </div>
 
                 <h1 className="mt-4 font-serif text-4xl leading-tight text-cream sm:text-5xl">
-                  Jason Lee <span className="text-cream/50">|</span> Galactic Monk
+                  Jason Lee <span className="text-cream/65">|</span> Galactic Monk
                 </h1>
               </div>
             </div>
@@ -69,7 +77,7 @@ export default function AboutPage() {
                   />
                   <figcaption className="mt-3 text-center">
                     <span className="block font-serif text-sm italic text-cream/70">Shadowboxing</span>
-                    <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-cream/40">Self-portrait</span>
+                    <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-cream/60">Self-portrait</span>
                   </figcaption>
                 </figure>
                 <figure>
@@ -80,7 +88,7 @@ export default function AboutPage() {
                   />
                   <figcaption className="mt-3 text-center">
                     <span className="block font-serif text-sm italic text-cream/70">Lightboxing</span>
-                    <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-cream/40">Self-portrait</span>
+                    <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-cream/60">Self-portrait</span>
                   </figcaption>
                 </figure>
               </div>
@@ -95,7 +103,7 @@ export default function AboutPage() {
               </p>
 
               <figure className="my-10 mx-auto w-full max-w-2xl">
-                <figcaption className="mb-4 text-center text-[11px] uppercase tracking-[0.25em] text-cream/40">
+                <figcaption className="mb-4 text-center text-[11px] uppercase tracking-[0.25em] text-cream/60">
                   Ideation &amp; Concepting
                 </figcaption>
                 <ImageSlider
@@ -173,7 +181,7 @@ export default function AboutPage() {
                 />
                 <figcaption className="mt-3 text-center">
                   <span className="block font-serif text-sm italic text-cream/70">Old Head</span>
-                  <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-cream/40">Self-Portrait</span>
+                  <span className="mt-1 block text-[10px] uppercase tracking-[0.25em] text-cream/60">Self-Portrait</span>
                 </figcaption>
               </figure>
 

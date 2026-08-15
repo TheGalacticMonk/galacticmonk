@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
+import Lightbox from "./Lightbox";
+import { useLightbox } from "@/hooks/useLightbox";
 
 type GalleryItem =
   | { type: "image"; src: string }
@@ -23,22 +23,7 @@ export default function PhotoGallery({
     ...(youtubeId ? [{ type: "youtube", id: youtubeId } as const] : []),
     ...photos.map((src) => ({ type: "image", src } as const)),
   ];
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
-
-  useEffect(() => {
-    if (openIndex === null) return;
-    const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setOpenIndex(null);
-      if (e.key === "ArrowRight") setOpenIndex((i) => (i === null ? i : (i + 1) % items.length));
-      if (e.key === "ArrowLeft") setOpenIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
-    };
-    window.addEventListener("keydown", onKeyDown);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKeyDown);
-      document.body.style.overflow = "";
-    };
-  }, [openIndex, items.length]);
+  const { index: openIndex, isOpen, open, close, next, prev } = useLightbox(items.length);
 
   if (items.length === 0) return null;
 
@@ -49,15 +34,18 @@ export default function PhotoGallery({
       <div className="mt-14 columns-2 gap-4 sm:columns-3">
         {items.map((item, i) =>
           item.type === "youtube" ? (
-            <div
+            <button
               key="youtube"
-              onClick={() => setOpenIndex(i)}
-              className="group relative mb-4 aspect-[9/16] w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-xl"
+              type="button"
+              onClick={() => open(i)}
+              aria-label={`Play ${alt}`}
+              className="group relative mb-4 block aspect-[9/16] w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-xl"
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`https://img.youtube.com/vi/${item.id}/maxresdefault.jpg`}
                 alt={alt}
+                loading="lazy"
                 onError={(e) => {
                   e.currentTarget.onerror = null;
                   e.currentTarget.src = `https://img.youtube.com/vi/${item.id}/hqdefault.jpg`;
@@ -69,88 +57,45 @@ export default function PhotoGallery({
                   <div className="ml-1.5 h-0 w-0 border-y-[11px] border-l-[18px] border-y-transparent border-l-current" />
                 </div>
               </div>
-            </div>
+            </button>
           ) : (
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
+            <button
               key={item.src}
-              src={item.src}
-              alt={alt}
-              onClick={() => setOpenIndex(i)}
-              className="mb-4 w-full cursor-zoom-in break-inside-avoid rounded-xl transition-opacity hover:opacity-90"
-            />
+              type="button"
+              onClick={() => open(i)}
+              aria-label={`Expand ${alt}`}
+              className="mb-4 block w-full cursor-zoom-in break-inside-avoid"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={item.src}
+                alt={alt}
+                loading="lazy"
+                className="w-full rounded-xl transition-opacity hover:opacity-90"
+              />
+            </button>
           )
         )}
       </div>
 
-      {/* Portaled to <body>: a fixed z-50 div still gets trapped under whatever
-          content follows it in the DOM if any ancestor creates a stacking
-          context (isolation, transform, filter, etc.) — e.g. .editorial-card's
-          isolation:isolate on work detail pages. Rendering outside the tree
-          sidesteps that entirely. */}
-      {openItem &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-ink-deep/95 p-4 sm:p-10"
-            onClick={() => setOpenIndex(null)}
-          >
-            <button
-              type="button"
-              aria-label="Close"
-              onClick={() => setOpenIndex(null)}
-              className="absolute right-5 top-5 text-3xl leading-none text-cream/80 hover:text-gold"
-            >
-              ×
-            </button>
-
-            {items.length > 1 && (
-              <>
-                <button
-                  type="button"
-                  aria-label="Previous item"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setOpenIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
-                  }}
-                  className="absolute left-2 top-1/2 -translate-y-1/2 px-3 py-4 text-3xl text-cream/70 hover:text-gold sm:left-5"
-                >
-                  ‹
-                </button>
-                <button
-                  type="button"
-                  aria-label="Next item"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    setOpenIndex((i) => (i === null ? i : (i + 1) % items.length));
-                  }}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 px-3 py-4 text-3xl text-cream/70 hover:text-gold sm:right-5"
-                >
-                  ›
-                </button>
-              </>
-            )}
-
-            {openItem.type === "youtube" ? (
-              <iframe
-                src={`https://www.youtube.com/embed/${openItem.id}`}
-                title={alt}
-                onClick={(e) => e.stopPropagation()}
-                allow="autoplay; fullscreen; picture-in-picture"
-                allowFullScreen
-                className="aspect-[9/16] h-full max-h-[85vh] w-auto rounded-lg"
-              />
-            ) : (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
-                src={openItem.src}
-                alt={alt}
-                onClick={(e) => e.stopPropagation()}
-                className="max-h-full max-w-full rounded-lg object-contain"
-              />
-            )}
-          </div>,
-          document.body,
-        )}
+      <Lightbox isOpen={isOpen} onClose={close} onPrev={prev} onNext={next} showNav={items.length > 1}>
+        {openItem?.type === "youtube" ? (
+          <iframe
+            src={`https://www.youtube.com/embed/${openItem.id}`}
+            title={alt}
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="aspect-[9/16] h-full max-h-[85vh] w-auto rounded-lg"
+          />
+        ) : openItem ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={openItem.src}
+            alt={alt}
+            className="max-h-full max-w-full rounded-lg object-contain"
+          />
+        ) : null}
+      </Lightbox>
     </>
   );
 }

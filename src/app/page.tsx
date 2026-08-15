@@ -1,9 +1,14 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
 import ServicePillars from "@/components/ServicePillars";
 import WorkCard from "@/components/WorkCard";
 import { WORK } from "@/lib/work";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function Home() {
   const featured = WORK.filter((item) => !item.hidden).slice(0, 3);
