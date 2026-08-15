@@ -4,7 +4,6 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FacebookIcon, InstagramIcon, TikTokIcon, XIcon } from "./SocialIcons";
-import Sparkle from "./Sparkle";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -69,7 +68,11 @@ export default function Nav() {
                     : "text-cream-dim text-shadow-[0_0_12px_rgba(245,241,232,0.7)]"
                 }`}
               >
-                {active && <Sparkle className="h-3 w-3" />}
+                {active && (
+                  <span className="material-symbols-outlined text-xs">
+                    wand_stars
+                  </span>
+                )}
                 {link.label}
               </Link>
             );
@@ -117,7 +120,11 @@ export default function Nav() {
                     : "text-cream-dim text-shadow-[0_0_12px_rgba(245,241,232,0.7)]"
                 }`}
               >
-                {active && <Sparkle className="h-3 w-3" />}
+                {active && (
+                  <span className="material-symbols-outlined text-xs">
+                    wand_stars
+                  </span>
+                )}
                 {link.label}
               </Link>
             );
