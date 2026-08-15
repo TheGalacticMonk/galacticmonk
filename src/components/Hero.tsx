@@ -63,7 +63,7 @@ export default function Hero() {
             <motion.span
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1.369, delay: 1.963 }}
+              transition={{ duration: 1.4369, delay: 1.963 }}
               className="absolute inset-0 block"
             >
               <Image
