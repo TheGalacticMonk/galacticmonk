@@ -94,8 +94,7 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
-          Film &amp; video, photography, and audio recording, mix &amp; master —
-          one master alchemist, transmuting energy, frequency, and vibe.
+          Creative production for the awakened, by the awakened.
         </motion.p>
 
         <motion.div
