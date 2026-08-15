@@ -668,7 +668,7 @@ body {
   flex-direction: column-reverse;
   min-height: 0.6rem;
   min-width: 0.6rem;
-  animation: matrix-rain calc(0.2s * var(--i)) linear infinite;
+  animation: matrix-rain calc(0.4639s * var(--i)) linear infinite;
 }
 
 .matrix-code {
