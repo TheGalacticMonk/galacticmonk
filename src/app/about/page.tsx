@@ -150,8 +150,8 @@ export default function AboutPage() {
               </figure>
 
               <blockquote className="my-8 border-l-2 border-gold/70 pl-5 font-serif text-xl italic leading-snug text-cream">
-                &ldquo;A master alchemist can even transmute the night sky as a
-                power source.&rdquo;
+                &ldquo;A master alchemist can achieve transmuting the night sky
+                as a source of power.&rdquo;
                 <footer className="mt-2 font-sans text-xs not-italic uppercase tracking-[0.2em] text-cream/60">
                   — Jason Lee
                 </footer>

@@ -94,8 +94,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
-          Creative production of a divine consciousness. One master
-          alchemist, transmuting energy, frequency, and vibes.
+          Special rates for multidimensional projects because I&apos;m
+          committed to building the New Earth.
         </motion.p>
 
         <motion.div
