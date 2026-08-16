@@ -60,7 +60,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="WHY NOT ME?"
             title="Awakened soul, divine consciousness"
-            description="My technical skills are only part of what I bring. I built myself from less than nothing through vision, discipline, and sheer will. When we work together, I bring that same resolve to your project—protecting the vision and carrying it from first spark to final form."
+            description="My technical skills are only part of what I bring. I dug myself out the rabbit hole through vision, discipline, and sheer will. When we work together, I bring that same resolve and awakening to your project—protecting the vision and carrying it from birth to final form."
           />
           <div className="mt-10">
             <WhyNotMeReasons />
