@@ -75,11 +75,14 @@ export default function ContactForm() {
               <option value="" disabled>
                 Select one
               </option>
+              <option value="Branding">Branding</option>
+              <option value="Digital Marketing">Digital Marketing</option>
               <option value="Film & Video">Film &amp; Video</option>
               <option value="Photography">Photography</option>
               <option value="Record Mix & Master">
                 Record Mix &amp; Master
               </option>
+              <option value="UGC">UGC</option>
               <option value="Web Design & Dev">Web Design &amp; Dev</option>
               <option value="Other">Other</option>
             </select>
