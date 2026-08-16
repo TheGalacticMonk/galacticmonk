@@ -1,0 +1,282 @@
+/* Scoped adaptation of VoXelo's CodePen "Celestial Transmutation"
+   (https://codepen.io/VoXelo/pen/yygKOVy). Viewport-fixed layers are positioned
+   relative to .stage, accents stay local to the widget, and the original opaque
+   backdrop is intentionally omitted so the scene composites over the site. */
+
+.stage {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  height: min(60vh, 600px);
+  min-height: 420px;
+  overflow: visible;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  user-select: none;
+  -webkit-user-select: none;
+  color-scheme: dark;
+  --accent-a: 248, 118, 102;
+  --accent-b: 108, 92, 224;
+  --glass-border: color-mix(in srgb, var(--color-cream-dim) 24%, transparent);
+  --muted: color-mix(in srgb, var(--color-cream-dim) 86%, transparent);
+  --canvas-bleed-block: 100px;
+  --canvas-bleed-inline: 24px;
+}
+
+.canvasContainer {
+  position: absolute;
+  inset:
+    calc(0px - var(--canvas-bleed-block))
+    calc(0px - var(--canvas-bleed-inline));
+  z-index: 1;
+  pointer-events: none;
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--canvas-bleed-block),
+    #000 calc(100% - var(--canvas-bleed-block)),
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0,
+    #000 var(--canvas-bleed-block),
+    #000 calc(100% - var(--canvas-bleed-block)),
+    transparent 100%
+  );
+}
+
+.canvasContainer :global(canvas) {
+  display: block;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.interactionSurface {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  touch-action: none;
+  cursor: grab;
+}
+
+.interactionSurface:active {
+  cursor: grabbing;
+}
+
+.glassPanel {
+  border: 1px solid var(--glass-border);
+  background:
+    linear-gradient(
+      135deg,
+      color-mix(in srgb, var(--color-cream-dim) 10%, transparent),
+      color-mix(in srgb, var(--color-indigo) 5%, transparent)
+    ),
+    color-mix(in srgb, var(--color-ink-deep) 68%, transparent);
+  box-shadow:
+    0 18px 60px color-mix(in srgb, var(--color-ink-deep) 52%, transparent),
+    inset 0 1px 0 color-mix(in srgb, var(--color-cream-dim) 18%, transparent);
+  backdrop-filter: blur(18px) saturate(145%);
+  -webkit-backdrop-filter: blur(18px) saturate(145%);
+}
+
+.planetCopy {
+  position: absolute;
+  left: clamp(20px, 4vw, 64px);
+  bottom: clamp(104px, 13vh, 156px);
+  z-index: 4;
+  width: min(390px, calc(100% - 40px));
+  pointer-events: none;
+  text-shadow: 0 4px 26px color-mix(in srgb, var(--color-ink-deep) 88%, transparent);
+}
+
+.planetKicker {
+  margin-bottom: 7px;
+  color: var(--color-gold);
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+.planetName {
+  margin: 0;
+  color: var(--color-cream);
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: clamp(34px, 5vw, 66px);
+  font-weight: 400;
+  line-height: 1.05;
+}
+
+.planetDescription {
+  max-width: 360px;
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+  letter-spacing: 0.012em;
+}
+
+.transitionMeter {
+  position: relative;
+  width: min(260px, 68%);
+  height: 2px;
+  margin-top: 18px;
+  overflow: hidden;
+  border-radius: 99px;
+  background: color-mix(in srgb, var(--color-cream-dim) 14%, transparent);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 280ms ease, transform 280ms ease;
+}
+
+.transitionMeter.isActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.transitionMeterFill {
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgb(var(--accent-a)), rgb(var(--accent-b)));
+  box-shadow: 0 0 14px rgba(var(--accent-a), 0.65);
+}
+
+.planetUi {
+  position: absolute;
+  left: 50%;
+  bottom: 18px;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: max-content;
+  max-width: calc(100% - 24px);
+  transform: translateX(-50%);
+}
+
+/* Same Nova button language as the rest of the site (see .btn-nova in
+   globals.css) — .planetButton just pins the border to a plain, organized
+   two-state scheme instead of the default animated gold gradient: cream
+   for unselected, gold for the selected service. */
+.planetButton {
+  animation: none;
+  background-image: linear-gradient(135deg, var(--color-cream), var(--color-cream));
+}
+
+.planetButton.isActive,
+.planetButton.isTarget {
+  background-image: linear-gradient(135deg, var(--color-gold), var(--color-gold));
+}
+
+.planetButton.isActive .btn-nova-inner {
+  background: color-mix(in srgb, var(--color-ink-deep) 55%, transparent);
+}
+
+.planetButton.isActive .btn-nova-circle {
+  background: color-mix(in srgb, var(--color-gold) 45%, transparent);
+}
+
+@media (min-width: 1280px) {
+  .stage {
+    --canvas-bleed-inline: 80px;
+  }
+
+  .canvasContainer {
+    -webkit-mask-image:
+      linear-gradient(
+        to bottom,
+        transparent 0,
+        #000 var(--canvas-bleed-block),
+        #000 calc(100% - var(--canvas-bleed-block)),
+        transparent 100%
+      ),
+      linear-gradient(
+        to right,
+        transparent 0,
+        #000 var(--canvas-bleed-inline),
+        #000 calc(100% - var(--canvas-bleed-inline)),
+        transparent 100%
+      );
+    -webkit-mask-composite: source-in;
+    mask-image:
+      linear-gradient(
+        to bottom,
+        transparent 0,
+        #000 var(--canvas-bleed-block),
+        #000 calc(100% - var(--canvas-bleed-block)),
+        transparent 100%
+      ),
+      linear-gradient(
+        to right,
+        transparent 0,
+        #000 var(--canvas-bleed-inline),
+        #000 calc(100% - var(--canvas-bleed-inline)),
+        transparent 100%
+      );
+    mask-composite: intersect;
+  }
+}
+
+@media (min-width: 1536px) {
+  .stage {
+    --canvas-bleed-inline: 100px;
+  }
+}
+
+@media (max-width: 760px) {
+  .stage {
+    height: min(68vh, 540px);
+    min-height: 400px;
+  }
+
+  .planetCopy {
+    left: 18px;
+    bottom: 126px;
+  }
+
+  .planetName {
+    font-size: clamp(38px, 12vw, 58px);
+  }
+
+  .planetDescription {
+    max-width: min(330px, calc(100% - 36px));
+    font-size: 12px;
+  }
+
+  .planetUi {
+    bottom: 12px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: calc(100% - 24px);
+  }
+
+  .planetButton {
+    width: 100%;
+  }
+}
+
+@media (max-height: 620px) and (orientation: landscape) {
+  .planetCopy {
+    bottom: 82px;
+  }
+
+  .planetDescription {
+    display: none;
+  }
+
+  .planetUi {
+    left: auto;
+    right: 12px;
+    bottom: 12px;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transitionMeter {
+    transition: none;
+  }
+}

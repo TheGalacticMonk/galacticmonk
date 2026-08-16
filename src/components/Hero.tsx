@@ -13,14 +13,14 @@ export default function Hero() {
   const { isOpen, open, close } = useLightbox(1);
 
   return (
-    <section className="swirl-bg relative flex min-h-screen items-center overflow-hidden pt-24">
+    <section className="swirl-bg relative flex min-h-screen items-center overflow-hidden pt-20">
       <ConstellationBackground className="pointer-events-none absolute inset-0 opacity-80" />
       <Sparkle className="pointer-events-none absolute left-[10%] top-[28%] h-6 w-6 text-coral/60" />
       <Sparkle className="pointer-events-none absolute right-[10%] top-[28%] h-6 w-6 text-coral/60" />
       <Sparkle className="pointer-events-none absolute bottom-[22%] left-[18%] h-4 w-4 text-sage/60" />
       <Sparkle className="pointer-events-none absolute bottom-[22%] right-[18%] h-4 w-4 text-sage/60" />
 
-      <div className="mx-auto max-w-4xl px-6 py-24 text-center">
+      <div className="mx-auto max-w-4xl px-6 py-12 text-center">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
@@ -74,9 +74,6 @@ export default function Hero() {
           className="text-balance mt-6 font-serif text-5xl leading-[1.05] text-cream sm:text-6xl md:text-7xl"
         >
           <span className="block">GALACTIC MONK</span>
-          <span className="mt-4 block font-sans text-sm font-medium uppercase leading-relaxed tracking-[0.28em] text-gold sm:text-base">
-            Multidimensional creative production
-          </span>
         </motion.h1>
 
         <motion.p

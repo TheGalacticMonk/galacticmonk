@@ -6,28 +6,28 @@ import Sparkle from "./Sparkle";
 
 const PILLARS = [
   {
-    title: "Film & Video",
+    title: "SOCIAL INFLUENCE",
     accent: "coral" as const,
     description:
-      "Los Angeles video production from concept through cinematography, editing, sound design, and color — for short films, events, brand stories, and documentary work.",
+      "One of the greatest challenges for any artist, brand, or company is being seen. As a social media influencer across multiple platforms, I bring firsthand experience starting small and building an audience organically. Together, we’ll shape your idea into an experience designed to connect with people.",
   },
   {
-    title: "Photography",
+    title: "END-TO-END",
     accent: "gold" as const,
     description:
-      "Editorial portraits, event photography, and commercial imagery shot on location or in studio, with monthly content retainers available.",
+      "From initial ideation to social media strategy, I can guide the entire creative process. Concepting, production, photography, audio mastering, editing, and delivery can all be overseen by one producer. Fewer handoffs mean greater consistency, less miscommunication, and a creative vision that stays intact from beginning to end.",
   },
   {
-    title: "Audio",
+    title: "ALCHEMY",
     accent: "sage" as const,
     description:
-      "Vocal recording, music mixing and mastering, audiobook production, film ADR, and final audio delivery — you sound major while independent.",
+      "Alchemy begins with what’s available: materials, thoughts, energy, even limitations. What looks like scraps to one person can become ingredients in the hands of an alchemist. The alchemist sees their hidden potential first, then combines and transforms them until the final form feels like magic.",
   },
   {
-    title: "Digital",
+    title: "MULTIDIMENSIONAL",
     accent: "cream" as const,
     description:
-      "Custom-coded web design, branding, UGC, and social media marketing. Your online presence is amplified. You become 1 of 1. Don't settle for cookiecutter end products from generic web agencies.",
+      "Experience across interdimensional creative worlds allows me to see projects from an elevated perspective. When someone pitches me an idea, I don’t just see the individual deliverable, I see the bigger picture, and how every aspect is connected. Jack of all trades, master of none? Perhaps the real self-mastery is innerstanding the connections between them all.",
   },
 ];
 
