@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local web-agency operating files
+/.codex/
+/AGENTS.md
+/WEB_AGENCY.md
