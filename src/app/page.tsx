@@ -41,7 +41,7 @@ export default function Home() {
       <section className="pt-14 shadow-[0_-24px_60px_-32px_rgba(0,0,0,0.5)] sm:pt-16">
         <div className="mx-auto max-w-6xl px-6 pb-16 sm:pb-20">
           <div className="flex flex-wrap items-end justify-between gap-4">
-            <SectionHeading eyebrow="What I Do" title="Four worlds, one master" />
+            <SectionHeading eyebrow="What I Do" title="Four worlds, one alchemist" />
             <Link
               href="/about/"
               className="text-sm tracking-wide text-gold hover:underline"
