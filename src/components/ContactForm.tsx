@@ -36,8 +36,8 @@ export default function ContactForm() {
 
   if (status === "success") {
     return (
-      <div className="work-card-glow contact-form-card relative rounded-3xl p-8 text-center shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] sm:p-10">
-        <p className="font-serif text-2xl text-sage">Message sent.</p>
+      <div className="work-card-glow contact-form-card relative rounded-3xl p-8 text-center shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] sm:p-10" role="status" aria-live="polite">
+        <h2 className="font-serif text-2xl text-sage">Message sent.</h2>
         <p className="mt-2 text-sm text-cream-dim">
           Thanks for reaching out — Jason will get back to you shortly.
         </p>
@@ -46,8 +46,8 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="work-card-glow contact-form-card relative rounded-3xl p-8 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] sm:p-10">
-      <form onSubmit={handleSubmit} className="space-y-6">
+    <div id="project-inquiry" className="work-card-glow contact-form-card relative scroll-mt-28 rounded-3xl p-8 shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] sm:p-10">
+      <form onSubmit={handleSubmit} className="space-y-6" aria-busy={status === "pending"}>
         <div className="grid gap-6 sm:grid-cols-2">
           <Field label="Name">
             <input
@@ -105,7 +105,7 @@ export default function ContactForm() {
         </Field>
 
         {status === "error" && (
-          <p className="text-sm text-coral">
+          <p className="text-sm text-coral" role="alert">
             Something went wrong sending your message. Please try again, or
             email jason@galacticmonk.com directly.
           </p>

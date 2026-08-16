@@ -6,12 +6,12 @@ import PageConstellation from "@/components/PageConstellation";
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected film, photography, and audio recording, mix & master projects from Galactic Monk.",
+    "Explore Los Angeles film production, event photography, cinematography, audio recording, mixing, and mastering projects by Galactic Monk.",
   alternates: { canonical: "/work/" },
   openGraph: {
     title: "Work — Galactic Monk",
     description:
-      "Selected film, photography, and audio recording, mix & master projects from Galactic Monk.",
+      "Explore Los Angeles film production, event photography, cinematography, audio recording, mixing, and mastering projects by Galactic Monk.",
     url: "/work/",
   },
 };
@@ -23,8 +23,8 @@ export default function WorkPage() {
       <section className="mx-auto max-w-6xl px-6 pb-24 pt-36">
         <SectionHeading
           eyebrow="Portfolio"
-          title="Work"
-          description="A variety of film, video, photography, and audio work — filter by discipline below."
+          title="Selected transmissions"
+          description="Film, video, event photography, and music production shaped from first capture through final delivery. Filter by discipline below."
         />
         <div className="mt-10">
           <WorkGrid />

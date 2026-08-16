@@ -73,7 +73,10 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-balance mt-6 font-serif text-5xl leading-[1.05] text-cream sm:text-6xl md:text-7xl"
         >
-          GALACTIC MONK
+          <span className="block">GALACTIC MONK</span>
+          <span className="mt-4 block font-sans text-sm font-medium uppercase leading-relaxed tracking-[0.28em] text-gold sm:text-base">
+            Multidimensional creative production
+          </span>
         </motion.h1>
 
         <motion.p
@@ -82,8 +85,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
-          Creative production for film, photography, sound, and digital —
-          shaped by Jason Lee, Creative Producer &amp; Alchemist.
+          Los Angeles film, photography, audio, and digital production for
+          artists and purpose-led brands ready to make their signal visible.
         </motion.p>
 
         <motion.div
@@ -94,7 +97,7 @@ export default function Hero() {
         >
           <Link href="/work/" className="btn-nova text-sm font-medium tracking-wide">
             <span className="btn-nova-inner">
-              <strong className="btn-nova-label">Experience My Work</strong>
+              <strong className="btn-nova-label">Explore the Work</strong>
               <span className="btn-nova-stars" aria-hidden="true">
                 <span className="btn-nova-stars-field" />
               </span>

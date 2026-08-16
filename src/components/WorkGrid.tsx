@@ -30,6 +30,7 @@ export default function WorkGrid() {
             key={f.key}
             type="button"
             onClick={() => setFilter(f.key)}
+            aria-pressed={filter === f.key}
             className={`btn-ripple rounded-full border px-4 py-2 text-sm tracking-wide transition-colors ${
               filter === f.key
                 ? "border-gold bg-gold/10 text-gold"
@@ -40,6 +41,10 @@ export default function WorkGrid() {
           </button>
         ))}
       </div>
+
+      <p className="sr-only" aria-live="polite">
+        Showing {items.length} {items.length === 1 ? "project" : "projects"}.
+      </p>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
         {items.map((item) => (

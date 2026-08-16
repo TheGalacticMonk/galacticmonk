@@ -22,7 +22,6 @@ export function getWorkItemSchema(item: WorkItem) {
       description,
       url,
       thumbnailUrl: image,
-      uploadDate: `${item.year}-01-01`,
       embedUrl: item.vimeoId ? `https://player.vimeo.com/video/${item.vimeoId}` : undefined,
       contentUrl: item.video ? `${BASE_URL}${item.video}` : undefined,
       creator: CREATOR,
@@ -37,8 +36,9 @@ export function getWorkItemSchema(item: WorkItem) {
       description,
       url,
       image,
-      datePublished: `${item.year}-01-01`,
-      byArtist: CREATOR,
+      byArtist: item.artist
+        ? { "@type": item.artist === "Billion Years Old" ? "MusicGroup" : "Person", name: item.artist }
+        : CREATOR,
     };
   }
 
@@ -49,7 +49,6 @@ export function getWorkItemSchema(item: WorkItem) {
       name: item.title,
       description,
       url,
-      datePublished: `${item.year}-01-01`,
       creator: CREATOR,
       associatedMedia: [
         ...(item.image ? [{ "@type": "ImageObject", contentUrl: `${BASE_URL}${item.image}` }] : []),
@@ -68,7 +67,6 @@ export function getWorkItemSchema(item: WorkItem) {
     description,
     url,
     image,
-    datePublished: `${item.year}-01-01`,
     creator: CREATOR,
   };
 }
@@ -121,7 +119,7 @@ export function getPersonSchema() {
     url: BASE_URL,
     jobTitle: "Creative Producer",
     description:
-      "Galactic Monk is the Los Angeles-based creative production studio of Jason Lee — creative production for multidimensional souls.",
+      "Creative production for film, photography, sound, and digital — shaped by Jason Lee, Creative Producer & Alchemist.",
     image: `${BASE_URL}/monk-beach.jpg`,
     address: {
       "@type": "PostalAddress",

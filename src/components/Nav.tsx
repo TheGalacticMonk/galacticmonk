@@ -75,6 +75,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={active ? "page" : undefined}
                 className={`flex items-center gap-1.5 text-sm tracking-wide transition-[color,text-shadow] hover:text-gold hover:text-shadow-[0_0_14px_rgba(255,212,73,0.9)] ${
                   active
                     ? "text-gold text-shadow-[0_0_14px_rgba(255,212,73,0.9)]"
@@ -110,7 +111,7 @@ export default function Nav() {
           type="button"
           onClick={() => setOpen((v) => !v)}
           className="flex flex-col gap-1.5 md:hidden"
-          aria-label="Toggle menu"
+          aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           aria-controls="mobile-menu"
         >
@@ -131,6 +132,7 @@ export default function Nav() {
               <Link
                 key={link.href}
                 href={link.href}
+                aria-current={active ? "page" : undefined}
                 onClick={() => setOpen(false)}
                 className={`flex items-center gap-1.5 py-3 text-sm tracking-wide transition-[color,text-shadow] hover:text-gold hover:text-shadow-[0_0_14px_rgba(255,212,73,0.9)] ${
                   active

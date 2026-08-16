@@ -16,7 +16,7 @@ const ACCENT_TEXT = {
 };
 
 export function generateStaticParams() {
-  return WORK.map((item) => ({ id: item.id }));
+  return WORK.filter((item) => !item.hidden).map((item) => ({ id: item.id }));
 }
 
 export async function generateMetadata({
@@ -24,10 +24,10 @@ export async function generateMetadata({
 }: PageProps<"/work/[id]">): Promise<Metadata> {
   const { id } = await params;
   const item = WORK.find((work) => work.id === id);
-  if (!item) return {};
+  if (!item || item.hidden) return {};
   const description = item.description ?? item.blurb;
   return {
-    title: `${item.title} — Galactic Monk`,
+    title: item.title,
     description,
     alternates: { canonical: `/work/${item.id}/` },
     openGraph: {
@@ -44,7 +44,7 @@ export default async function WorkDetailPage({
 }: PageProps<"/work/[id]">) {
   const { id } = await params;
   const item = WORK.find((work) => work.id === id);
-  if (!item) notFound();
+  if (!item || item.hidden) notFound();
 
   return (
     <>

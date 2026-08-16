@@ -26,7 +26,7 @@ const cormorant = Cormorant({
 
 const SITE_NAME = "Galactic Monk";
 const SITE_DESCRIPTION =
-  "Galactic Monk is the Los Angeles-based creative production studio of Jason Lee — creative production for multidimensional souls.";
+  "Los Angeles film, photography, audio, and digital production by Jason Lee — the multidimensional creative producer behind Galactic Monk.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://galacticmonk.com"),
@@ -35,16 +35,6 @@ export const metadata: Metadata = {
     template: `%s — ${SITE_NAME}`,
   },
   description: SITE_DESCRIPTION,
-  keywords: [
-    "Galactic Monk",
-    "Jason Lee",
-    "creative producer",
-    "Los Angeles videographer",
-    "Los Angeles photographer",
-    "film production",
-    "music mixing and mastering",
-    "web design and development",
-  ],
   authors: [{ name: "Jason Lee", url: "https://galacticmonk.com" }],
   creator: "Jason Lee",
   publisher: "Jason Lee",

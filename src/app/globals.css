@@ -34,6 +34,11 @@ body {
   color: var(--color-cream);
 }
 
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 4px;
+}
+
 .material-symbols-outlined {
   font-variation-settings:
     "FILL" 0,
@@ -246,7 +251,6 @@ body {
 .pillar-card {
   position: relative;
   background: var(--color-ink-deep);
-  cursor: pointer;
   will-change: transform;
 }
 
@@ -256,7 +260,7 @@ body {
   inset: -4px;
   z-index: -10;
   border-radius: inherit;
-  background: linear-gradient(-45deg, #fff01c 0%, #40c9ff 100%);
+  background: linear-gradient(-45deg, var(--color-gold) 0%, var(--color-sage) 100%);
   pointer-events: none;
 }
 
@@ -272,7 +276,7 @@ body {
   inset: 0;
   z-index: -1;
   border-radius: inherit;
-  background: linear-gradient(-45deg, #fff01c 0%, #40c9ff 100%);
+  background: linear-gradient(-45deg, var(--color-gold) 0%, var(--color-sage) 100%);
   transform: scale(0.97);
   filter: blur(18px);
   opacity: 0.9;
@@ -301,16 +305,16 @@ body {
 .pillar-card-button {
   position: absolute;
   left: 50%;
-  bottom: 0;
-  transform: translate(-50%, 125%);
-  opacity: 0;
+  bottom: 1.25rem;
+  transform: translateX(-50%);
+  opacity: 1;
   transition:
     transform 0.3s ease-out,
     opacity 0.3s ease-out;
 }
 
 .pillar-card:hover .pillar-card-button {
-  transform: translate(-50%, 50%);
+  transform: translate(-50%, -2px);
   opacity: 1;
 }
 

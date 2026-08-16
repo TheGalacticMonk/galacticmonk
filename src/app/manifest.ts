@@ -7,7 +7,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: "Galactic Monk",
     short_name: "Galactic Monk",
     description:
-      "Galactic Monk is the Los Angeles-based creative production studio of Jason Lee — creative production for multidimensional souls.",
+      "Creative production for film, photography, sound, and digital — shaped by Jason Lee, Creative Producer & Alchemist.",
     start_url: "/",
     display: "standalone",
     background_color: "#1a1438",

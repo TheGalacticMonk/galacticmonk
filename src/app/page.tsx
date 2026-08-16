@@ -7,6 +7,9 @@ import WorkCard from "@/components/WorkCard";
 import { WORK } from "@/lib/work";
 
 export const metadata: Metadata = {
+  title: "Los Angeles Creative Producer for Film, Photo & Sound",
+  description:
+    "Galactic Monk is Jason Lee, a Los Angeles creative producer crafting cinematic film, event photography, music mixing and mastering, and custom digital experiences.",
   alternates: { canonical: "/" },
 };
 
@@ -57,8 +60,8 @@ export default function Home() {
         <SectionHeading
           align="center"
           eyebrow="LET'S CO-CREATE"
-          title="Have creative in mind?"
-          description="Whether it's a film, a photoshoot, or hit record - let's manifest the magic you're weaving."
+          title="Have a vision in orbit?"
+          description="Whether it’s a film, photoshoot, record, or digital world, let’s give it a vibe people can feel."
         />
         <Link href="/contact/" className="btn-nova btn-nova-urgent mt-8 text-sm font-medium tracking-wide">
           <span className="btn-nova-inner">
