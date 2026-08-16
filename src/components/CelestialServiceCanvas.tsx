@@ -20,6 +20,7 @@ import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js"
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
 import {
   CREATIVE_SERVICES,
+  CREATIVE_SHOWCASE_MOBILE_QUERY,
   normalizeCreativeServiceIndex,
   type CreativeServiceIndex,
 } from "@/lib/creative-services";
@@ -453,7 +454,7 @@ export default function CelestialServiceCanvas({
       return;
     }
 
-    const compactQuery = window.matchMedia("(max-width: 760px)");
+    const compactQuery = window.matchMedia(CREATIVE_SHOWCASE_MOBILE_QUERY);
     const isCompact = compactQuery.matches;
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let prefersReducedMotion = reducedMotionQuery.matches;

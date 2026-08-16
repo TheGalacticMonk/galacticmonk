@@ -13,6 +13,7 @@ import {
 } from "react";
 import {
   CREATIVE_SERVICES,
+  CREATIVE_SHOWCASE_MOBILE_QUERY,
   normalizeCreativeServiceIndex,
   type CreativeServiceIndex,
 } from "@/lib/creative-services";
@@ -51,7 +52,7 @@ export default function CreativeServicesShowcase() {
   const activeService = CREATIVE_SERVICES[selectedService];
 
   useEffect(() => {
-    const compactQuery = window.matchMedia("(max-width: 760px)");
+    const compactQuery = window.matchMedia(CREATIVE_SHOWCASE_MOBILE_QUERY);
     const updateCanvasMode = () => {
       setCanvasMode(compactQuery.matches ? "compact" : "wide");
     };

@@ -1,3 +1,9 @@
+// Must stay in sync with the `@media (max-width: 760px)` / `(min-width: 761px)`
+// breakpoints in CreativeServicesShowcase.module.css — this value only drives
+// the JS-side mode switch (CelestialServiceCanvas's isCompact, the widget's
+// canvasMode remount key), not the CSS layout itself.
+export const CREATIVE_SHOWCASE_MOBILE_QUERY = "(max-width: 760px)";
+
 export type CreativeService = {
   readonly name: string;
   readonly kicker: string;

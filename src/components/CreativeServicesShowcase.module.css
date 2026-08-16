@@ -276,6 +276,10 @@
   }
 }
 
+/* This 761px/760px pair must stay in sync with CREATIVE_SHOWCASE_MOBILE_QUERY
+   in src/lib/creative-services.ts, which drives the same split on the JS side
+   (CelestialServiceCanvas's isCompact, the widget's canvasMode remount key).
+   CSS can't reference that constant directly — if you change one, change both. */
 @media (min-width: 761px) {
   .stage {
     height: auto;
