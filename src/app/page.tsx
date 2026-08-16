@@ -42,7 +42,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="What I Do"
             title="Four worlds, one master"
-            description="Every element is deliberate, whether it's a camera, a lens, or a microphone - intentional, hands-on, and a whole lot of alchemy."
+            description="Every element is deliberate, whether it's a camera, a lens, a microphone, or website — intentional, hands-on, and a whole lot of alchemy."
           />
           <Link
             href="/about/"
@@ -61,7 +61,7 @@ export default function Home() {
           align="center"
           eyebrow="LET'S CO-CREATE"
           title="Have a vision in orbit?"
-          description="Whether it’s a film, photoshoot, record, or digital world, let’s give it a vibe people can feel."
+          description="Whether it’s a film, photoshoot, record, or digital world, let’s co-create a vibe people can feel."
         />
         <Link href="/contact/" className="btn-nova btn-nova-urgent mt-8 text-sm font-medium tracking-wide">
           <span className="btn-nova-inner">

@@ -46,7 +46,7 @@ export default function ServicePillars() {
           key={pillar.title}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          whileHover={{ y: -4 }}
+          whileHover={{ y: -4, transition: { duration: 0.18, delay: 0 } }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: i * 0.1 }}
           className="pillar-card min-h-72 rounded-2xl shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)]"

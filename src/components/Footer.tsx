@@ -19,8 +19,8 @@ export default function Footer() {
             </span>
           </div>
           <p className="mt-4 text-sm leading-relaxed text-cream-dim">
-            Creative production for film, photography, and sound — shaped by
-            Jason Lee, Creative Producer &amp; Alchemist.
+            Creative production for film, photography, sound, and digital —
+            shaped by Jason Lee, Creative Producer &amp; Alchemist.
           </p>
         </div>
 
