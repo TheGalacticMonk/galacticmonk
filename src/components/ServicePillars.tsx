@@ -9,13 +9,13 @@ const PILLARS = [
     title: "Film & Video",
     accent: "coral" as const,
     description:
-      "Concept, production, and post — short films, events, brand spots, and documentary work cut and color graded end to end. Whether you need a cinematic film look, or sharp and modern for social media, I have the gear.",
+      "Concept, production, and post — short films, events, brand spots, and documentary work cut and color graded end to end. Whether you need a cinematic film look, or sharp and modern for social media, let's create magic.",
   },
   {
     title: "Photography",
     accent: "gold" as const,
     description:
-      "Editorial, portrait, event, and commercial photography, shot on location or in studio. Discounted monthly subscriptions available if you need professional photos consistently, such as for social media.",
+      "Editorial, portrait, event, and commercial photography, shot on location or in studio. Discounted monthly retainers available if you need professional photos consistently, such as for social media.",
   },
   {
     title: "Audio",
@@ -24,10 +24,10 @@ const PILLARS = [
       "Recording, mixing, and mastering for music, EPs, albums, audiobooks, and film ADR. I carry some of the finest microphones and preamps. Sound like you're signed to a major label while independent. All genres.",
   },
   {
-    title: "Web Design & Dev",
+    title: "Digital",
     accent: "cream" as const,
     description:
-      "This website was coded via Claude using no drag and drop builders (they have many limitations). Your website could look as good as this one, while avoiding the premium web agencies will charge you for no good reason.",
+      "Custom-coded web design, branding, UGC, and social media marketing. Your online presence is amplified. You become 1 of 1. Don't settle for cookiecutter end products.",
   },
 ];
 

@@ -82,8 +82,8 @@ export default function Hero() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
-          Multidimensional projects receive special rates because
-          we&apos;re already building the New Earth.
+          Creative production for film, photography, sound, and digital —
+          shaped by Jason Lee, Creative Producer &amp; Alchemist.
         </motion.p>
 
         <motion.div
