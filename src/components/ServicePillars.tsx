@@ -60,12 +60,23 @@ export default function ServicePillars() {
               {pillar.description}
             </p>
           </div>
-          <Link
-            href="/contact/#project-inquiry"
-            className="pillar-card-button rounded-full bg-gold px-4 py-2 text-xs font-medium text-ink-deep"
-          >
-            Start a project
-          </Link>
+          <div className="pillar-card-button">
+            <Link
+              href="/contact/#project-inquiry"
+              className="btn-nova btn-nova-compact text-[11px] font-medium tracking-wide sm:text-xs"
+            >
+              <span className="btn-nova-inner">
+                <strong className="btn-nova-label">Start a project</strong>
+                <span className="btn-nova-stars" aria-hidden="true">
+                  <span className="btn-nova-stars-field" />
+                </span>
+                <span className="btn-nova-glow" aria-hidden="true">
+                  <span className="btn-nova-circle" />
+                  <span className="btn-nova-circle" />
+                </span>
+              </span>
+            </Link>
+          </div>
         </motion.article>
       ))}
     </div>
