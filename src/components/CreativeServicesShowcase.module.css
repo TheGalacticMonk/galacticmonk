@@ -228,6 +228,22 @@
   transform: scale(0);
 }
 
+/* At 8px a flat two-stop gradient reads as pale — the gradient's first
+   color (accentA) dominates the visible fill, so on services where accentA
+   is the paler of the pair (Digital: cream→purple) the vivid color barely
+   shows past a thin rim; a light accentB contribution covers that case.
+   accentB is weighted well below accentA, though — on Audio, where accentB
+   is pale cream rather than a vivid color, an equal-strength accentB glow
+   was washing the sage green out with a whitish halo instead of helping.
+   The stronger saturate() carries most of the vividness work now. */
+.railRow.isActive .railDot {
+  filter: saturate(2.4);
+  box-shadow:
+    0 0 6px rgba(var(--row-accent-a), 0.8),
+    0 0 5px rgba(var(--row-accent-b), 0.4),
+    0 0 1px rgba(var(--row-accent-a), 0.95);
+}
+
 .railLabel {
   font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
   color: var(--color-cream-dim);
