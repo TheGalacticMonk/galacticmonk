@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import CelestialTransmutationLoader from "@/components/CelestialTransmutationLoader";
+import CreativeServicesShowcase from "@/components/CreativeServicesShowcase";
 import Hero from "@/components/Hero";
 import SectionHeading from "@/components/SectionHeading";
-import ServicePillars from "@/components/ServicePillars";
+import WhyNotMeReasons from "@/components/WhyNotMeReasons";
 import WorkCard from "@/components/WorkCard";
 import { WORK } from "@/lib/work";
 
@@ -38,7 +38,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-8">
+      <section className="mx-auto max-w-6xl px-6">
         <div className="flex flex-wrap items-end justify-between gap-4">
           <SectionHeading
             eyebrow="What I Do"
@@ -53,17 +53,18 @@ export default function Home() {
           </Link>
         </div>
         <div className="-mx-6 mt-8 overflow-x-clip px-6 sm:mt-10 xl:-mx-20 xl:px-20 2xl:-mx-[100px] 2xl:px-[100px]">
-          <CelestialTransmutationLoader />
+          <CreativeServicesShowcase />
         </div>
-        <div className="mt-14 sm:mt-16">
-          <SectionHeading
-            eyebrow="WHY NOT ME?"
-            title="Awakened soul, divine consciousness"
-            description="My technical skills are only part of what I bring. I built myself from less than nothing through vision, discipline, and sheer will. When we work together, I bring that same resolve to your project—protecting the vision and carrying it from first spark to final form."
-          />
-        </div>
+      </section>
+
+      <section className="mx-auto max-w-6xl px-6 pb-8 pt-14 sm:pt-16">
+        <SectionHeading
+          eyebrow="WHY NOT ME?"
+          title="Awakened soul, divine consciousness"
+          description="My technical skills are only part of what I bring. I built myself from less than nothing through vision, discipline, and sheer will. When we work together, I bring that same resolve to your project—protecting the vision and carrying it from first spark to final form."
+        />
         <div className="mt-10">
-          <ServicePillars />
+          <WhyNotMeReasons />
         </div>
       </section>
 

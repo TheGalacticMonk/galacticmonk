@@ -24,7 +24,7 @@ export default function WorkPage() {
         <SectionHeading
           eyebrow="Portfolio"
           title="Selected transmissions"
-          description="Film, video, event photography, and music production shaped from first capture through final delivery. Filter by discipline below."
+          description="Film, video, photography, audio, and digital shaped from first capture through final delivery. Filter by discipline below."
         />
         <div className="mt-10">
           <WorkGrid />

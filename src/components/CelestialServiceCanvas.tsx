@@ -7,7 +7,7 @@
    only the surrounding scaffolding (module structure, refs instead of
    getElementById, container-relative sizing instead of window/viewport
    sizing, and React lifecycle/cleanup) has been adapted. See
-   CelestialTransmutation.module.css for the matching, scoped CSS (originally
+   CreativeServicesShowcase.module.css for the matching, scoped CSS (originally
    viewport-fixed, now positioned relative to this component's own
    container). */
 
@@ -18,50 +18,20 @@ import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
 import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
 import { UnrealBloomPass } from "three/addons/postprocessing/UnrealBloomPass.js";
 import { OutputPass } from "three/addons/postprocessing/OutputPass.js";
-import styles from "./CelestialTransmutation.module.css";
+import {
+  CREATIVE_SERVICES,
+  normalizeCreativeServiceIndex,
+  type CreativeServiceIndex,
+} from "@/lib/creative-services";
+import styles from "./CreativeServicesShowcase.module.css";
 
-type Planet = {
-  name: string;
-  kicker: string;
-  description: string;
-  accentA: string;
-  accentB: string;
+type CelestialServiceCanvasProps = {
+  selectedPreset: CreativeServiceIndex;
+  onTransitionStateChange?: (
+    isTransitioning: boolean,
+    targetPreset: CreativeServiceIndex
+  ) => void;
 };
-
-const PLANETS: Planet[] = [
-  {
-    name: "Film/Video",
-    kicker: "PHOTOGRAPHY IN MOTION",
-    description:
-      "Los Angeles film and video production from concept through directing, cinematography, editing, sound design, and color grading — for short films, events, brand stories, and documentary work.",
-    accentA: "248, 118, 102",
-    accentB: "108, 92, 224",
-  },
-  {
-    name: "Photography",
-    kicker: "PAUSING TIME",
-    description:
-      "Editorial portraits, headshots for actors and professionals, event photography, and product imagery shot on location or in studio, with monthly content retainers available.",
-    accentA: "255, 212, 73",
-    accentB: "248, 118, 102",
-  },
-  {
-    name: "Audio",
-    kicker: "FREQUENCY & VIBRATION",
-    description:
-      "Vocal recording, music mixing and mastering, audiobook production, film ADR, and streaming delivery — you sound major while independent.",
-    accentA: "115, 158, 130",
-    accentB: "245, 241, 232",
-  },
-  {
-    name: "Digital",
-    kicker: "DIVINE WI-FI",
-    description:
-      "Custom-coded web design, branding, UGC, and social media marketing. Your online presence is amplified. You become 1 of 1. Don't settle for cookiecutter end products from generic web agencies.",
-    accentA: "245, 241, 232",
-    accentB: "108, 92, 224",
-  },
-];
 
 const TAU = Math.PI * 2;
 
@@ -455,45 +425,36 @@ const planetFunctionsGLSL = `
     }
 `;
 
-export default function CelestialTransmutation() {
-  const stageRef = useRef<HTMLDivElement>(null);
+export default function CelestialServiceCanvas({
+  selectedPreset,
+  onTransitionStateChange,
+}: CelestialServiceCanvasProps) {
+  const visualLayerRef = useRef<HTMLDivElement>(null);
   const canvasContainerRef = useRef<HTMLDivElement>(null);
   const interactionSurfaceRef = useRef<HTMLDivElement>(null);
-  const planetNameRef = useRef<HTMLHeadingElement>(null);
-  const planetKickerRef = useRef<HTMLDivElement>(null);
-  const planetDescriptionRef = useRef<HTMLParagraphElement>(null);
-  const transitionMeterRef = useRef<HTMLDivElement>(null);
-  const transitionMeterFillRef = useRef<HTMLDivElement>(null);
-  const buttonRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const requestPresetRef = useRef<(preset: CreativeServiceIndex) => void>(() => {});
+  const transitionCallbackRef = useRef(onTransitionStateChange);
+  const initialPresetRef = useRef(selectedPreset);
 
   useEffect(() => {
-    const stage = stageRef.current;
+    transitionCallbackRef.current = onTransitionStateChange;
+  }, [onTransitionStateChange]);
+
+  useEffect(() => {
+    requestPresetRef.current(selectedPreset);
+  }, [selectedPreset]);
+
+  useEffect(() => {
+    const stage = visualLayerRef.current;
     const container = canvasContainerRef.current;
     const interactionSurface = interactionSurfaceRef.current;
-    const planetName = planetNameRef.current;
-    const planetKicker = planetKickerRef.current;
-    const planetDescription = planetDescriptionRef.current;
-    const transitionMeter = transitionMeterRef.current;
-    const transitionMeterFill = transitionMeterFillRef.current;
-    const planetButtons = buttonRefs.current.filter(
-      (button): button is HTMLButtonElement => button !== null
-    );
 
-    if (
-      !stage ||
-      !container ||
-      !interactionSurface ||
-      !planetName ||
-      !planetKicker ||
-      !planetDescription ||
-      !transitionMeter ||
-      !transitionMeterFill ||
-      planetButtons.length !== PLANETS.length
-    ) {
+    if (!stage || !container || !interactionSurface) {
       return;
     }
 
-    const isCompact = window.matchMedia("(max-width: 760px)").matches;
+    const compactQuery = window.matchMedia("(max-width: 760px)");
+    const isCompact = compactQuery.matches;
     const reducedMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
     let prefersReducedMotion = reducedMotionQuery.matches;
 
@@ -517,14 +478,22 @@ export default function CelestialTransmutation() {
       };
     }
 
-    const renderer = new THREE.WebGLRenderer({
-      antialias: true,
-      alpha: true,
-      powerPreference: "high-performance",
-    });
+    let renderer: THREE.WebGLRenderer;
+
+    try {
+      renderer = new THREE.WebGLRenderer({
+        antialias: true,
+        alpha: true,
+        powerPreference: "high-performance",
+      });
+    } catch (error) {
+      interactionSurface.style.pointerEvents = "none";
+      console.warn("The decorative creative-services canvas could not start.", error);
+      return;
+    }
 
     function responsivePixelRatio() {
-      const cap = isCompact ? 1.25 : 1.5;
+      const cap = compactQuery.matches ? 1.25 : 1.5;
       return Math.min(window.devicePixelRatio || 1, cap);
     }
 
@@ -1485,17 +1454,18 @@ export default function CelestialTransmutation() {
     orbitalArcs.rotation.set(0.18, 0.0, -0.28);
     planetGroup.add(orbitalArcs);
 
+    const initialPreset = initialPresetRef.current;
     const transitionState = {
       active: false,
-      from: 0,
-      to: 0,
-      queued: null as number | null,
+      from: initialPreset as CreativeServiceIndex,
+      to: initialPreset as CreativeServiceIndex,
+      queued: null as CreativeServiceIndex | null,
       startTime: 0,
       duration: 1.28,
       raw: 0,
       eased: 0,
       energy: 0,
-      current: 0,
+      current: initialPreset as CreativeServiceIndex,
     };
 
     function smootherStep(value: number) {
@@ -1536,37 +1506,15 @@ export default function CelestialTransmutation() {
     }
 
     function updatePortalPalette(fromIndex: number, toIndex: number) {
-      portalUniforms.uFromAccent.value.copy(accentStringToColor(PLANETS[fromIndex].accentA));
-      portalUniforms.uToAccent.value.copy(accentStringToColor(PLANETS[toIndex].accentB));
+      portalUniforms.uFromAccent.value.copy(
+        accentStringToColor(CREATIVE_SERVICES[fromIndex].accentA)
+      );
+      portalUniforms.uToAccent.value.copy(
+        accentStringToColor(CREATIVE_SERVICES[toIndex].accentB)
+      );
     }
 
-    function setStageAccent(index: number) {
-      const planet = PLANETS[index];
-      stage!.style.setProperty("--accent-a", planet.accentA);
-      stage!.style.setProperty("--accent-b", planet.accentB);
-    }
-
-    function updatePlanetCopy(index: number, isTransmuting = false) {
-      const planet = PLANETS[index];
-      planetKicker!.textContent = isTransmuting
-        ? `Phasing into ${planet.kicker.toLowerCase()}`
-        : planet.kicker;
-      planetName!.textContent = planet.name;
-      planetDescription!.textContent = planet.description;
-    }
-
-    function updateButtonState(currentIndex: number, targetIndex: number | null = null) {
-      planetButtons.forEach((button) => {
-        const index = Number(button.dataset.planet);
-        const isCurrent = index === currentIndex && targetIndex === null;
-        const isTarget = targetIndex !== null && index === targetIndex;
-        button.classList.toggle(styles.isActive, isCurrent);
-        button.classList.toggle(styles.isTarget, isTarget);
-        button.setAttribute("aria-pressed", String(isCurrent || isTarget));
-      });
-    }
-
-    function applyPlanetImmediately(index: number) {
+    function applyPlanetImmediately(index: CreativeServiceIndex) {
       transitionState.active = false;
       transitionState.from = index;
       transitionState.to = index;
@@ -1581,15 +1529,11 @@ export default function CelestialTransmutation() {
       setSharedUniform("uTransition", 0);
       setSharedUniform("uTransitionEnergy", 0);
 
-      updatePlanetCopy(index, false);
-      updateButtonState(index, null);
-      setStageAccent(index);
-      transitionMeter!.classList.remove(styles.isActive);
-      transitionMeterFill!.style.width = "100%";
+      transitionCallbackRef.current?.(false, index);
     }
 
     function beginTransition(targetIndex: number, nowSeconds: number) {
-      const normalizedTarget = (targetIndex + PLANETS.length) % PLANETS.length;
+      const normalizedTarget = normalizeCreativeServiceIndex(targetIndex);
 
       if (prefersReducedMotion) {
         if (normalizedTarget === transitionState.current) return;
@@ -1619,11 +1563,7 @@ export default function CelestialTransmutation() {
       setSharedUniform("uTransition", 0);
       setSharedUniform("uTransitionEnergy", 0);
 
-      updatePlanetCopy(normalizedTarget, true);
-      updateButtonState(transitionState.current, normalizedTarget);
-      setStageAccent(normalizedTarget);
-      transitionMeter!.classList.add(styles.isActive);
-      transitionMeterFill!.style.width = "0%";
+      transitionCallbackRef.current?.(true, normalizedTarget);
       invalidateRender(transitionState.duration * 1000 + 600);
     }
 
@@ -1638,11 +1578,6 @@ export default function CelestialTransmutation() {
       setSharedUniform("uTransition", 0);
       setSharedUniform("uTransitionEnergy", 0);
 
-      updatePlanetCopy(transitionState.current, false);
-      updateButtonState(transitionState.current, null);
-      setStageAccent(transitionState.current);
-      transitionMeter!.classList.remove(styles.isActive);
-      transitionMeterFill!.style.width = "100%";
       invalidateRender(600);
 
       if (transitionState.queued !== null) {
@@ -1650,8 +1585,11 @@ export default function CelestialTransmutation() {
         transitionState.queued = null;
         if (queued !== transitionState.current) {
           beginTransition(queued, nowSeconds + 0.001);
+          return;
         }
       }
+
+      transitionCallbackRef.current?.(false, transitionState.current);
     }
 
     function updateTransition(nowSeconds: number) {
@@ -1671,8 +1609,6 @@ export default function CelestialTransmutation() {
 
       setSharedUniform("uTransition", eased);
       setSharedUniform("uTransitionEnergy", energy);
-      transitionMeterFill!.style.width = `${(raw * 100).toFixed(2)}%`;
-
       if (raw >= 1) {
         settleTransition(nowSeconds);
       }
@@ -1720,39 +1656,7 @@ export default function CelestialTransmutation() {
       scheduleRender();
     }
 
-    const buttonClickHandlers: Array<() => void> = [];
-    planetButtons.forEach((button) => {
-      const handler = () => {
-        beginTransition(Number(button.dataset.planet), sceneTime);
-      };
-      buttonClickHandlers.push(handler);
-      button.addEventListener("click", handler);
-    });
-
-    const onKeydown = (event: KeyboardEvent) => {
-      const focusedIndex = planetButtons.indexOf(
-        document.activeElement as HTMLButtonElement
-      );
-      if (focusedIndex < 0) return;
-
-      let targetIndex: number | null = null;
-      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-        targetIndex = (focusedIndex + 1) % PLANETS.length;
-      } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-        targetIndex = (focusedIndex - 1 + PLANETS.length) % PLANETS.length;
-      } else if (event.key === "Home") {
-        targetIndex = 0;
-      } else if (event.key === "End") {
-        targetIndex = PLANETS.length - 1;
-      }
-
-      if (targetIndex !== null) {
-        event.preventDefault();
-        planetButtons[targetIndex].focus();
-        beginTransition(targetIndex, sceneTime);
-      }
-    };
-    window.addEventListener("keydown", onKeydown);
+    requestPresetRef.current = (preset) => beginTransition(preset, sceneTime);
 
     function handleResize() {
       const { width, height } = getContainerSize();
@@ -1927,10 +1831,8 @@ export default function CelestialTransmutation() {
     }
     reducedMotionQuery.addEventListener("change", onReducedMotionChange);
 
-    updatePortalPalette(0, 0);
-    setStageAccent(0);
-    updatePlanetCopy(0, false);
-    updateButtonState(0, null);
+    updatePortalPalette(initialPreset, initialPreset);
+    applyPlanetImmediately(initialPreset);
     handleResize();
 
     return () => {
@@ -1939,13 +1841,9 @@ export default function CelestialTransmutation() {
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("keydown", onKeydown);
       document.removeEventListener("visibilitychange", onVisibilityChange);
       reducedMotionQuery.removeEventListener("change", onReducedMotionChange);
-
-      planetButtons.forEach((button, index) => {
-        button.removeEventListener("click", buttonClickHandlers[index]);
-      });
+      requestPresetRef.current = () => {};
 
       controls.removeEventListener("start", onControlsStart);
       controls.removeEventListener("change", onControlsChange);
@@ -1980,63 +1878,13 @@ export default function CelestialTransmutation() {
   }, []);
 
   return (
-    <div ref={stageRef} className={styles.stage}>
+    <div ref={visualLayerRef} className={styles.visualLayer} aria-hidden="true">
       <div ref={canvasContainerRef} className={styles.canvasContainer} aria-hidden="true" />
       <div
         ref={interactionSurfaceRef}
         className={styles.interactionSurface}
         aria-hidden="true"
       />
-
-      <section
-        id="celestial-service-detail"
-        className={styles.planetCopy}
-        aria-live="polite"
-      >
-        <div ref={planetKickerRef} className={styles.planetKicker}>
-          PHOTOGRAPHY IN MOTION
-        </div>
-        <h3 ref={planetNameRef} className={styles.planetName}>
-          Film/Video
-        </h3>
-        <p ref={planetDescriptionRef} className={styles.planetDescription}>
-          Los Angeles film and video production from concept through directing,
-          cinematography, editing, sound design, and color grading — for short films, events,
-          brand stories, and documentary work.
-        </p>
-        <div ref={transitionMeterRef} className={styles.transitionMeter} aria-hidden="true">
-          <div ref={transitionMeterFillRef} className={styles.transitionMeterFill} />
-        </div>
-      </section>
-
-      <div className={styles.planetUi} role="group" aria-label="Creative services">
-        {PLANETS.map((planet, index) => (
-          <button
-            key={planet.name}
-            type="button"
-            ref={(el) => {
-              buttonRefs.current[index] = el;
-            }}
-            data-planet={index}
-            aria-controls="celestial-service-detail"
-            aria-pressed={index === 0}
-            className={`btn-nova btn-nova-compact ${styles.planetButton} ${
-              index === 0 ? styles.isActive : ""
-            } text-[11px] font-medium tracking-wide sm:text-xs`}
-          >
-            <span className="btn-nova-inner">
-              <strong className="btn-nova-label">{planet.name}</strong>
-              <span className="btn-nova-stars" aria-hidden="true">
-                <span className="btn-nova-stars-field" />
-              </span>
-              <span className="btn-nova-glow" aria-hidden="true">
-                <span className="btn-nova-circle" />
-                <span className="btn-nova-circle" />
-              </span>
-            </span>
-          </button>
-        ))}
-      </div>
     </div>
   );
 }

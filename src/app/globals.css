@@ -251,18 +251,16 @@ body {
     btn-nova-urgent-pulse 1.1s ease-in-out infinite;
 }
 
-/* Pillar cards ("What I Do"): a card sitting on a blurred gradient glow,
-   with a crisper gradient ring further behind. The glow is a literal
-   yellow-to-cyan gradient rather than the site's own accent colors,
-   uniform across all four cards. The card itself scales up on hover, and
-   a "Let's Chat!" pill slides up from the bottom edge. */
-.pillar-card {
+/* "Why Not Me?" reason cards: an ink-deep card over a gold-to-sage gradient
+   ring and a softer blurred version of the same glow. Framer Motion owns the
+   subtle hover lift; the project CTA remains visible at the card's base. */
+.why-not-me-card {
   position: relative;
   background: var(--color-ink-deep);
   will-change: transform;
 }
 
-.pillar-card::before {
+.why-not-me-card::before {
   content: "";
   position: absolute;
   inset: -4px;
@@ -272,13 +270,13 @@ body {
   pointer-events: none;
 }
 
-/* will-change here (rather than just on .pillar-card) forces this blurred
+/* will-change here (rather than just on .why-not-me-card) forces this blurred
    layer to be composited up front. Without it, Chrome/Safari defer building
    the blur bitmap until the parent's transform actually changes (page load's
    entrance animation, or the hover scale), so the ring briefly renders sharp
    and full-size before the blur "catches up" — reads as a flash of a much
    thicker border that then shrinks down. */
-.pillar-card::after {
+.why-not-me-card::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -292,25 +290,25 @@ body {
   will-change: filter;
 }
 
-.pillar-card:hover::after {
+.why-not-me-card:hover::after {
   opacity: 1;
 }
 
 /* Negative z-index always paints above its element's own background (never
    under it), so without this the glow above would wash out through the
    card's padding instead of staying a thin edge glow. Padding lives on this
-   face rather than on .pillar-card itself so the face sits flush with the
+   face rather than on .why-not-me-card itself so the face sits flush with the
    card's edges (same trick as .work-card-glow's image + text, which have no
    outer padding either) — leaving just the pseudo-elements' own inset/blur
    as the visible rim, instead of the whole padding gap. */
-.pillar-card-face {
+.why-not-me-card-face {
   position: relative;
   height: 100%;
   border-radius: inherit;
   background: var(--color-ink-deep);
 }
 
-.pillar-card-button {
+.why-not-me-card-button {
   position: absolute;
   left: 50%;
   bottom: 1.25rem;
@@ -322,16 +320,16 @@ body {
     opacity 0.3s ease-out;
 }
 
-.pillar-card:hover .pillar-card-button {
+.why-not-me-card:hover .why-not-me-card-button {
   transform: translate(-50%, -2px);
   opacity: 1;
 }
 
 /* Work cards: the same gradient-ring + blurred-glow border FX as
-   .pillar-card above, minus the rotate-on-hover and slide-up button — just
+   .why-not-me-card above, minus its reason-card content and CTA — just
    the glow, colored per-card by pairing the item's own accent with an
-   indigo drawn from the site's own ink palette, instead of the pillar
-   cards' fixed yellow-to-cyan or two clashing accents against each other.
+   indigo drawn from the site's own ink palette, instead of the reason
+   cards' fixed gold-to-sage pairing or two clashing accents against each other.
    The card is a flex column (see WorkCard.tsx) so the text block always
    fills the card's full height, even when a taller sibling in the same
    grid row stretches it — otherwise the leftover gap has no opaque
@@ -419,7 +417,7 @@ body {
 }
 
 /* Contact page's "Get in Touch" column, styled as a flyer tacked to a
-   corkboard rather than a plain glow card like .work-card-glow/.pillar-card
+   corkboard rather than a plain glow card like .work-card-glow/.why-not-me-card
    — a polka-dot poster border instead of a gradient ring, so it reads as a
    distinct object next to the contact form. The dots themselves are drawn
    by .flyer-card-dots, an SVG overlay (see below) rather than anything on
@@ -907,8 +905,8 @@ body {
     transform: none;
   }
 
-  .pillar-card::after,
-  .pillar-card-button,
+  .why-not-me-card::after,
+  .why-not-me-card-button,
   .work-card-glow::after,
   .work-card-bottom-glow {
     transition: none;

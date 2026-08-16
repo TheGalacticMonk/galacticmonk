@@ -47,8 +47,15 @@ export default function WorkGrid() {
       </p>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        {items.map((item) => (
-          <WorkCard key={item.id} item={item} />
+        {items.map((item, index) => (
+          <WorkCard
+            key={item.id}
+            item={item}
+            // The grid is sm:2-col / lg:3-col, so on desktop the first row
+            // (cards 0-2) is above the fold and any of the three can be the
+            // LCP element depending on viewport width.
+            priority={index < 3}
+          />
         ))}
       </div>
     </div>

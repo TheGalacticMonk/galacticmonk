@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import Sparkle from "./Sparkle";
 
-const PILLARS = [
+const WHY_NOT_ME_REASONS = [
   {
     title: "SOCIAL INFLUENCE",
     accent: "coral" as const,
@@ -38,29 +38,29 @@ const ACCENT_TEXT = {
   cream: "text-cream",
 };
 
-export default function ServicePillars() {
+export default function WhyNotMeReasons() {
   return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {PILLARS.map((pillar, i) => (
+      {WHY_NOT_ME_REASONS.map((reason, i) => (
         <motion.article
-          key={pillar.title}
+          key={reason.title}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           whileHover={{ y: -4, transition: { duration: 0.18, delay: 0 } }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, delay: i * 0.1 }}
-          className="pillar-card min-h-72 rounded-2xl shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)]"
+          className="why-not-me-card min-h-72 rounded-2xl shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)]"
         >
-          <div className="pillar-card-face flex flex-col p-6 pb-20">
-            <Sparkle className={`h-5 w-5 ${ACCENT_TEXT[pillar.accent]}`} />
+          <div className="why-not-me-card-face flex flex-col p-6 pb-20">
+            <Sparkle className={`h-5 w-5 ${ACCENT_TEXT[reason.accent]}`} />
             <h3 className="mt-4 font-serif text-xl text-cream">
-              {pillar.title}
+              {reason.title}
             </h3>
             <p className="mt-2 text-sm leading-relaxed text-cream-dim">
-              {pillar.description}
+              {reason.description}
             </p>
           </div>
-          <div className="pillar-card-button">
+          <div className="why-not-me-card-button">
             <Link
               href="/contact/#project-inquiry"
               className="btn-nova btn-nova-compact text-[11px] font-medium tracking-wide sm:text-xs"
