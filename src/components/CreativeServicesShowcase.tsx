@@ -101,82 +101,79 @@ export default function CreativeServicesShowcase() {
   return (
     <>
       <div className={styles.stage} style={accentStyle}>
-        <CanvasErrorBoundary>
-          <CelestialServiceCanvas
-            key={canvasMode}
-            selectedPreset={selectedService}
-            onTransitionStateChange={handleCanvasTransition}
-          />
-        </CanvasErrorBoundary>
+        <div className={styles.serviceConsole}>
+          <div className={styles.serviceTabs} role="tablist" aria-label="Creative services">
+            {CREATIVE_SERVICES.map((service, index) => {
+              const serviceIndex = index as CreativeServiceIndex;
+              const isSelected = serviceIndex === selectedService;
+              const rowAccentStyle = {
+                "--row-accent-a": service.accentA,
+                "--row-accent-b": service.accentB,
+              } as CSSProperties;
 
-        <div className={styles.serviceTabs} role="tablist" aria-label="Creative services">
+              return (
+                <button
+                  key={service.name}
+                  ref={(element) => {
+                    tabRefs.current[index] = element;
+                  }}
+                  id={`creative-service-tab-${index}`}
+                  type="button"
+                  role="tab"
+                  data-service-index={index}
+                  aria-controls={`creative-service-panel-${index}`}
+                  aria-selected={isSelected}
+                  tabIndex={isSelected ? 0 : -1}
+                  onClick={() => selectService(serviceIndex)}
+                  onKeyDown={(event) => handleTabKeyDown(event, serviceIndex)}
+                  style={rowAccentStyle}
+                  className={`${styles.railRow} ${isSelected ? styles.isActive : ""}`}
+                >
+                  <span className={styles.railDot} aria-hidden="true" />
+                  <span className={styles.railLabel}>{service.name}</span>
+                </button>
+              );
+            })}
+          </div>
+
           {CREATIVE_SERVICES.map((service, index) => {
             const serviceIndex = index as CreativeServiceIndex;
             const isSelected = serviceIndex === selectedService;
 
             return (
-              <button
+              <section
                 key={service.name}
-                ref={(element) => {
-                  tabRefs.current[index] = element;
-                }}
-                id={`creative-service-tab-${index}`}
-                type="button"
-                role="tab"
-                data-service-index={index}
-                aria-controls={`creative-service-panel-${index}`}
-                aria-selected={isSelected}
-                tabIndex={isSelected ? 0 : -1}
-                onClick={() => selectService(serviceIndex)}
-                onKeyDown={(event) => handleTabKeyDown(event, serviceIndex)}
-                className={`btn-nova btn-nova-compact ${styles.serviceButton} ${
-                  isSelected ? styles.isActive : ""
-                } text-[11px] font-medium tracking-wide sm:text-xs`}
+                id={`creative-service-panel-${index}`}
+                role="tabpanel"
+                aria-labelledby={`creative-service-tab-${index}`}
+                hidden={!isSelected}
+                tabIndex={0}
+                className={styles.serviceCopy}
               >
-                <span className="btn-nova-inner">
-                  <strong className="btn-nova-label">{service.name}</strong>
-                  <span className="btn-nova-stars" aria-hidden="true">
-                    <span className="btn-nova-stars-field" />
-                  </span>
-                  <span className="btn-nova-glow" aria-hidden="true">
-                    <span className="btn-nova-circle" />
-                    <span className="btn-nova-circle" />
-                  </span>
-                </span>
-              </button>
+                <div className={styles.serviceKicker}>{service.kicker}</div>
+                <h3 className={styles.serviceName}>{service.name}</h3>
+                <p className={styles.serviceDescription}>{service.description}</p>
+                <div
+                  key={isSelected ? `meter-${selectedService}` : undefined}
+                  className={`${styles.transitionMeter} ${
+                    isSelected && isTransitioning ? styles.isActive : ""
+                  }`}
+                  aria-hidden="true"
+                >
+                  <div className={styles.transitionMeterFill} />
+                </div>
+              </section>
             );
           })}
+
+          <CanvasErrorBoundary>
+            <CelestialServiceCanvas
+              key={canvasMode}
+              selectedPreset={selectedService}
+              onTransitionStateChange={handleCanvasTransition}
+            />
+          </CanvasErrorBoundary>
         </div>
-
-        {CREATIVE_SERVICES.map((service, index) => {
-          const serviceIndex = index as CreativeServiceIndex;
-          const isSelected = serviceIndex === selectedService;
-
-          return (
-            <section
-              key={service.name}
-              id={`creative-service-panel-${index}`}
-              role="tabpanel"
-              aria-labelledby={`creative-service-tab-${index}`}
-              hidden={!isSelected}
-              tabIndex={0}
-              className={styles.serviceCopy}
-            >
-              <div className={styles.serviceKicker}>{service.kicker}</div>
-              <h3 className={styles.serviceName}>{service.name}</h3>
-              <p className={styles.serviceDescription}>{service.description}</p>
-              <div
-                key={isSelected ? `meter-${selectedService}` : undefined}
-                className={`${styles.transitionMeter} ${
-                  isSelected && isTransitioning ? styles.isActive : ""
-                }`}
-                aria-hidden="true"
-              >
-                <div className={styles.transitionMeterFill} />
-              </div>
-            </section>
-          );
-        })}
       </div>
 
       <noscript>

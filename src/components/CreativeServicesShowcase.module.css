@@ -1,7 +1,8 @@
 /* Scoped adaptation of VoXelo's CodePen "Celestial Transmutation"
-   (https://codepen.io/VoXelo/pen/yygKOVy). Viewport-fixed layers are positioned
-   relative to .stage, accents stay local to the widget, and the original opaque
-   backdrop is intentionally omitted so the scene composites over the site. */
+   (https://codepen.io/VoXelo/pen/yygKOVy). The scene now renders inside a
+   single bounded card (rail, copy, and planet all as grid cells sharing one
+   background/blur) on both mobile and desktop, rather than compositing as a
+   full-bleed backdrop behind a floating panel. */
 
 .stage {
   position: relative;
@@ -17,9 +18,13 @@
   --accent-a: 248, 118, 102;
   --accent-b: 108, 92, 224;
   --muted: color-mix(in srgb, var(--color-cream-dim) 86%, transparent);
-  --canvas-bleed-block: 100px;
-  --canvas-bleed-inline: 24px;
-  --copy-panel-inset: -20px -24px -20px -20px;
+  /* A genuine hue change (sage, not another gold) so the service kicker
+     (e.g. "PHOTOGRAPHY IN MOTION") reads as clearly distinct from the
+     site's real gold links/eyebrows nearby (SectionHeading's eyebrow,
+     "More about me →") rather than just a paler version of the same color.
+     --color-sage is an existing site token (see .work-card-glow,
+     .music-player accents in globals.css) — not a new brand color. */
+  --kicker-accent: color-mix(in srgb, var(--color-sage) 75%, var(--color-cream) 25%);
 }
 
 .visualLayer {
@@ -28,25 +33,36 @@
   z-index: 1;
 }
 
+/* The planet lives inside the same card as the rail/copy instead of
+   bleeding full-bleed behind them — a contained "vessel" the eye looks
+   into, not an atmospheric backdrop. A modest inset bleed lets the render
+   extend past its own box before the radial mask below fades it into the
+   card's own background on all sides, so there's no hard rectangular
+   canvas edge visible inside the rounded card. */
 .canvasContainer {
   position: absolute;
-  inset:
-    calc(0px - var(--canvas-bleed-block))
-    calc(0px - var(--canvas-bleed-inline));
+  inset: -36px -28px;
   z-index: 1;
   pointer-events: none;
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    #000 var(--canvas-bleed-block),
-    #000 calc(100% - var(--canvas-bleed-block)),
+  /* Some presets' bloom/glow reaches close to the zone's edge — a fade
+     that only starts late doesn't give bright light enough room to
+     dissipate before hitting full transparency, so it reads as clipped
+     rather than fading out. Starting the falloff earlier with more
+     intermediate stops gives light a longer, smoother runway. */
+  -webkit-mask-image: radial-gradient(
+    ellipse closest-side at center,
+    #000 0%,
+    #000 32%,
+    rgba(0, 0, 0, 0.65) 52%,
+    rgba(0, 0, 0, 0.28) 74%,
     transparent 100%
   );
-  mask-image: linear-gradient(
-    to bottom,
-    transparent 0,
-    #000 var(--canvas-bleed-block),
-    #000 calc(100% - var(--canvas-bleed-block)),
+  mask-image: radial-gradient(
+    ellipse closest-side at center,
+    #000 0%,
+    #000 32%,
+    rgba(0, 0, 0, 0.65) 52%,
+    rgba(0, 0, 0, 0.28) 74%,
     transparent 100%
   );
 }
@@ -80,40 +96,9 @@
   text-shadow: 0 4px 26px color-mix(in srgb, var(--color-ink-deep) 88%, transparent);
 }
 
-/* A text-shadow alone can't guarantee contrast here: the scene behind is a
-   procedurally-generated shader whose gold/coral/cream highlights land in
-   different spots per service and per frame, unlike a flat background. This
-   pseudo-element gives the copy a real backing instead — same glass-panel
-   language as Nav's scrolled state (bg-ink/90 backdrop-blur-md) and
-   ImageSlider's counter chip (bg-ink-deep/70 backdrop-blur-sm), just shaped
-   to hug this block instead of a bar or pill. color-mix's 64% ink-deep tint
-   is a real opacity floor (not a gradient that thins to nothing under a
-   corner of text), and backdrop-filter blur smooths whatever bright shader
-   detail sits behind it, so the two combine to hold contrast under every
-   glyph regardless of what the planet is doing that frame. inset bleeds
-   past the text's own edges (the section's flow height already includes
-   the kicker/name/description/meter stack, so no separate allowance is
-   needed for the meter) so it reads as a soft pool of light the copy sits
-   in, not a hard card dropped on top of the scene. Negative z-index paints
-   above .serviceCopy's own (nonexistent) background but below its text
-   children within this local stacking context — same trick as
-   .why-not-me-card::after in globals.css — while the whole .serviceCopy
-   box still stacks above .canvasContainer/.interactionSurface via its own
-   z-index: 4. */
-.serviceCopy::before {
-  content: "";
-  position: absolute;
-  inset: var(--copy-panel-inset);
-  z-index: -1;
-  border-radius: 1.5rem;
-  background: color-mix(in srgb, var(--color-ink-deep) 64%, transparent);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-}
-
 .serviceKicker {
   margin-bottom: 7px;
-  color: var(--color-gold);
+  color: var(--kicker-accent);
   font-size: 10px;
   font-weight: 650;
   letter-spacing: 0.25em;
@@ -182,25 +167,81 @@
   transform: translateX(-50%);
 }
 
-/* Same Nova button language as the rest of the site (see .btn-nova in
-   globals.css) — .serviceButton just pins the border to a plain, organized
-   two-state scheme instead of the default animated gold gradient: cream
-   for unselected, gold for the selected service. */
-.serviceButton {
-  animation: none;
-  background-image: linear-gradient(135deg, var(--color-cream), var(--color-cream));
+/* Rail: adapted from https://uiverse.io/vk-uiux/sour-stingray-86 ("Radio" by
+   vk-uiux) — mechanism kept (a gray disc hides a gradient dot until
+   selected, descendant-selector state instead of :checked), sizing brought
+   down to this panel's own type scale, and color remapped from the
+   reference's neon green-blue/neutral-gray to this widget's own per-service
+   accent system (--row-accent-a/b, already set inline per row for the
+   transition meter) and site cream tokens, so the rail's colors belong to
+   this brand's palette instead of the demo's. Shared by mobile and desktop
+   — both now show the same rail down the widget's own left edge, just
+   arranged differently around it. */
+.railRow {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  height: auto;
+  border-radius: 100px;
+  padding: 8px 10px;
+  margin: 2px 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.serviceButton.isActive {
-  background-image: linear-gradient(135deg, var(--color-gold), var(--color-gold));
+.railRow:hover,
+.railRow:focus-within,
+.railRow:active {
+  background: hsla(0, 0%, 80%, 0.14);
 }
 
-.serviceButton.isActive :global(.btn-nova-inner) {
-  background: color-mix(in srgb, var(--color-ink-deep) 55%, transparent);
+.railRow.isActive {
+  background: transparent;
 }
 
-.serviceButton.isActive :global(.btn-nova-circle) {
-  background: color-mix(in srgb, var(--color-gold) 45%, transparent);
+.railDot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 100px;
+  background: radial-gradient(circle at 35% 30%, rgb(var(--row-accent-a)), rgb(var(--row-accent-b)) 100%);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.railDot::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: hsl(0, 0%, 90%);
+  transform: scale(1.1);
+  transition: transform 0.3s;
+}
+
+.railRow.isActive .railDot::before {
+  transform: scale(0);
+}
+
+.railLabel {
+  font-family: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  color: var(--color-cream-dim);
+  margin-left: 10px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.3s;
+}
+
+.railRow.isActive .railLabel {
+  color: var(--color-cream);
 }
 
 .noScriptServices {
@@ -235,86 +276,155 @@
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 761px) {
   .stage {
-    --canvas-bleed-inline: 80px;
+    height: auto;
+    min-height: 0;
   }
 
-  .canvasContainer {
-    -webkit-mask-image:
-      linear-gradient(
-        to bottom,
-        transparent 0,
-        #000 var(--canvas-bleed-block),
-        #000 calc(100% - var(--canvas-bleed-block)),
-        transparent 100%
-      ),
-      linear-gradient(
-        to right,
-        transparent 0,
-        #000 var(--canvas-bleed-inline),
-        #000 calc(100% - var(--canvas-bleed-inline)),
-        transparent 100%
-      );
-    -webkit-mask-composite: source-in;
-    mask-image:
-      linear-gradient(
-        to bottom,
-        transparent 0,
-        #000 var(--canvas-bleed-block),
-        #000 calc(100% - var(--canvas-bleed-block)),
-        transparent 100%
-      ),
-      linear-gradient(
-        to right,
-        transparent 0,
-        #000 var(--canvas-bleed-inline),
-        #000 calc(100% - var(--canvas-bleed-inline)),
-        transparent 100%
-      );
-    mask-composite: intersect;
+  /* The whole widget lives in one bounded card — rail, copy, and the planet
+     all as grid cells sharing this single background/blur. */
+  .serviceConsole {
+    position: static;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 130px minmax(240px, 360px) minmax(320px, 1fr);
+    align-items: center;
+    column-gap: 16px;
+    padding: 22px 24px 20px 20px;
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, var(--color-ink-deep) 70%, transparent);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    overflow: hidden;
   }
-}
 
-@media (min-width: 1536px) {
-  .stage {
-    --canvas-bleed-inline: 100px;
+  .serviceCopy {
+    position: static;
+    width: auto;
+    pointer-events: none;
+  }
+
+  .serviceName {
+    font-size: clamp(28px, 3.4vw, 44px);
+  }
+
+  .serviceDescription {
+    max-width: 100%;
+    margin-top: 10px;
+  }
+
+  .transitionMeter {
+    width: min(200px, 70%);
+    margin-top: 12px;
+  }
+
+  .serviceTabs {
+    position: static;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-width: none;
+  }
+
+  /* The planet's grid cell stretches to the row's height regardless of
+     which column ends up tallest, so the canvas always has room. */
+  .visualLayer {
+    position: relative;
+    inset: auto;
+    align-self: stretch;
+    min-height: 240px;
   }
 }
 
 @media (max-width: 760px) {
   .stage {
-    height: min(68vh, 540px);
-    min-height: 400px;
+    height: auto;
+    min-height: 0;
+  }
+
+  /* Same unified-card idea as desktop, rearranged for a narrow viewport:
+     rail top-left, copy top-right, planet spanning full width underneath —
+     one bounded card instead of the old three separately-stacked blocks. */
+  .serviceConsole {
+    position: static;
+    display: grid;
+    grid-template-columns: 104px 1fr;
+    grid-template-areas:
+      "rail text"
+      "planet planet";
+    align-items: center;
+    row-gap: 16px;
+    column-gap: 12px;
+    width: 100%;
+    padding: 18px;
+    border-radius: 1.25rem;
+    background: color-mix(in srgb, var(--color-ink-deep) 70%, transparent);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    overflow: hidden;
   }
 
   .serviceCopy {
-    left: 18px;
-    bottom: 126px;
-    /* Tighter than desktop's -20px bottom bleed — the two-row tab grid
-       starts climbing from bottom: 12px right below this block, and the
-       panel shouldn't visibly nudge into the button row. */
-    --copy-panel-inset: -16px -20px -14px -16px;
+    grid-area: text;
+    position: static;
+    width: auto;
+    pointer-events: none;
   }
 
   .serviceName {
-    font-size: clamp(38px, 12vw, 58px);
+    font-size: clamp(22px, 6vw, 28px);
   }
 
   .serviceDescription {
-    max-width: min(330px, calc(100% - 36px));
+    max-width: 100%;
     font-size: 12px;
+    line-height: 1.55;
+    margin-top: 8px;
+  }
+
+  .transitionMeter {
+    width: min(160px, 100%);
+    margin-top: 10px;
   }
 
   .serviceTabs {
-    bottom: 12px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    width: calc(100% - 24px);
+    grid-area: rail;
+    position: static;
+    transform: none;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    width: 100%;
+    max-width: none;
   }
 
-  .serviceButton {
+  .railLabel {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  /* Tighter than the shared/desktop row spacing — 4 rows at the desktop
+     padding land almost as tall as the copy column itself, leaving no real
+     room for centering to do anything. A tighter cluster reads as grouped
+     with the name/description it's centered against, not a separate block
+     that happens to span the same height. */
+  .railRow {
+    padding: 4px 8px;
+    margin: 0;
+  }
+
+  .visualLayer {
+    grid-area: planet;
+    position: relative;
+    inset: auto;
     width: 100%;
+    height: min(30vh, 220px);
+    min-height: 180px;
   }
 
   .noScriptServices {
@@ -323,27 +433,9 @@
 }
 
 @media (max-height: 620px) and (orientation: landscape) {
-  .serviceCopy {
-    bottom: 76px;
-    /* Single-row tab strip sits only ~40px below this block at this
-       height — trim the panel bleed further so it stays clear of it. */
-    --copy-panel-inset: -12px -16px -10px -12px;
-  }
-
   .serviceDescription {
-    max-width: min(300px, calc(100% - 36px));
     font-size: 11px;
     line-height: 1.45;
-  }
-
-  .serviceTabs {
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 5px;
-    width: auto;
-    transform: none;
   }
 }
 

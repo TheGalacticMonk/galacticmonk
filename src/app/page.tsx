@@ -38,33 +38,33 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-4">
-          <SectionHeading
-            eyebrow="What I Do"
-            title="Multiple dimensions, one master"
-            description="Every element is deliberate, whether it's a camera, a lens, a microphone, or website — intentional, hands-on, and a whole lot of alchemy."
-          />
-          <Link
-            href="/about/"
-            className="text-sm tracking-wide text-gold hover:underline"
-          >
-            More about me →
-          </Link>
-        </div>
-        <div className="-mx-6 mt-8 overflow-x-clip px-6 sm:mt-10 xl:-mx-20 xl:px-20 2xl:-mx-[100px] 2xl:px-[100px]">
-          <CreativeServicesShowcase />
+      <section className="pt-14 shadow-[0_-24px_60px_-32px_rgba(0,0,0,0.5)] sm:pt-16">
+        <div className="mx-auto max-w-6xl px-6 pb-16 sm:pb-20">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <SectionHeading eyebrow="What I Do" title="Four worlds, one master" />
+            <Link
+              href="/about/"
+              className="text-sm tracking-wide text-gold hover:underline"
+            >
+              More about me →
+            </Link>
+          </div>
+          <div className="-mx-6 mt-11 overflow-x-clip px-6 min-[761px]:mt-10 xl:-mx-20 xl:px-20 2xl:-mx-[100px] 2xl:px-[100px]">
+            <CreativeServicesShowcase />
+          </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-6xl px-6 pb-8 pt-14 sm:pt-16">
-        <SectionHeading
-          eyebrow="WHY NOT ME?"
-          title="Awakened soul, divine consciousness"
-          description="My technical skills are only part of what I bring. I built myself from less than nothing through vision, discipline, and sheer will. When we work together, I bring that same resolve to your project—protecting the vision and carrying it from first spark to final form."
-        />
-        <div className="mt-10">
-          <WhyNotMeReasons />
+      <section className="pb-8 pt-14 shadow-[0_-24px_60px_-32px_rgba(0,0,0,0.5)] sm:pt-16">
+        <div className="mx-auto max-w-6xl px-6">
+          <SectionHeading
+            eyebrow="WHY NOT ME?"
+            title="Awakened soul, divine consciousness"
+            description="My technical skills are only part of what I bring. I built myself from less than nothing through vision, discipline, and sheer will. When we work together, I bring that same resolve to your project—protecting the vision and carrying it from first spark to final form."
+          />
+          <div className="mt-10">
+            <WhyNotMeReasons />
+          </div>
         </div>
       </section>
 
@@ -72,7 +72,7 @@ export default function Home() {
         <SectionHeading
           align="center"
           eyebrow="LET'S CO-CREATE"
-          title="Have a vision orbiting your mind?"
+          title="Have an idea orbiting your consciousness?"
           description="Whether it’s a film, photoshoot, record, or digital world, let’s co-create a vibe people can feel."
         />
         <Link href="/contact/" className="btn-nova btn-nova-urgent mt-8 text-sm font-medium tracking-wide">

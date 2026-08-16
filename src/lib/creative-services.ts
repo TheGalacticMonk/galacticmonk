@@ -19,7 +19,7 @@ export const CREATIVE_SERVICES = [
     name: "Photography",
     kicker: "PAUSING TIME",
     description:
-      "Editorial portraits, headshots for actors and professionals, event photography, and product imagery shot on location or in studio, with monthly content retainers available.",
+      "Editorial portraits, headshots for actors and professionals, event photography, and commercial product imagery shot on location or in studio, with monthly content retainers available.",
     accentA: "255, 212, 73",
     accentB: "248, 118, 102",
   },
@@ -27,7 +27,7 @@ export const CREATIVE_SERVICES = [
     name: "Audio",
     kicker: "FREQUENCY & VIBRATION",
     description:
-      "Vocal recording, music mixing and mastering, audiobook production, film ADR, and streaming delivery — you sound major while independent.",
+      "Vocal recording, music mixing & mastering, audiobook production, film ADR, sound design, and streaming optimization for Spotify and Apple Music — you sound major while independent.",
     accentA: "115, 158, 130",
     accentB: "245, 241, 232",
   },

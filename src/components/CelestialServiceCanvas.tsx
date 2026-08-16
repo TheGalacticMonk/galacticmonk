@@ -544,7 +544,15 @@ export default function CelestialServiceCanvas({
     controls.minPolarAngle = Math.PI * 0.16;
     controls.maxPolarAngle = Math.PI * 0.84;
     controls.autoRotate = false;
-    controls.target.set(0, 0.02, 0);
+    // A look-at camera always projects its target to the vertical center of
+    // the render target, which is the stage's own vertical center here (the
+    // canvas bleed is symmetric top/bottom, so it cancels out). On the
+    // shorter mobile stage that leaves visible headroom above the sphere
+    // before the corner-pinned copy card and the sphere itself appear to
+    // "start." Aiming slightly below the sphere's true center on mobile
+    // raises its apparent position instead, closing that gap without
+    // touching the desktop framing.
+    controls.target.set(0, isCompact ? -0.35 : 0.02, 0);
     controls.update();
 
     const composer = new EffectComposer(renderer);
@@ -635,7 +643,9 @@ export default function CelestialServiceCanvas({
       fog: false,
     });
     const stars = new THREE.Points(starGeometry, starMaterial);
-    scene.add(stars);
+    if (!isCompact) {
+      scene.add(stars);
+    }
 
     const planetGroup = new THREE.Group();
     planetGroup.rotation.z = -0.055;
@@ -1677,7 +1687,9 @@ export default function CelestialServiceCanvas({
 
       particleUniforms.uPixelRatio.value = pixelRatio;
       filamentUniforms.uPixelRatio.value = pixelRatio;
-      starMaterial.uniforms.uPixelRatio.value = pixelRatio;
+      if (!isCompact) {
+        starMaterial.uniforms.uPixelRatio.value = pixelRatio;
+      }
       arcMaterial.uniforms.uPixelRatio.value = pixelRatio;
       invalidateRender(prefersReducedMotion ? 0 : IDLE_SETTLE_MS);
     }
@@ -1742,8 +1754,10 @@ export default function CelestialServiceCanvas({
 
       sharedPlanetUniforms.uTime.value = sceneTime;
       particleUniforms.uTime.value = sceneTime;
-      starMaterial.uniforms.uTime.value = sceneTime;
-      starMaterial.uniforms.uTransitionEnergy.value = energy;
+      if (!isCompact) {
+        starMaterial.uniforms.uTime.value = sceneTime;
+        starMaterial.uniforms.uTransitionEnergy.value = energy;
+      }
       arcMaterial.uniforms.uTime.value = sceneTime;
       arcMaterial.uniforms.uTransitionEnergy.value = energy;
       portalUniforms.uTime.value = sceneTime;
@@ -1771,7 +1785,9 @@ export default function CelestialServiceCanvas({
         planetGroup.rotation.x = Math.sin(sceneTime * 0.12) * 0.025;
         orbitalArcs.rotation.y = sceneTime * 0.018;
         orbitalArcs.rotation.z = -0.28 + Math.sin(sceneTime * 0.09) * 0.055;
-        stars.rotation.y = sceneTime * 0.0016;
+        if (!isCompact) {
+          stars.rotation.y = sceneTime * 0.0016;
+        }
       }
       planetGroup.scale.set(1.0, 1.0, 1.0);
 
