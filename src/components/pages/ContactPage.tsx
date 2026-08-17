@@ -25,7 +25,7 @@ export default function ContactPage() {
               eyebrow="Get in Touch"
               title="Book a Project"
               icon={
-                <WandStarsIcon className="h-4 w-4 text-gold drop-shadow-[0_0_6px_rgba(255,212,73,0.8)]" />
+                <WandStarsIcon className="h-6 w-6 text-gold drop-shadow-[0_0_6px_rgba(255,212,73,0.8)]" />
               }
               description={
                 <>
@@ -39,7 +39,7 @@ export default function ContactPage() {
 
             <div className="mt-8 rounded-2xl border border-gold/30 bg-gold/5 p-5">
               <div className="flex items-center gap-2 text-xs uppercase tracking-[0.2em] text-gold">
-                <WandStarsIcon className="h-4 w-4 text-gold drop-shadow-[0_0_6px_rgba(255,212,73,0.8)]" />
+                <WandStarsIcon className="h-6 w-6 text-gold drop-shadow-[0_0_6px_rgba(255,212,73,0.8)]" />
                 Included Perk
               </div>
               <p className="mt-3 text-sm leading-relaxed text-cream-dim">

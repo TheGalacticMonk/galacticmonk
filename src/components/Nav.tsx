@@ -86,7 +86,7 @@ export default function Nav({ pathname = "/" }: { pathname?: string }) {
                 }`}
               >
                 {active && (
-                  <WandStarsIcon className="h-3.5 w-3.5" />
+                  <WandStarsIcon className="h-6 w-6" />
                 )}
                 {link.label}
               </a>
@@ -142,7 +142,7 @@ export default function Nav({ pathname = "/" }: { pathname?: string }) {
                 }`}
               >
                 {active && (
-                  <WandStarsIcon className="h-3.5 w-3.5" />
+                  <WandStarsIcon className="h-6 w-6" />
                 )}
                 {link.label}
               </a>

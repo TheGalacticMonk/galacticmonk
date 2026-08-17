@@ -2,11 +2,8 @@ type IconProps = { className?: string };
 
 export function WandStarsIcon({ className = "" }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path d="m4 20 10.7-10.7" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="m12.8 7.2 4 4" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
-      <path d="M18.5 2.5c.25 1.55 1.45 2.75 3 3-1.55.25-2.75 1.45-3 3-.25-1.55-1.45-2.75-3-3 1.55-.25 2.75-1.45 3-3Z" fill="currentColor" />
-      <path d="M7.5 4c.18 1.08 1.02 1.92 2.1 2.1-1.08.18-1.92 1.02-2.1 2.1-.18-1.08-1.02-1.92-2.1-2.1C6.48 5.92 7.32 5.08 7.5 4Z" fill="currentColor" />
+    <svg viewBox="0 -960 960 960" fill="currentColor" className={className} aria-hidden="true">
+      <path d="m176-120-56-56 301-302-181-45 198-123-17-234 179 151 216-88-87 217 151 178-234-16-124 198-45-181-301 301Zm24-520-80-80 80-80 80 80-80 80Zm355 197 48-79 93 7-60-71 35-86-86 35-71-59 7 92-79 49 90 22 23 90Zm165 323-80-80 80-80 80 80-80 80ZM569-570Z" />
     </svg>
   );
 }
