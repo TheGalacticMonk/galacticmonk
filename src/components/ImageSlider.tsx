@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ExpandableImage from "./ExpandableImage";
 import { DoubleChevronIcon } from "./UtilityIcons";
 
@@ -13,6 +13,21 @@ export default function ImageSlider({
   const stageRef = useRef<HTMLDivElement>(null);
   const [index, setIndex] = useState(0);
   const [tilt, setTilt] = useState({ x: 0, y: 0 });
+  const [tiltEnabled, setTiltEnabled] = useState(false);
+
+  useEffect(() => {
+    const tiltQuery = window.matchMedia(
+      "(min-width: 640px) and (hover: hover) and (pointer: fine)",
+    );
+    const updateTiltAvailability = () => {
+      setTiltEnabled(tiltQuery.matches);
+      if (!tiltQuery.matches) setTilt({ x: 0, y: 0 });
+    };
+
+    updateTiltAvailability();
+    tiltQuery.addEventListener("change", updateTiltAvailability);
+    return () => tiltQuery.removeEventListener("change", updateTiltAvailability);
+  }, []);
 
   const goTo = (i: number) => {
     const track = trackRef.current;
@@ -36,6 +51,7 @@ export default function ImageSlider({
       <div
         ref={stageRef}
         onMouseMove={(e) => {
+          if (!tiltEnabled) return;
           const rect = stageRef.current?.getBoundingClientRect();
           if (!rect) return;
           const px = (e.clientX - rect.left) / rect.width - 0.5;
@@ -44,7 +60,9 @@ export default function ImageSlider({
         }}
         onMouseLeave={() => setTilt({ x: 0, y: 0 })}
         style={{
-          transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
+          transform: tiltEnabled
+            ? `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`
+            : "none",
           transition: "transform 0.5s cubic-bezier(0.22,1,0.36,1)",
         }}
         className="relative mx-auto aspect-square w-[min(53.08rem,69.51vh)] max-w-full rounded-3xl shadow-[0_30px_80px_-30px_rgba(0,0,0,0.6),0_0_60px_-8px_rgba(255,212,73,0.25),0_0_90px_-12px_rgba(108,92,224,0.22)]"
