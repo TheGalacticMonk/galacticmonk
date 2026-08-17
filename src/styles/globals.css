@@ -680,6 +680,14 @@ body {
    the base square's border-radius. */
 .matrix-frame--profile {
   border-radius: 9999px;
+  clip-path: circle(50% at 50% 50%);
+  contain: paint;
+}
+
+.matrix-frame--profile .matrix-frame-bg,
+.matrix-frame--profile .matrix-frame-photo-wrap {
+  border-radius: inherit;
+  clip-path: circle(50% at 50% 50%);
 }
 
 .matrix-frame-bg {
