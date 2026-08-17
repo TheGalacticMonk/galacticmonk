@@ -17,7 +17,17 @@ export default function ImageSlider({
     const track = trackRef.current;
     if (!track) return;
     const next = (i + items.length) % items.length;
-    track.scrollTo({ left: track.clientWidth * next, behavior: "smooth" });
+    const slide = track.children[next] as HTMLElement | undefined;
+    if (!slide) return;
+
+    // clientWidth is integer-rounded, while the rendered square can have a
+    // fractional width. Multiplying clientWidth accumulates that rounding
+    // error and can leave a hairline of an adjacent slide visible. Measure
+    // the selected slide's real position so its edge aligns exactly.
+    const trackRect = track.getBoundingClientRect();
+    const slideRect = slide.getBoundingClientRect();
+    const left = track.scrollLeft + slideRect.left - trackRect.left;
+    track.scrollTo({ left, behavior: "smooth" });
     setIndex(next);
   };
 
@@ -37,6 +47,11 @@ export default function ImageSlider({
         }}
         onMouseLeave={() => setTilt({ x: 0, y: 0 })}
         style={{
+          // Native scrolling is quantized to whole CSS pixels in some
+          // browsers. Keep the viewport on that same pixel grid so every
+          // full-width slide can land flush against both edges.
+          width: "round(down, min(53.08rem, 69.51vh), 1px)",
+          maxWidth: "round(down, 100%, 1px)",
           transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
           transition: "transform 0.5s cubic-bezier(0.22,1,0.36,1)",
         }}
