@@ -609,6 +609,7 @@ body {
 
 .music-player[data-accent="coral"] .music-player-play {
   background: var(--color-coral);
+  --ring-color: var(--color-coral);
 }
 
 .music-player[data-accent="coral"] .music-player-seek {
@@ -629,6 +630,7 @@ body {
 
 .music-player[data-accent="sage"] .music-player-play {
   background: var(--color-sage);
+  --ring-color: var(--color-sage);
 }
 
 .music-player[data-accent="sage"] .music-player-seek {
@@ -837,6 +839,49 @@ body {
   animation-delay: 0.5s;
 }
 
+/* Reusable outward light rings for established button styles. The effect
+   lives entirely on pseudo-elements so it does not replace a control's own
+   background, transform, box-shadow, or animation declarations. */
+.fx-rings,
+.btn-nova {
+  position: relative;
+  isolation: isolate;
+  --ring-color: var(--color-gold);
+}
+
+.btn-nova-urgent {
+  --ring-color: var(--color-coral);
+}
+
+.fx-rings::before,
+.fx-rings::after,
+.btn-nova::before,
+.btn-nova::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border: 1.5px solid var(--ring-color);
+  border-radius: inherit;
+  box-shadow: 0 0 10px var(--ring-color);
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .fx-rings:not(:disabled):hover::before,
+  .fx-rings:not(:disabled):hover::after,
+  .btn-nova:not(:disabled):hover::before,
+  .btn-nova:not(:disabled):hover::after {
+    animation: btn-ripple 1.4s cubic-bezier(0.2, 0.65, 0.3, 1) infinite;
+  }
+
+  .fx-rings:not(:disabled):hover::before,
+  .btn-nova:not(:disabled):hover::before {
+    animation-delay: 0.5s;
+  }
+}
+
 @keyframes btn-nova-gradient {
   0%,
   100% {
@@ -916,6 +961,10 @@ body {
   .btn-ripple:hover,
   .btn-ripple:hover::after,
   .btn-ripple:hover::before,
+  .fx-rings:hover::before,
+  .fx-rings:hover::after,
+  .btn-nova:hover::before,
+  .btn-nova:hover::after,
   .btn-nova,
   .btn-nova-urgent,
   .btn-nova-urgent:hover,

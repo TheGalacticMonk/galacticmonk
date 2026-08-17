@@ -132,9 +132,9 @@ export default function ImageSlider({
             type="button"
             aria-label="Previous"
             onClick={() => goTo(index - 1)}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream text-ink-deep shadow-[0_6px_20px_-6px_rgba(0,0,0,0.5)] transition-transform hover:scale-110 sm:h-12 sm:w-12"
+            className="fx-rings flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream text-ink-deep shadow-[0_6px_20px_-6px_rgba(0,0,0,0.5)] transition-transform hover:scale-110 sm:h-12 sm:w-12"
           >
-            <DoubleChevronIcon className="h-5 w-5 rotate-180" />
+            <DoubleChevronIcon className="h-7 w-7 -translate-x-[2px] rotate-180 sm:h-8 sm:w-8" />
           </button>
 
           {/* min-w-0 lets this shrink below its natural content width instead
@@ -159,9 +159,9 @@ export default function ImageSlider({
             type="button"
             aria-label="Next"
             onClick={() => goTo(index + 1)}
-            className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream text-ink-deep shadow-[0_6px_20px_-6px_rgba(0,0,0,0.5)] transition-transform hover:scale-110 sm:h-12 sm:w-12"
+            className="fx-rings flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream text-ink-deep shadow-[0_6px_20px_-6px_rgba(0,0,0,0.5)] transition-transform hover:scale-110 sm:h-12 sm:w-12"
           >
-            <DoubleChevronIcon className="h-5 w-5" />
+            <DoubleChevronIcon className="h-7 w-7 translate-x-[2px] sm:h-8 sm:w-8" />
           </button>
         </div>
       )}

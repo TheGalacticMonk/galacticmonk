@@ -10,8 +10,8 @@ export function WandStarsIcon({ className = "" }: IconProps) {
 
 export function DoubleChevronIcon({ className = "" }: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path d="m5 7 5 5-5 5M12 7l5 5-5 5" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <svg viewBox="0 -960 960 960" fill="currentColor" className={className} aria-hidden="true">
+      <path d="M383-480 200-664l56-56 240 240-240 240-56-56 183-184Zm264 0L464-664l56-56 240 240-240 240-56-56 183-184Z" />
     </svg>
   );
 }

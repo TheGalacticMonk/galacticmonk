@@ -67,7 +67,7 @@ export default function MusicPlayer({
           type="button"
           onClick={togglePlay}
           aria-label={isPlaying ? "Pause" : "Play"}
-          className="music-player-play"
+          className="music-player-play fx-rings"
         >
           {isPlaying ? (
             <svg viewBox="0 0 24 24" fill="currentColor" className="h-4 w-4">
