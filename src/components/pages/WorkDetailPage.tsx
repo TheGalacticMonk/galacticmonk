@@ -104,6 +104,7 @@ export default function WorkDetailPage({ item }: { item: WorkItem }) {
                 image={item.image}
                 title={item.trackTitle ?? item.title}
                 subtitle={item.artist ?? "Galactic Monk"}
+                featuredArtists={item.featuredArtists}
                 accent={item.accent}
               />
             </div>

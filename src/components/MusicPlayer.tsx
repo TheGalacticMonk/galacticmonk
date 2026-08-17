@@ -15,12 +15,14 @@ export default function MusicPlayer({
   image,
   title,
   subtitle,
+  featuredArtists,
   accent,
 }: {
   src: string;
   image?: string;
   title: string;
   subtitle?: string;
+  featuredArtists?: string;
   accent: "gold" | "coral" | "sage";
 }) {
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -62,6 +64,9 @@ export default function MusicPlayer({
         <div className="music-player-info">
           <p className="music-player-title">{title}</p>
           {subtitle && <p className="music-player-subtitle">{subtitle}</p>}
+          {featuredArtists && (
+            <p className="music-player-featured">(feat. {featuredArtists})</p>
+          )}
         </div>
         <button
           type="button"

@@ -522,11 +522,21 @@ body {
 }
 
 .music-player-subtitle {
-  margin-top: 0.15rem;
+  margin-top: 0.2rem;
   font-size: 0.7rem;
   letter-spacing: 0.15em;
   text-transform: uppercase;
   color: var(--color-cream-dim);
+}
+
+.music-player-featured {
+  margin-top: 0.12rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: color-mix(in srgb, var(--color-cream-dim) 78%, transparent);
 }
 
 .music-player-play {

@@ -17,6 +17,7 @@ export type WorkItem = {
   audio?: string;
   trackTitle?: string;
   artist?: string;
+  featuredArtists?: string;
   spotifyEmbedUrl?: string;
   credits?: { role: string; name: string }[];
   details?: string;
@@ -193,8 +194,9 @@ export const WORK: WorkItem[] = [
   {
     id: "byo-way-beyond-the-stars",
     title: 'BYO - "Way Beyond the Stars" (feat. Mickey Factz)',
-    trackTitle: '"Way Beyond the Stars" (feat. Mickey Factz)',
+    trackTitle: '"Way Beyond the Stars"',
     artist: "Billion Years Old",
+    featuredArtists: "Mickey Factz",
     category: "music",
     year: "2025",
     blurb: "Recorded, mixed, mastered, and pitched feature request to Mickey Factz.",
@@ -250,6 +252,9 @@ export const WORK: WorkItem[] = [
   {
     id: "epstein-island",
     title: '"Epstein Island" (feat. Blu, AnarKy I)',
+    trackTitle: '"Epstein Island"',
+    artist: "Galactic Monk",
+    featuredArtists: "Blu, AnarKy I",
     category: "music",
     year: "2026",
     blurb:
