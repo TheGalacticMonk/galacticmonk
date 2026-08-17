@@ -1,0 +1,24 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import SectionHeading from "@/components/SectionHeading";
+import WorkGrid from "@/components/WorkGrid";
+import PageConstellation from "@/components/PageConstellation";
+const description = "Explore Los Angeles film production, event photography, cinematography, audio recording, mixing, and mastering projects by Galactic Monk.";
+---
+<SiteLayout
+  title="Work — Galactic Monk"
+  description={description}
+  canonical="/work/"
+  ogTitle="Work — Galactic Monk"
+  ogDescription={description}
+>
+  <PageConstellation client:load />
+  <section class="mx-auto max-w-6xl px-6 pb-24 pt-36">
+    <SectionHeading
+      eyebrow="Portfolio"
+      title="Selected transmissions"
+      description="Film, video, photography, audio, and digital shaped from first capture through final delivery. Filter by discipline below."
+    />
+    <div class="mt-10"><WorkGrid client:load /></div>
+  </section>
+</SiteLayout>

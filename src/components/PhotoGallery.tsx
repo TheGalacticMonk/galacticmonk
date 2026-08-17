@@ -2,6 +2,7 @@
 
 import Lightbox from "./Lightbox";
 import { useLightbox } from "@/hooks/useLightbox";
+import { optimizedImageSrc, optimizedImageSrcSet } from "@/lib/optimized-image";
 
 type GalleryItem =
   | { type: "image"; src: string }
@@ -41,7 +42,6 @@ export default function PhotoGallery({
               aria-label={`Play ${alt}`}
               className="group relative mb-4 block aspect-[9/16] w-full cursor-zoom-in break-inside-avoid overflow-hidden rounded-xl"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={`https://img.youtube.com/vi/${item.id}/maxresdefault.jpg`}
                 alt={alt}
@@ -66,11 +66,13 @@ export default function PhotoGallery({
               aria-label={`Expand ${alt}`}
               className="mb-4 block w-full cursor-zoom-in break-inside-avoid"
             >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src={item.src}
+                src={optimizedImageSrc(item.src, 480)}
+                srcSet={optimizedImageSrcSet(item.src)}
+                sizes="(min-width: 640px) 30vw, 50vw"
                 alt={alt}
                 loading="lazy"
+                decoding="async"
                 className="w-full rounded-xl transition-opacity hover:opacity-90"
               />
             </button>
@@ -88,7 +90,6 @@ export default function PhotoGallery({
             className="aspect-[9/16] h-full max-h-[85vh] w-auto rounded-lg"
           />
         ) : openItem ? (
-          // eslint-disable-next-line @next/next/no-img-element
           <img
             src={openItem.src}
             alt={alt}

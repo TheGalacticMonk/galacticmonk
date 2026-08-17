@@ -1,0 +1,26 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import WorkDetailPage from "@/components/pages/WorkDetailPage";
+import { WORK, type WorkItem } from "@/lib/work";
+
+export function getStaticPaths() {
+  return WORK.filter((item) => !item.hidden).map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+interface Props { item: WorkItem }
+const { item } = Astro.props;
+const description = item.description ?? item.blurb;
+---
+<SiteLayout
+  title={`${item.title} — Galactic Monk`}
+  description={description}
+  canonical={`/work/${item.id}/`}
+  ogTitle={item.title}
+  ogDescription={description}
+  ogImage={item.image || "/opengraph-image.png"}
+>
+  <WorkDetailPage item={item} client:load />
+</SiteLayout>

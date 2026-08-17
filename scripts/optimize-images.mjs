@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 // Resizes/recompresses source images in public/work and public/about-images
 // in place, keeping the same paths (so src/lib/work.ts and any inline image
-// arrays need no changes) and the same format (so no <picture>/extension
-// rewiring). Runs as an npm "prebuild" step before `next build`.
+// arrays need no changes) and the same format (so lightbox/original URLs stay
+// stable). Runs before the derivative generator during `astro build`.
 //
 // Idempotency: since output is written back to the same path as the input,
 // a naive re-run would recompress an already-compressed JPEG every build,

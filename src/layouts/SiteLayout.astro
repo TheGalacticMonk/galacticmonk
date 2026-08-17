@@ -1,0 +1,103 @@
+---
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
+import { getOrganizationSchema, getPersonSchema, getWebSiteSchema } from "@/lib/schema";
+import "@/styles/globals.css";
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogTitle?: string;
+  ogDescription?: string;
+  ogImage?: string;
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogTitle = title,
+  ogDescription = description,
+  ogImage = "/opengraph-image.png",
+} = Astro.props;
+const siteUrl = "https://galacticmonk.com";
+const canonicalUrl = new URL(canonical, siteUrl).toString();
+const absoluteOgImage = new URL(ogImage, siteUrl).toString();
+const schemas = [getPersonSchema(), getOrganizationSchema(), getWebSiteSchema()];
+---
+
+<!doctype html>
+<html
+  lang="en"
+  class="h-full antialiased"
+  style="--font-geist-sans: 'Geist', Arial, sans-serif; --font-geist-mono: 'Geist Mono', monospace; --font-cormorant: 'Cormorant', Georgia, serif;"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="theme-color" content="#1a1438" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="author" content="Jason Lee" />
+    <meta name="creator" content="Jason Lee" />
+    <meta name="publisher" content="Jason Lee" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href={canonicalUrl} />
+    <link rel="manifest" href="/manifest.webmanifest" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/icon.png" type="image/png" sizes="512x512" />
+    <link rel="apple-touch-icon" href="/apple-icon.png" />
+    <link rel="preload" href="/fonts/geist-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/cormorant-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Galactic Monk" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={absoluteOgImage} />
+    <meta property="og:image:alt" content="Galactic Monk — Creative Producer & Alchemist" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@GalacticMonk_" />
+    <meta name="twitter:creator" content="@GalacticMonk_" />
+    <meta name="twitter:title" content={ogTitle} />
+    <meta name="twitter:description" content={ogDescription} />
+    <meta name="twitter:image" content={absoluteOgImage} />
+    {schemas.map((schema) => <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />)}
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-WB2F7L6B3Y');
+
+      const loadAnalytics = () => {
+        if (document.querySelector('script[data-ga4]')) return;
+        const script = document.createElement('script');
+        script.async = true;
+        script.dataset.ga4 = 'true';
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-WB2F7L6B3Y';
+        document.head.append(script);
+      };
+      const analyticsEvents = ['pointerdown', 'keydown', 'touchstart'];
+      const scheduleAnalytics = () => {
+        const startAnalytics = () => {
+          analyticsEvents.forEach((eventName) => window.removeEventListener(eventName, startAnalytics));
+          loadAnalytics();
+        };
+
+        analyticsEvents.forEach((eventName) =>
+          window.addEventListener(eventName, startAnalytics, { once: true, passive: true }),
+        );
+        window.setTimeout(startAnalytics, 8000);
+      };
+      if (document.readyState === 'complete') scheduleAnalytics();
+      else window.addEventListener('load', scheduleAnalytics, { once: true });
+    </script>
+  </head>
+  <body class="min-h-full flex flex-col bg-ink text-cream">
+    <Nav pathname={Astro.url.pathname} client:load />
+    <main class="flex-1"><slot /></main>
+    <Footer />
+  </body>
+</html>

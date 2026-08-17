@@ -1,6 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import { CATEGORY_LABEL, type WorkItem } from "@/lib/work";
+import { optimizedImageSrc, optimizedImageSrcSet } from "@/lib/optimized-image";
 import Sparkle from "./Sparkle";
 
 const ACCENT_GRADIENT = {
@@ -36,20 +35,22 @@ export default function WorkCard({
   priority?: boolean;
 }) {
   return (
-    <Link
+    <a
       href={`/work/${item.id}/`}
       data-accent={item.accent}
       className="work-card-glow group relative flex h-full flex-col rounded-3xl shadow-[0_8px_30px_-14px_rgba(0,0,0,0.6)] transition-[transform,box-shadow] duration-300 ease-out hover:-translate-y-1.5 hover:shadow-[0_24px_50px_-16px_rgba(0,0,0,0.75)]"
     >
       <div className="relative aspect-[4/3] shrink-0 overflow-hidden rounded-t-3xl">
         {item.image ? (
-          <Image
-            src={item.image}
+          <img
+            src={optimizedImageSrc(item.image, 480)}
+            srcSet={optimizedImageSrcSet(item.image)}
             alt={item.title}
-            fill
-            className={`object-cover transition-transform duration-300 ease-out group-hover:scale-105 ${OBJECT_POSITION[item.imagePosition ?? "center"]}`}
+            loading={priority ? "eager" : "lazy"}
+            fetchPriority={priority ? "high" : "auto"}
+            decoding="async"
+            className={`absolute inset-0 h-full w-full object-cover transition-transform duration-300 ease-out group-hover:scale-105 ${OBJECT_POSITION[item.imagePosition ?? "center"]}`}
             sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-            {...(priority ? { loading: "eager" as const } : {})}
           />
         ) : (
           <div
@@ -73,6 +74,6 @@ export default function WorkCard({
         </p>
       </div>
       <span className="work-card-bottom-glow" aria-hidden="true" />
-    </Link>
+    </a>
   );
 }

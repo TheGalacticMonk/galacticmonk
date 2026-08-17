@@ -1,6 +1,11 @@
 "use client";
 
 import { useLightbox } from "@/hooks/useLightbox";
+import {
+  hasOptimizedImage,
+  optimizedImageSrc,
+  optimizedImageSrcSet,
+} from "@/lib/optimized-image";
 import Lightbox from "./Lightbox";
 
 export default function ExpandableImage({
@@ -15,6 +20,7 @@ export default function ExpandableImage({
   priority?: boolean;
 }) {
   const { isOpen, open, close } = useLightbox(1);
+  const hasResponsivePreview = hasOptimizedImage(src);
 
   return (
     <>
@@ -24,17 +30,18 @@ export default function ExpandableImage({
         aria-label={`Expand ${alt}`}
         className="block cursor-zoom-in"
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src={src}
+          src={hasResponsivePreview ? optimizedImageSrc(src, 480) : src}
+          srcSet={hasResponsivePreview ? optimizedImageSrcSet(src) : undefined}
+          sizes={hasResponsivePreview ? "(min-width: 768px) 53rem, calc(100vw - 3rem)" : undefined}
           alt={alt}
           className={className}
           loading={priority ? "eager" : "lazy"}
+          decoding="async"
         />
       </button>
 
       <Lightbox isOpen={isOpen} onClose={close}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src={src}
           alt={alt}

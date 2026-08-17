@@ -1,6 +1,5 @@
 "use client";
 
-import dynamic from "next/dynamic";
 import {
   Component,
   useCallback,
@@ -17,12 +16,8 @@ import {
   normalizeCreativeServiceIndex,
   type CreativeServiceIndex,
 } from "@/lib/creative-services";
+import CelestialServiceCanvas from "./CelestialServiceCanvas";
 import styles from "./CreativeServicesShowcase.module.css";
-
-const CelestialServiceCanvas = dynamic(
-  () => import("./CelestialServiceCanvas"),
-  { ssr: false, loading: () => null }
-);
 
 class CanvasErrorBoundary extends Component<
   { children: ReactNode },

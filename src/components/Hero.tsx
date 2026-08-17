@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import MoonOrb from "./MoonOrb";
 import Sparkle from "./Sparkle";
 import ConstellationBackground from "./ConstellationBackground";
@@ -10,6 +8,14 @@ import Lightbox from "./Lightbox";
 import { useLightbox } from "@/hooks/useLightbox";
 
 export default function Hero() {
+  return (
+    <MotionConfig reducedMotion="user">
+      <HeroContent />
+    </MotionConfig>
+  );
+}
+
+function HeroContent() {
   const { isOpen, open, close } = useLightbox(1);
 
   return (
@@ -22,8 +28,8 @@ export default function Hero() {
 
       <div className="mx-auto max-w-4xl px-6 py-12 text-center">
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.7 }}
           className="mb-8 flex items-center justify-center gap-2 text-xs uppercase tracking-[0.3em] text-gold"
         >
@@ -33,8 +39,8 @@ export default function Hero() {
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 16 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.7, scale: { duration: 0.2 } }}
           className="relative mx-auto mb-6 h-36 w-36 rounded-full shadow-[0_0_40px_rgba(245,241,232,0.5)] sm:h-44 sm:w-44"
@@ -45,31 +51,38 @@ export default function Hero() {
             aria-label="Expand photo of Jason Lee"
             className="relative block h-full w-full cursor-zoom-in overflow-hidden rounded-full"
           >
-            <span className="absolute inset-0 flex items-center justify-center">
-              <MoonOrb className="h-full w-full" />
-            </span>
-            <motion.span
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1.4369, delay: 1.963 }}
-              className="absolute inset-0 block"
-            >
-              <Image
+            <picture className="absolute inset-0 block">
+              <source
+                type="image/avif"
+                srcSet="/optimized/monk-beach-320.avif 320w, /optimized/monk-beach-480.avif 480w"
+                sizes="(min-width: 640px) 176px, 144px"
+              />
+              <img
                 src="/monk-beach.jpg"
                 alt="Jason Lee"
                 width={320}
                 height={320}
-                sizes="176px"
-                priority
+                sizes="(min-width: 640px) 176px, 144px"
+                loading="eager"
+                fetchPriority="high"
                 className="h-full w-full object-cover"
               />
+            </picture>
+            <motion.span
+              aria-hidden="true"
+              initial={{ opacity: 1 }}
+              animate={{ opacity: 0 }}
+              transition={{ duration: 1.4369, delay: 1.369 }}
+              className="pointer-events-none absolute inset-0 flex items-center justify-center"
+            >
+              <MoonOrb className="h-full w-full" />
             </motion.span>
           </button>
         </motion.div>
 
         <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
           className="text-balance mt-6 font-serif text-5xl leading-[1.05] text-cream sm:text-6xl md:text-7xl"
         >
@@ -77,8 +90,8 @@ export default function Hero() {
         </motion.h1>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
@@ -87,12 +100,12 @@ export default function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 20 }}
+          animate={{ y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
           className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
         >
-          <Link href="/work/" className="btn-nova text-sm font-medium tracking-wide">
+          <a href="/work/" className="btn-nova text-sm font-medium tracking-wide">
             <span className="btn-nova-inner">
               <strong className="btn-nova-label">Explore the Work</strong>
               <span className="btn-nova-stars" aria-hidden="true">
@@ -103,8 +116,8 @@ export default function Hero() {
                 <span className="btn-nova-circle" />
               </span>
             </span>
-          </Link>
-          <Link href="/contact/" className="btn-nova btn-nova-urgent text-sm font-medium tracking-wide">
+          </a>
+          <a href="/contact/" className="btn-nova btn-nova-urgent text-sm font-medium tracking-wide">
             <span className="btn-nova-inner">
               <strong className="btn-nova-label">Work With Me</strong>
               <span className="btn-nova-stars" aria-hidden="true">
@@ -115,12 +128,11 @@ export default function Hero() {
                 <span className="btn-nova-circle" />
               </span>
             </span>
-          </Link>
+          </a>
         </motion.div>
       </div>
 
       <Lightbox isOpen={isOpen} onClose={close}>
-        {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
           src="/monk-beach.jpg"
           alt="Jason Lee"

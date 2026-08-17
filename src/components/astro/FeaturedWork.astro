@@ -1,0 +1,15 @@
+---
+import SectionHeading from "@/components/SectionHeading";
+import WorkCard from "@/components/WorkCard";
+import { WORK } from "@/lib/work";
+const featured = WORK.filter((item) => !item.hidden).slice(0, 3);
+---
+<section class="mx-auto max-w-6xl px-6 py-24">
+  <div class="flex flex-wrap items-end justify-between gap-4">
+    <SectionHeading eyebrow="Featured Vibes" title="Recent alchemy" />
+    <a href="/work/" class="text-sm tracking-wide text-gold hover:underline">View all work →</a>
+  </div>
+  <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {featured.map((item) => <WorkCard item={item} />)}
+  </div>
+</section>

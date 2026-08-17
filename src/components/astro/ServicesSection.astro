@@ -1,0 +1,15 @@
+---
+import CreativeServicesShowcase from "@/components/CreativeServicesShowcase";
+import SectionHeading from "@/components/SectionHeading";
+---
+<section class="pt-14 shadow-[0_-24px_60px_-32px_rgba(0,0,0,0.5)] sm:pt-16">
+  <div class="mx-auto max-w-6xl px-6 pb-16 sm:pb-20">
+    <div class="flex flex-wrap items-end justify-between gap-4">
+      <SectionHeading eyebrow="What I Do" title="Four worlds, one alchemist" />
+      <a href="/about/" class="text-sm tracking-wide text-gold hover:underline">More about me →</a>
+    </div>
+    <div class="-mx-6 mt-11 overflow-x-clip px-6 min-[761px]:mt-10 xl:-mx-20 xl:px-20 2xl:-mx-[100px] 2xl:px-[100px]">
+      <CreativeServicesShowcase client:visible />
+    </div>
+  </div>
+</section>

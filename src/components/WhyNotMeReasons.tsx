@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, MotionConfig } from "framer-motion";
 import Sparkle from "./Sparkle";
 
 const WHY_NOT_ME_REASONS = [
@@ -40,6 +39,14 @@ const ACCENT_TEXT = {
 
 export default function WhyNotMeReasons() {
   return (
+    <MotionConfig reducedMotion="user">
+      <WhyNotMeReasonsContent />
+    </MotionConfig>
+  );
+}
+
+function WhyNotMeReasonsContent() {
+  return (
     <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
       {WHY_NOT_ME_REASONS.map((reason, i) => (
         <motion.article
@@ -61,7 +68,7 @@ export default function WhyNotMeReasons() {
             </p>
           </div>
           <div className="why-not-me-card-button">
-            <Link
+            <a
               href="/contact/#project-inquiry"
               className="btn-nova btn-nova-compact text-[11px] font-medium tracking-wide sm:text-xs"
             >
@@ -75,7 +82,7 @@ export default function WhyNotMeReasons() {
                   <span className="btn-nova-circle" />
                 </span>
               </span>
-            </Link>
+            </a>
           </div>
         </motion.article>
       ))}

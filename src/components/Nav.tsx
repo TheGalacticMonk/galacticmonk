@@ -1,9 +1,8 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { FacebookIcon, InstagramIcon, TikTokIcon, XIcon } from "./SocialIcons";
+import { WandStarsIcon } from "./UtilityIcons";
 
 const LINKS = [
   { href: "/", label: "Home" },
@@ -23,8 +22,13 @@ function isActiveLink(href: string, pathname: string) {
   return href === "/" ? pathname === "/" : pathname.startsWith(href);
 }
 
-export default function Nav() {
-  const pathname = usePathname();
+function normalizePathname(pathname: string) {
+  if (pathname === "/") return pathname;
+  return `${pathname.replace(/\/+$/, "")}/`;
+}
+
+export default function Nav({ pathname = "/" }: { pathname?: string }) {
+  const currentPathname = normalizePathname(pathname);
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
@@ -55,8 +59,7 @@ export default function Nav() {
       }`}
     >
       <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
-        <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
+        <a href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
           <img src="/logo-icon.svg" alt="" className="h-9 w-auto" />
           <span className="flex flex-col leading-none">
             <span className="font-serif text-xl tracking-[0.15em] text-cream">
@@ -66,13 +69,13 @@ export default function Nav() {
               Los Angeles
             </span>
           </span>
-        </Link>
+        </a>
 
         <nav aria-label="Primary" className="hidden items-center gap-8 md:flex">
           {LINKS.map((link) => {
-            const active = isActiveLink(link.href, pathname);
+            const active = isActiveLink(link.href, currentPathname);
             return (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
@@ -83,12 +86,10 @@ export default function Nav() {
                 }`}
               >
                 {active && (
-                  <span className="material-symbols-outlined text-xs">
-                    wand_stars
-                  </span>
+                  <WandStarsIcon className="h-3.5 w-3.5" />
                 )}
                 {link.label}
-              </Link>
+              </a>
             );
           })}
           <div className="flex items-center gap-4 border-l border-cream/20 pl-6">
@@ -127,9 +128,9 @@ export default function Nav() {
           className="flex flex-col gap-1 bg-ink px-6 pb-6 pt-2 shadow-[0_16px_40px_-16px_rgba(0,0,0,0.7)] md:hidden"
         >
           {LINKS.map((link) => {
-            const active = isActiveLink(link.href, pathname);
+            const active = isActiveLink(link.href, currentPathname);
             return (
-              <Link
+              <a
                 key={link.href}
                 href={link.href}
                 aria-current={active ? "page" : undefined}
@@ -141,12 +142,10 @@ export default function Nav() {
                 }`}
               >
                 {active && (
-                  <span className="material-symbols-outlined text-xs">
-                    wand_stars
-                  </span>
+                  <WandStarsIcon className="h-3.5 w-3.5" />
                 )}
                 {link.label}
-              </Link>
+              </a>
             );
           })}
           <div className="mt-3 flex items-center gap-5 border-t border-cream/20 pt-4">

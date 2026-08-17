@@ -1,0 +1,14 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import ContactPage from "@/components/pages/ContactPage";
+const description = "Get in touch with Jason Lee at Galactic Monk to book a film, photography, or music project.";
+---
+<SiteLayout
+  title="Contact — Galactic Monk"
+  description={description}
+  canonical="/contact/"
+  ogTitle="Contact — Galactic Monk"
+  ogDescription={description}
+>
+  <ContactPage client:load />
+</SiteLayout>

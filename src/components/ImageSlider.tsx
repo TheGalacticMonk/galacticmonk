@@ -2,6 +2,7 @@
 
 import { useRef, useState } from "react";
 import ExpandableImage from "./ExpandableImage";
+import { DoubleChevronIcon } from "./UtilityIcons";
 
 export default function ImageSlider({
   items,
@@ -17,16 +18,12 @@ export default function ImageSlider({
     const track = trackRef.current;
     if (!track) return;
     const next = (i + items.length) % items.length;
-    const slide = track.children[next] as HTMLElement | undefined;
+    const slide = track.children.item(next) as HTMLElement | null;
     if (!slide) return;
-
-    // clientWidth is integer-rounded, while the rendered square can have a
-    // fractional width. Multiplying clientWidth accumulates that rounding
-    // error and can leave a hairline of an adjacent slide visible. Measure
-    // the selected slide's real position so its edge aligns exactly.
-    const trackRect = track.getBoundingClientRect();
-    const slideRect = slide.getBoundingClientRect();
-    const left = track.scrollLeft + slideRect.left - trackRect.left;
+    const left =
+      slide.getBoundingClientRect().left -
+      track.getBoundingClientRect().left +
+      track.scrollLeft;
     track.scrollTo({ left, behavior: "smooth" });
     setIndex(next);
   };
@@ -47,11 +44,6 @@ export default function ImageSlider({
         }}
         onMouseLeave={() => setTilt({ x: 0, y: 0 })}
         style={{
-          // Native scrolling is quantized to whole CSS pixels in some
-          // browsers. Keep the viewport on that same pixel grid so every
-          // full-width slide can land flush against both edges.
-          width: "round(down, min(53.08rem, 69.51vh), 1px)",
-          maxWidth: "round(down, 100%, 1px)",
           transform: `perspective(1200px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
           transition: "transform 0.5s cubic-bezier(0.22,1,0.36,1)",
         }}
@@ -61,7 +53,18 @@ export default function ImageSlider({
           ref={trackRef}
           onScroll={(e) => {
             const track = e.currentTarget;
-            const i = Math.round(track.scrollLeft / track.clientWidth);
+            const trackLeft = track.getBoundingClientRect().left;
+            const i = Array.from(track.children).reduce(
+              (nearest, slide, slideIndex) =>
+                Math.abs(slide.getBoundingClientRect().left - trackLeft) <
+                Math.abs(
+                  track.children[nearest].getBoundingClientRect().left -
+                    trackLeft,
+                )
+                  ? slideIndex
+                  : nearest,
+              0,
+            );
             if (i !== index) setIndex(i);
           }}
           className="flex h-full snap-x snap-mandatory overflow-x-auto rounded-3xl [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
@@ -69,13 +72,12 @@ export default function ImageSlider({
           {items.map((item) => (
             <div
               key={item.src}
-              // translateZ(0) promotes each slide to its own compositor
-              // layer so it's rasterized/pixel-snapped independently —
-              // without it, adjacent same-width scroll-snap slides can
-              // share a sub-pixel-imprecise boundary and let a hairline
-              // sliver of the neighboring slide bleed through at the edge.
+              // The extra pixel is deliberate overscan: some browsers
+              // quantize the final scroll position even when the slide's
+              // used width is fractional, which can otherwise reveal a
+              // hairline of the following artwork.
               style={{ transform: "translateZ(0)" }}
-              className={`relative h-full w-full shrink-0 snap-center overflow-hidden ${item.blackBg ? "bg-black" : ""}`}
+              className={`relative h-full w-[calc(100%+1px)] shrink-0 snap-start overflow-hidden ${item.blackBg ? "bg-black" : ""}`}
             >
               <ExpandableImage
                 src={item.src}
@@ -114,9 +116,7 @@ export default function ImageSlider({
             onClick={() => goTo(index - 1)}
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream text-ink-deep shadow-[0_6px_20px_-6px_rgba(0,0,0,0.5)] transition-transform hover:scale-110 sm:h-12 sm:w-12"
           >
-            <span className="material-symbols-outlined text-lg sm:text-xl">
-              keyboard_double_arrow_left
-            </span>
+            <DoubleChevronIcon className="h-5 w-5 rotate-180" />
           </button>
 
           {/* min-w-0 lets this shrink below its natural content width instead
@@ -143,9 +143,7 @@ export default function ImageSlider({
             onClick={() => goTo(index + 1)}
             className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-cream text-ink-deep shadow-[0_6px_20px_-6px_rgba(0,0,0,0.5)] transition-transform hover:scale-110 sm:h-12 sm:w-12"
           >
-            <span className="material-symbols-outlined text-lg sm:text-xl">
-              keyboard_double_arrow_right
-            </span>
+            <DoubleChevronIcon className="h-5 w-5" />
           </button>
         </div>
       )}

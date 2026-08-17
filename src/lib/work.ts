@@ -58,7 +58,7 @@ export const WORK: WorkItem[] = [
       { role: "Sound Design", name: "Jason Lee" },
     ],
     details:
-      "Shot on RED Komodo, Canon RF 24-70 f/2.8 L lens, and NISI Black Pro Mist. Edit, sound design, and color grade all done in DaVinci Resolve.",
+      "Shot on RED Komodo, Canon RF 24-70 f/2.8L lens, and NISI Black Pro Mist. Edit, sound design, and color grade all done in DaVinci Resolve.",
   },
   {
     id: "put-your-phone-down",

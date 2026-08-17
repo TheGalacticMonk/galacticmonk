@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Sparkle from "./Sparkle";
 
 export default function Footer() {
@@ -7,7 +6,6 @@ export default function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-14 md:flex-row md:justify-between">
         <div className="max-w-sm">
           <div className="flex items-center gap-3">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logo-icon.svg" alt="" className="h-8 w-auto" />
             <span className="flex flex-col leading-none">
               <span className="font-serif text-lg tracking-[0.15em] text-cream">
@@ -30,10 +28,10 @@ export default function Footer() {
               <Sparkle className="h-3 w-3" /> Journey
             </h3>
             <ul className="space-y-2 text-sm text-cream-dim">
-              <li><Link href="/" className="hover:text-cream">Home</Link></li>
-              <li><Link href="/work/" className="hover:text-cream">Work</Link></li>
-              <li><Link href="/about/" className="hover:text-cream">About</Link></li>
-              <li><Link href="/contact/" className="hover:text-cream">Contact</Link></li>
+              <li><a href="/" className="hover:text-cream">Home</a></li>
+              <li><a href="/work/" className="hover:text-cream">Work</a></li>
+              <li><a href="/about/" className="hover:text-cream">About</a></li>
+              <li><a href="/contact/" className="hover:text-cream">Contact</a></li>
             </ul>
           </div>
 

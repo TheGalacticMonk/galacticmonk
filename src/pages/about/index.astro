@@ -1,0 +1,14 @@
+---
+import SiteLayout from "@/layouts/SiteLayout.astro";
+import AboutPage from "@/components/pages/AboutPage.astro";
+const description = "Jason Lee — Creative Producer & Alchemist behind Galactic Monk.";
+---
+<SiteLayout
+  title="About — Galactic Monk"
+  description={description}
+  canonical="/about/"
+  ogTitle="About — Galactic Monk"
+  ogDescription={description}
+>
+  <AboutPage />
+</SiteLayout>

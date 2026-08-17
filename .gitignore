@@ -13,7 +13,8 @@
 # testing
 /coverage
 
-# next.js
+# generated framework output
+/.astro/
 /.next/
 /out/
 
