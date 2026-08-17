@@ -10,9 +10,21 @@ export type CreativeService = {
   readonly description: string;
   readonly accentA: string;
   readonly accentB: string;
+  readonly selectorAccentA?: string;
+  readonly selectorAccentB?: string;
 };
 
 export const CREATIVE_SERVICES = [
+  {
+    name: "Digital",
+    kicker: "DIVINE WI-FI",
+    description:
+      "Custom-coded web design, branding, UGC, and social media marketing. Your online presence is amplified. You become 1 of 1. Don't settle for cookiecutter end products from generic web agencies.",
+    accentA: "245, 241, 232",
+    accentB: "108, 92, 224",
+    selectorAccentA: "248, 118, 102",
+    selectorAccentB: "108, 92, 224",
+  },
   {
     name: "Film/Video",
     kicker: "PHOTOGRAPHY IN MOTION",
@@ -20,6 +32,8 @@ export const CREATIVE_SERVICES = [
       "Los Angeles film and video production from concept through directing, cinematography, editing, sound design, and color grading — for short films, events, brand stories, and documentary work.",
     accentA: "248, 118, 102",
     accentB: "108, 92, 224",
+    selectorAccentA: "115, 158, 130",
+    selectorAccentB: "245, 241, 232",
   },
   {
     name: "Photography",
@@ -36,14 +50,8 @@ export const CREATIVE_SERVICES = [
       "Vocal recording, music mixing & mastering, audiobook production, film ADR, sound design, and streaming optimization for Spotify and Apple Music — you sound major while independent.",
     accentA: "115, 158, 130",
     accentB: "245, 241, 232",
-  },
-  {
-    name: "Digital",
-    kicker: "DIVINE WI-FI",
-    description:
-      "Custom-coded web design, branding, UGC, and social media marketing. Your online presence is amplified. You become 1 of 1. Don't settle for cookiecutter end products from generic web agencies.",
-    accentA: "245, 241, 232",
-    accentB: "108, 92, 224",
+    selectorAccentA: "139, 124, 255",
+    selectorAccentB: "108, 92, 224",
   },
 ] as const satisfies readonly CreativeService[];
 

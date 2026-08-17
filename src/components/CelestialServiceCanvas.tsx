@@ -284,12 +284,12 @@ const planetFunctionsGLSL = `
         float time
     ) {
         if (preset < 0.5) return aetheraPosition(seed, randomData, time);
-        if (preset < 1.5) return pyraPosition(seed, randomData, time);
-        if (preset < 2.5) {
+        if (preset < 1.5) {
             return kind > 0.5
                 ? orisonRingPosition(seed, randomData, time)
                 : orisonBodyPosition(seed, randomData, time);
         }
+        if (preset < 2.5) return pyraPosition(seed, randomData, time);
         return vesperPosition(seed, randomData, time);
     }
 
@@ -420,8 +420,8 @@ const planetFunctionsGLSL = `
         float time
     ) {
         if (preset < 0.5) return aetheraColor(p, seed, randomData, time);
-        if (preset < 1.5) return pyraColor(p, seed, randomData, time);
-        if (preset < 2.5) return orisonColor(p, seed, randomData, kind, time);
+        if (preset < 1.5) return orisonColor(p, seed, randomData, kind, time);
+        if (preset < 2.5) return pyraColor(p, seed, randomData, time);
         return vesperColor(p, seed, randomData, time);
     }
 `;
@@ -906,8 +906,8 @@ export default function CelestialServiceCanvas({
                 seed * 2.08
             );
 
-            float fromRing = isPreset(uFromPreset, 2.0) * step(0.5, aKind);
-            float toRing = isPreset(uToPreset, 2.0) * step(0.5, aKind);
+            float fromRing = isPreset(uFromPreset, 1.0) * step(0.5, aKind);
+            float toRing = isPreset(uToPreset, 1.0) * step(0.5, aKind);
             vec3 fromMatter = mix(fromSurface * mix(0.54, 1.0, aLayer), fromSurface, fromRing);
             vec3 toMatter = mix(toSurface * mix(0.54, 1.0, aLayer), toSurface, toRing);
 
@@ -1065,8 +1065,8 @@ export default function CelestialServiceCanvas({
             vec3 seed = safeNormalize(position);
             vec3 fromSurface = planetPosition(uFromPreset, seed, aRandom, aKind, uTime);
             vec3 toSurface = planetPosition(uToPreset, seed, aRandom, aKind, uTime);
-            float fromRing = isPreset(uFromPreset, 2.0) * step(0.5, aKind);
-            float toRing = isPreset(uToPreset, 2.0) * step(0.5, aKind);
+            float fromRing = isPreset(uFromPreset, 1.0) * step(0.5, aKind);
+            float toRing = isPreset(uToPreset, 1.0) * step(0.5, aKind);
             vec3 fromMatter = mix(fromSurface * mix(0.72, 1.0, aLayer), fromSurface, fromRing);
             vec3 toMatter = mix(toSurface * mix(0.72, 1.0, aLayer), toSurface, toRing);
 
@@ -1281,8 +1281,8 @@ export default function CelestialServiceCanvas({
 
         vec3 atmosphereColor(float preset) {
             if (preset < 0.5) return BRAND_CORAL * 0.72;
-            if (preset < 1.5) return BRAND_GOLD * 0.72;
-            if (preset < 2.5) return BRAND_SAGE * 0.92;
+            if (preset < 1.5) return BRAND_SAGE * 0.92;
+            if (preset < 2.5) return BRAND_GOLD * 0.72;
             return mix(BRAND_INDIGO, BRAND_CREAM, 0.16) * 0.86;
         }
 
@@ -1769,10 +1769,10 @@ export default function CelestialServiceCanvas({
       }
 
       const fromHasRing = transitionState.active
-        ? Number(transitionState.from === 2)
-        : Number(transitionState.current === 2);
+        ? Number(transitionState.from === 1)
+        : Number(transitionState.current === 1);
       const toHasRing = transitionState.active
-        ? Number(transitionState.to === 2)
+        ? Number(transitionState.to === 1)
         : fromHasRing;
       const ringMorph = transitionState.active ? smootherStep(transitionState.eased) : 0;
       ringMaterial.uniforms.uOpacity.value = THREE.MathUtils.lerp(

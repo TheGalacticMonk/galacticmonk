@@ -9,7 +9,7 @@ import SectionHeading from "@/components/SectionHeading";
       <a href="/about/" class="text-sm tracking-wide text-gold hover:underline">More about me →</a>
     </div>
     <div class="-mx-6 mt-11 overflow-x-clip px-6 min-[761px]:mt-10 xl:-mx-20 xl:px-20 2xl:-mx-[100px] 2xl:px-[100px]">
-      <CreativeServicesShowcase client:visible />
+      <CreativeServicesShowcase client:idle={{ timeout: 2500 }} />
     </div>
   </div>
 </section>

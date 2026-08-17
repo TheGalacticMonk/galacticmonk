@@ -103,8 +103,10 @@ export default function CreativeServicesShowcase() {
               const serviceIndex = index as CreativeServiceIndex;
               const isSelected = serviceIndex === selectedService;
               const rowAccentStyle = {
-                "--row-accent-a": service.accentA,
-                "--row-accent-b": service.accentB,
+                "--row-accent-a":
+                  "selectorAccentA" in service ? service.selectorAccentA : service.accentA,
+                "--row-accent-b":
+                  "selectorAccentB" in service ? service.selectorAccentB : service.accentB,
               } as CSSProperties;
 
               return (
