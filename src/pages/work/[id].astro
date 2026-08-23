@@ -20,7 +20,6 @@ const description = item.description ?? item.blurb;
   canonical={`/work/${item.id}/`}
   ogTitle={item.title}
   ogDescription={description}
-  ogImage={item.image || "/opengraph-image.png"}
 >
   <WorkDetailPage item={item} client:load />
 </SiteLayout>
