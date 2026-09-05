@@ -47,3 +47,6 @@ next-env.d.ts
 /AGENTS.md
 /WEB_AGENCY.md
 .claude/
+
+# wrangler local state
+/.wrangler/

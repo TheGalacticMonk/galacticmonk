@@ -26,7 +26,7 @@ const WHY_NOT_ME_REASONS = [
     title: "MULTIDIMENSIONAL",
     accent: "cream" as const,
     description:
-      "Experience across interdimensional creative worlds allows me to see projects from an elevated perspective. When someone pitches me an idea, I don’t just see the individual deliverable, I see the bigger picture, and how every aspect is connected. Jack of all trades, master of none? Perhaps the real self-mastery is innerstanding the connections between different realms.",
+      "Experience across interdimensional creative worlds allows me to see projects from an elevated perspective. When someone pitches me an idea, I don’t just see the individual deliverable, I see the bigger picture, and how every aspect is connected. Jack of all trades, master of none? Perhaps the real self-mastery is innerstanding the connections between seemingly different realms.",
   },
 ];
 

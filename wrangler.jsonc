@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "galacticmonk",
+  "compatibility_date": "2026-09-01",
+  // Static-assets-only Worker: no `main` script, Cloudflare serves ./out directly.
+  "assets": {
+    "directory": "./out",
+    // Matches Astro's `trailingSlash: "always"`: /about -> /about/ -> out/about/index.html
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "none"
+  }
+}
