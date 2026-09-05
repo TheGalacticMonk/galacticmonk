@@ -8,7 +8,7 @@ const WHY_NOT_ME_REASONS = [
     title: "SOCIAL INFLUENCE",
     accent: "coral" as const,
     description:
-      "One of the greatest challenges for any artist, brand, or company is being seen. As a social media influencer across multiple platforms, I bring firsthand experience starting small and building an audience organically. Together, we’ll craft your idea into an experience designed to connect with people.",
+      "One of the greatest challenges for any artist, brand, or company is being seen. As a social media influencer across multiple platforms, I bring firsthand experience starting small and building an audience organically. Together, we’ll craft your idea into an experience designed to connect with people. I also offer social media growth coaching, specifically for awakened multidimensional souls.",
   },
   {
     title: "END-TO-END",
