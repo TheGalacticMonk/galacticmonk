@@ -20,7 +20,7 @@ const WHY_NOT_ME_REASONS = [
     title: "ALCHEMY",
     accent: "sage" as const,
     description:
-      "Alchemy begins with what’s available: materials, thoughts, energy, even limitations. What looks like scraps to one person can become ingredients in the hands of an alchemist. The alchemist sees their hidden potential, then combines and crafts them until the final form feels like magic. Alchemists are magicians of Yin and Yang, capable of transmuting darkness into light.",
+      "Alchemy begins with what’s available: materials, thoughts, energy, even limitations. What looks like scraps to one person can become ingredients in the hands of an alchemist. The alchemist sees their hidden potential, then combines and crafts them until the final form feels like magic. Alchemists are magicians of Yin and Yang, capable of transmuting darkness into light, and suffering into power.",
   },
   {
     title: "MULTIDIMENSIONAL",
