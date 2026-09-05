@@ -95,8 +95,9 @@ function HeroContent() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
-          Los Angeles film, photography, audio, and digital production for
-          artists and mission-led brands ready to make their signal visible.
+          Film, photography, audio, and digital production for creators,
+          artists, and mission-led brands ready to amplify their frequency,
+          energy, and vibration.
         </motion.p>
 
         <motion.div
