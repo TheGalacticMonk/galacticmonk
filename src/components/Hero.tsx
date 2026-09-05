@@ -34,7 +34,7 @@ function HeroContent() {
           className="mb-8 flex items-center justify-center gap-2 text-xs uppercase tracking-[0.3em] text-gold"
         >
           <Sparkle className="h-3 w-3" />
-          Creative Producer &amp; Alchemist
+          Producer &amp; Alchemist
           <Sparkle className="h-3 w-3" />
         </motion.div>
 
@@ -96,7 +96,7 @@ function HeroContent() {
           className="text-balance mx-auto mt-6 max-w-xl text-lg text-cream-dim"
         >
           Los Angeles film, photography, audio, and digital production for
-          artists and purpose-led brands ready to make their signal visible.
+          artists and mission-led brands ready to make their signal visible.
         </motion.p>
 
         <motion.div

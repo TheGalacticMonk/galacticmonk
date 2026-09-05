@@ -117,9 +117,9 @@ export function getPersonSchema() {
     name: "Jason Lee",
     alternateName: "Galactic Monk",
     url: BASE_URL,
-    jobTitle: "Creative Producer",
+    jobTitle: "Producer",
     description:
-      "Creative production for film, photography, sound, and digital — shaped by Jason Lee, Creative Producer & Alchemist.",
+      "Creative production for film, photography, sound, and digital — shaped by Jason Lee, Producer & Alchemist.",
     image: `${BASE_URL}/monk-beach.jpg`,
     address: {
       "@type": "PostalAddress",
