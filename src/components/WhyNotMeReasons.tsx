@@ -14,19 +14,19 @@ const WHY_NOT_ME_REASONS = [
     title: "END-TO-END",
     accent: "gold" as const,
     description:
-      "From initial ideation to social media strategy, I can guide the entire creative process. Concepting, production, photography, audio mastering, editing, and delivery can all be overseen by one producer. Fewer handoffs mean greater consistency, less miscommunication, and a creative vision that stays focused from beginning to end.",
+      "From first ideation to social media marketing strategy, I can guide the entire creative process. Concepting, production, photography, audio mastering, editing, and delivery can all be overseen by one producer. Fewer handoffs mean greater consistency, less miscommunication, and a creative vision that remains focused from beginning to end.",
   },
   {
     title: "ALCHEMY",
     accent: "sage" as const,
     description:
-      "Alchemy begins with what’s available: materials, thoughts, energy, even limitations. What looks like scraps to one person can become ingredients in the hands of an alchemist. The alchemist sees their hidden potential, then combines and crafts them until the final form feels like magic.",
+      "Alchemy begins with what’s available: materials, thoughts, energy, even limitations. What looks like scraps to one person can become ingredients in the hands of an alchemist. The alchemist sees their hidden potential, then combines and crafts them until the final form feels like magic. Alchemists are magicians of Yin and Yang, capable of transmuting darkness into light.",
   },
   {
     title: "MULTIDIMENSIONAL",
     accent: "cream" as const,
     description:
-      "Experience across interdimensional creative worlds allows me to see projects from an elevated perspective. When someone pitches me an idea, I don’t just see the individual deliverable, I see the bigger picture, and how every aspect is connected. Jack of all trades, master of none? Perhaps the real self-mastery is innerstanding the connections between seemingly different realms.",
+      "Experience across interdimensional creative worlds allows me to see projects from an elevated perspective. When someone pitches me an idea, I don’t just see the individual deliverable, I see the bigger picture, and how every aspect is connected. Jack of all trades, master of none? Perhaps the real self-mastery is innerstanding the mystical connections between seemingly different realms.",
   },
 ];
 
