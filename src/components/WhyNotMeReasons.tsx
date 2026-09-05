@@ -14,7 +14,7 @@ const WHY_NOT_ME_REASONS = [
     title: "END-TO-END",
     accent: "gold" as const,
     description:
-      "From first ideation to social media marketing strategy, I can guide the entire creative process. Concepting, production, photography, audio mastering, editing, and delivery can all be overseen by one producer. Fewer handoffs mean greater consistency, less miscommunication, and a creative vision that remains focused from beginning to end.",
+      "From first ideation to social media marketing strategy, I can guide the entire creative process. Concepting, production, photography, audio mastering, editing, and delivery can all be overseen by one producer. Fewer handoffs mean greater consistency, less miscommunication, and a creative vision that remains focused from beginning to end. I know how to both start a project, and finish it.",
   },
   {
     title: "ALCHEMY",
