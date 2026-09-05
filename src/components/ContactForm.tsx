@@ -92,7 +92,7 @@ export default function ContactForm() {
               type="text"
               name="budget_timeline"
               className="input"
-              placeholder="e.g. $1-5k"
+              placeholder="e.g. $400"
             />
           </Field>
         </div>
