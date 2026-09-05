@@ -6,7 +6,7 @@ const manifest = {
   name: "Galactic Monk",
   short_name: "Galactic Monk",
   description:
-    "Creative production for film, photography, sound, and digital — shaped by Jason Lee, Producer & Alchemist.",
+    "Creative studio for film, photography, sound, and digital — crafted by Jason Lee, Producer & Alchemist.",
   start_url: "/",
   display: "standalone",
   background_color: "#1a1438",
