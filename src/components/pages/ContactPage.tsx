@@ -29,7 +29,7 @@ export default function ContactPage() {
               }
               description={
                 <>
-                  Tell me a bit about what you&apos;re imagining and
+                  Share with me what you&apos;re envisioning and
                   I&apos;ll get back to you within a couple of Suns &amp; Moons.{" "}
                   <Sun className="inline-block h-4 w-4 -translate-y-px text-gold" />{" "}
                   <Moon className="inline-block h-4 w-4 -translate-y-px text-gold" />
