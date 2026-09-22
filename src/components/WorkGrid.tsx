@@ -10,6 +10,7 @@ const FILTERS: Array<{ key: Category | "all"; label: string }> = [
   { key: "video", label: CATEGORY_LABEL.video },
   { key: "photo", label: CATEGORY_LABEL.photo },
   { key: "music", label: CATEGORY_LABEL.music },
+  { key: "website", label: CATEGORY_LABEL.website },
 ];
 
 export default function WorkGrid() {

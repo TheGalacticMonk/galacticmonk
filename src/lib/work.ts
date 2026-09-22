@@ -1,4 +1,4 @@
-export type Category = "film" | "video" | "photo" | "music";
+export type Category = "film" | "video" | "photo" | "music" | "website";
 
 export type WorkItem = {
   id: string;
@@ -19,6 +19,7 @@ export type WorkItem = {
   artist?: string;
   featuredArtists?: string;
   spotifyEmbedUrl?: string;
+  externalUrl?: string;
   credits?: { role: string; name: string }[];
   details?: string;
   gallery?: string[];
@@ -32,10 +33,28 @@ export const CATEGORY_LABEL: Record<Category, string> = {
   video: "Video",
   photo: "Photography",
   music: "Record Mix & Master",
+  website: "Website",
 };
 
 // TODO(jason): swap these placeholders for real projects, stills, and reels.
 export const WORK: WorkItem[] = [
+  {
+    id: "nothing-wrong-with-you",
+    title: "Nothing Wrong With You",
+    category: "website",
+    year: "2026",
+    blurb: "Website design and development for Becca Berry's story, art, and resources.",
+    description:
+      "A cosmic website for Becca Berry's Nothing Wrong With You project — a space for her story, art, resources, and social work. The aim for this website design was to create something magical yet also fresh. The visual aesthetics is in the little details. Another mission in creating this website was to revamp Becca's website, while also allowing her to stop paying monthly Squarespace fees. Becca's website is now being hosted for free, $0/month. Mission accomplished!",
+    accent: "coral",
+    image: "/work/nothing-wrong-with-you/nothing-wrong-with-you-website.jpg",
+    imagePosition: "center",
+    externalUrl: "https://nothingwrongwithyou.org",
+    credits: [
+      { role: "Vibe Coder", name: "Jason Lee" },
+      { role: "Creative Director", name: "Jason Lee" },
+    ],
+  },
   {
     id: "mainstream-media-mind-control-shirt-ad",
     title: "Mainstream Media Mind Control Shirt Ad",

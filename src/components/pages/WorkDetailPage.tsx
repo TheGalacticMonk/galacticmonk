@@ -56,6 +56,17 @@ export default function WorkDetailPage({ item }: { item: WorkItem }) {
             {item.description ?? item.blurb}
           </p>
 
+          {item.externalUrl && (
+            <a
+              href={item.externalUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="mt-8 inline-flex items-center rounded-full border border-gold px-5 py-2.5 text-sm font-medium tracking-wide text-gold transition-colors hover:bg-gold hover:text-ink-deep"
+            >
+              Visit Website <span aria-hidden="true" className="ml-2">↗</span>
+            </a>
+          )}
+
           {item.spotifyEmbedUrl && (
             <div className="mt-8 max-w-2xl">
               <iframe
