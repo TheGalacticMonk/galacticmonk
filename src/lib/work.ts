@@ -57,8 +57,8 @@ export const WORK: WorkItem[] = [
     galleryLabels: ["Desktop", "Tablet", "Smartphone"],
     externalUrl: "https://nothingwrongwithyou.org",
     credits: [
-      { role: "Vibe Coder", name: "Jason Lee" },
       { role: "Creative Director", name: "Jason Lee" },
+      { role: "Vibe Coder", name: "Jason Lee" },
     ],
   },
   {
