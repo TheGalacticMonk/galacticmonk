@@ -46,7 +46,7 @@ export const WORK: WorkItem[] = [
     year: "2026",
     blurb: "Website design and development for Becca Berry's story, art, and resources.",
     description:
-      "A cosmic website for Becca Berry's Nothing Wrong With You project — a space for her story, art, resources, and social work. The aim for this website design was to create something magical yet also fresh. The visual aesthetics is in the little details. Another mission in creating this website was to revamp Becca's website, while also allowing her to stop paying monthly Squarespace fees. Becca's website is now being hosted for free, $0/month. Mission accomplished!",
+      "A cosmic website for Becca Berry's Nothing Wrong With You project — a space for her story, art, resources, and social work. The aim for this website design was to create something magical yet also fresh. The visual aesthetics is in the little details. Another mission in creating this website was to revamp Becca's website, while also allowing her to stop paying monthly Squarespace fees. Becca's website is now being hosted online for free, $0/month. Mission accomplished!",
     accent: "coral",
     image: "/work/nothing-wrong-with-you/nothing-wrong-with-you-website-4x3-2x.jpg",
     imagePosition: "center",
