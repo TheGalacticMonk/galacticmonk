@@ -5,24 +5,30 @@ import { useLightbox } from "@/hooks/useLightbox";
 import { optimizedImageSrc, optimizedImageSrcSet } from "@/lib/optimized-image";
 
 type GalleryItem =
-  | { type: "image"; src: string }
+  | { type: "image"; src: string; label?: string }
   | { type: "youtube"; id: string };
 
 export default function PhotoGallery({
   cover,
   gallery = [],
+  galleryLabels,
   youtubeId,
   alt,
 }: {
   cover?: string;
   gallery?: string[];
+  galleryLabels?: string[];
   youtubeId?: string;
   alt: string;
 }) {
   const photos = cover ? [cover, ...gallery] : gallery;
   const items: GalleryItem[] = [
     ...(youtubeId ? [{ type: "youtube", id: youtubeId } as const] : []),
-    ...photos.map((src) => ({ type: "image", src } as const)),
+    ...photos.map((src, index) => ({
+      type: "image",
+      src,
+      label: galleryLabels?.[index],
+    } as const)),
   ];
   const { index: openIndex, isOpen, open, close, next, prev } = useLightbox(items.length);
 
@@ -59,23 +65,29 @@ export default function PhotoGallery({
               </div>
             </button>
           ) : (
-            <button
-              key={item.src}
-              type="button"
-              onClick={() => open(i)}
-              aria-label={`Expand ${alt}`}
-              className="mb-4 block w-full cursor-zoom-in break-inside-avoid"
-            >
-              <img
-                src={optimizedImageSrc(item.src, 480)}
-                srcSet={optimizedImageSrcSet(item.src)}
-                sizes="(min-width: 640px) 30vw, 50vw"
-                alt={alt}
-                loading="lazy"
-                decoding="async"
-                className="w-full rounded-xl transition-opacity hover:opacity-90"
-              />
-            </button>
+            <div key={item.src} className="mb-4 break-inside-avoid">
+              {item.label && (
+                <div className="mb-2 rounded-md border border-gold/60 bg-ink-deep px-3 py-2 text-center text-xs font-bold uppercase tracking-[0.24em] text-gold shadow-[0_4px_12px_rgba(0,0,0,0.3)] sm:text-sm">
+                  {item.label}
+                </div>
+              )}
+              <button
+                type="button"
+                onClick={() => open(i)}
+                aria-label={item.label ? `Expand ${alt} — ${item.label}` : `Expand ${alt}`}
+                className="block w-full cursor-zoom-in"
+              >
+                <img
+                  src={optimizedImageSrc(item.src, 480)}
+                  srcSet={optimizedImageSrcSet(item.src)}
+                  sizes="(min-width: 640px) 30vw, 50vw"
+                  alt={alt}
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full rounded-xl transition-opacity hover:opacity-90"
+                />
+              </button>
+            </div>
           )
         )}
       </div>

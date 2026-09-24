@@ -23,6 +23,7 @@ export type WorkItem = {
   credits?: { role: string; name: string }[];
   details?: string;
   gallery?: string[];
+  galleryLabels?: string[];
   categoryLabel?: string;
   imagePosition?: "top" | "center" | "bottom";
   hidden?: boolean;
@@ -47,8 +48,13 @@ export const WORK: WorkItem[] = [
     description:
       "A cosmic website for Becca Berry's Nothing Wrong With You project — a space for her story, art, resources, and social work. The aim for this website design was to create something magical yet also fresh. The visual aesthetics is in the little details. Another mission in creating this website was to revamp Becca's website, while also allowing her to stop paying monthly Squarespace fees. Becca's website is now being hosted for free, $0/month. Mission accomplished!",
     accent: "coral",
-    image: "/work/nothing-wrong-with-you/nothing-wrong-with-you-website.jpg",
+    image: "/work/nothing-wrong-with-you/nothing-wrong-with-you-website-4x3-2x.jpg",
     imagePosition: "center",
+    gallery: [
+      "/work/nothing-wrong-with-you/nothing-wrong-with-you-website-tablet-hero.jpg",
+      "/work/nothing-wrong-with-you/nothing-wrong-with-you-website-mobile-hero.jpg",
+    ],
+    galleryLabels: ["Desktop", "Tablet", "Smartphone"],
     externalUrl: "https://nothingwrongwithyou.org",
     credits: [
       { role: "Vibe Coder", name: "Jason Lee" },

@@ -123,6 +123,7 @@ export default function WorkDetailPage({ item }: { item: WorkItem }) {
             <PhotoGallery
               cover={item.image}
               gallery={item.gallery}
+              galleryLabels={item.galleryLabels}
               youtubeId={item.youtubeId}
               alt={item.title}
             />
