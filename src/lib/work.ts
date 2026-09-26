@@ -41,7 +41,7 @@ export const CATEGORY_LABEL: Record<Category, string> = {
 export const WORK: WorkItem[] = [
   {
     id: "nothing-wrong-with-you",
-    title: "Nothing Wrong With You",
+    title: "Nothing Wrong With You Website",
     category: "website",
     year: "2026",
     blurb: "Website design and development for Becca Berry's story, art, and resources.",
