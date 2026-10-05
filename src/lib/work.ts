@@ -147,6 +147,38 @@ export const WORK: WorkItem[] = [
     details: "Shot on Canon EOS R3 mirrorless camera and Canon RF 24-70 f/2.8L lens.",
   },
   {
+    id: "julia-gordon-bramer",
+    title: "Julia Gordon-Bramer Website",
+    category: "website",
+    year: "2026",
+    blurb: "Website design and development for professional tarot card reader and author Julia Gordon-Bramer.",
+    description:
+      "A website for Julia Gordon-Bramer, a professional tarot card reader, author, and speaker. The design is mystical yet modern, with soft glowing orbs, elegant serif typography, and a rich purple palette that makes booking a reading the clear next step. I got the idea for the glowing orbs because Julia had a photoshoot and in one of the photos she was holding a crystal ball. So I thought the animated glowing orbs portrayed that in a majestic and whimsical way. I also added a toggle that switches between light and dark modes. Julia's friends had said she should have a new website that was \"witchy,\" although Julia said she wanted a website that was more \"fun.\" I thought the light and dark mode versions might satisfy both sides of Julia in a Yin Yang sort of way.",
+    accent: "sage",
+    image: "/work/julia-gordon-bramer/julia-gordon-bramer-website-4x3-2x.jpg",
+    imagePosition: "center",
+    gallery: [
+      "/work/julia-gordon-bramer/julia-gordon-bramer-website-tablet-hero.jpg",
+      "/work/julia-gordon-bramer/julia-gordon-bramer-website-mobile-hero.jpg",
+      "/work/julia-gordon-bramer/julia-gordon-bramer-website-dark-4x3-2x.jpg",
+      "/work/julia-gordon-bramer/julia-gordon-bramer-website-dark-tablet-hero.jpg",
+      "/work/julia-gordon-bramer/julia-gordon-bramer-website-dark-mobile-hero.jpg",
+    ],
+    galleryLabels: [
+      "Desktop",
+      "Tablet",
+      "Smartphone",
+      "Desktop (Dark Mode)",
+      "Tablet (Dark Mode)",
+      "Smartphone (Dark Mode)",
+    ],
+    externalUrl: "https://juliagordonbramer.com",
+    credits: [
+      { role: "Creative Director", name: "Jason Lee" },
+      { role: "Vibe Coder", name: "Jason Lee" },
+    ],
+  },
+  {
     id: "flow-state",
     title: "Flow State",
     category: "film",
